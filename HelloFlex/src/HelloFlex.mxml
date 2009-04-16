@@ -3,7 +3,11 @@
 	xmlns:components="net.boyblack.robotlegs.demos.helloflex.view.components.*"
 	viewSourceURL="srcview/index.html"
 	creationComplete="onCC()"
-	layout="absolute">
+	layout="absolute"
+	paddingBottom="0"
+	paddingLeft="0"
+	paddingRight="0"
+	paddingTop="0">
 
 	<mx:Script>
 		<![CDATA[
@@ -18,7 +22,7 @@
 		]]>
 	</mx:Script>
 
-	<mx:HDividedBox width="700" height="450"
+	<mx:HDividedBox width="450" height="450"
 		verticalCenter="0" horizontalCenter="0">
 
 		<mx:TabNavigator width="100%" height="100%">
@@ -26,7 +30,7 @@
 			<components:DemoCanvas label="Mini Demo"/>
 		</mx:TabNavigator>
 
-		<mx:VDividedBox width="300" height="100%">
+		<mx:VDividedBox width="160" height="100%">
 			<components:MessageList/>
 			<components:SimpleLogBox/>
 		</mx:VDividedBox>

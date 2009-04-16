@@ -1,0 +1,6 @@
+*/.settings/*
+*/bin-debug/*
+*/bin-release/*
+*/html-template/*
+Thumbs.db
+.DS_Store

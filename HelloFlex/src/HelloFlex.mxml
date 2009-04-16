@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:components="net.boyblack.robotlegs.demos.helloflex.view.components.*"
+	viewSourceURL="srcview/index.html"
+	creationComplete="onCC()"
+	layout="absolute">
+
+	<mx:Script>
+		<![CDATA[
+			import net.boyblack.robotlegs.demos.helloflex.HelloFlexContext;
+
+			private var helloContext:HelloFlexContext;
+
+			private function onCC():void
+			{
+				helloContext = new HelloFlexContext( this );
+			}
+		]]>
+	</mx:Script>
+
+	<mx:HDividedBox width="700" height="450"
+		verticalCenter="0" horizontalCenter="0">
+
+		<mx:TabNavigator width="100%" height="100%">
+			<components:InfoCanvas label="RobotLegs"/>
+			<components:DemoCanvas label="Mini Demo"/>
+		</mx:TabNavigator>
+
+		<mx:VDividedBox width="300" height="100%">
+			<components:MessageList/>
+			<components:SimpleLogBox/>
+		</mx:VDividedBox>
+
+	</mx:HDividedBox>
+
+</mx:Application>

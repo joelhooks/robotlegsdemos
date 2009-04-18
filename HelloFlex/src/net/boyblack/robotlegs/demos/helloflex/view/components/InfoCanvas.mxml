@@ -4,23 +4,30 @@
 
 	<mx:Accordion width="100%" height="100%">
 
+		<mx:Canvas label="Welcome"
+			width="100%" height="100%">
+			<mx:Image id="logo"
+				verticalCenter="0" horizontalCenter="0"
+				source="../assets/RobotLegsLogoSmallWeb.png"/>
+		</mx:Canvas>
+
 		<mx:Canvas label="Introduction"
 			width="100%" height="100%">
-			<mx:Text text="RobotLegs is an event driven MVCS micro-architecture for Flash and Flex applications. It is inspired by the excellent PureMVC framework, but relies on Dependency Injection instead of the Model/Service Locator pattern, and provides automatic Mediator registration for View Components.&#xd;&#xd;Whilst RobotLegs is very similar to PureMVC conceptually, there are some key differences. Nevertheless, it is pretty easy to convert a PureMVC application over to RobotLegs.&#xd;&#xd;Currently, RobotLegs makes use of SmartyPantsIOC - an AS3 Dependency Injection framework for Flash and Flex.&#xd;&#xd;No casting! No fetching! No Singletons!"
+			<mx:Text text="RobotLegs is an event driven MVCS micro-architecture for Flash and Flex applications. It is inspired by the excellent PureMVC framework, but relies on Dependency Injection and provides automatic Mediator registration for View Components.&#xd;&#xd;Whilst RobotLegs is very similar to PureMVC conceptually, there are some key differences. Nevertheless, it is pretty easy to convert a PureMVC application over to RobotLegs.&#xd;&#xd;Currently, RobotLegs makes use of SmartyPantsIOC - an AS3 Dependency Injection framework for Flash and Flex.&#xd;&#xd;No casting! No fetching! No Singletons!"
 				x="10" y="10" width="90%"
 				selectable="false"/>
 		</mx:Canvas>
 
 		<mx:Canvas label="Dependency Injection"
 			width="100%" height="100%">
-			<mx:Text text="Dependencies are declared as public properties with an [Inject] annotation."
+			<mx:Text text="Dependencies are declared as public properties with an [Inject] annotation.&#xd;&#xd;Rules for dependency injection are configured in a single SmartyPants Injector that is shared between all RobotLegs Actors."
 				x="10" y="10" width="90%"
 				selectable="false"/>
 		</mx:Canvas>
 
 		<mx:Canvas label="Facade and Context"
 			width="100%" height="100%">
-			<mx:Text text="RobotLegs does not make use of the Facade design pattern - instead there is something known as a Context. It's not really the same thing, and is only used to bootstrap your application.&#xd;&#xd;Typically, when starting a new project, you extend the default Context and override the startup() method.&#xd;&#xd;Inside the startup() method you bind a couple of Commands to a startup event and then dispatch that event."
+			<mx:Text text="RobotLegs does not make use of the Facade design pattern - instead there is something known as a Context. It's not really the same thing, and is only used to bootstrap your application.&#xd;&#xd;Typically, when starting a new project, you extend the default Context and override the startup() method.&#xd;&#xd;Inside the startup() method you bind a couple of Commands to a startup event and then dispatch that event.&#xd;&#xd;By default, a Context will auto-Start when it's View Compontent is added to the Stage."
 				x="10" y="10" width="90%"
 				selectable="false"/>
 		</mx:Canvas>

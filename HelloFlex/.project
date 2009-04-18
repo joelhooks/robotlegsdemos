@@ -3,6 +3,7 @@
 	<name>HelloFlex</name>
 	<comment></comment>
 	<projects>
+		<project>RobotLegsLib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

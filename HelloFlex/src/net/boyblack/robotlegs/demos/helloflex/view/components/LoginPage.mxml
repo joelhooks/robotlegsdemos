@@ -2,6 +2,7 @@
 <mx:Canvas width="100%" height="100%"
 	xmlns:mx="http://www.adobe.com/2006/mxml"
 	backgroundColor="#000000"
+	creationComplete="onCC()"
 	backgroundAlpha="0.9">
 
 	<mx:Script>
@@ -12,6 +13,11 @@
 			{
 				parent.removeChild( this );
 			}
+
+			protected function onCC():void
+			{
+				usernameTxt.setFocus();
+			}
 		]]>
 	</mx:Script>
 
@@ -20,6 +26,7 @@
 		backgroundColor="#FFFFFF"
 		cornerRadius="16"
 		borderStyle="solid"
+		defaultButton="{loginBtn}"
 		borderThickness="0">
 
 		<mx:FormHeading label="Login To Proceed"/>

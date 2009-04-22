@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
 	xmlns:components="net.boyblack.robotlegs.demos.helloflex.view.components.*"
-	viewSourceURL="srcview/index.html"
 	creationComplete="onCC()"
 	layout="absolute"
 	paddingBottom="0"
 	paddingLeft="0"
 	paddingRight="0"
-	paddingTop="0">
+	paddingTop="0"
+	viewSourceURL="srcview/index.html">
 
 	<mx:Script>
 		<![CDATA[

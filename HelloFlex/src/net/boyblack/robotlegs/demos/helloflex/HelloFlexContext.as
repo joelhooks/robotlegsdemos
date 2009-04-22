@@ -2,6 +2,8 @@ package net.boyblack.robotlegs.demos.helloflex
 {
 	import flash.display.DisplayObjectContainer;
 
+	import net.boyblack.robotlegs.adapters.SmartyPantsInjector;
+	import net.boyblack.robotlegs.adapters.SmartyPantsReflector;
 	import net.boyblack.robotlegs.demos.helloflex.controller.commands.*;
 	import net.boyblack.robotlegs.demos.helloflex.controller.events.SystemEvent;
 	import net.boyblack.robotlegs.mvcs.Context;
@@ -9,9 +11,9 @@ package net.boyblack.robotlegs.demos.helloflex
 	public class HelloFlexContext extends Context
 	{
 
-		public function HelloFlexContext( rootView:DisplayObjectContainer )
+		public function HelloFlexContext( contextView:DisplayObjectContainer )
 		{
-			super( rootView );
+			super( contextView, new SmartyPantsInjector(), new SmartyPantsReflector() );
 		}
 
 		override public function startup():void

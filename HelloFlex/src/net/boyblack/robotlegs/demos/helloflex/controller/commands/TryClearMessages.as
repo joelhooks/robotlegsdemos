@@ -25,7 +25,7 @@ package net.boyblack.robotlegs.demos.helloflex.controller.commands
 			}
 			else
 			{
-				injector.newRule().whenAskedFor( SystemEvent ).named( 'LoginTrigger' ).useValue( event );
+				injector.bindValue( SystemEvent, event, 'LoginTrigger' );
 				contextView.addChild( new LoginPage() );
 			}
 		}

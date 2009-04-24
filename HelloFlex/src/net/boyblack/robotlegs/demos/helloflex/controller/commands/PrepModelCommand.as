@@ -8,8 +8,8 @@ package net.boyblack.robotlegs.demos.helloflex.controller.commands
 
 		override public function execute():void
 		{
-			injector.newRule().whenAskedFor( UserProxy ).useSingleton();
-			injector.newRule().whenAskedFor( MessageProxy ).useSingleton();
+			injector.bindSingleton( UserProxy );
+			injector.bindSingleton( MessageProxy );
 		}
 
 	}

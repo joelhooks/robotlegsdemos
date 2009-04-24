@@ -8,7 +8,7 @@ package net.boyblack.robotlegs.demos.helloflex.controller.commands
 
 		override public function execute():void
 		{
-			injector.newRule().whenAskedFor( IAuthService ).useSingletonOf( DummyAuthService );
+			injector.bindSingletonOf( IAuthService, DummyAuthService );
 		}
 
 	}

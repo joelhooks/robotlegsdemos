@@ -7,6 +7,7 @@ package net.boyblack.robotlegs.demos.helloflex
 	import net.boyblack.robotlegs.demos.helloflex.controller.commands.*;
 	import net.boyblack.robotlegs.demos.helloflex.controller.events.SystemEvent;
 	import net.boyblack.robotlegs.mvcs.Context;
+	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
 
 	public class HelloFlexContext extends Context
 	{
@@ -14,6 +15,7 @@ package net.boyblack.robotlegs.demos.helloflex
 		public function HelloFlexContext( contextView:DisplayObjectContainer )
 		{
 			super( contextView, new SmartyPantsInjector(), new SmartyPantsReflector() );
+			NoSmartyPantsLogging;
 		}
 
 		override public function startup():void

@@ -1,7 +1,7 @@
 package net.boyblack.robotlegs.demos.helloflex.controller.commands
 {
-	import net.boyblack.robotlegs.demos.helloflex.controller.events.SystemEvent;
 	import net.boyblack.robotlegs.mvcs.Command;
+	import net.boyblack.robotlegs.mvcs.ContextEvent;
 
 	public class StartupCommand extends Command
 	{
@@ -9,7 +9,7 @@ package net.boyblack.robotlegs.demos.helloflex.controller.commands
 		override public function execute():void
 		{
 			// Do some custom startup stuff here!
-			dispatch( new SystemEvent( SystemEvent.STARTUP_COMPLETE ) );
+			dispatch( new ContextEvent( ContextEvent.STARTUP_COMPLETE ) );
 		}
 	}
 }

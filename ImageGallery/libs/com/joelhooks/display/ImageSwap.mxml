@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Inversion of Control/Dependency Injection Using Parsley
+	Image Gallery
+	
+	Any portion of this demonstration may be reused for any purpose where not 
+	licensed by another party restricting such use. Please leave the credits intact.
+	
+	Joel Hooks
+	http://joelhooks.com
+	joelhooks@gmail.com 
+-->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+	<mx:Metadata>
+		[Event(name="imageLoaded", type="flash.events.Event")]
+	</mx:Metadata>
+	<mx:Script>
+		<![CDATA[
+			import gs.TweenLite;
+			import mx.effects.Tween;
+		
+			[Embed(source="assets/flowerSpin.swf")]
+			[Bindable]
+			private var Logo:Class;
+			
+			[Bindable]
+			public var changingImages:Boolean;
+			
+			private var loadedImages:Array = [];
+			private var newSource:String;
+			
+			private var _source:String;
+			
+			private var loader:Loader;
+
+			public function get source():String
+			{
+				return _source;
+			}
+			
+			[Bindable]
+			public function set source(v:String):void
+			{
+				_source = v;
+				changeImage()
+			}
+
+			
+			public function changeImage():void
+			{
+				this.changingImages = true;
+				this.newSource = source;
+				TweenLite.to(this.loadedImages[0], 1, {alpha:.5})
+				TweenLite.to(preload, .25, {alpha:1});
+				this.loadImage();				
+			}
+			
+			private function loadImage():void
+			{
+				var request:URLRequest = new URLRequest(this.source);
+				var loaderContext:LoaderContext = new LoaderContext(true);
+				loader = new Loader()
+				loader.load(request,loaderContext);
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, handleImageComplete)
+			}
+			
+			private function handleImageComplete(event:Event):void
+			{
+				event.target.removeEventListener(Event.COMPLETE, handleImageComplete)
+				var image:SmoothImage = new SmoothImage()
+				image.percentHeight = 100
+				image.percentWidth = 100
+				image.setStyle('verticalAlign', 'middle')
+				image.setStyle('horizontalAlign', 'center');
+				image.source = loader.content;
+				displayImage(image);
+			}
+			
+			private function displayImage(image:SmoothImage):void
+			{
+				image.alpha = 0;
+				this.imageContainer.addChild(image)
+				this.loadedImages.push(image);
+				image.validateNow();
+				TweenLite.to(this.loadedImages[0], 1, {alpha:0, onComplete:removeOldImage})
+				TweenLite.to(image, 1, {alpha:1, onComplete:removePreload});				
+			}
+			
+			private function removeOldImage():void
+			{
+				if(this.loadedImages.length > 1)
+				{
+					this.imageContainer.removeChildAt(0)
+					this.loadedImages.shift();
+				}
+				this.changingImages = false;
+			}
+			
+			private function removePreload():void
+			{
+				TweenLite.to(preload, .25, {alpha:0});
+				this.dispatchEvent(new Event('imageLoaded'));
+				this.changingImages = false;
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Canvas id="preLoaderContainer" width="100%" height="100%">
+		<mx:Image id="preload" alpha="0"  source="{Logo}" width="100%" height="100%" scaleContent="false" horizontalAlign="center" verticalAlign="middle"/>
+	</mx:Canvas>
+	<mx:Canvas id="imageContainer" width="100%" height="100%"/>
+</mx:Canvas>

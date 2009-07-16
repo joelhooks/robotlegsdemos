@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/halo" 
+	creationComplete="creationCompleteHandler(event)" xmlns:components="com.joelhooks.robotlegs.demos.imagegallery.views.components.*">
+	<fx:Script>
+		<![CDATA[
+			import com.joelhooks.robotlegs.demos.imagegallery.ImageGalleryContext;
+			import mx.events.FlexEvent;
+			
+			private var galleryContext:ImageGalleryContext;
+			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				this.galleryContext = new ImageGalleryContext( this );
+			}
+
+		]]>
+	</fx:Script>
+	<components:GalleryView/>
+</s:Application>

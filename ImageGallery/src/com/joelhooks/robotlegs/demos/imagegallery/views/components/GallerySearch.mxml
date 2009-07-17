@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo">
+	<s:layout>
+		<s:HorizontalLayout/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import com.joelhooks.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
+
+			protected function handleSearch():void
+			{
+				this.dispatchEvent(new GallerySearchEvent(GallerySearchEvent.SEARCH, this.searchTermInput.text));
+				this.searchTermInput.text = "";
+				this.searchTermInput.validateNow();
+			}
+
+		]]>
+	</fx:Script>
+	<s:TextInput id="searchTermInput" enter="handleSearch()"/>
+	<s:Button id="submitSearchButton" label="search" enabled="{this.searchTermInput.text.length &gt; 3}" click="handleSearch()"/>
+</s:Group>

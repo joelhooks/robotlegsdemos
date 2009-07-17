@@ -11,6 +11,8 @@
 */
 package com.joelhooks.robotlegs.demos.imagegallery.controllers
 {
+	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GalleryLabelMediator;
+	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GalleryLabel;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GallerySearch;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GalleryView;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GallerySearchMediator;
@@ -25,6 +27,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.controllers
 		{
 			mediatorFactory.mapMediator( GalleryView, GalleryViewMediator );
 			mediatorFactory.mapMediator( GallerySearch, GallerySearchMediator );
+			mediatorFactory.mapMediator( GalleryLabel, GalleryLabelMediator );
 		}
 	}
 }

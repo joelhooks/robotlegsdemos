@@ -71,7 +71,6 @@
 			clipAndEnableScrolling="true" 
 			width="500"  
 			height="85" mouseEnabled="{!image.changingImages}" mouseChildren="{!image.changingImages}" 
-			dataProvider="{this.model.gallery.photos}" 
 			itemRenderer="com.joelhooks.robotlegs.demos.imagegallery.views.components.renderers.GalleryImageThumbnailItemRenderer">
 			<s:layout>
 				<s:HorizontalLayout gap="0"/>

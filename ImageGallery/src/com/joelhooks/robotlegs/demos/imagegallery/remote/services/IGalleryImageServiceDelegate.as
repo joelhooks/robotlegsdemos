@@ -11,10 +11,11 @@
 */
 package com.joelhooks.robotlegs.demos.imagegallery.remote.services
 {
-	import flash.events.Event;
+	
 
 	public interface IGalleryImageServiceDelegate
 	{
 		function loadGallery():void;
+		function search(searchTerm:String):void;
 	}
 }

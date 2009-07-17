@@ -22,7 +22,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.models.proxies
 		public function set gallery(v:Gallery):void
 		{
 			this._gallery = v;
-			this.dispatch(new GalleryEvent(GalleryEvent.GALLERY_LOADED));
+			
 		}
 		
 		public function setSelectedImage(selectedImage:GalleryImage):void

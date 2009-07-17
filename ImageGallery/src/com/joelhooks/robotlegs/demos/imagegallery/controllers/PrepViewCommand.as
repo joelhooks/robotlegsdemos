@@ -11,8 +11,10 @@
 */
 package com.joelhooks.robotlegs.demos.imagegallery.controllers
 {
-	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GalleryViewMediator;
+	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GallerySearch;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GalleryView;
+	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GallerySearchMediator;
+	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GalleryViewMediator;
 	
 	import net.boyblack.robotlegs.core.ICommand;
 	import net.boyblack.robotlegs.mvcs.Command;
@@ -22,6 +24,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.controllers
 		override public function execute():void
 		{
 			mediatorFactory.mapMediator( GalleryView, GalleryViewMediator );
+			mediatorFactory.mapMediator( GallerySearch, GallerySearchMediator );
 		}
 	}
 }

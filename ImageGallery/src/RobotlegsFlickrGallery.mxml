@@ -3,7 +3,11 @@
 	xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/halo" 
-	creationComplete="creationCompleteHandler(event)" xmlns:components="com.joelhooks.robotlegs.demos.imagegallery.views.components.*">
+	creationComplete="creationCompleteHandler(event)" 
+	xmlns:components="com.joelhooks.robotlegs.demos.imagegallery.views.components.*">
+	<s:layout>
+		<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
+	</s:layout>
 	<fx:Script>
 		<![CDATA[
 			import com.joelhooks.robotlegs.demos.imagegallery.ImageGalleryContext;
@@ -18,5 +22,6 @@
 
 		]]>
 	</fx:Script>
-	<components:GalleryView/>
+	<components:GallerySearch id="search"/>
+	<components:GalleryView id="gallery"/>
 </s:Application>

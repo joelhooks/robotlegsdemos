@@ -7,9 +7,9 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageServiceDelegate;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GalleryView;
 	
-	import net.boyblack.robotlegs.mvcs.Mediator;
+	import net.boyblack.robotlegs.mvcs.FlexMediator;
 
-	public class GalleryViewMediator extends Mediator
+	public class GalleryViewMediator extends FlexMediator
 	{
 		[Inject]
 		public var galleryView:GalleryView;

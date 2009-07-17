@@ -4,9 +4,9 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 	import com.joelhooks.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	
 	import net.boyblack.robotlegs.core.IMediator;
-	import net.boyblack.robotlegs.mvcs.Mediator;
+	import net.boyblack.robotlegs.mvcs.FlexMediator;
 
-	public class GalleryLabelMediator extends Mediator implements IMediator
+	public class GalleryLabelMediator extends FlexMediator implements IMediator
 	{
 		[Inject]
 		public var galleryLabel:GalleryLabel;

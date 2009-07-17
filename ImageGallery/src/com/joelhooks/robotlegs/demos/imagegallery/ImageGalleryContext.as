@@ -32,7 +32,7 @@ package com.joelhooks.robotlegs.demos.imagegallery
 			// Keep SmartyPants quiet
 			NoSmartyPantsLogging;
 		}
-
+	
 		override public function startup():void
 		{
 			// Map our startup commands

@@ -19,7 +19,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 		override public function onRegisterComplete():void
 		{
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
-			this.galleryLabel.setText("Interestingness");
+			this.galleryLabel.setText("interestingness");
 		}
 		
 		protected function handleSearch(event:GallerySearchEvent):void

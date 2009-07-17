@@ -15,7 +15,7 @@
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/halo" 
 	width="500" height="600" 
-	creationComplete="creationCompleteHandler(event)" xmlns:display="com.joelhooks.display.*">
+	creationComplete="creationCompleteHandler(event)" xmlns:display="com.joelhooks.display.*" xmlns:components="com.joelhooks.robotlegs.demos.imagegallery.views.components.*">
 	
 	<s:layout>
 		<s:BasicLayout/>
@@ -64,7 +64,9 @@
 		<s:layout>
 			<s:VerticalLayout gap="0"/>
 		</s:layout>
+		
 		<display:ImageSwap id="image" width="100%" height="100%" />
+		
 
 		<s:DataGroup 
 			id="dgThumbnails" 
@@ -78,4 +80,6 @@
 		</s:DataGroup>
 		<s:HScrollBar viewport="{this.dgThumbnails}" width="500"/>		
 	</s:Group>
+	<components:GalleryLabel id="galleryLabel" color="#FFFFFF" top="5" right="5" />
+	<s:SimpleText fontSize="9" text="all images © their owner" width="100%" textAlign="right" bottom="100" color="#FFFFFF" paddingRight="5"/>
 </s:Group>

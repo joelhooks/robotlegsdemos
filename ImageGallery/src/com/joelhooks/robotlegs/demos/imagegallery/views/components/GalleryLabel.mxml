@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" width="100%" >
+	<s:layout>
+		<s:HorizontalLayout verticalAlign="middle"/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			[Bindable] private var text:String = "";
+			public function setText(value:String):void
+			{
+				this.text = value;
+			}
+		]]>
+	</fx:Script>
+	<s:SimpleText truncation="1" text="{this.text}" fontSize="10" fontWeight="bold" verticalAlign="middle" textAlign="right" width="100%" />
+</s:Group>

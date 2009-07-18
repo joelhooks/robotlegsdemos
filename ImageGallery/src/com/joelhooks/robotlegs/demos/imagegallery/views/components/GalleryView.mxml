@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Inversion of Control/Dependency Injection Using Robotlegs
+	Image Gallery
+	
+	Any portion of this demonstration may be reused for any purpose where not 
+	licensed by another party restricting such use. Please leave the credits intact.
+	
+	Joel Hooks
+	http://joelhooks.com
+	joelhooks@gmail.com 
+-->
+<s:Group 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/halo" 
+	width="500" height="600" 
+	creationComplete="creationCompleteHandler(event)" xmlns:display="com.joelhooks.display.*" xmlns:components="com.joelhooks.robotlegs.demos.imagegallery.views.components.*">
+	
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+		
+	<fx:Script>
+		<![CDATA[
+			import com.joelhooks.robotlegs.demos.imagegallery.models.vo.GalleryImage;
+			import com.joelhooks.robotlegs.demos.imagegallery.events.GalleryImageEvent;
+			import com.joelhooks.robotlegs.demos.imagegallery.views.components.renderers.GalleryImageThumbnailItemRenderer;
+			import mx.events.FlexEvent;
+			import mx.collections.ArrayCollection;
+			 
+			public function selectImage(image:GalleryImage):void
+			{
+				this.image.source = image.URL;
+				this.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image))
+			}			
+
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				this.dgThumbnails.addEventListener( GalleryImageEvent.SELECT_GALLERY_IMAGE, handleSelectImage);
+			}
+			
+			protected function handleSelectImage(event:GalleryImageEvent):void
+			{
+				this.dispatchEvent(event);
+			}
+
+		]]>
+	</fx:Script>
+	<s:Group width="100%" height="100%">
+		<s:Rect width="100%" height="100%">
+			<s:fill>
+			
+				<mx:LinearGradient rotation="90">
+					<mx:entries>
+						<mx:GradientEntry color="#333333"/>
+						<mx:GradientEntry color="#111111"/>
+					</mx:entries>
+				</mx:LinearGradient>
+			</s:fill>
+		</s:Rect>
+	</s:Group>
+	<s:Group width="100%"  height="100%">
+		<s:layout>
+			<s:VerticalLayout gap="0"/>
+		</s:layout>
+		
+		<display:ImageSwap id="image" width="100%" height="100%" />
+		
+
+		<s:DataGroup 
+			id="dgThumbnails" 
+			clipAndEnableScrolling="true" 
+			width="500"  
+			height="85" mouseEnabled="{!image.changingImages}" mouseChildren="{!image.changingImages}" 
+			itemRenderer="com.joelhooks.robotlegs.demos.imagegallery.views.components.renderers.GalleryImageThumbnailItemRenderer">
+			<s:layout>
+				<s:HorizontalLayout gap="0"/>
+			</s:layout>
+		</s:DataGroup>
+		<s:HScrollBar viewport="{this.dgThumbnails}" width="500"/>		
+	</s:Group>
+	<components:GalleryLabel id="galleryLabel" color="#FFFFFF" top="5" right="5" />
+	<s:SimpleText fontSize="9" text="all images © their owner" width="100%" textAlign="right" bottom="100" color="#FFFFFF" paddingRight="5"/>
+</s:Group>

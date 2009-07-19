@@ -2,8 +2,8 @@ package net.boyblack.robotlegs.demos.helloflex
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import net.boyblack.robotlegs.adapters.SmartyPantsInjector;
-	import net.boyblack.robotlegs.adapters.SmartyPantsReflector;
+	import net.boyblack.robotlegs.adapters.SpringInjector;
+	import net.boyblack.robotlegs.adapters.SpringReflector;
 	import net.boyblack.robotlegs.demos.helloflex.controller.commands.*;
 	import net.boyblack.robotlegs.mvcs.Context;
 	import net.boyblack.robotlegs.mvcs.ContextEvent;
@@ -14,7 +14,7 @@ package net.boyblack.robotlegs.demos.helloflex
 
 		public function HelloFlexContext( contextView:DisplayObjectContainer )
 		{
-			super( contextView, new SmartyPantsInjector(), new SmartyPantsReflector() );
+			super( contextView, new SpringInjector(), new SpringReflector() );
 			// Keep SmartyPants quiet
 			NoSmartyPantsLogging;
 		}

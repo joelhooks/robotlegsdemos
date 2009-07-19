@@ -1,9 +1,9 @@
 package net.boyblack.robotlegs.demos.helloflex.remote.services
 {
 	import net.boyblack.robotlegs.demos.helloflex.model.proxies.UserProxy;
-	import net.boyblack.robotlegs.mvcs.FlexMediator;
+	import net.boyblack.robotlegs.mvcs.Service;
 
-	public class DummyAuthService extends FlexMediator implements IAuthService
+	public class DummyAuthService extends Service implements IAuthService
 	{
 		[Inject]
 		public var userProxy:UserProxy;

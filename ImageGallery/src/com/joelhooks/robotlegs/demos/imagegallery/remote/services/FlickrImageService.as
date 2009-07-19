@@ -22,9 +22,9 @@ package com.joelhooks.robotlegs.demos.imagegallery.remote.services
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 	
-	import net.boyblack.robotlegs.mvcs.FlexMediator;
+	import net.boyblack.robotlegs.mvcs.Service;
 
-	public class FlickrImageServiceDelegate extends FlexMediator implements IGalleryImageServiceDelegate
+	public class FlickrImageService extends Service implements IGalleryImageService
 	{
 		[Inject]
 		public var galleryProxy:GalleryProxy;
@@ -35,14 +35,9 @@ package com.joelhooks.robotlegs.demos.imagegallery.remote.services
 		protected static const FLICKR_API_KEY:String = "516ab798392cb79523691e6dd79005c2";
 		protected static const FLICKR_SECRET:String = "8f7e19a3ae7a25c9";
 		
-		public function FlickrImageServiceDelegate()
+		public function FlickrImageService()
 		{
 			this.service = new FlickrService(FLICKR_API_KEY);
-		}
-
-		override public function onRegisterComplete():void
-		{
-			dispatch( new GalleryImageServiceEvent(GalleryImageServiceEvent.SERVICE_READY) );
 		}
 				
 		public function loadGallery():void

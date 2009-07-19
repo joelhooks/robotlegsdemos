@@ -13,7 +13,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.remote.services
 {
 	
 
-	public interface IGalleryImageServiceDelegate
+	public interface IGalleryImageService
 	{
 		function loadGallery():void;
 		function search(searchTerm:String):void;

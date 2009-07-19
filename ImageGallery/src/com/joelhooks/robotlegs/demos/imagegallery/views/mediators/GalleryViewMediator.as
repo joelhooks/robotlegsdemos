@@ -4,7 +4,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 	import com.joelhooks.robotlegs.demos.imagegallery.events.GalleryImageEvent;
 	import com.joelhooks.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.GalleryImage;
-	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageServiceDelegate;
+	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GalleryView;
 	
 	import net.boyblack.robotlegs.mvcs.FlexMediator;
@@ -18,9 +18,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 		public var galleryProxy:GalleryProxy;
 		
 		[Inject]
-		public var imageService:IGalleryImageServiceDelegate;
-		
-		private var selectedImage:GalleryImage;
+		public var imageService:IGalleryImageService;
 		
 		public function GalleryViewMediator()
 		{
@@ -35,15 +33,14 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 		
 		protected function selectImage(image:GalleryImage):void
 		{
-			this.selectedImage =image;
-			galleryView.image.source = this.selectedImage.URL;	
+			galleryView.image.source = image.URL;
 			galleryProxy.setSelectedImage(image);		
 		}
 		
 		protected function onGalleryLoaded(event:GalleryEvent):void
 		{
 			galleryView.dgThumbnails.dataProvider = galleryProxy.gallery.photos;
-			this.selectImage( galleryProxy.gallery.photos[0] as GalleryImage );
+			selectImage( galleryProxy.gallery.photos[0] as GalleryImage );
 		}
 		
 		protected function onImageSelected(event:GalleryImageEvent):void

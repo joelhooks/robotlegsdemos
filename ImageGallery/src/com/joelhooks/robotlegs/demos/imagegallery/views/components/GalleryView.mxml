@@ -29,12 +29,6 @@
 			import mx.events.FlexEvent;
 			import mx.collections.ArrayCollection;
 			 
-			public function selectImage(image:GalleryImage):void
-			{
-				this.image.source = image.URL;
-				this.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image))
-			}			
-
 			protected function creationCompleteHandler(event:FlexEvent):void
 			{
 				this.dgThumbnails.addEventListener( GalleryImageEvent.SELECT_GALLERY_IMAGE, handleSelectImage);

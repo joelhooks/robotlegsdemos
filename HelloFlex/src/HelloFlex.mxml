@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-	xmlns:components="net.boyblack.robotlegs.demos.helloflex.view.components.*"
-	creationComplete="onCC()"
+	xmlns:components="org.robotlegs.demos.helloflex.view.components.*"
 	layout="absolute"
 	paddingBottom="0"
 	paddingLeft="0"
@@ -11,14 +10,8 @@
 
 	<mx:Script>
 		<![CDATA[
-			import net.boyblack.robotlegs.demos.helloflex.HelloFlexContext;
-
-			private var helloContext:HelloFlexContext;
-
-			private function onCC():void
-			{
-				helloContext = new HelloFlexContext( this );
-			}
+			import org.robotlegs.demos.helloflex.HelloFlexContext;
+			private var helloContext:HelloFlexContext = new HelloFlexContext( this as DisplayObjectContainer );
 		]]>
 	</mx:Script>
 

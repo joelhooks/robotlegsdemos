@@ -11,8 +11,8 @@
 */
 package com.joelhooks.robotlegs.demos.imagegallery.controllers
 {
-	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.FlickrImageServiceDelegate;
-	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageServiceDelegate;
+	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.FlickrImageService;
+	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	
 	import net.boyblack.robotlegs.core.ICommand;
 	import net.boyblack.robotlegs.mvcs.Command;
@@ -21,7 +21,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.controllers
 	{
 		override public function execute():void
 		{
-			injector.bindSingletonOf( IGalleryImageServiceDelegate, FlickrImageServiceDelegate );
+			injector.bindSingletonOf( IGalleryImageService, FlickrImageService );
 		}
 	}
 }

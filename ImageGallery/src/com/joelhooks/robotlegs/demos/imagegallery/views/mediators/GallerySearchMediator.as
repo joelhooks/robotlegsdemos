@@ -1,6 +1,6 @@
 package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 {
-	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageServiceDelegate;
+	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GallerySearch;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	
@@ -13,7 +13,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 		public var gallerySearch:GallerySearch;
 
 		[Inject]
-		public var imageService:IGalleryImageServiceDelegate;
+		public var imageService:IGalleryImageService;
 				
 		public function GallerySearchMediator()
 		{

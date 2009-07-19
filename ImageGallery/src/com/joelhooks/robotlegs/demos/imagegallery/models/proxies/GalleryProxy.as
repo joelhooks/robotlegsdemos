@@ -4,7 +4,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.models.proxies
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 	
-	import net.boyblack.robotlegs.mvcs.Proxy;
+	import org.robotlegs.mvcs.Proxy;
 
 	public class GalleryProxy extends Proxy
 	{

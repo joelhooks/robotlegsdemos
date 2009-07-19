@@ -22,7 +22,7 @@ package com.joelhooks.robotlegs.demos.imagegallery.remote.services
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import com.joelhooks.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 	
-	import net.boyblack.robotlegs.mvcs.Service;
+	import org.robotlegs.mvcs.Service;
 
 	public class FlickrImageService extends Service implements IGalleryImageService
 	{

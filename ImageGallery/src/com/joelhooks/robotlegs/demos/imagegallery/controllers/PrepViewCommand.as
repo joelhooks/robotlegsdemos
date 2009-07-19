@@ -18,8 +18,8 @@ package com.joelhooks.robotlegs.demos.imagegallery.controllers
 	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GallerySearchMediator;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.mediators.GalleryViewMediator;
 	
-	import net.boyblack.robotlegs.core.ICommand;
-	import net.boyblack.robotlegs.mvcs.Command;
+	import org.robotlegs.core.ICommand;
+	import org.robotlegs.mvcs.Command;
 
 	public class PrepViewCommand extends Command implements ICommand
 	{

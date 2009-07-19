@@ -11,8 +11,8 @@
 */
 package com.joelhooks.robotlegs.demos.imagegallery.controllers
 {
-	import net.boyblack.robotlegs.mvcs.Command;
-	import net.boyblack.robotlegs.mvcs.ContextEvent;
+	import org.robotlegs.mvcs.Command;
+	import org.robotlegs.mvcs.ContextEvent;
 
 	public class StartupCommand extends Command
 	{

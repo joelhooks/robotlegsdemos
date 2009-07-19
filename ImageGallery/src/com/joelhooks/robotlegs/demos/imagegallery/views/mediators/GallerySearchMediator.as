@@ -4,8 +4,8 @@ package com.joelhooks.robotlegs.demos.imagegallery.views.mediators
 	import com.joelhooks.robotlegs.demos.imagegallery.views.components.GallerySearch;
 	import com.joelhooks.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	
-	import net.boyblack.robotlegs.core.IMediator;
-	import net.boyblack.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.core.IMediator;
+	import org.robotlegs.mvcs.FlexMediator;
 
 	public class GallerySearchMediator extends FlexMediator implements IMediator
 	{

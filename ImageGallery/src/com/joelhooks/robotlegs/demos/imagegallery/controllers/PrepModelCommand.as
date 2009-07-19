@@ -13,8 +13,8 @@ package com.joelhooks.robotlegs.demos.imagegallery.controllers
 {
 	import com.joelhooks.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
 	
-	import net.boyblack.robotlegs.core.ICommand;
-	import net.boyblack.robotlegs.mvcs.Command;
+	import org.robotlegs.core.ICommand;
+	import org.robotlegs.mvcs.Command;
 
 	public class PrepModelCommand extends Command implements ICommand
 	{

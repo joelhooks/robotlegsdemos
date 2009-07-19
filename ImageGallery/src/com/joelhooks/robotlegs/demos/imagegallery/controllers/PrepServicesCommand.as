@@ -14,8 +14,8 @@ package com.joelhooks.robotlegs.demos.imagegallery.controllers
 	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.FlickrImageService;
 	import com.joelhooks.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	
-	import net.boyblack.robotlegs.core.ICommand;
-	import net.boyblack.robotlegs.mvcs.Command;
+	import org.robotlegs.core.ICommand;
+	import org.robotlegs.mvcs.Command;
 
 	public class PrepServicesCommand extends Command implements ICommand
 	{

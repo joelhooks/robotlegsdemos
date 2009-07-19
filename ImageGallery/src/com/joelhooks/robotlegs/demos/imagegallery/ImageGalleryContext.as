@@ -18,10 +18,10 @@ package com.joelhooks.robotlegs.demos.imagegallery
 	
 	import flash.display.DisplayObjectContainer;
 	
-	import net.boyblack.robotlegs.adapters.SmartyPantsInjector;
-	import net.boyblack.robotlegs.adapters.SmartyPantsReflector;
-	import net.boyblack.robotlegs.mvcs.Context;
-	import net.boyblack.robotlegs.mvcs.ContextEvent;
+	import org.robotlegs.adapters.SmartyPantsInjector;
+	import org.robotlegs.adapters.SmartyPantsReflector;
+	import org.robotlegs.mvcs.Context;
+	import org.robotlegs.mvcs.ContextEvent;
 	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
 
 	public class ImageGalleryContext extends Context

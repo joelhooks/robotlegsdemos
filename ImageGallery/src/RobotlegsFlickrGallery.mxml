@@ -15,13 +15,13 @@
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/halo" 
 	creationComplete="creationCompleteHandler(event)" 
-	xmlns:components="com.joelhooks.robotlegs.demos.imagegallery.views.components.*" maxWidth="520">
+	xmlns:components="org.robotlegs.demos.imagegallery.views.components.*" maxWidth="520">
 	<s:layout>
 		<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
-			import com.joelhooks.robotlegs.demos.imagegallery.ImageGalleryContext;
+			import org.robotlegs.demos.imagegallery.ImageGalleryContext;
 			import mx.events.FlexEvent;
 			
 			private var galleryContext:ImageGalleryContext;

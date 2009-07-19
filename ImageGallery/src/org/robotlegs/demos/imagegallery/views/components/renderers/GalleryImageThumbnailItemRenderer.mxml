@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Inversion of Control/Dependency Injection Using Robotlegs
+	Image Gallery
+	
+	Any portion of this demonstration may be reused for any purpose where not 
+	licensed by another party restricting such use. Please leave the credits intact.
+	
+	Joel Hooks
+	http://joelhooks.com
+	joelhooks@gmail.com 
+-->
+<s:ItemRenderer 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/halo" 
+	width="85" 
+	height="85" 
+	selected="{this.image.selected}">
+
+	<fx:Script>
+		<![CDATA[
+			import org.robotlegs.demos.imagegallery.events.GalleryImageEvent;
+			import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
+			
+			[Bindable] protected var image:GalleryImage;
+			
+			override public function set data(value:Object):void
+			{
+				super.data = value;
+				this.image = value as GalleryImage;
+			}			
+			
+			protected function clickHandler(event:MouseEvent):void
+			{
+				this.owner.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
+			}
+		]]>
+	</fx:Script>
+
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:states>
+		<mx:State name="normal" />
+		<mx:State name="hovered" />
+		<mx:State name="selected"/>
+	</s:states>
+	<s:Rect left="5" right="5" top="5" bottom="5" >
+		<s:stroke>
+			<s:SolidColorStroke color="#000000" color.selected="#FF0000" />
+		</s:stroke>
+		<s:fill>
+		
+			<mx:LinearGradient rotation="90">
+				<mx:entries>
+					<mx:GradientEntry color="#000000"/>
+					<mx:GradientEntry color="#000000"/>
+				</mx:entries>
+			</mx:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<mx:Image 
+		x="5" y="5" 
+		source="{image.thumbURL}" 
+		alpha.hovered="1" alpha.selected="1" alpha=".9" click="clickHandler(event)"/>
+	<!-- Background -->
+	<s:Rect left="5" right="5" top="5" bottom="5" >
+		<s:stroke>
+			<s:SolidColorStroke color="#000000" color.selected="#FF0000" />
+		</s:stroke>
+	</s:Rect>
+</s:ItemRenderer>

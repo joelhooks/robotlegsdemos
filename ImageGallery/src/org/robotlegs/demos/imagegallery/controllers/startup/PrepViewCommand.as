@@ -9,7 +9,7 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 */
-package org.robotlegs.demos.imagegallery.controllers
+package org.robotlegs.demos.imagegallery.controllers.startup
 {
 	import org.robotlegs.demos.imagegallery.views.mediators.GalleryLabelMediator;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryLabel;

@@ -11,18 +11,19 @@
 */
 package org.robotlegs.demos.imagegallery
 {
-	import org.robotlegs.demos.imagegallery.controllers.PrepModelCommand;
-	import org.robotlegs.demos.imagegallery.controllers.PrepServicesCommand;
-	import org.robotlegs.demos.imagegallery.controllers.PrepViewCommand;
-	import org.robotlegs.demos.imagegallery.controllers.StartupCommand;
-	
 	import flash.display.DisplayObjectContainer;
+	
+	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
 	
 	import org.robotlegs.adapters.SmartyPantsInjector;
 	import org.robotlegs.adapters.SmartyPantsReflector;
+	import org.robotlegs.demos.imagegallery.controllers.startup.PrepControllerCommand;
+	import org.robotlegs.demos.imagegallery.controllers.startup.PrepModelCommand;
+	import org.robotlegs.demos.imagegallery.controllers.startup.PrepServicesCommand;
+	import org.robotlegs.demos.imagegallery.controllers.startup.PrepViewCommand;
+	import org.robotlegs.demos.imagegallery.controllers.startup.StartupCommand;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
-	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
 
 	public class ImageGalleryContext extends Context
 	{
@@ -37,6 +38,7 @@ package org.robotlegs.demos.imagegallery
 		{
 			// Map our startup commands
 			commandFactory.mapCommand( ContextEvent.STARTUP, PrepModelCommand, true );
+			commandFactory.mapCommand( ContextEvent.STARTUP, PrepControllerCommand, true );
 			commandFactory.mapCommand( ContextEvent.STARTUP, PrepServicesCommand, true );
 			commandFactory.mapCommand( ContextEvent.STARTUP, PrepViewCommand, true );
 			commandFactory.mapCommand( ContextEvent.STARTUP, StartupCommand, true );

@@ -17,7 +17,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryView;
-	
+	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.mvcs.FlexMediator;
 
 	public class GalleryViewMediator extends FlexMediator
@@ -39,6 +39,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		{
 			addEventListenerTo( galleryView, GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected )
 			addEventListenerTo( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )
+			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, onSearch);
 			this.imageService.loadGallery();
 		}
 		
@@ -57,6 +58,11 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		protected function onImageSelected(event:GalleryImageEvent):void
 		{
 			this.selectImage(event.image);
+		}
+		
+		protected function onSearch(event:GallerySearchEvent):void
+		{
+			this.galleryView.dgThumbnails.horizontalScrollPosition = 0;
 		}
 	}
 }

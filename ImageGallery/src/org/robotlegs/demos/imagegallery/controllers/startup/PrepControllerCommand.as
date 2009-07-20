@@ -9,19 +9,18 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 */
-package org.robotlegs.demos.imagegallery.controllers
+package org.robotlegs.demos.imagegallery.controllers.startup
 {
-	import org.robotlegs.demos.imagegallery.remote.services.FlickrImageService;
-	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
-	
 	import org.robotlegs.core.ICommand;
+	import org.robotlegs.demos.imagegallery.controllers.gallery.UpdateGalleryCommand;
+	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.mvcs.Command;
 
-	public class PrepServicesCommand extends Command implements ICommand
+	public class PrepControllerCommand extends Command implements ICommand
 	{
 		override public function execute():void
 		{
-			injector.bindSingletonOf( IGalleryImageService, FlickrImageService );
+			commandFactory.mapCommand( GalleryEvent.GALLERY_LOADED, UpdateGalleryCommand );
 		}
 	}
 }

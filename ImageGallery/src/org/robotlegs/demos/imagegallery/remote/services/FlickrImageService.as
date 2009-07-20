@@ -16,19 +16,16 @@ package org.robotlegs.demos.imagegallery.remote.services
 	import com.adobe.webapis.flickr.events.FlickrResultEvent;
 	import com.adobe.webapis.flickr.methodgroups.Photos;
 	import com.adobe.webapis.flickr.methodgroups.helpers.PhotoSearchParams;
+	
+	import flash.events.EventDispatcher;
+	
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
-	import org.robotlegs.demos.imagegallery.events.GalleryImageServiceEvent;
-	import org.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
-	
 	import org.robotlegs.mvcs.Service;
 
 	public class FlickrImageService extends Service implements IGalleryImageService
 	{
-		[Inject]
-		public var galleryProxy:GalleryProxy;
-		
 		private var service:FlickrService;
 		private var photos:Photos;
 		
@@ -67,19 +64,8 @@ package org.robotlegs.demos.imagegallery.remote.services
 		
 		protected function processFlickrPhotoResults(results:Array):void
 		{
-			var gallery:Gallery;
-			if(this.galleryProxy.gallery)
-			{
-				gallery = this.galleryProxy.gallery;
-			}
-			else
-			{
-				gallery = new Gallery();
-				this.galleryProxy.gallery = gallery;
-			}
-			
-			gallery.photos.removeAll();
-			
+			var gallery:Gallery = new Gallery();
+						
 			for each(var flickrPhoto:Photo in results)
 			{
 				var photo:GalleryImage = new GalleryImage()
@@ -88,7 +74,9 @@ package org.robotlegs.demos.imagegallery.remote.services
 				photo.URL = baseURL + '.jpg';
 				gallery.photos.addItem( photo );
 			}
-			this.dispatch(new GalleryEvent(GalleryEvent.GALLERY_LOADED));
+			
+			this.dispatch(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
 		}
+		
 	}
 }

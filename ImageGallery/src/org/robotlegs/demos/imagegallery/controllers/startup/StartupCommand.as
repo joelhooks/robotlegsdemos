@@ -9,7 +9,7 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 */
-package org.robotlegs.demos.imagegallery.controllers
+package org.robotlegs.demos.imagegallery.controllers.startup
 {
 	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.mvcs.ContextEvent;

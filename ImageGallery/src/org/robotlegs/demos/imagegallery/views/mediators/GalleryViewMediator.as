@@ -28,7 +28,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		{
 		}
 
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			addEventListenerTo( galleryView, GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected )
 			addEventListenerTo( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )

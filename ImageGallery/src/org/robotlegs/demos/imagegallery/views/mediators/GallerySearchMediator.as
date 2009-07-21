@@ -27,7 +27,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		{
 		}
 		
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			this.gallerySearch.addEventListener( GallerySearchEvent.SEARCH, handleSearch);
 		}

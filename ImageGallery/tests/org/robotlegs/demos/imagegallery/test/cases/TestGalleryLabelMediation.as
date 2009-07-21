@@ -26,7 +26,7 @@ package org.robotlegs.demos.imagegallery.test.cases
 			this.galleryLabelMediator.setViewComponent(this.galleryLabel);	
 			this.galleryLabelMediator.galleryLabel = this.galleryLabel;
 			this.galleryLabelMediator.eventDispatcher = new EventDispatcher();
-			this.galleryLabelMediator.onRegisterComplete();
+			this.galleryLabelMediator.onRegister();
 			Async.proceedOnEvent(this, galleryLabel, FlexEvent.CREATION_COMPLETE);
 			UIImpersonator.addChild(galleryLabel);		
 		}

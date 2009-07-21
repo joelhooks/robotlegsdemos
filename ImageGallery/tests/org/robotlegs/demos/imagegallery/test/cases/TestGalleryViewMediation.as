@@ -31,7 +31,7 @@ package org.robotlegs.demos.imagegallery.test.cases
 			this.mediator.setViewComponent(view);
 			this.mediator.eventDispatcher = new EventDispatcher()
 			
-			mediator.onRegisterComplete();
+			mediator.onRegister();
 			
 			Async.proceedOnEvent(this, this.view, Event.ADDED_TO_STAGE);
 			UIImpersonator.addChild( this.view );
@@ -66,11 +66,8 @@ package org.robotlegs.demos.imagegallery.test.cases
 		[Test(async)]
 		public function testGalleryLoaded():void
 		{
-			var image1:GalleryImage = new GalleryImage()
-			var image2:GalleryImage = new GalleryImage()
-			var gallery:Gallery = new Gallery()
-			gallery.photos.addItem(image1);
-			gallery.photos.addItem(image2);	
+			var gallery:Gallery = testGallery;
+				
 			mediator.eventDispatcher.addEventListener(GalleryEvent.GALLERY_LOADED, Async.asyncHandler(this, handleGalleryLoaded, 2000, gallery));
 			mediator.eventDispatcher.dispatchEvent(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
 		}
@@ -78,12 +75,7 @@ package org.robotlegs.demos.imagegallery.test.cases
 		[Test(async)]
 		public function testImageSetAfterGalleryLoaded():void
 		{
-			var image1:GalleryImage = new GalleryImage()
-			var image2:GalleryImage = new GalleryImage()
-			var gallery:Gallery = new Gallery()
-			gallery.photos.addItem(image1);
-			gallery.photos.addItem(image2);	
-			
+			var gallery:Gallery = testGallery;
 	    	var sequence:SequenceRunner = new SequenceRunner( this );
 
 			with ( sequence ) {
@@ -95,6 +87,15 @@ package org.robotlegs.demos.imagegallery.test.cases
 				
 				run();
 			}			
+		}
+		
+		protected function get testGallery():Gallery
+		{
+			var image1:GalleryImage = new GalleryImage()
+			var image2:GalleryImage = new GalleryImage()
+			var gallery:Gallery = new Gallery()
+			gallery.photos.addItem(image1);
+			gallery.photos.addItem(image2);				
 		}
 		
 		protected function handleImageSelected(event:GalleryImageEvent, image:GalleryImage):void

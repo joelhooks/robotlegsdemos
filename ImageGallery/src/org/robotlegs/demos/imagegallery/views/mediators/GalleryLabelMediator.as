@@ -26,14 +26,14 @@ package org.robotlegs.demos.imagegallery.views.mediators
 			super();
 		}
 		
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			this.galleryLabel.text = "interestingness";
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
 			
 		}
 		
-		override public function onRemoveComplete():void
+		override public function onRemove():void
 		{
 			removeEventListenerFrom( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
 		}

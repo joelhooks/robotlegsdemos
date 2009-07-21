@@ -95,7 +95,9 @@ package org.robotlegs.demos.imagegallery.test.cases
 			var image2:GalleryImage = new GalleryImage()
 			var gallery:Gallery = new Gallery()
 			gallery.photos.addItem(image1);
-			gallery.photos.addItem(image2);				
+			gallery.photos.addItem(image2);		
+			
+			return gallery;		
 		}
 		
 		protected function handleImageSelected(event:GalleryImageEvent, image:GalleryImage):void

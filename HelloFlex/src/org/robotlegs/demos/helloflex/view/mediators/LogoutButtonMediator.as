@@ -23,7 +23,7 @@ package org.robotlegs.demos.helloflex.view.mediators
 		{
 		}
 
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			// Yes, this could use binding instead
 			logoutButton.enabled = userProxy.userLoggedIn;

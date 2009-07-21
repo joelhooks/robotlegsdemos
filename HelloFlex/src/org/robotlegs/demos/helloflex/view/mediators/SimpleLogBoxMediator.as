@@ -14,7 +14,7 @@ package org.robotlegs.demos.helloflex.view.mediators
 		{
 		}
 
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			addEventListenerTo( eventDispatcher, MessageProxyEvent.MESSAGE_ADDED, whenMessageAdded );
 			addEventListenerTo( eventDispatcher, MessageProxyEvent.MESSAGES_CLEARED, whenMessagesCleared );

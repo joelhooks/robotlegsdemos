@@ -22,7 +22,7 @@ package org.robotlegs.demos.helloflex.view.mediators
 		{
 		}
 
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			// view listeners
 			addEventListenerTo( loginPage, LoginPageEvent.LOGIN_SUBMITTED, onLoginSubmitted );

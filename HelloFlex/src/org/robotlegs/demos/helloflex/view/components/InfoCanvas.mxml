@@ -20,7 +20,7 @@
 
 		<mx:Canvas label="Dependency Injection"
 			width="100%" height="100%">
-			<mx:Text text="Dependencies are declared as public properties with an [Inject] annotation.&#xd;&#xd;Rules for dependency injection are configured in a single SmartyPants Injector that is shared between all RobotLegs Actors."
+			<mx:Text text="Dependencies are declared as public properties with an [Inject] annotation.&#xd;&#xd;Rules for dependency injection are configured in a single Injector that is shared between all RobotLegs Actors in a particular Context."
 				x="10" y="10" width="90%"
 				selectable="false"/>
 		</mx:Canvas>
@@ -34,7 +34,7 @@
 
 		<mx:Canvas label="Mediators"
 			width="100%" height="100%">
-			<mx:Text text="RobotLegs makes it easy to work with deeply-nested, lazily-instantiated View Components.&#xd;&#xd;You map Mediator classes to View Component classes during startup, and RobotLegs creates and registers Mediator instances automatically as View Components arrive on the stage.&#xd;&#xd;A Mediator is only ready to be interacted with when it's onRegisterComplete method gets called. This is where you should register your listeners.&#xd;&#xd;The default Mediator implementation provides a handy utility method called addEventListenerTo(). You should use this method to register listeners in your Mediator. Doing so allows RobotLegs to automatically remove any listeners when a Mediator gets removed.&#xd;&#xd;NOTE: Flex Mediators should extend the FlexMediator Class."
+			<mx:Text text="RobotLegs makes it easy to work with deeply-nested, lazily-instantiated View Components.&#xd;&#xd;You map Mediator classes to View Component classes during startup, and RobotLegs creates and registers Mediator instances automatically as View Components arrive on the stage.&#xd;&#xd;A Mediator is only ready to be interacted with when it's onRegister method gets called. This is where you should register your listeners.&#xd;&#xd;The default Mediator implementation provides a handy utility method called addEventListenerTo(). You should use this method to register listeners in your Mediator. Doing so allows RobotLegs to automatically remove any listeners when a Mediator gets removed.&#xd;&#xd;NOTE: Flex Mediators should extend the FlexMediator Class."
 				x="10" y="10" width="90%"
 				selectable="false"/>
 		</mx:Canvas>

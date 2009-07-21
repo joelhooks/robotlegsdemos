@@ -15,7 +15,7 @@ package org.robotlegs.demos.helloflex.view.mediators
 		{
 		}
 
-		override public function onRegisterComplete():void
+		override public function onRegister():void
 		{
 			addEventListenerTo( clearMessagesButton, MouseEvent.CLICK, onClearMessagesClicked );
 		}

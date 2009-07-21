@@ -2,6 +2,8 @@ package org.robotlegs.demos.helloflex
 {
 	import flash.display.DisplayObjectContainer;
 	
+	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
+	
 	import org.robotlegs.adapters.SmartyPantsInjector;
 	import org.robotlegs.adapters.SmartyPantsReflector;
 	import org.robotlegs.demos.helloflex.controller.commands.*;
@@ -14,6 +16,8 @@ package org.robotlegs.demos.helloflex
 		public function HelloFlexContext( contextView:DisplayObjectContainer )
 		{
 			super( contextView, new SmartyPantsInjector(), new SmartyPantsReflector() );
+			// Keep SmartyPants quiet
+			NoSmartyPantsLogging;
 		}
 
 		override public function startup():void

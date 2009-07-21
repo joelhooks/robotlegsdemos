@@ -32,14 +32,14 @@ package org.robotlegs.demos.imagegallery.test.cases
 		[Test(async)]
 		public function testRetreiveImages():void
 		{
-			this.serviceDispatcher.addEventListener( GalleryEvent.GALLERY_LOADED, Async.asyncHandler(this, handleImagesReceived, 3000, null, handleServiceTimeout), false, 0, true);
+			this.serviceDispatcher.addEventListener( GalleryEvent.GALLERY_LOADED, Async.asyncHandler(this, handleImagesReceived, 8000, null, handleServiceTimeout), false, 0, true);
 			this.service.loadGallery();
 		}
 
 		[Test(async)]
 		public function testSearchImages():void
 		{
-			this.serviceDispatcher.addEventListener( GalleryEvent.GALLERY_LOADED, Async.asyncHandler(this, handleImagesReceived, 3000, null, handleServiceTimeout), false, 0, true);
+			this.serviceDispatcher.addEventListener( GalleryEvent.GALLERY_LOADED, Async.asyncHandler(this, handleImagesReceived, 8000, null, handleServiceTimeout), false, 0, true);
 			this.service.search("robotlegs");
 		}
 						

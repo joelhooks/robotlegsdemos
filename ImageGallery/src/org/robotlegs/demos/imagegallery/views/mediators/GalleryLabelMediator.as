@@ -11,10 +11,9 @@
 */
 package org.robotlegs.demos.imagegallery.views.mediators
 {
+	import org.robotlegs.core.IMediator;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryLabel;
 	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
-	
-	import org.robotlegs.core.IMediator;
 	import org.robotlegs.mvcs.FlexMediator;
 
 	public class GalleryLabelMediator extends FlexMediator implements IMediator
@@ -29,13 +28,24 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		
 		override public function onRegisterComplete():void
 		{
+			this.galleryLabel.text = "interestingness";
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
-			this.galleryLabel.setText("interestingness");
+			
+		}
+		
+		override public function onRemoveComplete():void
+		{
+			removeEventListenerFrom( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
+		}
+		
+		protected function setLabelText(value:String):void
+		{
+			this.galleryLabel.text = value;
 		}
 		
 		protected function handleSearch(event:GallerySearchEvent):void
 		{
-			this.galleryLabel.setText(event.searchTerm); 
+			this.setLabelText(event.searchTerm); 
 		}
 	}
 }

@@ -4,7 +4,7 @@
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/halo" 
 	xmlns:flexUnitUIRunner="http://www.adobe.com/2009/flexUnitUIRunner" 
-	creationComplete="init()">
+	creationComplete="onCreationComplete()">
 	<s:layout>
 		<s:BasicLayout/>
 	</s:layout>
@@ -15,7 +15,7 @@
 			import org.flexunit.runner.FlexUnitCore;
 			
 			private var core:FlexUnitCore;
-			private function init():void
+			private function onCreationComplete():void
 			{
 				this.core = new FlexUnitCore();
 				core.addListener( new UIListener( uiListener ));	

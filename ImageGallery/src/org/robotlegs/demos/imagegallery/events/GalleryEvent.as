@@ -11,12 +11,13 @@
 */
 package org.robotlegs.demos.imagegallery.events
 {
-	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
-	
 	import flash.events.Event;
+	
+	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 
 	public class GalleryEvent extends Event
 	{
+		public static const LOAD_GALLERY:String = "loadGallery";
 		public static const GALLERY_LOADED:String = "galleryLoaded";
 		
 		public var gallery:Gallery;

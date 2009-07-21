@@ -23,9 +23,6 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		[Inject]
 		public var gallerySearch:GallerySearch;
 
-		[Inject]
-		public var imageService:IGalleryImageService;
-				
 		public function GallerySearchMediator()
 		{
 		}
@@ -37,7 +34,6 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		
 		protected function handleSearch(event:GallerySearchEvent):void
 		{
-			imageService.search(event.searchTerm);
 			dispatch( event );
 		}
 	}

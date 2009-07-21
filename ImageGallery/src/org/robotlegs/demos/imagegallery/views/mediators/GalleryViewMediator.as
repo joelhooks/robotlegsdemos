@@ -13,7 +13,6 @@ package org.robotlegs.demos.imagegallery.views.mediators
 {
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.events.GalleryImageEvent;
-	import org.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryView;
@@ -25,12 +24,6 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		[Inject]
 		public var galleryView:GalleryView;
 		
-		[Inject]
-		public var galleryProxy:GalleryProxy;
-		
-		[Inject]
-		public var imageService:IGalleryImageService;
-		
 		public function GalleryViewMediator()
 		{
 		}
@@ -40,19 +33,20 @@ package org.robotlegs.demos.imagegallery.views.mediators
 			addEventListenerTo( galleryView, GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected )
 			addEventListenerTo( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, onSearch);
-			this.imageService.loadGallery();
+			
+			dispatch( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
 		}
 		
 		protected function selectImage(image:GalleryImage):void
 		{
-			galleryView.image.source = image.URL;
-			galleryProxy.setSelectedImage(image);		
+			galleryView.imageSource = image.URL;
+			dispatch(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
 		}
 		
 		protected function onGalleryLoaded(event:GalleryEvent):void
 		{
-			galleryView.dgThumbnails.dataProvider = galleryProxy.gallery.photos;
-			selectImage( galleryProxy.gallery.photos[0] as GalleryImage );
+			galleryView.dataProvider = event.gallery.photos;
+			selectImage( event.gallery.photos[0] as GalleryImage );
 		}
 		
 		protected function onImageSelected(event:GalleryImageEvent):void
@@ -62,7 +56,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		
 		protected function onSearch(event:GallerySearchEvent):void
 		{
-			this.galleryView.dgThumbnails.horizontalScrollPosition = 0;
+			this.galleryView.setThumbScrollPosition(0);
 		}
 	}
 }

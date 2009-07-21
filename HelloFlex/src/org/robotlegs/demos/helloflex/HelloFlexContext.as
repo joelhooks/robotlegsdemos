@@ -2,8 +2,8 @@ package org.robotlegs.demos.helloflex
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.adapters.SmartyPantsInjector;
-	import org.robotlegs.adapters.SmartyPantsReflector;
+	import org.robotlegs.adapters.SpringInjector;
+	import org.robotlegs.adapters.SpringReflector;
 	import org.robotlegs.demos.helloflex.controller.commands.*;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
@@ -13,7 +13,7 @@ package org.robotlegs.demos.helloflex
 
 		public function HelloFlexContext( contextView:DisplayObjectContainer )
 		{
-			super( contextView, new SmartyPantsInjector(), new SmartyPantsReflector() );
+			super( contextView, new SpringInjector(), new SpringReflector() );
 		}
 
 		override public function startup():void

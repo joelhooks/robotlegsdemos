@@ -30,12 +30,6 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		{
 			this.galleryLabel.text = "interestingness";
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
-			
-		}
-		
-		override public function onRemove():void
-		{
-			removeEventListenerFrom( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
 		}
 		
 		protected function setLabelText(value:String):void

@@ -16,17 +16,16 @@ package org.robotlegs.demos.imagegallery.test.cases
 		[Before]
 		public function setUp():void
 		{
-			trace("setting up the test");
-			var broadcaster:EventBroadcaster = new EventBroadcaster(this.serviceDispatcher);
+			serviceDispatcher = new EventDispatcher();
 			service = new FlickrImageService();
-			service.eventBroadcaster = broadcaster;
+			service.eventBroadcaster = new EventBroadcaster(this.serviceDispatcher);;
 		}
 		
 		[After]
 		public function tearDown():void
 		{
-			trace("tearing down the test");
-			service.eventBroadcaster = null;
+			this.serviceDispatcher = null;
+			this.service.eventBroadcaster = null;
 			this.service = null;
 		}
 		

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-	xmlns:components="org.robotlegs.demos.helloflex.view.components.*"
-	layout="absolute"
-	paddingBottom="0"
-	paddingLeft="0"
-	paddingRight="0"
-	paddingTop="0"
-	creationComplete="onCreationComplete()"
-	viewSourceURL="srcview/index.html">
+				xmlns:components="org.robotlegs.demos.helloflex.view.components.*"
+				layout="absolute"
+				paddingBottom="0"
+				paddingLeft="0"
+				paddingRight="0"
+				paddingTop="0"
+				creationComplete="onCreationComplete()"
+				viewSourceURL="srcview/index.html">
 
 	<mx:Script>
 		<![CDATA[
@@ -16,20 +16,24 @@
 			
 			private function onCreationComplete():void
 			{
-				helloContext = new HelloFlexContext( this );
+				helloContext = new HelloFlexContext(this);
 			}
 		]]>
 	</mx:Script>
 
-	<mx:HDividedBox width="450" height="450"
-		verticalCenter="0" horizontalCenter="0">
+	<mx:HDividedBox width="450"
+					height="450"
+					verticalCenter="0"
+					horizontalCenter="0">
 
-		<mx:TabNavigator width="100%" height="100%">
+		<mx:TabNavigator width="100%"
+						 height="100%">
 			<components:InfoCanvas label="RobotLegs"/>
 			<components:DemoCanvas label="Mini Demo"/>
 		</mx:TabNavigator>
 
-		<mx:VDividedBox width="160" height="100%">
+		<mx:VDividedBox width="160"
+						height="100%">
 			<components:MessageList/>
 			<components:SimpleLogBox/>
 		</mx:VDividedBox>

@@ -5,36 +5,36 @@ package org.robotlegs.demos.helloflex.view.mediators
 	import org.robotlegs.demos.helloflex.view.components.HelloForm;
 	import org.robotlegs.demos.helloflex.view.events.HelloFormEvent;
 	import org.robotlegs.mvcs.FlexMediator;
-
+	
 	public class HelloFormMediator extends FlexMediator
 	{
 		[Inject]
 		public var helloForm:HelloForm;
-
+		
 		[Inject]
 		public var messageProxy:MessageProxy;
-
+		
 		public function HelloFormMediator()
 		{
 		}
-
+		
 		override public function onRegister():void
 		{
 			// View Listeners
-			addEventListenerTo( helloForm, HelloFormEvent.FORM_SUBMITTED, onFormSubmitted );
+			addEventListenerTo(helloForm, HelloFormEvent.FORM_SUBMITTED, onFormSubmitted);
 			// Context Listeners
-			addEventListenerTo( eventDispatcher, MessageProxyEvent.MESSAGE_ADDED, whenMessageAdded );
+			addEventListenerTo(eventDispatcher, MessageProxyEvent.MESSAGE_ADDED, whenMessageAdded);
 		}
-
-		private function onFormSubmitted( e:HelloFormEvent ):void
+		
+		private function onFormSubmitted(e:HelloFormEvent):void
 		{
-			messageProxy.addMessage( helloForm.getMessage() );
+			messageProxy.addMessage(helloForm.getMessage());
 		}
-
-		private function whenMessageAdded( e:MessageProxyEvent ):void
+		
+		private function whenMessageAdded(e:MessageProxyEvent):void
 		{
 			helloForm.messageTxt.setFocus();
 		}
-
+	
 	}
 }

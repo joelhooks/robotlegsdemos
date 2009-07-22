@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas width="100%" height="100%"
-	xmlns:mx="http://www.adobe.com/2006/mxml"
-	xmlns:components="org.robotlegs.demos.helloflex.view.components.*">
+<mx:Canvas width="100%"
+		   height="100%"
+		   xmlns:mx="http://www.adobe.com/2006/mxml"
+		   xmlns:components="org.robotlegs.demos.helloflex.view.components.*">
 
-	<mx:Accordion width="100%" height="100%">
+	<mx:Accordion width="100%"
+				  height="100%">
 
 		<mx:Canvas label="The Form - Lazily Instantiated"
-			width="100%" height="100%">
+				   width="100%"
+				   height="100%">
 			<components:HelloForm/>
 		</mx:Canvas>
 
 		<mx:Canvas label="The Message List - Lazily Instantiated"
-			width="100%" height="100%">
+				   width="100%"
+				   height="100%">
 			<components:MessageList/>
 		</mx:Canvas>
-		
+
 		<mx:Canvas label="Some Lone Buttons"
-			width="100%" height="100%">
-			<mx:VBox verticalCenter="0" horizontalCenter="0">
+				   width="100%"
+				   height="100%">
+			<mx:VBox verticalCenter="0"
+					 horizontalCenter="0">
 				<components:ClearMessagesButton/>
 				<components:LogoutButton/>
 			</mx:VBox>

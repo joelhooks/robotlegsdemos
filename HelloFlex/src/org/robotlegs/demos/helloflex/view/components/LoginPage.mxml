@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas width="100%" height="100%"
-	xmlns:mx="http://www.adobe.com/2006/mxml"
-	backgroundColor="#000000"
-	creationComplete="onCC()"
-	backgroundAlpha="0.9">
+<mx:Canvas width="100%"
+		   height="100%"
+		   xmlns:mx="http://www.adobe.com/2006/mxml"
+		   backgroundColor="#000000"
+		   creationComplete="onCC()"
+		   backgroundAlpha="0.9">
 
 	<mx:Script>
 		<![CDATA[
 			import org.robotlegs.demos.helloflex.view.events.LoginPageEvent;
-
+			
 			public function closeAndRemove():void
 			{
-				parent.removeChild( this );
+				parent.removeChild(this);
 			}
-
+			
 			protected function onCC():void
 			{
 				usernameTxt.setFocus();
@@ -21,23 +22,26 @@
 		]]>
 	</mx:Script>
 
-	<mx:Form verticalCenter="0" horizontalCenter="0"
-		backgroundAlpha="1.0"
-		backgroundColor="#FFFFFF"
-		cornerRadius="16"
-		borderStyle="solid"
-		defaultButton="{loginBtn}"
-		borderThickness="0">
+	<mx:Form verticalCenter="0"
+			 horizontalCenter="0"
+			 backgroundAlpha="1.0"
+			 backgroundColor="#FFFFFF"
+			 cornerRadius="16"
+			 borderStyle="solid"
+			 defaultButton="{loginBtn}"
+			 borderThickness="0">
 
 		<mx:FormHeading label="Login To Proceed"/>
 
 		<mx:FormItem label="Username">
-			<mx:TextInput id="usernameTxt" text="anything"/>
+			<mx:TextInput id="usernameTxt"
+						  text="anything"/>
 		</mx:FormItem>
 
 		<mx:FormItem label="Password">
-			<mx:TextInput id="passwordTxt" text="anything"
-				displayAsPassword="true"/>
+			<mx:TextInput id="passwordTxt"
+						  text="anything"
+						  displayAsPassword="true"/>
 		</mx:FormItem>
 
 		<mx:FormItem width="100%">
@@ -45,13 +49,14 @@
 			<mx:HBox width="100%">
 
 				<mx:Button label="Cancel"
-					width="50%"
-					click="closeAndRemove()"/>
+						   width="50%"
+						   click="closeAndRemove()"/>
 
-				<mx:Button id="loginBtn" label="Submit"
-					width="50%"
-					enabled="{passwordTxt.text.length>0}"
-					click="dispatchEvent(new LoginPageEvent(LoginPageEvent.LOGIN_SUBMITTED))"/>
+				<mx:Button id="loginBtn"
+						   label="Submit"
+						   width="50%"
+						   enabled="{passwordTxt.text.length>0}"
+						   click="dispatchEvent(new LoginPageEvent(LoginPageEvent.LOGIN_SUBMITTED))"/>
 
 			</mx:HBox>
 

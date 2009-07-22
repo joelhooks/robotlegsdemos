@@ -6,40 +6,40 @@ package org.robotlegs.demos.helloflex.view.mediators
 	import org.robotlegs.demos.helloflex.view.components.LoginPage;
 	import org.robotlegs.demos.helloflex.view.events.LoginPageEvent;
 	import org.robotlegs.mvcs.FlexMediator;
-
+	
 	public class LoginPageMediator extends FlexMediator
 	{
 		[Inject]
 		public var loginPage:LoginPage;
-
+		
 		[Inject]
 		public var authService:IAuthService;
-
-		[Inject( name='LoginTrigger' )]
+		
+		[Inject(name='LoginTrigger')]
 		public var triggerEvent:SystemEvent;
-
+		
 		public function LoginPageMediator()
 		{
 		}
-
+		
 		override public function onRegister():void
 		{
 			// view listeners
-			addEventListenerTo( loginPage, LoginPageEvent.LOGIN_SUBMITTED, onLoginSubmitted );
+			addEventListenerTo(loginPage, LoginPageEvent.LOGIN_SUBMITTED, onLoginSubmitted);
 			// context listeners
-			addEventListenerTo( eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn );
+			addEventListenerTo(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
 		}
-
-		private function onLoginSubmitted( e:LoginPageEvent ):void
+		
+		private function onLoginSubmitted(e:LoginPageEvent):void
 		{
-			authService.login( loginPage.usernameTxt.text, loginPage.passwordTxt.text );
+			authService.login(loginPage.usernameTxt.text, loginPage.passwordTxt.text);
 		}
-
-		private function whenUserLoggedIn( e:UserProxyEvent ):void
+		
+		private function whenUserLoggedIn(e:UserProxyEvent):void
 		{
-			dispatch( triggerEvent );
+			dispatch(triggerEvent);
 			loginPage.closeAndRemove();
 		}
-
+	
 	}
 }

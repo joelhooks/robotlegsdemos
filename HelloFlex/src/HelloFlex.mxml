@@ -6,15 +6,16 @@
 				paddingLeft="0"
 				paddingRight="0"
 				paddingTop="0"
-				creationComplete="onCreationComplete()"
+				preinitialize="onPreInitialize()"
 				viewSourceURL="srcview/index.html">
 
 	<mx:Script>
 		<![CDATA[
 			import org.robotlegs.demos.helloflex.HelloFlexContext;
+			
 			private var helloContext:HelloFlexContext;
 			
-			private function onCreationComplete():void
+			private function onPreInitialize():void
 			{
 				helloContext = new HelloFlexContext(this);
 			}

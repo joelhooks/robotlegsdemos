@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+		 horizontalScrollPolicy="off"
+		 verticalScrollPolicy="off"
+		 width="125"
+		 height="90"
+		 horizontalAlign="center"
+		 verticalGap="5"
+		 borderStyle="solid"
+		 cornerRadius="5"
+		 paddingBottom="5"
+		 paddingLeft="5"
+		 paddingRight="5"
+		 paddingTop="5"
+		 backgroundColor="#D2D2D2"
+		 color="#000000"
+		 fontWeight="bold"
+		 fontSize="10"
+		 borderColor="#000000">
+
+	<mx:Label id="title"
+			  paddingBottom="0"
+			  paddingLeft="0"
+			  paddingRight="0"
+			  paddingTop="0"/>
+
+	<mx:Canvas id="colorCanvas"
+			   width="30"
+			   height="100%"
+			   backgroundColor="#FF0000">
+	</mx:Canvas>
+
+	<mx:Button id="killButton"
+			   label="kill"
+			   fontSize="10"/>
+
+</mx:VBox>

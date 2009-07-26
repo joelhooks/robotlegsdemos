@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Tile xmlns:mx="http://www.adobe.com/2006/mxml"
+		 backgroundColor="#F6F6F6"
+		 height="100%"
+		 width="100%"
+		 borderStyle="solid"
+		 borderThickness="0"
+		 cornerRadius="5"
+		 paddingBottom="10"
+		 paddingLeft="10"
+		 paddingRight="10"
+		 paddingTop="10">
+
+</mx:Tile>

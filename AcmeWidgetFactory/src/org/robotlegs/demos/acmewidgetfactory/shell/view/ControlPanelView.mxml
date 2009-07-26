@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+		 width="100%"
+		 backgroundAlpha="0">
+
+	<mx:HBox backgroundColor="#FFFFFF"
+			 width="100%"
+			 borderStyle="solid"
+			 borderThickness="0"
+			 cornerRadius="5"
+			 borderColor="#FFFFFF"
+			 verticalAlign="middle"
+			 paddingBottom="5"
+			 paddingLeft="5"
+			 paddingRight="5"
+			 paddingTop="5">
+		<mx:Image source="@Embed(source='assets/RobotLegsLogoSmallWeb.png')"/>
+		<mx:Label text="Robotlegs: Acme Widget Factory Demo"
+				  fontSize="16"
+				  fontWeight="bold"/>
+	</mx:HBox>
+
+	<mx:Form defaultButton="{createWidgetButton}"
+			 backgroundColor="#ffffff"
+			 borderColor="#FFFFFF"
+			 width="100%"
+			 borderStyle="solid"
+			 borderThickness="0"
+			 cornerRadius="5"
+			 paddingBottom="10"
+			 paddingLeft="10"
+			 paddingRight="10"
+			 paddingTop="10">
+
+		<mx:HBox width="100%"
+				 verticalAlign="middle">
+			<mx:Label text="Unique Widget Id:"
+					  fontWeight="bold"/>
+			<mx:TextInput id="widgetId"
+						  width="100%"/>
+		</mx:HBox>
+
+		<mx:HBox width="100%">
+			<mx:Button id="createWidgetButton"
+					   label="Create Widget"
+					   enabled="{widgetId.text.length>0}"
+					   width="100%"/>
+			<mx:Button id="pokeWidgetButton"
+					   label="Poke Widget"
+					   enabled="{widgetId.text.length>0}"
+					   width="100%"/>
+			<mx:Button id="destroyWidgetButton"
+					   label="Destroy Widget"
+					   enabled="{widgetId.text.length>0}"
+					   width="100%"/>
+		</mx:HBox>
+
+		<mx:Button id="destroyAllWidgetsButton"
+				   label="Destroy All Widgets"
+				   width="100%"/>
+
+	</mx:Form>
+
+</mx:VBox>

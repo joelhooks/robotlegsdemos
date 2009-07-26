@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml"
+		   xmlns:view="org.robotlegs.demos.acmewidgetfactory.modules.logger.view.*"
+		   implements="org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule"
+		   layout="vertical"
+		   width="100%"
+		   height="125"
+		   preinitialize="onPreInitialize()">
+
+	<mx:Script>
+		<![CDATA[
+			import org.robotlegs.demos.acmewidgetfactory.modules.logger.events.LoggerEvent;
+			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
+			import org.robotlegs.core.IContext;
+			import org.robotlegs.mvcs.ContextEvent;
+			
+			protected var context:LoggerContext;
+			
+			private function onPreInitialize():void
+			{
+				context = new LoggerContext(this);
+			}
+			
+			public function getContext():IContext
+			{
+				return context;
+			}
+			
+			public function logMessage(message:String):void
+			{
+				context.getEventDispatcher().dispatchEvent(new LoggerEvent(LoggerEvent.LOG_MESSAGE, message));
+			}
+			
+			public function close():void
+			{
+				context.getEventDispatcher().dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
+			}
+		]]>
+	</mx:Script>
+
+	<view:LoggerCanvas/>
+
+</mx:Module>

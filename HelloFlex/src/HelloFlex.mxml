@@ -17,6 +17,7 @@
 			
 			private function onPreInitialize():void
 			{
+				// Note: hook into preinitialize rather then creationcomplete 
 				helloContext = new HelloFlexContext(this);
 			}
 		]]>

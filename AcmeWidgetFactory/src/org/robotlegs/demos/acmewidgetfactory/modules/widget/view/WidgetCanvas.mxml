@@ -13,10 +13,10 @@
 		 paddingRight="5"
 		 paddingTop="5"
 		 backgroundColor="#D2D2D2"
-		 color="#000000"
+		 color="#433b3b"
 		 fontWeight="bold"
 		 fontSize="10"
-		 borderColor="#000000">
+		 borderColor="#433b3b">
 
 	<mx:Label id="title"
 			  paddingBottom="0"

@@ -13,12 +13,11 @@
 		<![CDATA[
 			import org.robotlegs.demos.helloflex.HelloFlexContext;
 			
-			private var helloContext:HelloFlexContext;
+			private var context:HelloFlexContext;
 			
 			private function onPreInitialize():void
 			{
-				// Note: hook into preinitialize rather then creationcomplete 
-				helloContext = new HelloFlexContext(this);
+				context = new HelloFlexContext(this);
 			}
 		]]>
 	</mx:Script>

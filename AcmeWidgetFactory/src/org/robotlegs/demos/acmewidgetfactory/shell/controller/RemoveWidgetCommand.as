@@ -17,9 +17,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 		{
 			var id:String = event.widgetId;
 			var widget:IWidgetModule;
-			if (activeWidgetProxy.hasObjectId(id))
+			if (activeWidgetProxy.hasWidgetId(id))
 			{
-				widget = activeWidgetProxy.getObject(id);
+				widget = activeWidgetProxy.getWidget(id);
 				widget.close();
 			}
 		}

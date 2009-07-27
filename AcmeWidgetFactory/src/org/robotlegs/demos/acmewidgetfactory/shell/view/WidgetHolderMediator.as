@@ -24,12 +24,12 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		protected function onCreateWidgetComplete(e:ShellWidgetEvent):void
 		{
-			view.addChild(activeWidgetProxy.getObject(e.widgetId));
+			view.addChild(activeWidgetProxy.getWidget(e.widgetId));
 		}
 		
 		protected function onShutdownWidgetComplete(e:ShellWidgetEvent):void
 		{
-			view.removeChild(activeWidgetProxy.getObject(e.widgetId));
+			view.removeChild(activeWidgetProxy.getWidget(e.widgetId));
 			dispatch(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, e.widgetId));
 		}
 	}

@@ -29,7 +29,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		override public function onRegister():void
 		{
 			// Invoke module API through interface IWidget
-			module.setTitle(activeWidgetProxy.getObjectId(module));
+			module.setTitle(activeWidgetProxy.getWidgetId(module));
 			
 			// Retrieve access to this Widget's Context (Sub Context) and EventDispatcher
 			subContext = module.getContext();
@@ -46,17 +46,17 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		protected function onWidgetShutdownComplete(e:ContextEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, activeWidgetProxy.getObjectId(module)));
+			dispatch(new ShellWidgetEvent(ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
 		}
 		
 		protected function onPokeWidgetComplete(e:WidgetEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET_COMPLETE, activeWidgetProxy.getObjectId(module)));
+			dispatch(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
 		}
 		
 		protected function onRemoveAllWidgets(e:ShellEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, activeWidgetProxy.getObjectId(module)));
+			dispatch(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, activeWidgetProxy.getWidgetId(module)));
 		}
 	}
 }

@@ -18,6 +18,15 @@
 		 fontSize="10"
 		 borderColor="#433b3b">
 
+	<mx:Script>
+		<![CDATA[
+			public function flipColor():void
+			{
+				colorCanvas.setStyle('backgroundColor', Math.random() * uint.MAX_VALUE);
+			}
+		]]>
+	</mx:Script>
+
 	<mx:Label id="title"
 			  paddingBottom="0"
 			  paddingLeft="0"

@@ -18,16 +18,16 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 		{
 			var id:String = event.widgetId;
 			var widget:IWidgetModule;
-			if (activeWidgetProxy.hasObjectId(id))
+			if (activeWidgetProxy.hasWidgetId(id))
 			{
-				widget = activeWidgetProxy.getObject(id);
+				widget = activeWidgetProxy.getWidget(id);
 				widget.poke();
 			}
 			else
 			{
 				// bad: mustn't ref directly surely?
 				widget = new WidgetModule();
-				activeWidgetProxy.registerObject(widget, id);
+				activeWidgetProxy.registerWidget(widget, id);
 				dispatch(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET_COMPLETE, id));
 			}
 		}

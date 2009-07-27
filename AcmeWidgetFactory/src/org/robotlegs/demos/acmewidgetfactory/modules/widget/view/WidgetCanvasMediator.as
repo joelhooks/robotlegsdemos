@@ -17,6 +17,8 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.view
 		
 		override public function onRegister():void
 		{
+			view.flipColor();
+			
 			// View Listeners
 			addEventListenerTo(view.killButton, MouseEvent.CLICK, onKillClick);
 			
@@ -37,7 +39,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.view
 		
 		protected function onPokeWidget(e:WidgetEvent):void
 		{
-			view.colorCanvas.setStyle('backgroundColor', Math.random() * uint.MAX_VALUE);
+			view.flipColor();
 			dispatch(new WidgetEvent(WidgetEvent.POKE_WIDGET_COMPLETE));
 		}
 	}

@@ -4,8 +4,8 @@ package org.robotlegs.utils
 	
 	public class NamedObjectMap
 	{
-		protected var objectById:Dictionary;
-		protected var idByObject:Dictionary;
+		protected var objectByKey:Dictionary;
+		protected var keyByObject:Dictionary;
 		
 		public function NamedObjectMap()
 		{
@@ -14,70 +14,46 @@ package org.robotlegs.utils
 		
 		public function hasObject(object:Object):Boolean
 		{
-			return idByObject[object] != null;
+			return keyByObject[object] != null;
 		}
 		
-		public function hasObjectId(id:String):Boolean
+		public function hasKey(key:String):Boolean
 		{
-			return objectById[id] != null;
+			return objectByKey[key] != null;
 		}
 		
-		public function registerObject(object:Object, id:String):void
+		public function registerObject(object:Object, key:String):void
 		{
-			if (hasObject(object))
-			{
-				throw new Error('Object instance already registered');
-			}
-			if (hasObjectId(id))
-			{
-				throw new Error('Id already registered');
-			}
-			objectById[id] = object;
-			idByObject[object] = id;
+			objectByKey[key] = object;
+			keyByObject[object] = key;
 		}
 		
-		public function removeById(id:String):void
+		public function removeByKey(key:String):void
 		{
-			if (!hasObjectId(id))
-			{
-				throw new Error('Object Id does not exist');
-			}
-			delete idByObject[getObject(id)];
-			delete objectById[id];
+			delete keyByObject[getObject(key)];
+			delete objectByKey[key];
 		}
 		
 		public function removeByObject(object:Object):void
 		{
-			if (!hasObject(object))
-			{
-				throw new Error('Object does not exist');
-			}
-			delete idByObject[object];
-			delete objectById[getObjectId(object)];
+			delete objectByKey[getKey(object)];
+			delete keyByObject[object];
 		}
 		
-		public function getObject(id:String):*
+		public function getObject(key:String):*
 		{
-			if (!hasObjectId(id))
-			{
-				throw new Error('Object does not exist');
-			}
-			return objectById[id];
+			return objectByKey[key];
 		}
 		
-		public function getObjectId(object:Object):String
+		public function getKey(object:Object):String
 		{
-			if (!hasObject(object))
-			{
-				throw new Error('Object Id does not exist');
-			}
-			return idByObject[object];
+			return keyByObject[object];
 		}
 		
 		public function flush():void
 		{
-			objectById = new Dictionary();
-			idByObject = new Dictionary();
+			objectByKey = new Dictionary();
+			keyByObject = new Dictionary();
 		}
 	}
 }

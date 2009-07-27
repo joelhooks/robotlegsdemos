@@ -19,9 +19,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger.view
 		
 		protected function onLogMessage(e:LoggerEvent):void
 		{
-			view.textArea.htmlText += "[" + new Date().toTimeString().substr(0, 8) + " ] <b>" + e.message + "</b>\n";
-			view.validateNow();
-			view.verticalScrollPosition = view.maxVerticalScrollPosition;
+			view.logMessage(e.message);
 		}
 	}
 }

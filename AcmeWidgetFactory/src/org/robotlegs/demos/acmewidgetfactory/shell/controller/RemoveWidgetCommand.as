@@ -15,12 +15,10 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 		
 		override public function execute():void
 		{
-			var id:String = event.widgetId;
-			var widget:IWidgetModule;
-			if (activeWidgetProxy.hasWidgetId(id))
+			var widget:IWidgetModule = activeWidgetProxy.getWidget(event.widgetId);
+			if (widget)
 			{
-				widget = activeWidgetProxy.getWidget(id);
-				widget.close();
+				activeWidgetProxy.getWidget(event.widgetId).close();
 			}
 		}
 	}

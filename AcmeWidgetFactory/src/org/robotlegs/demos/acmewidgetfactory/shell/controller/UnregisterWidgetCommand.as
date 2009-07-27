@@ -14,10 +14,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 		
 		override public function execute():void
 		{
-			var id:String = event.widgetId;
-			if (activeWidgetProxy.hasWidgetId(id))
+			if (activeWidgetProxy.hasWidgetId(event.widgetId))
 			{
-				activeWidgetProxy.removeById(id);
+				activeWidgetProxy.removeById(event.widgetId);
 			}
 		}
 	}

@@ -29,9 +29,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 			}
 		}
 		
-		public function getWidget(id:String):IWidgetModule
+		public function getWidget(id:String):*
 		{
-			return widgetMap.getObject(id) as IWidgetModule;
+			return widgetMap.getObject(id);
 		}
 		
 		public function getWidgetId(widget:IWidgetModule):String
@@ -51,17 +51,18 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		
 		protected function createModule(id:String):void
 		{
-			widgetMap.registerObject(loadedModuleInfo.factory.create(), id);
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET_COMPLETE, id));
+			var widget:IWidgetModule = loadedModuleInfo.factory.create(null) as IWidgetModule;
+			widgetMap.registerObject(widget, id);
+			// Why null?
+			if (widget)
+			{
+				dispatch(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET_COMPLETE, id));
+			}
 		}
 		
 		protected function loadModule(id:String):void
 		{
-			if (loadedModuleInfo)
-			{
-				createModule(id);
-			}
-			else
+			if (loadedModuleInfo == null)
 			{
 				var info:IModuleInfo = ModuleManager.getModule(MODULE_URL);
 				info.data = id;
@@ -71,6 +72,11 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 				widgetMap.registerObject(info, id);
 				info.load();
 			}
+			else
+			{
+				createModule(id);
+			}
+		
 		}
 		
 		protected function onModuleReady(e:ModuleEvent):void
@@ -88,6 +94,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		protected function onModuleProgress(e:ModuleEvent):void
 		{
 			// TODO...
+			// trace(e.bytesLoaded);
 		}
 	
 	}

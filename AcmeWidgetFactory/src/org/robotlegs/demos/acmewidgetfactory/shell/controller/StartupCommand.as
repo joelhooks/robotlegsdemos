@@ -1,5 +1,7 @@
 package org.robotlegs.demos.acmewidgetfactory.shell.controller
 {
+	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
+	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.modules.logger.LoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.WidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellLoggerEvent;
@@ -15,7 +17,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetModuleMediator;
 	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.mvcs.ContextEvent;
-	
+
 	public class StartupCommand extends Command
 	{
 		override public function execute():void
@@ -34,9 +36,12 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 			mediatorFactory.mapMediator(ControlPanelView, ControlPanelMediator);
 			mediatorFactory.mapMediator(LoggerHolderView, LoggerHolderMediator);
 			mediatorFactory.mapMediator(WidgetHolderView, WidgetHolderMediator);
-			// Module Touch Points - need better system for context mapping
-			mediatorFactory.mapMediator(LoggerModule, LoggerModuleMediator);
-			mediatorFactory.mapMediator(WidgetModule, WidgetModuleMediator);
+			// Module Mediators - should be able to leave these definitions out.. :(
+			LoggerModule;
+			WidgetModule;
+			// Module Views - notice FQCN::string style
+			mediatorFactory.mapModuleMediator('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
+			mediatorFactory.mapModuleMediator('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
 			
 			// Ready
 			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));

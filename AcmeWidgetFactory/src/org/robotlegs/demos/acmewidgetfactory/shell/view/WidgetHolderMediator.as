@@ -26,7 +26,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		protected function onCreateWidgetComplete(e:ShellWidgetEvent):void
 		{
-			view.addChild(activeWidgetProxy.getWidget(e.widgetId) as DisplayObject);
+			view.addChild(activeWidgetProxy.getWidget(e.widgetId));
 		}
 		
 		protected function onShutdownWidgetComplete(e:ShellWidgetEvent):void

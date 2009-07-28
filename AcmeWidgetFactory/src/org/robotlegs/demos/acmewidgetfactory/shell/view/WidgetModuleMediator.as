@@ -3,18 +3,18 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import flash.events.IEventDispatcher;
 	
 	import org.robotlegs.core.IContext;
-	import org.robotlegs.demos.acmewidgetfactory.modules.widget.WidgetModule;
+	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.events.WidgetEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellWidgetEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
 	import org.robotlegs.mvcs.ContextEvent;
 	import org.robotlegs.mvcs.FlexMediator;
-	
+
 	public class WidgetModuleMediator extends FlexMediator
 	{
 		[Inject]
-		public var module:WidgetModule;
+		public var module:IWidgetModule;
 		
 		[Inject]
 		public var activeWidgetProxy:ActiveWidgetProxy;

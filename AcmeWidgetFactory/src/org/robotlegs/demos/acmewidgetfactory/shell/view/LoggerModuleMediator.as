@@ -3,16 +3,16 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import flash.events.IEventDispatcher;
 	
 	import org.robotlegs.core.IContext;
-	import org.robotlegs.demos.acmewidgetfactory.modules.logger.LoggerModule;
+	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellLoggerEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellWidgetEvent;
 	import org.robotlegs.mvcs.ContextEvent;
 	import org.robotlegs.mvcs.FlexMediator;
-	
+
 	public class LoggerModuleMediator extends FlexMediator
 	{
 		[Inject]
-		public var module:LoggerModule;
+		public var module:ILoggerModule;
 		
 		private var subContext:IContext;
 		private var subContextDispatcher:IEventDispatcher;

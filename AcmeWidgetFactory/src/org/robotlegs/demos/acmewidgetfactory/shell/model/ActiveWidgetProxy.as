@@ -1,5 +1,7 @@
 package org.robotlegs.demos.acmewidgetfactory.shell.model
 {
+	import flash.system.ApplicationDomain;
+	
 	import mx.events.ModuleEvent;
 	import mx.modules.IModuleInfo;
 	import mx.modules.ModuleManager;
@@ -51,13 +53,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		
 		protected function createModule(id:String):void
 		{
-			var widget:IWidgetModule = loadedModuleInfo.factory.create(null) as IWidgetModule;
+			var widget:IWidgetModule = loadedModuleInfo.factory.create() as IWidgetModule;
 			widgetMap.registerObject(widget, id);
-			// Why null?
-			if (widget)
-			{
-				dispatch(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET_COMPLETE, id));
-			}
+			dispatch(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET_COMPLETE, id));
 		}
 		
 		protected function loadModule(id:String):void
@@ -69,8 +67,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 				info.addEventListener(ModuleEvent.PROGRESS, onModuleProgress);
 				info.addEventListener(ModuleEvent.READY, onModuleReady);
 				info.addEventListener(ModuleEvent.ERROR, onModuleError);
+				info.load(ApplicationDomain.currentDomain);
 				widgetMap.registerObject(info, id);
-				info.load();
 			}
 			else
 			{

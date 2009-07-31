@@ -14,11 +14,11 @@
 			import org.robotlegs.core.IContext;
 			import org.robotlegs.mvcs.ContextEvent;
 			
-			protected var context:LoggerContext;
+			protected var context:LoggerModuleContext;
 			
 			private function onPreInitialize():void
 			{
-				context = new LoggerContext(this);
+				context = new LoggerModuleContext(this);
 			}
 			
 			public function getContext():IContext

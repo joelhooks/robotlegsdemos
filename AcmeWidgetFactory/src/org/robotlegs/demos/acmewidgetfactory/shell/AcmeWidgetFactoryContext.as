@@ -2,8 +2,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
-	
+	import org.as3commons.logging.ILogger;
+	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.adapters.SpringInjector;
 	import org.robotlegs.adapters.SpringReflector;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.commands.ShellStartupCommand;
@@ -19,9 +19,16 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 		
 		override public function startup():void
 		{
+			// Map our Startup Command
 			commandFactory.mapCommand(ContextEvent.STARTUP, ShellStartupCommand, true);
 			// And away we go!
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			super.startup();
+		}
+		
+		override protected function createLogger():ILogger
+		{
+			// Let's create a logger for this context
+			return new DefaultLogger('AcmeWidgetFactoryContext');
 		}
 	}
 }

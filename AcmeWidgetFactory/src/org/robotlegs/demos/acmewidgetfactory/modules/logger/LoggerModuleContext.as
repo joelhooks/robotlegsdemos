@@ -8,9 +8,9 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 	
-	public class LoggerContext extends Context
+	public class LoggerModuleContext extends Context
 	{
-		public function LoggerContext(contextView:DisplayObjectContainer)
+		public function LoggerModuleContext(contextView:DisplayObjectContainer)
 		{
 			super(contextView, new SpringInjector(), new SpringReflector());
 		}
@@ -20,8 +20,8 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger
 			// Map Startup Commands
 			commandFactory.mapCommand(ContextEvent.STARTUP, LoggerStartupCommand, true);
 			// And away we go!
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			super.startup();
 		}
-	
+		
 	}
 }

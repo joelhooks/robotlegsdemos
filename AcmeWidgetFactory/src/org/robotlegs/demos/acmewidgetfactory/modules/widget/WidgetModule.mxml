@@ -14,11 +14,11 @@
 			import org.robotlegs.core.IContext;
 			import org.robotlegs.mvcs.ContextEvent;
 			
-			private var context:WidgetContext;
+			private var context:WidgetModuleContext;
 			
 			private function onPreInitialize():void
 			{
-				context = new WidgetContext(this);
+				context = new WidgetModuleContext(this);
 			}
 			
 			public function getContext():IContext

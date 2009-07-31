@@ -7,10 +7,10 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetStartupCommand;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
-	
-	public class WidgetContext extends Context
+
+	public class WidgetModuleContext extends Context
 	{
-		public function WidgetContext(contextView:DisplayObjectContainer)
+		public function WidgetModuleContext(contextView:DisplayObjectContainer)
 		{
 			super(contextView, new SpringInjector(), new SpringReflector());
 		}
@@ -20,7 +20,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 			// Map Startup Commands
 			commandFactory.mapCommand(ContextEvent.STARTUP, WidgetStartupCommand, true);
 			// And away we go!
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			super.startup();
 		}
 	
 	}

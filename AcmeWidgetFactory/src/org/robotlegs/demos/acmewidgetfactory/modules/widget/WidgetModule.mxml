@@ -4,7 +4,7 @@
 		   implements="org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule"
 		   layout="vertical"
 		   width="125"
-		   height="90"
+		   height="84"
 		   preinitialize="onPreInitialize()">
 
 	<mx:Script>

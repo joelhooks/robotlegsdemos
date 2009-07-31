@@ -6,7 +6,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	
 	import org.robotlegs.adapters.SpringInjector;
 	import org.robotlegs.adapters.SpringReflector;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.StartupCommand;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.commands.ShellStartupCommand;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 
@@ -19,7 +19,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 		
 		override public function startup():void
 		{
-			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand, true);
+			commandFactory.mapCommand(ContextEvent.STARTUP, ShellStartupCommand, true);
 			// And away we go!
 			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}

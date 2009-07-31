@@ -14,9 +14,14 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger.view
 		
 		override public function onRegister():void
 		{
+			addEventListenerTo(eventDispatcher, LoggerEvent.CLEAR_MESSAGES, onClearMessages);
 			addEventListenerTo(eventDispatcher, LoggerEvent.LOG_MESSAGE, onLogMessage);
 		}
 		
+		protected function onClearMessages(e:LoggerEvent):void
+		{
+			view.clearMessages();
+		}
 		protected function onLogMessage(e:LoggerEvent):void
 		{
 			view.logMessage(e.message);

@@ -1,10 +1,11 @@
-package org.robotlegs.demos.acmewidgetfactory.shell.events
+package org.robotlegs.demos.acmewidgetfactory.shell.controller.events
 {
 	import flash.events.Event;
 	
 	public class ShellEvent extends Event
 	{
 		public static const REMOVE_ALL_WIDGETS:String = 'REMOVE_ALL_WIDGETS';
+		public static const CLEAR_LOGGER:String = 'CLEAR_LOGGER';
 		
 		public function ShellEvent(type:String)
 		{

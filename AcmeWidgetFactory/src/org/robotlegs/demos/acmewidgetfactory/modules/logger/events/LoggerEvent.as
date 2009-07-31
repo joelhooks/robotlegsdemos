@@ -5,10 +5,11 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger.events
 	public class LoggerEvent extends Event
 	{
 		public static const LOG_MESSAGE:String = 'LOG_MESSAGE';
+		public static const CLEAR_MESSAGES:String = 'CLEAR_MESSAGES';
 		
 		protected var _message:String;
 		
-		public function LoggerEvent(type:String, message:String = "")
+		public function LoggerEvent(type:String, message:String = '')
 		{
 			super(type);
 			_message = message;

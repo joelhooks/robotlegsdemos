@@ -1,10 +1,10 @@
-package org.robotlegs.demos.acmewidgetfactory.shell.controller
+package org.robotlegs.demos.acmewidgetfactory.shell.controller.commands
 {
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellLoggerEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellLoggerEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.ControlPanelMediator;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.ControlPanelView;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.LoggerHolderMediator;
@@ -16,8 +16,18 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.mvcs.ContextEvent;
 	
-	public class StartupCommand extends Command
+	public class ShellStartupCommand extends Command
 	{
+		/**
+		 * The Shell's Startup Command
+		 *
+		 * With larger contexts we'd split this up into separate commands, for example:
+		 *
+		 * PrepShellModelCommand
+		 * PrepShellControllerCommand
+		 * PrepShellServicesCommand
+		 * PrepShellViewCommand
+		 */
 		override public function execute():void
 		{
 			// Controller
@@ -31,10 +41,12 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 			injector.bindSingleton(ActiveWidgetProxy);
 			
 			// View
+			injector.bindValue( AcmeWidgetFactory, contextView );
 			mediatorFactory.mapMediator(ControlPanelView, ControlPanelMediator);
 			mediatorFactory.mapMediator(LoggerHolderView, LoggerHolderMediator);
 			mediatorFactory.mapMediator(WidgetHolderView, WidgetHolderMediator);
-			// Module Views - notice FQCN::string style
+			
+			// Modules - notice FQCN::string style
 			mediatorFactory.mapModuleMediator('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
 			mediatorFactory.mapModuleMediator('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
 			

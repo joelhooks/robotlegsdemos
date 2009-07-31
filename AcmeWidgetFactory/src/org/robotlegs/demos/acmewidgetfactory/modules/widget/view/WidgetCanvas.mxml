@@ -3,15 +3,15 @@
 		 horizontalScrollPolicy="off"
 		 verticalScrollPolicy="off"
 		 width="125"
-		 height="90"
+		 height="84"
 		 horizontalAlign="center"
-		 verticalGap="5"
+		 verticalGap="6"
 		 borderStyle="solid"
 		 cornerRadius="5"
-		 paddingBottom="5"
-		 paddingLeft="5"
-		 paddingRight="5"
-		 paddingTop="5"
+		 paddingBottom="6"
+		 paddingLeft="6"
+		 paddingRight="6"
+		 paddingTop="6"
 		 backgroundColor="#D2D2D2"
 		 color="#433b3b"
 		 fontWeight="bold"
@@ -22,7 +22,9 @@
 		<![CDATA[
 			public function flipColor():void
 			{
-				colorCanvas.setStyle('backgroundColor', Math.random() * uint.MAX_VALUE);
+				var col:uint = Math.random() * uint.MAX_VALUE;
+				colorCanvas.setStyle('backgroundColor', col);
+				colorCanvas.setStyle('borderColor', col);
 			}
 		]]>
 	</mx:Script>
@@ -34,13 +36,16 @@
 			  paddingTop="0"/>
 
 	<mx:Canvas id="colorCanvas"
-			   width="30"
+			   width="100%"
 			   height="100%"
+			   cornerRadius="5"
+			   borderStyle="solid"
 			   backgroundColor="#FF0000">
 	</mx:Canvas>
 
 	<mx:Button id="killButton"
-			   label="kill"
-			   fontSize="10"/>
+			   label="close"
+			   fontSize="10"
+			   width="100%"/>
 
 </mx:VBox>

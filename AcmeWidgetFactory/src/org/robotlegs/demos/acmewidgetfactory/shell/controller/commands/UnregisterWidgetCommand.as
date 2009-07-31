@@ -1,7 +1,7 @@
-package org.robotlegs.demos.acmewidgetfactory.shell.controller
+package org.robotlegs.demos.acmewidgetfactory.shell.controller.commands
 {
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
 	import org.robotlegs.mvcs.Command;
 	
 	public class UnregisterWidgetCommand extends Command

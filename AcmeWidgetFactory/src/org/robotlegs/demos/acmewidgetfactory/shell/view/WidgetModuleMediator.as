@@ -5,12 +5,12 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import org.robotlegs.core.IContext;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.events.WidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
 	import org.robotlegs.mvcs.ContextEvent;
 	import org.robotlegs.mvcs.FlexMediator;
-
+	
 	public class WidgetModuleMediator extends FlexMediator
 	{
 		[Inject]

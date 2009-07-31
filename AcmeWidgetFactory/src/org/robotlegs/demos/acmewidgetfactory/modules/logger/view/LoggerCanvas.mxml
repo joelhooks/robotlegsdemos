@@ -9,9 +9,14 @@
 		<![CDATA[
 			public function logMessage(message:String):void
 			{
-				textArea.htmlText += "[" + new Date().toTimeString().substr(0, 8) + " ] " + message + "\n";
+				textArea.htmlText += '[' + new Date().toTimeString().substr(0, 8) + '] ' + message + '\n';
 				validateNow();
 				verticalScrollPosition = maxVerticalScrollPosition;
+			}
+			
+			public function clearMessages():void
+			{
+				textArea.htmlText = '';
 			}
 		]]>
 	</mx:Script>

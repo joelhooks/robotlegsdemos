@@ -1,4 +1,4 @@
-package org.robotlegs.demos.acmewidgetfactory.shell.events
+package org.robotlegs.demos.acmewidgetfactory.shell.controller.events
 {
 	import flash.events.Event;
 	

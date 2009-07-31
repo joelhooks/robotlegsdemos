@@ -5,8 +5,10 @@
 		 width="100%"
 		 borderStyle="solid"
 		 borderThickness="0"
+		 verticalGap="8"
+		 horizontalGap="10"
 		 cornerRadius="5"
-		 paddingBottom="10"
+		 paddingBottom="9"
 		 paddingLeft="10"
 		 paddingRight="10"
 		 paddingTop="10">

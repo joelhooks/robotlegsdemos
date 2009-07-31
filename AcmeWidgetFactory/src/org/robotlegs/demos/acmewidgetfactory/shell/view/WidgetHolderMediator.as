@@ -2,8 +2,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
 	import flash.display.DisplayObject;
 	
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.events.ActiveWidgetProxyEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
 	import org.robotlegs.mvcs.FlexMediator;
 	
 	public class WidgetHolderMediator extends FlexMediator
@@ -20,11 +21,11 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo(eventDispatcher, ShellWidgetEvent.CREATE_WIDGET_COMPLETE, onCreateWidgetComplete);
+			addEventListenerTo(eventDispatcher, ActiveWidgetProxyEvent.WIDGET_CREATED, onWidgetCreated);
 			addEventListenerTo(eventDispatcher, ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, onShutdownWidgetComplete);
 		}
 		
-		protected function onCreateWidgetComplete(e:ShellWidgetEvent):void
+		protected function onWidgetCreated(e:ActiveWidgetProxyEvent):void
 		{
 			view.addChild(activeWidgetProxy.getWidget(e.widgetId));
 		}

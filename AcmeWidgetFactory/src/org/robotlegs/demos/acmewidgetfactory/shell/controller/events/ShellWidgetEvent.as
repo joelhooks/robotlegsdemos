@@ -1,11 +1,10 @@
-package org.robotlegs.demos.acmewidgetfactory.shell.events
+package org.robotlegs.demos.acmewidgetfactory.shell.controller.events
 {
 	import flash.events.Event;
 	
 	public class ShellWidgetEvent extends Event
 	{
 		public static const CREATE_WIDGET:String = 'CREATE_WIDGET';
-		public static const CREATE_WIDGET_COMPLETE:String = 'CREATE_WIDGET_COMPLETE';
 		
 		public static const POKE_WIDGET:String = 'POKE_WIDGET';
 		public static const POKE_WIDGET_COMPLETE:String = 'POKE_WIDGET_COMPLETE';

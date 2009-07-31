@@ -10,14 +10,13 @@
 			 cornerRadius="5"
 			 borderColor="#FFFFFF"
 			 verticalAlign="middle"
-			 paddingBottom="5"
-			 paddingLeft="5"
-			 paddingRight="5"
-			 paddingTop="5">
+			 paddingBottom="10"
+			 paddingLeft="10"
+			 paddingRight="10"
+			 paddingTop="10">
 		<mx:Image source="@Embed(source='assets/RobotLegsLogoSmallWeb.png')"/>
-		<mx:Label text="Robotlegs: Acme Widget Factory Demo"
-				  fontSize="16"
-				  fontWeight="bold"/>
+		<mx:Label text="RobotLegs AS3: Acme Widget Factory Demo"
+				  fontSize="18"/>
 	</mx:HBox>
 
 	<mx:Form defaultButton="{createWidgetButton}"
@@ -55,9 +54,14 @@
 					   width="100%"/>
 		</mx:HBox>
 
-		<mx:Button id="destroyAllWidgetsButton"
-				   label="Destroy All Widgets"
-				   width="100%"/>
+		<mx:HBox width="100%">
+			<mx:Button id="destroyAllWidgetsButton"
+					   label="Destroy All Widgets"
+					   width="100%"/>
+			<mx:Button id="clearLoggerButton"
+					   label="Clear Logger"
+					   width="100%"/>
+		</mx:HBox>
 
 	</mx:Form>
 

@@ -1,8 +1,8 @@
-package org.robotlegs.demos.acmewidgetfactory.shell.controller
+package org.robotlegs.demos.acmewidgetfactory.shell.controller.commands
 {
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.modules.logger.LoggerModule;
-	import org.robotlegs.demos.acmewidgetfactory.shell.events.ShellLoggerEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellLoggerEvent;
 	import org.robotlegs.mvcs.Command;
 	
 	public class CreateLoggerCommand extends Command

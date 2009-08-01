@@ -6,8 +6,8 @@
 				paddingLeft="0"
 				paddingRight="0"
 				paddingTop="0"
-				preinitialize="onPreInitialize()"
-				viewSourceURL="srcview/index.html">
+				viewSourceURL="srcview/index.html"
+				preinitialize="onPreInitialize()">
 
 	<mx:Script>
 		<![CDATA[

@@ -9,7 +9,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.commands.ShellStartupCommand;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
-
+	
 	public class AcmeWidgetFactoryContext extends Context
 	{
 		public function AcmeWidgetFactoryContext(contextView:DisplayObjectContainer)
@@ -28,6 +28,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 		override protected function createLogger():ILogger
 		{
 			// Let's create a logger for this context
+			// return new NullLogger();
 			return new DefaultLogger('AcmeWidgetFactoryContext');
 		}
 	}

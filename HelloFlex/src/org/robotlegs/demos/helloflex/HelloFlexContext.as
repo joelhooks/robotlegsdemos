@@ -4,8 +4,6 @@ package org.robotlegs.demos.helloflex
 	
 	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.adapters.SmartyPantsInjector;
 	import org.robotlegs.adapters.SmartyPantsReflector;
 	import org.robotlegs.demos.helloflex.controller.commands.*;
@@ -32,12 +30,6 @@ package org.robotlegs.demos.helloflex
 			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand, true);
 			// And away we go!
 			super.startup();
-		}
-		
-		override protected function createLogger():ILogger
-		{
-			// Let's create a logger for this context
-			return new DefaultLogger('HelloFlexContext');
 		}
 	
 	}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+		   width="100%"
+		   height="100%"
+		   xmlns:lazystack="org.robotlegs.demos.lazystack.*"
+		   preinitialize="onPreInitialize()">
+
+	<mx:Script>
+		<![CDATA[
+			import org.robotlegs.demos.lazystack.MainViewContext;
+			
+			private var context:MainViewContext;
+			
+			private function onPreInitialize():void
+			{
+				context = new MainViewContext(this);
+			}
+		]]>
+	</mx:Script>
+
+	<mx:TabNavigator width="90%"
+					 height="90%">
+		<lazystack:ComponentA label="ComponentA"/>
+		<lazystack:ComponentB label="ComponentB"/>
+		<lazystack:ComponentA label="ComponentA"/>
+		<lazystack:ComponentB label="ComponentB"/>
+	</mx:TabNavigator>
+
+</mx:Canvas>

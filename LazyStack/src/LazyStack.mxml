@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:lazystack="org.robotlegs.demos.lazystack.*"
+				layout="absolute"
+				minWidth="1024"
+				minHeight="768">
+
+	<mx:TabNavigator width="90%"
+					 height="90%">
+
+		<mx:Canvas label="Blank 1"/>
+		<mx:Canvas label="Blank 2"/>
+		
+		<lazystack:MainView label="Lazy!"/>
+
+	</mx:TabNavigator>
+
+</mx:Application>

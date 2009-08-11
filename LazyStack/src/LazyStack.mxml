@@ -12,6 +12,7 @@
 		<mx:Canvas label="Blank 2"/>
 		
 		<lazystack:MainView label="Lazy!"/>
+		<lazystack:MainView label="Lazy 2!"/>
 
 	</mx:TabNavigator>
 

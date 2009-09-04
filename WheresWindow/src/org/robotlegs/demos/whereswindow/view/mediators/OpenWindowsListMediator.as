@@ -27,7 +27,7 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		override public function onRegister():void
 		{
 			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_ADDED, handleWindowAdded );
-			addEventListenerTo( view, IndexChangedEvent.SELECTION_CHANGED, handleItemChanged );
+			addEventListenerTo( view, IndexChangedEvent.CHANGE, handleItemChanged );
 			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_REMOVED, handleWindowClosed );
 		}
 		

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="absolute"
+				minWidth="320"
+				minHeight="200"
+				preinitialize="preInitHandler()">
+
+	<mx:Script>
+		<![CDATA[
+			import org.robotlegs.demos.appmediation.DemoContext;
+			protected var context:DemoContext;
+			
+			protected function preInitHandler():void
+			{
+				context = new DemoContext(this);
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Label id="appLabel"/>
+
+</mx:Application>

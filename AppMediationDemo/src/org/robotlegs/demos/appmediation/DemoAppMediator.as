@@ -22,9 +22,9 @@
 
 package org.robotlegs.demos.appmediation
 {
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class DemoAppMediator extends FlexMediator
+	public class DemoAppMediator extends Mediator
 	{
 		[Inject]
 		public var view:FlexAppMediationDemo;

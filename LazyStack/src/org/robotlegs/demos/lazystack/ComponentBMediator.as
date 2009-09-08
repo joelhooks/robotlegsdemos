@@ -22,10 +22,9 @@
 
 package org.robotlegs.demos.lazystack
 {
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-
-	public class ComponentBMediator extends FlexMediator
+	public class ComponentBMediator extends Mediator
 	{
 		[Inject]
 		public var view:ComponentB;

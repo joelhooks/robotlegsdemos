@@ -4,9 +4,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class ControlPanelMediator extends FlexMediator
+	public class ControlPanelMediator extends Mediator
 	{
 		[Inject]
 		public var view:ControlPanelView;

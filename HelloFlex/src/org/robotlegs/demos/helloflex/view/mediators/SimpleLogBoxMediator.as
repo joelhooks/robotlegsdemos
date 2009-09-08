@@ -3,9 +3,9 @@ package org.robotlegs.demos.helloflex.view.mediators
 	import org.robotlegs.demos.helloflex.model.events.MessageProxyEvent;
 	import org.robotlegs.demos.helloflex.model.events.UserProxyEvent;
 	import org.robotlegs.demos.helloflex.view.components.SimpleLogBox;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class SimpleLogBoxMediator extends FlexMediator
+	public class SimpleLogBoxMediator extends Mediator
 	{
 		[Inject]
 		public var simpleLogBox:SimpleLogBox;

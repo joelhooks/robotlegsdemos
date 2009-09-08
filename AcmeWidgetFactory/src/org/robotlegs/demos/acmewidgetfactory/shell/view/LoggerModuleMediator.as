@@ -9,9 +9,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.model.events.ActiveWidgetProxyEvent;
 	import org.robotlegs.mvcs.ContextEvent;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class LoggerModuleMediator extends FlexMediator
+	public class LoggerModuleMediator extends Mediator
 	{
 		[Inject]
 		public var module:ILoggerModule;

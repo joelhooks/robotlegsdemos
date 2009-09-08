@@ -6,9 +6,9 @@ package org.robotlegs.demos.whereswindow.view.mediators
 	import org.robotlegs.core.IMediator;
 	import org.robotlegs.demos.whereswindow.events.InfoWindowEvent;
 	import org.robotlegs.demos.whereswindow.view.components.WheresWindowView;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 
-	public class WheresWindowViewMediator extends FlexMediator implements IMediator
+	public class WheresWindowViewMediator extends Mediator implements IMediator
 	{
 		public function WheresWindowViewMediator()
 		{

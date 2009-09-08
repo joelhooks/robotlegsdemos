@@ -5,9 +5,9 @@ package org.robotlegs.demos.helloflex.view.mediators
 	import org.robotlegs.demos.helloflex.remote.services.IAuthService;
 	import org.robotlegs.demos.helloflex.view.components.LoginPage;
 	import org.robotlegs.demos.helloflex.view.events.LoginPageEvent;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class LoginPageMediator extends FlexMediator
+	public class LoginPageMediator extends Mediator
 	{
 		[Inject]
 		public var loginPage:LoginPage;

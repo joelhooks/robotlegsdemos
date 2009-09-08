@@ -3,9 +3,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import mx.core.UIComponent;
 	
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellLoggerEvent;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 
-	public class LoggerHolderMediator extends FlexMediator
+	public class LoggerHolderMediator extends Mediator
 	{
 		[Inject]
 		public var view:LoggerHolderView;

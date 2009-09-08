@@ -6,9 +6,9 @@ package org.robotlegs.demos.helloflex.view.mediators
 	import org.robotlegs.demos.helloflex.model.proxies.UserProxy;
 	import org.robotlegs.demos.helloflex.remote.services.IAuthService;
 	import org.robotlegs.demos.helloflex.view.components.LogoutButton;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class LogoutButtonMediator extends FlexMediator
+	public class LogoutButtonMediator extends Mediator
 	{
 		[Inject]
 		public var logoutButton:LogoutButton;

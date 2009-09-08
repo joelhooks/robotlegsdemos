@@ -4,9 +4,9 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.view
 	
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.events.WidgetEvent;
 	import org.robotlegs.mvcs.ContextEvent;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class WidgetCanvasMediator extends FlexMediator
+	public class WidgetCanvasMediator extends Mediator
 	{
 		[Inject]
 		public var view:WidgetCanvas;

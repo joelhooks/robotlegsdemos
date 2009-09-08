@@ -4,9 +4,9 @@ package org.robotlegs.demos.helloflex.view.mediators
 	
 	import org.robotlegs.demos.helloflex.controller.events.SystemEvent;
 	import org.robotlegs.demos.helloflex.view.components.ClearMessagesButton;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class ClearMessagesButtonMediator extends FlexMediator
+	public class ClearMessagesButtonMediator extends Mediator
 	{
 		[Inject]
 		public var clearMessagesButton:ClearMessagesButton;

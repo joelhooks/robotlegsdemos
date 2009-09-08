@@ -5,9 +5,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.model.events.ActiveWidgetProxyEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
-	public class WidgetHolderMediator extends FlexMediator
+	public class WidgetHolderMediator extends Mediator
 	{
 		[Inject]
 		public var view:WidgetHolderView;

@@ -14,12 +14,11 @@ package org.robotlegs.demos.imagegallery.views.mediators
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.events.GalleryImageEvent;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
-	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryView;
 	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
-	import org.robotlegs.mvcs.FlexMediator;
+	import org.robotlegs.mvcs.Mediator;
 
-	public class GalleryViewMediator extends FlexMediator
+	public class GalleryViewMediator extends Mediator
 	{
 		[Inject]
 		public var galleryView:GalleryView;

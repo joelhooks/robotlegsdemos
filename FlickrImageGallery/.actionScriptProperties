@@ -11,7 +11,10 @@
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
-  <applications/>
+  <applications>
+    <application path="RobotlegsFlickrGallery.mxml"/>
+    <application path="RobotlegsImageGalleryTestRunner.mxml"/>
+  </applications>
   <modules/>
   <buildCSSFiles/>
 </actionScriptProperties>

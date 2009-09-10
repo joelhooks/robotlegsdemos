@@ -4,5 +4,6 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 	
 	public class ConfigProxy extends Proxy
 	{
+		
 	}
 }

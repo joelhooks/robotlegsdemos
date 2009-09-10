@@ -5,20 +5,21 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 	import flash.text.StyleSheet;
 	import flash.events.TextEvent;
 	import flash.events.Event;
+	import flash.text.TextFieldAutoSize;
 
 	[Embed(source='../../../../../../../../assets/swf/contentAssets.swf', symbol='PlainTextView')]
 	public class PlainTextView extends MovieClip
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const SHOW_TIPS:String = "showTips";
 		
 		//--------------------------------------------------------------------------
 		//
-		//  Properties
+		//  Instance Properties
 		//
 		//--------------------------------------------------------------------------
 		public var contentWindow:MovieClip;
@@ -45,6 +46,11 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 			contentWindow.contentField.htmlText = val;
 		}
 		
+		public function destroy():void
+		{
+			contentWindow.contentField.removeEventListener(TextEvent.LINK, handleEvent);
+		}
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Eventhandling
@@ -52,7 +58,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		//--------------------------------------------------------------------------
 		private function handleEvent(event:TextEvent):void
 		{
-			dispatchEvent(new Event(PlainTextView.SHOW_TIPS));
+				dispatchEvent(new Event(event.text));
 		}
 
 		//--------------------------------------------------------------------------
@@ -65,7 +71,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 			x = 30;
 
             contentWindow.contentField.styleSheet = initializeStyles();
-            contentWindow.contentField.autoSize = "left";
+            contentWindow.contentField.autoSize = TextFieldAutoSize.LEFT;
             contentWindow.contentField.addEventListener(TextEvent.LINK, handleEvent);
 		}
 	
@@ -74,16 +80,16 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 			var style:StyleSheet = new StyleSheet();
 	
 	        var quote:Object = new Object();
-	        quote.fontSize = "24";
+	        quote.fontSize = "21";
 	        quote.textAlign = "center";
 	        
 	        var mbold:Object = new Object();
-	        //mbold.fontFamily = PlainTextView.MAQUETTE_BOLD;
+	        mbold.fontFamily = "Myriad Pro Semibold";
 	        
 	        var link:Object = new Object();
 	        link.fontSize = "24";
 	        link.textAlign = "center";
-	        link.color = "#ee820f";
+	        link.color = "#b30d0d";
 	        link.textDecoration = "underline";
 	
 			style.setStyle(".quote", quote);

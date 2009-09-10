@@ -9,7 +9,7 @@ package org.robotlegs.demos.flashgooglemaps.view.events
 		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
-		public static const TIP_VIEW_EVENT:String = "tipViewEvent";
+		public static const SHOW_TIP:String = "showTipOnMap";
 		//--------------------------------------------------------------------------
 		//
 		//  Instance Properties

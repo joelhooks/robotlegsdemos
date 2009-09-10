@@ -15,7 +15,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const CONTENT_HOW:uint = 0;

@@ -11,7 +11,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const SHOW_TIP:String = "showTip";
@@ -64,6 +64,11 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 			active.alpha = 0;
 			
 			initializeBehaviour();
+		}
+		
+		public function destroy():void
+		{
+			deinitializeBehaviour();
 		}
 
 		//--------------------------------------------------------------------------

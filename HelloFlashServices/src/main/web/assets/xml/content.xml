@@ -5,13 +5,13 @@
 		<marker headline="Café Jos Meesterschenkerij" foto="jos.jpg" body="This pub is the 2009 number 1 pub in The Netherlands according to the official pub top 100! Be sure to visit this one." lat="51.8359761" lng="5.8781757" stad="Nijmegen" adres="Daalseweg 309"/>
 	</markers>
 	<contents>
-		<content type="hoe"><![CDATA[<span class='quote'><font size='16px'>Here I will try and explain how everything fits together.</font></span><!-- <br/><br/><span class='link'><a href='event:clickLink'>Beluister de tips >></a></span> -->]]></content>
+		<content type="hoe"><![CDATA[<span class='quote'><font size='16px'>Here I will try and explain how everything <span class='mbold'>fits</span> together.</font></span><br/><br/><span class='link'><a href='event:showTips'>Show me the best pubs >></a></span>]]></content>
 		<content type="tips">
 			<tip text="Tip 1. Amsterdam - In de Wildeman, a famous pub with a nice collection of Belgian beers"/>
 			<tip text="Tip 2. Nijmegen - Café Jos. This pub is the number 1 pub on the hotlist!"/>
 		</content>
-		<content type="regels"><![CDATA[<font color='#ee820f' size='21'>And my explanation will probably continue here.</font><br>Don't know yet what I'm going to tell you here but I'll figure it out.]]></content>
-		<content type="voorwaarden"><![CDATA[<font color='#ee820f' size='21'>And some more room for explanations.</font><br>
+		<content type="regels"><![CDATA[<font color='#b30d0d' size='21'>And my explanation will probably continue here.</font><br>Don't know yet what I'm going to tell you here but I'll figure it out.]]></content>
+		<content type="voorwaarden"><![CDATA[<font color='#b30d0d' size='21'>And some more room for explanations.</font><br>
 Well, it's probably some work to explain the whole thing so I will be typing something here too I guess...]]></content>
 	</contents>
 </website>

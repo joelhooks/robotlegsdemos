@@ -29,7 +29,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const GOOGLEMAP_READY:String = "googleMapReady";
@@ -48,6 +48,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
         private var _infoWindows:Array = [];
         private var _activeMarker:Marker;
         private var _mapMarkers:MapMarkers;
+        private var _zoomed:Boolean = false;
         
         //--------------------------------------------------------------------------
         //
@@ -66,6 +67,11 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 		//  API
 		//
 		//--------------------------------------------------------------------------
+		public function get zoomed():Boolean
+		{
+			return _zoomed;
+		}
+		
 		public function show():void
 		{
 			Tweener.addTween(this, 
@@ -82,6 +88,17 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 		public function hide():void
 		{
 			visible = false;
+		}
+		
+		public function resetView():void
+		{
+			_map.setZoom(7);
+			_map.panTo(new LatLng(52.3644935, 5.1779126));
+			_activeMarker.visible = true;
+			
+			hideAllSmartInfoWindows();
+			
+			_zoomed = false;
 		}
 		
 		public function createMarkers(mapMarkers:MapMarkers):void
@@ -101,6 +118,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 	        	_map.setZoom(16);
 	        	_map.panTo(placemarks[0].point);
 	        	_map.panBy(new Point(-22, -190));
+	        	_zoomed = true;
 	    	}
         }
 
@@ -123,6 +141,8 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 			mapMarker.smartInfoWindow.show();
 			mapMarker.smartInfoWindow.marker.visible = false;
 			_activeMarker = mapMarker.smartInfoWindow.marker;
+			
+			_zoomed = true;
         }
 		
 		//--------------------------------------------------------------------------
@@ -141,6 +161,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 					_map.setZoom(7);
 					_map.panTo(new LatLng(52.3644935, 5.1779126));
 					_activeMarker.visible = true;
+					_zoomed = false;
 				break;
 				case GoogleMapsView.VIEW_ON_STAGE:
 					dispatchEvent(event);

@@ -12,6 +12,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 
 	import flash.events.Event;
 
+	import org.robotlegs.demos.flashgooglemaps.view.events.ContentChangeEvent;
+
 	public class GoogleMapsMediator extends Mediator
 	{
 		[Inject]
@@ -43,6 +45,10 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 			addEventListenerTo(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
 			addEventListenerTo(view, GoogleMapsView.GET_GEOCODING_RESULT, handleGeocodingRequest);
 			addEventListenerTo(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
+			addEventListenerTo(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
+			addEventListenerTo(eventDispatcher, GeoCodingServiceEvent.GEOCODING_RESULT, handleGeocodingResult);
+			addEventListenerTo(eventDispatcher, TipViewEvent.SHOW_TIP, handleTipViewEvent);
+			addEventListenerTo(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -52,10 +58,6 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		//--------------------------------------------------------------------------
 		private function handleGoogleMapReady(event:Event):void
 		{
-			addEventListenerTo(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
-			addEventListenerTo(eventDispatcher, GeoCodingServiceEvent.GEOCODING_RESULT, handleGeocodingResult);
-			addEventListenerTo(eventDispatcher, TipViewEvent.TIP_VIEW_EVENT, handleTipViewEvent);
-			
 			assetLoaderProxy.loadXMLContent("assets/xml/content.xml");
 		}
 		
@@ -84,6 +86,11 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		private function handleTipViewEvent(event:TipViewEvent):void
 		{
 			view.showTipOnMap(event.id);
+		}
+		
+		private function handleContentChange(event:ContentChangeEvent):void
+		{
+			if(view.zoomed) view.resetView();
 		}
 	}
 }

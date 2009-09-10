@@ -15,11 +15,10 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const SHOW_TIPS:String = "showTips";
-		public static const SHOW_TIP_ON_MAP:String = "showTipOnMap";
 		
 		//--------------------------------------------------------------------------
 		//
@@ -33,7 +32,6 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		private var _currentView:MovieClip;
 		private var _tips:Array = [];
 		private var _scroller:CustomScrollbar;
-		private var _activeTip:TipView;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -64,17 +62,11 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
     		visible = false;
     	}
     	
-    	public function get activeTip():TipView
-    	{ 
-    		return _activeTip;
-    	}
-    	
     	public function showPlainTextView(val:String):void
     	{
 			resetView();
 			
 			var view:PlainTextView = new PlainTextView();
-			view.addEventListener(PlainTextView.SHOW_TIPS, handleEvent);
 			contentHolder.addChild(view);
 			view.setContent(val);
 			_currentView = view;
@@ -107,7 +99,6 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 				
 				_tips = [];
 				_scroller.reset();
-				_activeTip = null;
 			}	
 		}
 
@@ -118,22 +109,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
     	//--------------------------------------------------------------------------
     	private function handleEvent(event:*):void
     	{
-    		switch(event.type)
-    		{
-    			case MouseEvent.MOUSE_UP:
-	    			if(event.target == link_github) openExternalURL("http://github.com/darscan");
-    			break;
-    			case TipView.SHOW_TIP:
-    				var tip:TipView = event.target as TipView;
-					if(_activeTip != null && _activeTip != tip) 
-						_activeTip.resetView();
-					_activeTip = tip;
-					dispatchEvent(new Event(ContentView.SHOW_TIP_ON_MAP));
-				break;
-				case PlainTextView.SHOW_TIPS:
-					dispatchEvent(new Event(ContentView.SHOW_TIPS));
-				break;
-			}
+	    	if(event.target == link_github) openExternalURL("http://github.com/darscan");
     	}
     	
     	//--------------------------------------------------------------------------
@@ -187,7 +163,6 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 					var file:String = tipXml.@file;
 					
 					var tip:TipView = new TipView();
-					tip.addEventListener(TipView.SHOW_TIP, handleEvent);
 					tip.setTipText(tipText);
 					tip.id = i;
 					tip.y = yVal;

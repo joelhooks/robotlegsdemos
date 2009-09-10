@@ -5,7 +5,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 	import org.robotlegs.demos.flashgooglemaps.view.components.content.TabView;
 	import org.robotlegs.demos.flashgooglemaps.view.events.ContentChangeEvent;
 
-	public class TabMediator extends Mediator
+	public class TabViewMediator extends Mediator
 	{
 		[Inject]
 		public var view:TabView
@@ -14,7 +14,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//  Initialization
 		//
 		//--------------------------------------------------------------------------
-		public function TabMediator()
+		public function TabViewMediator()
 		{
 			super();
 		}
@@ -27,6 +27,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		override public function onRegister():void
 		{
 			addEventListenerTo(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
+			addEventListenerTo(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleTextEventContentChange);
 			addEventListenerTo(view, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
 		}
 		
@@ -43,6 +44,11 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		private function handleContentChange(event:ContentChangeEvent):void
 		{
 			dispatch(event);
+		}
+		
+		private function handleTextEventContentChange(event:ContentChangeEvent):void
+		{
+			view.goToTab(event.id + 1);
 		}
 	}
 }

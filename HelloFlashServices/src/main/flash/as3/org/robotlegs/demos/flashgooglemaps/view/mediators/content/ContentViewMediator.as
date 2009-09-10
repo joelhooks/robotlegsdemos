@@ -6,12 +6,11 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 	import org.robotlegs.demos.flashgooglemaps.view.components.content.ContentView;
 	import org.robotlegs.demos.flashgooglemaps.events.SystemEvent;
 	import org.robotlegs.demos.flashgooglemaps.view.events.ContentChangeEvent;
-
-	import flash.events.Event;
-
 	import org.robotlegs.demos.flashgooglemaps.view.events.TipViewEvent;
 
-	public class ContentMediator extends Mediator
+	import flash.events.Event;
+	
+	public class ContentViewMediator extends Mediator
 	{
 		[Inject]
 		public var assetLoaderProxy:AssetLoaderProxy;
@@ -26,7 +25,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//  Initialization
 		//
 		//--------------------------------------------------------------------------
-		public function ContentMediator()
+		public function ContentViewMediator()
 		{
 			super();
 		}
@@ -41,7 +40,6 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 			addEventListenerTo(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 			addEventListenerTo(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
 			addEventListenerTo(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
-			addEventListenerTo(view, ContentView.SHOW_TIP_ON_MAP, handleShowTipOnMap);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -67,12 +65,6 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 				view.showTipTextView(xml..content[1]);
 			else
 				view.showPlainTextView(xml..content[event.id]);
-		}
-		
-		private function handleShowTipOnMap(event:Event):void
-		{
-			var id:uint = view.activeTip.id;
-			dispatch(new TipViewEvent(TipViewEvent.TIP_VIEW_EVENT, id));
 		}
 	}
 }

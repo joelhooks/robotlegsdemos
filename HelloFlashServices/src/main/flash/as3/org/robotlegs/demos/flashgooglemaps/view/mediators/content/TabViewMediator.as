@@ -26,6 +26,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		override public function onRegister():void
 		{
+			view.main();
+			
 			addEventListenerTo(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
 			addEventListenerTo(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleTextEventContentChange);
 			addEventListenerTo(view, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);

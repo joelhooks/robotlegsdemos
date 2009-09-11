@@ -42,6 +42,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		//--------------------------------------------------------------------------
 		override public function onRegister():void
 		{
+			view.main();
+			
 			addEventListenerTo(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
 			addEventListenerTo(view, GoogleMapsView.GET_GEOCODING_RESULT, handleGeocodingRequest);
 			addEventListenerTo(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);

@@ -25,7 +25,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		
 		//--------------------------------------------------------------------------
 		//
-		//  Properties
+		//  Instance Properties
 		//
 		//--------------------------------------------------------------------------
 		public var hoe:MovieClip;
@@ -41,7 +41,10 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		public function TabView()
 		{
 			super();
-			
+		}
+		
+		public function main():void
+		{
 			initializeView();
 			
 			initializeBehaviour();

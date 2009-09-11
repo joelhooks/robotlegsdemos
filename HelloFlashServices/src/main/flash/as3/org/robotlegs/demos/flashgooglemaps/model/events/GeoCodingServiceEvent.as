@@ -6,7 +6,7 @@ package org.robotlegs.demos.flashgooglemaps.model.events
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const GEOCODING_RESULT:String = "geocodingResult";

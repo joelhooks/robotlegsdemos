@@ -15,6 +15,11 @@ package org.robotlegs.demos.flashgooglemaps
 
 	public class FlashGoogleMapsContext extends Context
 	{
+		//--------------------------------------------------------------------------
+		//
+		//  Initialization
+		//
+		//--------------------------------------------------------------------------
 		public function FlashGoogleMapsContext(contextView:DisplayObjectContainer, injector:IInjector, reflector:IReflector, autoStartup:Boolean = true)
 		{
 			super(contextView, injector, reflector, autoStartup);

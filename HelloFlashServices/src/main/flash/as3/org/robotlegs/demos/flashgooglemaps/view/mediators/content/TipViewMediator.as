@@ -27,6 +27,10 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		override public function onRegister():void
 		{
+			view.main();
+			
+			// you could also use:
+			// addEventListenerTo(view, MouseEvent.MOUSE_DOWN, handleShowTip);
 			addEventListenerTo(view, TipView.SHOW_TIP, handleShowTip);
 			addEventListenerTo(eventDispatcher, TipViewEvent.SHOW_TIP, handleShowTipReset);
 		}

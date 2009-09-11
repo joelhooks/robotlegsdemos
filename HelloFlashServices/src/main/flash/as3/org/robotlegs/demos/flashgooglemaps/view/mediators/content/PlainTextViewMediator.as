@@ -28,6 +28,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		override public function onRegister():void
 		{
+			view.main();
+			
 			addEventListenerTo(view, PlainTextView.SHOW_TIPS, handleShowTips);
 		}
 		

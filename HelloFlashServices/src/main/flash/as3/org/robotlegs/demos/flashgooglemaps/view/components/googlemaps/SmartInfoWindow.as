@@ -16,13 +16,13 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Class properties
+		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
 		public static const RESET_MAP:String = "resetMap";
 		//--------------------------------------------------------------------------
 		//
-		//  Properties
+		//  Instance Properties
 		//
 		//--------------------------------------------------------------------------
 		public var closeInfoWindow:MovieClip;
@@ -106,11 +106,13 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
     	
     	private function handleEvent(event:*):void
     	{
-    		switch(event.type) {
+    		switch(event.type)
+    		{
     			case MouseEvent.MOUSE_UP:
-    			if(event.target == closeInfoWindow) {
-    				hide();
-    				dispatchEvent(new Event(SmartInfoWindow.RESET_MAP));
+    				if(event.target == closeInfoWindow)
+    				{
+    					hide();
+    					dispatchEvent(new Event(SmartInfoWindow.RESET_MAP));
 					}
     			break;
     		}

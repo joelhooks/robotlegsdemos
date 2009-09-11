@@ -41,7 +41,10 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		public function ContentView()
 		{
 			super();
-			
+		}
+		
+		public function main():void
+		{
 			initializeView();
 			
 			initializeBehaviour();
@@ -92,7 +95,9 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 			
 			if(_tips.length > 0)
 			{
-				for(var i:uint = 0; i < _tips.length; i++)
+				var i:uint;
+				
+				for(i = 0; i < _tips.length; i++)
 				{
 					contentHolder.removeChild(_tips[i]);
 				}

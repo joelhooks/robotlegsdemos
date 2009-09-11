@@ -48,8 +48,8 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 		{
 			var placemarks:Array = event.response.placemarks;
         	
-        	trace(LatLng(placemarks[0].point).lat());
-        	trace(LatLng(placemarks[0].point).lng());
+        	//trace(LatLng(placemarks[0].point).lat());
+        	//trace(LatLng(placemarks[0].point).lng());
         	
         	dispatch(new GeoCodingServiceEvent(GeoCodingServiceEvent.GEOCODING_RESULT, placemarks));
         	

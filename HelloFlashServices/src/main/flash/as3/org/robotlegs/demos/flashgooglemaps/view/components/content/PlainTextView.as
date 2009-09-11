@@ -32,7 +32,10 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		public function PlainTextView()
 		{
 			super();
-			
+		}
+		
+		public function main():void
+		{
 			initializeView();
 		}
 		
@@ -58,7 +61,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		//--------------------------------------------------------------------------
 		private function handleEvent(event:TextEvent):void
 		{
-				dispatchEvent(new Event(event.text));
+			dispatchEvent(new Event(event.text));
 		}
 
 		//--------------------------------------------------------------------------

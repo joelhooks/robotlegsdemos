@@ -4,6 +4,11 @@ package org.robotlegs.demos.flashgooglemaps.model.vo.googlemaps
 	
 	public class MapMarker extends BaseMapMarker
 	{
+		//--------------------------------------------------------------------------
+		//
+		//  Initialization
+		//
+		//--------------------------------------------------------------------------
 		public function MapMarker()
 		{
 			super();

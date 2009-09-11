@@ -58,7 +58,10 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 		public function GoogleMapsView()
 		{
 			super();
-			
+		}
+		
+		public function main():void
+		{
 			initializeView();
 		}
 		

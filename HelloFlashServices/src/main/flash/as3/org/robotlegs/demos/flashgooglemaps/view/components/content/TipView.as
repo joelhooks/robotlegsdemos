@@ -33,7 +33,10 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
 		public function TipView()
 		{
 			super();
-			
+		}
+		
+		public function main():void
+		{
 			initializeView();
 			
 			initializeBehaviour();

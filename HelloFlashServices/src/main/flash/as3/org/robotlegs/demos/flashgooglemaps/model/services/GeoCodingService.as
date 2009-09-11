@@ -1,3 +1,25 @@
+/*
+ * Copyright (c) 2009 the original author or authors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 package org.robotlegs.demos.flashgooglemaps.model.services
 {
 	import org.robotlegs.mvcs.Service;
@@ -6,7 +28,13 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 	import com.google.maps.services.ClientGeocoder;
 	import com.google.maps.services.GeocodingEvent;
 	import com.google.maps.LatLng;
-
+	
+	/**
+	 * A Service to get us some results from the Googlemaps API.
+	 * 
+	 * @author Peter Lorent peter.lorent@gmail.com
+	 * 
+	 */	
 	public class GeoCodingService extends Service
 	{
 		//--------------------------------------------------------------------------
@@ -21,6 +49,10 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 		//  Initialization
 		//
 		//--------------------------------------------------------------------------
+		/**
+		 * No comment. 
+		 * 
+		 */		
 		public function GeoCodingService()
 		{
 			super();
@@ -31,6 +63,13 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 		//  API
 		//
 		//--------------------------------------------------------------------------
+		/**
+		 * Googlemaps, can we have some results please.
+		 *  
+		 * @param city String
+		 * @param address String
+		 * 
+		 */		
 		public function requestGeocoding(city:String, address:String):void
 		{
 			_geocoder = new ClientGeocoder();
@@ -44,6 +83,14 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 		//  Eventhandling
 		//
 		//--------------------------------------------------------------------------
+		/**
+		 * Event handler. Dispatches a GeoCodingServiceEvent holding the placemarks
+		 * to the GoogleMapsMediator to provide the data to its view component.
+		 * When done, takes care of clean up by removing event listeners.
+		 * 
+		 * @param event GeocodingEvent
+		 * 
+		 */		
 		private function handleGeocodingSuccess(event:GeocodingEvent):void
 		{
 			var placemarks:Array = event.response.placemarks;
@@ -56,6 +103,12 @@ package org.robotlegs.demos.flashgooglemaps.model.services
         	removeListeners();
 		}
 		
+		/**
+		 * Yeah, to do.
+		 * 
+		 * @param event GeocodingEvent
+		 * 
+		 */		
 		private function handleGeocodingFailure(event:GeocodingEvent):void
 		{
 			//TODO
@@ -66,6 +119,10 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 		//  Methods
 		//
 		//--------------------------------------------------------------------------
+		/**
+		 * Clean up. 
+		 * 
+		 */		
 		private function removeListeners():void
 		{
 			_geocoder.removeEventListener(GeocodingEvent.GEOCODING_SUCCESS, handleGeocodingSuccess);

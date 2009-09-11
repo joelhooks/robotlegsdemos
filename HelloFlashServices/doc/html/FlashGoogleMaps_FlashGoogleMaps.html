@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>FlashGoogleMaps</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_FlashGoogleMaps_FlashGoogleMaps"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instanceproperties" accesskey="l">Instance <span class="accessKey">p</span>roperties</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>FlashGoogleMaps</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-FlashGoogleMaps.html">FlashGoogleMaps</a></td></tr><tr><th align="left">Inherits from:</th><td>Sprite</td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Peter Lorent peter.lorent@gmail.com<br /><br />The project is a FlashBuilder AS3-project using SDK4.0.0 build 7219. <br />It is set to build in /web/assets/swf/ and opens the index.html in /web <br />if you debug the project. The index.html embeds a loader.swf and it loads <br />the swf (FlashGoogleMaps.swf) we compile with FlashBuilder. The View (component) <br />classes in the code embed graphical assets (movieclips) from fla files (Flash CS4). <br />These are set to publish in src/main/flash/assets/swf/. <br />If you change things in the fla's, compile in the Flash IDE and debug the <br />project in FlashBuilder to see the changes. The Googlemap uses a custom marker. <br />Its View class embeds a .png that resides in src/main/flash/assets/bitmaps/<br /><br />The directory structure is pretty much how I do my projects. If you want<br />to read more on this workflow and embedding assets, you can visit my blog <br />on <a href="http://blog.peterlorent.nl">http://blog.peterlorent.nl</a> and read the articles in the category Flash Workflow.<br /><br />This class serves as the Document Class for the project and as such as<br />the 'root' Sprite. We provide this Sprite to the framework so it can detect<br />any changes to its Display List.<br /></td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">FlashGoogleMaps</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Friday, 11 September 2009, 13:47:24</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/*
+ * Copyright (c) 2009 the original author or authors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+package
+{
+    import flash.display.Sprite;
+    import flash.system.Security;
+    
+    import org.robotlegs.demos.flashgooglemaps.FlashGoogleMapsContext;
+    import org.robotlegs.adapters.SpringInjector;
+    import org.robotlegs.adapters.SpringReflector;
+    
+    /**
+     * 
+     * @author Peter Lorent peter.lorent@gmail.com
+     * 
+     * The project is a FlashBuilder AS3-project using SDK4.0.0 build 7219. 
+     * It is set to build in /web/assets/swf/ and opens the index.html in /web 
+     * if you debug the project. The index.html embeds a loader.swf and it loads 
+     * the swf (FlashGoogleMaps.swf) we compile with FlashBuilder. The View (component) 
+     * classes in the code embed graphical assets (movieclips) from fla files (Flash CS4). 
+     * These are set to publish in src/main/flash/assets/swf/. 
+     * If you change things in the fla's, compile in the Flash IDE and debug the 
+     * project in FlashBuilder to see the changes. The Googlemap uses a custom marker. 
+     * Its View class embeds a .png that resides in src/main/flash/assets/bitmaps/
+     * 
+     * The directory structure is pretty much how I do my projects. If you want
+     * to read more on this workflow and embedding assets, you can visit my blog 
+     * on http://blog.peterlorent.nl and read the articles in the category Flash Workflow.
+     * 
+     * This class serves as the Document Class for the project and as such as
+     * the 'root' Sprite. We provide this Sprite to the framework so it can detect
+     * any changes to its Display List.
+     * 
+     */        
+    public class FlashGoogleMaps extends Sprite
+    {
+        // hold on to this
+        private var _context:FlashGoogleMapsContext;
+        
+        public function FlashGoogleMaps()
+        {
+            Security.allowDomain("maps.googleapis.com");
+            
+            // initialize the framework
+            _context = new FlashGoogleMapsContext(this, new SpringInjector(), new SpringReflector());
+        }
+    }
+}
+</textarea></div></div></div><div class="classDescription"></div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#FlashGoogleMaps">FlashGoogleMaps</a></li></ul></div><div class="memberSummaryPart private"><span class="title">Instance properties</span><ul class="sortable" id="sortul2"><li class="private sortli listnum2"><a href="#_context">_context</a><span class="typeInfo">  : <a class="className" href="org_robotlegs_demos_flashgooglemaps_FlashGoogleMapsContext.html">FlashGoogleMapsContext</a></span></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="FlashGoogleMaps"><h3>FlashGoogleMaps</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>FlashGoogleMaps</b> (
+</div><div class="code">)</div><br class="clear" /></div></div></div></div><div class="memberSection private"><h2 id="Instanceproperties">Instance properties</h2><div class="member private" id="_context"><h3>_context</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_context</b>:<a class="className" href="org_robotlegs_demos_flashgooglemaps_FlashGoogleMapsContext.html">FlashGoogleMapsContext</a>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div></div><div class="footer"><ul class="docFooter"><li class="copyright">&copy; Peter Lorent</li><li class="createdWith">Created with <a href="http://visiblearea.com/visdoc/">VisDoc</a></li></ul></div></div></div></body></html>

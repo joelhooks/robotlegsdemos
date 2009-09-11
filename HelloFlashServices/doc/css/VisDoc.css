@@ -1,0 +1,319 @@
+/*
+CONSTANTS
+
+C1	font color -- H1, H2 header												#c00
+C2	font color -- code text													#800
+C3	font color -- grayed out text: code comment, access keys info, access	#999
+C4	font color -- private members											#6c7598
+C5	line color -- separator horizontal and vertical							#a2a6a9
+C6	line color -- box border medium, private, not existing link				#a2a6a9
+C7	line color -- box border light											#dedede
+C8	background color -- box background										#f7f9fd
+C9	background color -- background TOC, class details, boxes				#e9f0fc
+C10	font size -- small texts												86%
+C11	dark header text color													#a00
+C12 h3 header text color													#000
+C13	link bottom underline color												#c8c8c8
+C14	link text color															#00c
+C15 class name background color												#e60000
+C16	medium gray																#666
+C17	inherited doc text color												#6666b3
+C18	h2 target background color												#ffffe5
+C19	box target background color												#fffff5
+C20	box target border color													#cccc88
+C21	light gray border color													#ccc
+C22	deprecated text color													#f00
+C23	TOC header color														#444
+C24	TOC link color															#009
+C25	private member background color											#f8f8fa
+C26	private member target left border										#f8f8fa
+*/
+
+html body {
+	background-color:#fff;
+	height:100%;
+	font-size: x-small;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	font-size: small;
+}
+html>body {font-size:small;}
+.VisDoc {font-family:"Lucida Grande",verdana,arial,sans-serif; line-height:1.4em; font-size:96%; background-color:transparent; padding:0; margin:0;}
+.VisDoc div.content {margin:0; padding:0 3em 0.5em 4em;}
+.VisDoc h1, .VisDoc h2, .VisDoc h3 {font-family:Myriad Apple, Myriad, Arial, Helvetica, Lucida Grande, sans-serif; line-height:100%;}
+.VisDoc h1 {/*C1*/color:#c00; margin-top:1em; font-size:2.2em; line-height:1.1em;}
+.VisDoc h2 {/*C11*/ color:#a00; margin-bottom:.5em; padding:4px 0px; font-size:1.4em;}
+.VisDoc .summary h2 {/*C5*/ border-bottom:1px solid #a2a6a9;}
+.VisDoc h3 {display:inline; margin:1em 0 0 0; /*C12*/ color:#000; font-size:1.25em;}
+.VisDoc hr {/*C5*/ color:#a2a6a9; /*C5*/ background-color:#a2a6a9; height:1px; border:none; margin:1em 0 1em 0; padding:0;}
+/* links */
+.VisDoc a:link, 
+.VisDoc a:visited,
+.VisDoc a:link .linkLabel,
+.VisDoc a:visited .linkLabel {text-decoration:none; /*C13*/ border-bottom:1px solid #c8c8c8; /*C14*/ color:#00c; background-color:transparent;}
+.VisDoc a:link:hover,
+.VisDoc a:visited:hover,
+.VisDoc a:link:hover .linkLabel,
+.VisDoc a:visited:hover .linkLabel,
+.VisDoc a:link:hover .icon,
+.VisDoc a:link:visited:hover .icon {text-decoration:none; /*C14*/ background-color:#00c; color:#fff; /*C14*/ border-bottom:1px solid #00c;}
+.VisDoc a.className:hover,
+.VisDoc a:hover .className {/*C15*/ background-color:#e60000; /*C15*/ border-color:#e60000;}
+
+.VisDoc table {border-width:1px; /*C7*/ border-color:#dedede; border-collapse:collapse;}
+.VisDoc th,
+.VisDoc td {vertical-align:top; padding:1px 4px; margin:2px 0;}
+.VisDoc th {text-align:left;}
+.VisDoc img {margin:.5em;}
+
+.VisDoc .title {display:block; font-weight:bold;}
+.VisDoc .separator {margin:0 0.4em; /*C7*/ color:#dedede;}
+.VisDoc .attribute {/*C10*/ font-size:86%; /*C3*/ color:#999;}
+.VisDoc .doesNotExist {/*C6*/ border-bottom:1px dashed #c8c8c8;} 
+.VisDoc .memberAccess {}
+
+/* Code */
+.VisDoc .code {white-space:pre;}
+.VisDoc code, .VisDoc pre, .VisDoc .code, .VisDoc tt, .VisDoc textarea {font-family:Courier,"Courier New",monospace; font-size:12px;}
+.VisDoc code, .VisDoc tt {/*C2*/color:#800;}
+.VisDoc pre {margin-top:1em; margin-bottom:1em; /*C2*/color:#800;}
+.VisDoc pre {padding-bottom:1.5em;}
+html>body .VisDoc pre { /* hide from IE */
+	padding-bottom:0.15em;
+}
+.VisDoc .colorizedCode {/*C2*/ color:#800;}
+.VisDoc .codeComment {/*C3*/ color:#999;}
+.VisDoc .codeString {color:#c60;}
+.VisDoc .codeNumber {color:#333;}
+.VisDoc .codeKeyword {color:#DB476B;}
+.VisDoc .codeProperty {color:#005699;}
+.VisDoc .codeIdentifier {color:#005699;}
+
+.VisDoc div.docNav {margin:0 0 1em 0;}
+.VisDoc div.docNav ul {list-style:none; margin:0; padding:0;}
+.VisDoc div.docNav ul li {list-style:none; margin:0 .25em 0 0; padding:0; display:block; float:left;}
+.VisDoc div.docNav a {margin-right:.5em;}
+.VisDoc div.docNav a:link,
+.VisDoc div.docNav a:visited {/*C3*/ color:#999; border-bottom:0px;}
+.VisDoc div.docNav a:hover {color:#fff; /*C14*/ border-bottom:1px solid #00c;}
+.VisDoc div.docNav a:link .accessKey ,
+.VisDoc div.docNav a:visited .accessKey {/*C16*/ border-bottom:1px solid #666;}
+.VisDoc div.docNav a:hover .accessKey {/*C14*/ border-bottom-color:#00c;}
+.VisDoc div.docNav .icon {margin:0 .35em 0 0; font-size:100%; /*C16*/ color:#666;}
+.VisDoc div.docNav {/*C10*/font-size:86%; /*C3*/ color:#999;}
+.VisDoc div.summary div.docNav {font-size:100%;}
+
+/* Inherited docs */
+.VisDoc .inheritDoc {/*C17*/ color:#6666b3;}
+.VisDoc div.inheritDoc {display:inline;}
+.VisDoc a.followInheritDoc {font-weight:bold; /*C17*/ color:#6666b3; margin:0 2px 0 1px; padding-bottom:1px; /*C10*/ font-size:86%; /*C10*/ line-height:86%; vertical-align:super; border-bottom:0px;}
+
+.VisDoc .floatholder {margin:0; margin-top:1em;}
+.VisDoc .floatbox {float:left; display:block;}
+.VisDoc .clear {/* to clean up floats */ margin:0; padding:0; height:0; line-height:0px; clear:both; display:block;}
+/* deprecated: */
+.VisDoc .clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+/* Holly Hack Targets IE Win only \*/
+* html .clearfix {height:1%;}
+/* End Holly Hack */
+
+/* Box with border and box elements separated by horizontal lines */
+.VisDoc div.boxWithBorder {margin-top:1em; margin-bottom:1em; /* (compensate for the padding of contentHolder) */  /*C21*/ border-top:1px solid #ccc;}
+.VisDoc div.boxWithBorder div.boxedElem {padding:0; margin:0;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder {padding:0.4em 1em 0.7em 1em; /*C8*/background-color:#e9f0fc; /*C21*/ border-color:#ccc; border-width:1px; border-style:none solid solid solid;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder .inheritedList a {margin-right:.6em;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item {margin-left:2.5em;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item ul {list-style-type:none; margin:0; padding:0;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item ul li {margin:0; padding:0;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item ul.summary li {margin-left:2.5em;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item div.name {float:left;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item .itemSeparator {margin:0 2px 0 2px;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table {margin:2px 0;/*C7*/border:1px solid #dedede; border-collapse:collapse; background-color:#fff;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table th,
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table td {vertical-align:top; padding:1px 4px; margin:2px 0;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table th {text-align:left; font-weight:normal; /*C7*/ border-bottom:1px solid #dedede;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table td {width:100%; /*C7*/ border-left:1px solid #dedede;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table td.uneven,
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table th.uneven {background-color:#fff;}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table td.even,
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder div.item table th.even {background-color:#fff}
+.VisDoc div.boxWithBorder div.boxedElem div.contentHolder .title {}
+
+.VisDoc div.classProperties {margin:2em 0 0 4em;}
+.VisDoc div.classProperties table {/*C8*/ background-color:#f7f9fd; border-style:solid; border-width:0 1px 1px 1px; /*C6*/ border-color:#a2a6a9;}
+.VisDoc div.classProperties th, 
+.VisDoc div.classProperties td {/*C6*/ border-top:1px solid #a2a6a9;}
+.VisDoc div.classProperties th {padding:0.4em 1.5em;}
+.VisDoc div.classProperties td {padding:0.4em 1.5em 0.4em 0; border-left:0px;}
+.VisDoc div.classProperties td.classDetails,
+.VisDoc div.classProperties th.classDetails {/*C9*/ background-color:#e9f0fc;}
+.VisDoc div.classProperties ul {list-style-type:none; margin:0; padding:0;}
+.VisDoc div.classProperties ul li {margin:0; padding:0;}
+.VisDoc div.classProperties ul li .title {display:inline;}
+.VisDoc div.classDescription {margin:2em 0 0 0;}
+/* fields before description (@deprecated): */
+.VisDoc div.classDescription h2 {font-size:1.5em; margin:0; padding:0;}
+.VisDoc div.classDescription .fields {margin-bottom:1em;}
+.VisDoc div.classDescription .field {font-style:italic; /*C22*/ color:#f00;}
+.VisDoc div.classDescription .field .title {display:inline;}
+.VisDoc div.classDescription .descriptionSummary {font-weight:bold;}
+.VisDoc div.classDescription div.boxWithBorder {margin-top:2em;}
+
+.VisDoc div.summary {margin-top:4em;}
+.VisDoc div.summary .boxWithBorder {margin-top:0.5em; margin-bottom:0;}
+.VisDoc div.summary div.memberList {}
+.VisDoc div.summary div.memberList div.memberSummaryPart {padding-bottom:1em;}
+.VisDoc div.summary div.memberList div.memberSummaryPart .title {}
+.VisDoc div.summary div.memberList div.memberSummaryPart ul {list-style:none; margin:0; padding:0;}
+.VisDoc div.summary div.memberList div.memberSummaryPart ul li {list-style:none; margin:0; padding:0;}
+.VisDoc div.summary div.memberList div.memberSummaryPart ul.summary li {margin-left:2.5em;}
+.VisDoc div.summary div.memberList div.memberSummaryPart ul li a {}
+/* exceptions to box layout: */
+.VisDoc div.summary div.memberList div.memberSummaryPart div.boxWithBorder div.boxedElem div.contentHolder {/*C10*/ font-size:86%;}
+.VisDoc div.summary div.memberList div.memberSummaryPart div.boxWithBorder div.boxedElem div.contentHolder .item {margin-left:0;}
+.VisDoc div.summary .typeInfo {/*C6*/ color:#333;}
+
+.VisDoc div.memberSection {margin-top:4em;}
+.VisDoc div.memberSection div.member,
+.VisDoc div.memberSection div.class {/*C8*/ background:#f7f9fd; margin:0 -1em 1em -1em; padding:1em 1em; height:1%;}
+.VisDoc div.memberSection .title {}
+.VisDoc div.memberSection div.boxWithBorder,
+.VisDoc div.memberSection div.description,
+.VisDoc div.memberSection div.fullMemberString {margin-left:0}
+.VisDoc div.memberSection div.fullMemberString {margin-top:1.2em;}
+.VisDoc div.memberSection div.fullMemberString .methodName {/*C2*/color:#800;}
+.VisDoc div.memberSection div.fullMemberString b {font-weight:normal; /*C2*/color:#800;}
+.VisDoc div.memberSection .access {font-size:95%; /*C3*/ color:#999; margin-left:0.25em;}
+.VisDoc div.memberSection div.description {padding-top:1em;}
+/* fields before description (@deprecated): */
+.VisDoc div.memberSection div.fullMemberString a:link,
+.VisDoc div.memberSection div.fullMemberString a:visited {color:black;}
+.VisDoc div.memberSection div.fullMemberString a:hover,
+.VisDoc div.memberSection div.fullMemberString a:visited:hover {color:#fff;}
+.VisDoc div.memberSection div.description .fields {margin-bottom:1em;}
+.VisDoc div.memberSection div.description .field {font-style:italic; /*C22*/ color:#f00;}
+.VisDoc div.memberSection div.description .field .title {display:inline;}
+
+.VisDoc div.footer {margin:5em 0 0.5em 0; padding:0.5em 0; /*C3*/ color:#999; font-size:90%; line-height:1.3em;}
+.VisDoc div.footer a:link,
+.VisDoc div.footer a:visited {/*C3*/ color:#999;}
+.VisDoc div.footer a:hover {color:#fff;}
+.VisDoc div.footer ul {list-style:none; margin:0; padding:0;}
+.VisDoc div.footer ul li {list-style:none; margin:0 1em 0 0; padding:0; float:left;}
+.VisDoc div.footer .copyright {}
+.VisDoc div.footer .createdWith {}
+.VisDoc div.footer .creationDate {}
+
+.VisDoc .sourceCodeView {margin:2em 0 0 0;}
+.VisDoc .sourceCodeView ul {list-style-type:none; margin:0; padding:0;}
+.VisDoc .sourceCodeView ul li {margin:0; padding:0;}
+.VisDoc .sourceCodeView a {margin-right:.5em; font-size:94%;}
+.VisDoc .twistyTrigger {margin:0 0 .25em 0;}
+.VisDoc .twistyTrigger a:link,
+.VisDoc .twistyTrigger a:visited {text-decoration:none; border:none;}
+.VisDoc .sourceCodeView .icon {font-size:86%; display:none;}
+
+/* table of contents: list of packages and classes */
+.VisDoc div.list {margin-top:4em;}
+.VisDoc div.list {padding-bottom:0;}
+.VisDoc div.list .title {display:inline;}
+.VisDoc div.list ul {list-style:none; margin:0; padding:0;}
+.VisDoc div.list ul li {list-style:none; margin:0; padding:0;}
+.VisDoc div.list ul li a:link,
+.VisDoc div.list ul li a:visited {border:none;}
+.VisDoc div.list ul li.selected a {background-color:#fff; color:#e60000;}
+.VisDoc div.list ul.summary li {margin-left:2.5em;}
+.VisDoc div.list ul a:hover .attribute,
+.VisDoc div.list ul a:hover .packagePath {/*C8*/color:#ADBBD0;}
+.VisDoc div.list .packagePath {color:#aaa; font-weight:bold;}
+.VisDoc div.list .packagePathTitle {color:black;}
+.VisDoc div.list .interface .attribute {font-style:italic;}
+.VisDoc div.list .repeatSign {display:none;}
+#overview .VisDoc div.listGroup {margin:2em 0 0 0; border-bottom:1px solid #ddd;}
+#overview .VisDoc .overviewTree div.listGroup ul li {border-top:1px solid #ddd; padding:.2em 0;}
+#overview .VisDoc .overviewTree div.listGroup ul li ul li {border:none; padding:0;}
+.VisDoc div.listGroup h2 {margin-bottom:.5em;}
+.VisDoc div.list .className {font-weight:bold;}
+.VisDoc div.list li.package {font-weight:bold;}
+
+/* table of contents in toc.html when in left frame */
+body#toc {/*C9*/ background-color:#e9f0fc; margin:0; padding:0;}
+#toc .VisDoc div.content {padding:0 1px 0.5em 1.25em; /*C23*/ color:#444;}
+#toc .VisDoc h1 {font-size:1.2em; margin:1em 0 0 0; /*C23*/ color:#444;}
+#toc .VisDoc div.list {margin:1em 0;}
+#toc .VisDoc .preContent {margin:1em 0 0 0; font-size:94%; /*C3*/ color:#999;}
+#toc .VisDoc .item {margin-right:.2em;}
+#toc .VisDoc .preContent ul {list-style:none; margin:0; padding:0;}
+#toc .VisDoc .preContent ul li {list-style:none; margin:0 .5em 0 0; padding:0; float:left;}
+#toc .VisDoc a:link,
+#toc .VisDoc a:visited {/*C24*/ color:#009;}
+#toc .VisDoc a:hover {color:#fff;}
+#toc .VisDoc div.list a .path {display:none;} /* don't show path in left toc: no room */
+#toc .VisDoc div.list ul {padding:0; margin:0;}
+#toc .VisDoc div.list ul a {display:block; width:100%; margin:0; padding:0;}
+#toc .VisDoc div.list ul a:hover .repeatSign {color:#fff;}
+#toc .VisDoc div.list .repeatSign {display:inline;}
+#toc .VisDoc div.list .packagePath {display:none;}
+#toc .VisDoc div.list .package {font-weight:normal;}
+#toc .VisDoc div.listGroup {margin:1em 0 0 0;}
+#toc .VisDoc div.list .className {font-weight:normal;}
+#toc .VisDoc .current {background-color:#fff;}
+#toc .VisDoc div.list ul li.current a:hover,
+#toc .VisDoc div.list ul li.current a.className:hover,
+#toc .VisDoc div.list ul li.current a:hover .className {background:none; border:none; /*C14*/ color:#00c;}
+#toc .VisDoc div.list ul li.name {margin-top:1em; font-weight:bold; /*C16*/ color:#666;}
+
+/* private members */
+.hasJavascript .private {top:-9999px;}
+.VisDoc li.private a:link,
+.VisDoc li.private a:visited,
+.VisDoc a:link.private,
+.VisDoc a:visited.private {/*C4*/color:#6c7598;}
+.VisDoc li.private a:hover,
+.VisDoc a:hover.private {color:#fff;}
+.VisDoc .privateColor {/*C4*/color:#6c7598;}
+.VisDoc div.memberSection div.private {/*C25*/ background-color:#f8f8fa;}
+.VisDoc div.memberSection div.private div.contentHolder {background-color:#f6f6f8;}
+
+/* highlight */
+.VisDoc div.memberSection div.member:target,
+.VisDoc div.memberSection div.class:target,
+.VisDoc h2:target {/*C18*/ background-color:#ffffe5;}
+.VisDoc div.memberSection div.private:target {/*C26*/ border:4px solid #f8f8fa;}
+.VisDoc div.memberSection div.member:target div.boxWithBorder div.boxedElem div.contentHolder,
+.VisDoc div.memberSection div.class:target div.boxWithBorder div.boxedElem div.contentHolder {/*C19*/ background-color:#fffff5;}
+.VisDoc div.memberSection div.member:target div.boxWithBorder,
+.VisDoc div.memberSection div.class:target div.boxWithBorder,
+.VisDoc div.memberSection div.member:target div.boxWithBorder div.boxedElem,
+.VisDoc div.memberSection div.class:target div.boxWithBorder div.boxedElem,
+.VisDoc div.memberSection div.member:target div.boxWithBorder div.boxedElem div.contentHolder,
+.VisDoc div.memberSection div.class:target div.boxWithBorder div.boxedElem div.contentHolder {/*C20*/ border-color:#cccc88;}
+
+/* toggle buttons */
+.framed .VisDoc .activeWhenNotFramed {display:none;}
+.VisDoc .activeWhenFramed {display:none;}
+.framed .VisDoc .activeWhenFramed {display:block;}
+
+/* included source code */
+.VisDoc textarea#source {width:100%; height:300px; padding:0 0 0 .5em; /*C8*/ background-color:#f7f9fd; /*C6*/ border:1px solid #a2a6a9;}
+
+.twistyHidden { display:none; }
+.twistyMakeHidden {} /* reserved */
+.twistyMakeVisible { display:none; }
+
+.twistyTrigger {}
+span.twistyContent {}
+.twistyPlaceholder { /* color to be implemented by skin */ }
+.twistyRememberSetting { /* behavior class */ }
+.twistyForgetSetting { /* behavior class */ }
+.twistyStartHide { /* behavior class */ }
+.twistyStartShow { /* behavior class */ }
+.twistyInited1 { /* behavior class: state is set to shown */ }
+.twistyInited0 { /* behavior class: state is set to hidden */ }
+
+/* These styles are available in TWiki 4.2, but provided here for older TWiki versions: */
+.twikiMakeVisible,
+.twikiMakeVisibleInline,
+.twikiMakeVisibleBlock {
+	display:none; /* will be made visible with javascript */
+}

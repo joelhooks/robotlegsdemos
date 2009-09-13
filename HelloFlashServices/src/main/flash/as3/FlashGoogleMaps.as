@@ -50,6 +50,11 @@ package
 	 * This class serves as the Document Class for the project and as such as
 	 * the 'root' Sprite. We provide this Sprite to the framework so it can detect
 	 * any changes to its Display List.
+	 *	
+	 * Note: Eventually I took the View-Controller-Model, Model updates View route to load 
+	 * the xml and to get the result from the Googlemaps API. An alternative is to declare 
+	 * the Proxy and Service as a dependency in the Mediator(s) and take the View queries Model,
+	 * Model updates View approach.
 	 * 
 	 */		
 	public class FlashGoogleMaps extends Sprite

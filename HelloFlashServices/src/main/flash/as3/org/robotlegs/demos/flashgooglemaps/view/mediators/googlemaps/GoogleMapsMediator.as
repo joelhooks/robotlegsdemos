@@ -24,16 +24,18 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 {
 	import org.robotlegs.mvcs.Mediator;
 	import org.robotlegs.demos.flashgooglemaps.view.components.googlemaps.GoogleMapsView;
-	import org.robotlegs.demos.flashgooglemaps.model.proxies.AssetLoaderProxy;
 	import org.robotlegs.demos.flashgooglemaps.model.events.AssetLoaderProxyEvent;
 	import org.robotlegs.demos.flashgooglemaps.view.events.GoogleMarkerEvent;
-	import org.robotlegs.demos.flashgooglemaps.model.services.GeoCodingService;
 	import org.robotlegs.demos.flashgooglemaps.model.events.GeoCodingServiceEvent;
 	import org.robotlegs.demos.flashgooglemaps.events.SystemEvent;
 	import org.robotlegs.demos.flashgooglemaps.view.events.TipViewEvent;
 	import org.robotlegs.demos.flashgooglemaps.view.events.ContentChangeEvent;
+	import org.robotlegs.demos.flashgooglemaps.model.vo.googlemaps.MapMarkers;
+	import org.robotlegs.demos.flashgooglemaps.model.vo.googlemaps.MapMarker;
 
 	import flash.events.Event;
+
+	import com.google.maps.LatLng;
 
 	/**
 	 * GoogleMapsMediator. Note the way you declare a dependency and from
@@ -46,12 +48,6 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 	{
 		[Inject]
 		public var view:GoogleMapsView;
-		
-		[Inject]
-		public var assetLoaderProxy:AssetLoaderProxy;
-		
-		[Inject]
-		public var geocodingService:GeoCodingService;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -97,16 +93,14 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		//--------------------------------------------------------------------------
 		private function handleGoogleMapReady(event:Event):void
 		{
-			assetLoaderProxy.loadXMLContent("assets/xml/content.xml");
+			dispatch(new SystemEvent(SystemEvent.LOAD_CONTENT));
 		}
 		
 		private function handleXMLContentLoaded(event:AssetLoaderProxyEvent):void
 		{
-			view.createMarkers(assetLoaderProxy.markers);
+			view.createMarkers(parseMarkers(event.xml));
 			
 			view.show();
-			
-			assetLoaderProxy.destroy();
 			
 			removeEventListenerFrom(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
 			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
@@ -114,7 +108,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		
 		private function handleGeocodingRequest(event:GoogleMarkerEvent):void
 		{
-			geocodingService.requestGeocoding(event.city, event.address);
+			dispatch(new SystemEvent(SystemEvent.REQUEST_GEOCODING, {city:event.city, address:event.address}));
 		}
 		
 		private function handleGeocodingResult(event:GeoCodingServiceEvent):void
@@ -137,6 +131,49 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		private function handleContentChange(event:ContentChangeEvent):void
 		{
 			if(view.zoomed) view.resetView();
+		}
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Methods
+		//
+		//--------------------------------------------------------------------------
+		/**
+		 * Takes the xml we loaded and creates a collection (MapMarkers) of the marker
+		 * objects found in the xml. Creates a MapMarker for each <marker> tag.
+		 * 
+		 * Note: I decided to use the VO's because they make it a little easier
+		 * to provide the data to the GoogleView and the Googlemaps API.
+		 * 
+		 * @param data XML
+		 * 
+		 */		
+		private function parseMarkers(data:XML):MapMarkers
+		{
+			var markers:XMLList = data..marker;
+			var markersCount:uint = markers.length();
+			var mapMarkers:MapMarkers = new MapMarkers();
+			
+			if(markersCount > 0)
+			{
+				var i:uint;
+				
+				for(i = 0; i < markersCount; i++)
+				{
+					var markerXml:XML = markers[i];
+					var marker:MapMarker = new MapMarker();
+					marker.latlng = new LatLng(markerXml.@lat, markerXml.@lng);
+					marker.city = markerXml.@stad;
+					marker.address = markerXml.@adres;
+					marker.smartInfoWindow.setHeadline(markerXml.@headline);
+					marker.smartInfoWindow.setBody(markerXml.@body);
+					marker.smartInfoWindow.setVisual(markerXml.@foto);
+					
+					mapMarkers.addMarker(marker);
+				}
+			}
+			
+			return mapMarkers;
 		}
 	}
 }

@@ -37,7 +37,9 @@ package org.robotlegs.demos.flashgooglemaps.events
 		//  Class Properties
 		//
 		//--------------------------------------------------------------------------
+		public static const LOAD_CONTENT:String = "loadContent";
 		public static const GOOGLE_MAP_ON_STAGE:String = "googleMapOnStage";
+		public static const REQUEST_GEOCODING:String = "requestGeoCoding";
 		
 		//--------------------------------------------------------------------------
 		//

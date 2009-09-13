@@ -23,7 +23,6 @@
 package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 {
 	import org.robotlegs.mvcs.Mediator;
-	import org.robotlegs.demos.flashgooglemaps.model.proxies.AssetLoaderProxy;
 	import org.robotlegs.demos.flashgooglemaps.model.events.AssetLoaderProxyEvent;
 	import org.robotlegs.demos.flashgooglemaps.view.components.content.ContentView;
 	import org.robotlegs.demos.flashgooglemaps.events.SystemEvent;
@@ -40,14 +39,11 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 	 * 
 	 */
 	public class ContentViewMediator extends Mediator
-	{
-		[Inject]
-		public var assetLoaderProxy:AssetLoaderProxy;
-		
+	{	
 		[Inject]
 		public var view:ContentView;
 		
-		private var xml:XML;
+		private var _xml:XML;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -89,9 +85,9 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		private function handleXMLContentLoaded(event:AssetLoaderProxyEvent):void
 		{
-			xml = event.xml;
+			_xml = event.xml;
 			
-			view.showPlainTextView(xml..content[0]);
+			view.showPlainTextView(_xml..content[0]);
 			
 			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 		}
@@ -106,9 +102,9 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		private function handleContentChange(event:ContentChangeEvent):void
 		{
 			if(event.id == 1)
-				view.showTipTextView(xml..content[1]);
+				view.showTipTextView(_xml..content[1]);
 			else
-				view.showPlainTextView(xml..content[event.id]);
+				view.showPlainTextView(_xml..content[event.id]);
 		}
 	}
 }

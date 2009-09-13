@@ -30,6 +30,7 @@ package org.robotlegs.demos.flashgooglemaps
 	import org.robotlegs.mvcs.ContextEvent;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepModelCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepViewCommand;
+	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepControllerCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.StartupCommand;
 
 	import org.as3commons.logging.ILogger;
@@ -83,6 +84,7 @@ package org.robotlegs.demos.flashgooglemaps
 		{
 			commandFactory.mapCommand(ContextEvent.STARTUP, PrepModelCommand, true);
 			commandFactory.mapCommand(ContextEvent.STARTUP, PrepViewCommand, true);
+			commandFactory.mapCommand(ContextEvent.STARTUP, PrepControllerCommand);
 			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand, true);
 			
 			// fire!

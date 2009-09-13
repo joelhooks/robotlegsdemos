@@ -136,10 +136,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 		{
 			_mapMarkers = mapMarkers;
 			
-			for each(var marker:MapMarker in mapMarkers.markers)
-			{
-				createMarker(marker);
-			}
+			_mapMarkers.markers.forEach(createMarker);
 		}
 		
 		public function showGeocodingSuccess(placemarks:Array):void 
@@ -232,7 +229,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 			holder.addChild(_map);
 		}
 		
-		private function createMarker(mapMarker:MapMarker):void
+		private function createMarker(mapMarker:MapMarker, index:int, mapMarkers:Vector.<MapMarker>):void
 		{
 			var markerOptions:MarkerOptions = new MarkerOptions();
 			markerOptions.icon = new CustomMarkerIcon();

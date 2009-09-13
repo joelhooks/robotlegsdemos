@@ -31,11 +31,10 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 	import org.robotlegs.demos.flashgooglemaps.model.events.GeoCodingServiceEvent;
 	import org.robotlegs.demos.flashgooglemaps.events.SystemEvent;
 	import org.robotlegs.demos.flashgooglemaps.view.events.TipViewEvent;
+	import org.robotlegs.demos.flashgooglemaps.view.events.ContentChangeEvent;
 
 	import flash.events.Event;
 
-	import org.robotlegs.demos.flashgooglemaps.view.events.ContentChangeEvent;
-	
 	/**
 	 * GoogleMapsMediator. Note the way you declare a dependency and from
 	 * that point on use the instance in your code.
@@ -106,6 +105,11 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 			view.createMarkers(assetLoaderProxy.markers);
 			
 			view.show();
+			
+			assetLoaderProxy.destroy();
+			
+			removeEventListenerFrom(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
+			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 		}
 		
 		private function handleGeocodingRequest(event:GoogleMarkerEvent):void
@@ -121,6 +125,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		private function handleViewOnStage(event:Event):void
 		{
 			dispatch(new SystemEvent(SystemEvent.GOOGLE_MAP_ON_STAGE));
+			
+			removeEventListenerFrom(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
 		}
 		
 		private function handleTipViewEvent(event:TipViewEvent):void

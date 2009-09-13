@@ -34,7 +34,7 @@ package org.robotlegs.demos.flashgooglemaps
 
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	
+
 	/**
 	 * 
 	 * @author Peter Lorent peter.lorent@gmail.com
@@ -75,14 +75,15 @@ package org.robotlegs.demos.flashgooglemaps
 		 * the framework with the basic actors. The proxies/services we want to use in
 		 * the model, map some view components to Mediators and to get things started,
 		 * add some Sprites to the stage. Only after we drop a Sprite on the stage,
-		 * RobotLegs will create the Mediator. See StartupCommand.  
+		 * RobotLegs will create the Mediator. See StartupCommand.
+		 * Unmap the commands we won't be needing anymore after execution. 
 		 * 
 		 */		
 		override public function startup():void
 		{
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepModelCommand);
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepViewCommand);
-			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand);
+			commandFactory.mapCommand(ContextEvent.STARTUP, PrepModelCommand, true);
+			commandFactory.mapCommand(ContextEvent.STARTUP, PrepViewCommand, true);
+			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand, true);
 			
 			// fire!
 			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));

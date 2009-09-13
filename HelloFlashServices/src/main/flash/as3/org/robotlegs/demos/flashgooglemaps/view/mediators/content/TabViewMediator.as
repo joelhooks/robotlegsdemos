@@ -79,6 +79,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		private function handleShow(event:SystemEvent):void
 		{
 			view.show();
+			
+			removeEventListenerFrom(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
 		}
 		
 		private function handleContentChange(event:ContentChangeEvent):void

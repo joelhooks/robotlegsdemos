@@ -92,11 +92,15 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 			xml = event.xml;
 			
 			view.showPlainTextView(xml..content[0]);
+			
+			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 		}
 		
 		private function handleShow(event:SystemEvent):void
 		{
 			view.show();
+			
+			removeEventListenerFrom(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
 		}
 		
 		private function handleContentChange(event:ContentChangeEvent):void

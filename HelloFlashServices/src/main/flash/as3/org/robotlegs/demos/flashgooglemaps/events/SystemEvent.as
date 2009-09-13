@@ -38,6 +38,7 @@ package org.robotlegs.demos.flashgooglemaps.events
 		//
 		//--------------------------------------------------------------------------
 		public static const GOOGLE_MAP_ON_STAGE:String = "googleMapOnStage";
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Instance Properties

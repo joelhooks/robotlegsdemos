@@ -93,6 +93,15 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 			_urlLoader.load(urlRequest);
 		}
 		
+		/**
+		 * Just cleaning up. 
+		 * 
+		 */		
+		public function destroy():void
+		{
+			_markers = null;
+		}
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Eventhandling

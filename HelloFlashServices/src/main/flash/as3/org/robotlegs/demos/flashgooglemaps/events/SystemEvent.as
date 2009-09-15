@@ -40,6 +40,7 @@ package org.robotlegs.demos.flashgooglemaps.events
 		public static const LOAD_CONTENT:String = "loadContent";
 		public static const GOOGLE_MAP_ON_STAGE:String = "googleMapOnStage";
 		public static const REQUEST_GEOCODING:String = "requestGeoCoding";
+		public static const CLEANUP_STARTUP:String = "cleanupStartup";
 		
 		//--------------------------------------------------------------------------
 		//

@@ -23,16 +23,16 @@
 package org.robotlegs.demos.flashgooglemaps.control.commands
 {
 	import org.robotlegs.mvcs.Command;
-	import org.robotlegs.demos.flashgooglemaps.events.SystemEvent;
-
+	import org.robotlegs.demos.flashgooglemaps.model.proxies.AssetLoaderProxy;
+	
 	/**
-	 * Map Commands.
+	 * Command to get rid of the AssetLoaderProxy.
 	 *  
 	 * @author Peter Lorent peter.lorent@gmail.com
 	 * 
 	 */
-	public class PrepControllerCommand extends Command
-	{
+	public class CleanupStartupCommand extends Command
+	{	
 		//--------------------------------------------------------------------------
 		//
 		//  Overridden API
@@ -40,9 +40,7 @@ package org.robotlegs.demos.flashgooglemaps.control.commands
 		//--------------------------------------------------------------------------
 		override public function execute():void
 		{
-			commandFactory.mapCommand(SystemEvent.LOAD_CONTENT, LoadXMLCommand, true);
-			commandFactory.mapCommand(SystemEvent.REQUEST_GEOCODING, GeoCodingCommand);
-			commandFactory.mapCommand(SystemEvent.CLEANUP_STARTUP, CleanupStartupCommand, true);
+			injector.unbind(AssetLoaderProxy);
 		}
 	}
 }

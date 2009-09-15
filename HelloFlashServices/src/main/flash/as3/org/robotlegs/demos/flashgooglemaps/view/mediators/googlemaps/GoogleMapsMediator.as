@@ -104,6 +104,8 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 			
 			removeEventListenerFrom(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
 			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
+			
+			dispatch(new SystemEvent(SystemEvent.CLEANUP_STARTUP));
 		}
 		
 		private function handleGeocodingRequest(event:GoogleMarkerEvent):void

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>CustomScrollbar</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="stylesheet" type="text/css" href="../css/VisDoc.css" /><script src="../js/jquery.js" type="text/javascript">//</script><script src="../js/common.js" type="text/javascript">//</script><script src="../js/doc.js" type="text/javascript">//</script></head><body id="page_org_robotlegs_demos_flashgooglemaps_view_components_content_CustomScrollbar"><script type="text/javascript">VisDoc.initBody();</script><div id="PageTop"><!----></div><div class="VisDoc"><div class="content"><div class="docNav"><ul><li><div id="twistyTOC_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenNotFramed"><a href="#"><span class="icon">+</span>Show TOC</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_show");</script><div id="twistyTOC_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited activeWhenFramed"><a href="#"><span class="icon">&times;</span>Hide TOC</a></div><span id="twistyTOC_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyTOC_hide");</script></li></ul><ul class="accessKeyLinks"><li><a href="#PageTop" accesskey="t"><span class="accessKey">T</span>op</a></li><li><a href="#Summary" accesskey="s"><span class="accessKey">S</span>ummary</a></li><li><a href="#Constructor" accesskey="c"><span class="accessKey">C</span>onstructors</a></li><li><a href="#Instanceproperties" accesskey="l">Instance <span class="accessKey">p</span>roperties</a></li><li><a href="#Instancemethods" accesskey="m">Instance <span class="accessKey">m</span>ethods</a></li></ul><ul><li><div id="twistyPrivate_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide private and protected members</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_on");</script><div id="twistyPrivate_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show private and protected members</a></div><span id="twistyPrivate_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("togglePrivate_off");</script></li></ul><br class="clear" /></div><h1>CustomScrollbar</h1><div class="classProperties"><table cellspacing="0"><tr><th align="left">Kind of class:</th><td>public class</td></tr><tr><th align="left">Package:</th><td><a class="className" href="package-org_robotlegs_demos_flashgooglemaps_view_components_content.html">org.robotlegs.demos.flashgooglemaps.view.components.content</a></td></tr><tr><th align="left">Inherits from:</th><td>MovieClip</td></tr><tr><th class="classDetails" align="left">Author:</th><td class="classDetails">Peter Lorent peter.lorent@gmail.com<br /></td></tr><tr><th class="classDetails" align="left">Classpath:</th><td class="classDetails">org.robotlegs.demos.flashgooglemaps.view.components.content.CustomScrollbar</td></tr><tr><th class="classDetails" align="left">File last modified:</th><td class="classDetails">Friday, 11 September 2009, 15:15:51</td></tr></table></div><div id="sourceCodeTop" class="sourceCodeView"><div id="twistyViewSourceshow" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">►&nbsp;</span><span class="linkLabel">View source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourceshow");</script><div id="twistyViewSourcehide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting twistyAnimate"><a href="#"><span class="icon">▼&nbsp;</span><span class="linkLabel">Hide source</span></a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcehide");</script><div id="twistyViewSourcetoggle" class="twistyContent twistyMakeHidden twistyRememberSetting"><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("twistyViewSourcetoggle");</script><div class="sourceCode"><textarea rows="10" cols="10" id="source" readonly="readonly">/*
+ * Copyright (c) 2009 the original author or authors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+package org.robotlegs.demos.flashgooglemaps.view.components.content
+{
+    import flash.display.MovieClip;
+    import flash.events.Event;
+    import flash.events.MouseEvent;
+    import flash.geom.Rectangle;
+    import flash.display.DisplayObject;
+    
+    import caurina.transitions.Tweener;
+    import caurina.transitions.Equations;
+    
+    /**
+     * Just a custom scroll bar. Not relevant to the framework
+     * therefore no comments.
+     * 
+     * @author Peter Lorent peter.lorent@gmail.com
+     * 
+     */    
+    [Embed(source='../../../../../../../../assets/swf/contentAssets.swf', symbol='CustomScroller')]
+    public class CustomScrollbar extends MovieClip
+    {
+        //--------------------------------------------------------------------------
+        //
+        //  Instance Properties
+        //
+        //--------------------------------------------------------------------------
+        public var scroller:MovieClip;
+        public var upArrow:MovieClip;
+        public var downArrow:MovieClip;
+        public var track:MovieClip;
+        
+        private var target:DisplayObject;
+        private var top:Number;
+        private var bottom:Number;
+        private var dragBot:Number;
+        private var range:Number;
+        private var ratio:Number;
+        private var sPos:Number;
+        private var sRect:Rectangle;
+        private var ctrl:Number;
+        private var trans:Function;
+        private var timing:Number;
+        private var isUp:Boolean;
+        private var isDown:Boolean;
+        private var isArrow:Boolean;
+        private var arrowMove:Number;
+        private var upArrowHt:Number;
+        private var downArrowHt:Number;
+        private var sBuffer:Number;
+        private var _initialized:Boolean = false;
+        
+        //--------------------------------------------------------------------------
+        //
+        //  Initialization
+        //
+        //--------------------------------------------------------------------------
+        public function CustomScrollbar()
+        {
+            super();
+        }
+        
+        //--------------------------------------------------------------------------
+        //
+        //  API
+        //
+        //--------------------------------------------------------------------------
+        public function get initialized():Boolean { return _initialized }
+        
+        public function init(targetClip:DisplayObject, transition:Function, time:Number, useArrows:Boolean, buffer:Number, autoHide:Boolean = true):void
+        {
+            target = targetClip;
+            trans = transition;
+            timing = time;
+            isArrow = useArrows;
+            sBuffer = buffer;
+            
+            setCorrectSize();
+            
+            if(autoHide)
+            {
+                if (target.height &lt;= track.height) visible = false;
+            }            
+            
+            if (isArrow)
+            {
+                upArrowHt = upArrow.height;
+                downArrowHt = downArrow.height;
+                top = scroller.y;
+                dragBot = (scroller.y + track.height) - scroller.height;
+                bottom = track.height - (scroller.height/sBuffer);
+            }
+            else
+            {
+                top = scroller.y;
+                dragBot = (scroller.y + track.height) - scroller.height;
+                bottom = track.height - (scroller.height/sBuffer);
+                
+                if(isArrow)
+                {
+                    upArrowHt = 0;
+                    downArrowHt = 0;
+                    removeChild(upArrow);
+                    removeChild(downArrow);
+                }
+            }
+            range = bottom - top;
+            sRect = new Rectangle(0, top, 0, dragBot);
+            ctrl = target.y;
+            
+            isUp = false;
+            isDown = false;
+            arrowMove = 10;
+            
+            if(isArrow)
+            {
+                upArrow.addEventListener(MouseEvent.MOUSE_DOWN, upScroll);
+                downArrow.addEventListener(MouseEvent.MOUSE_DOWN, downScroll);
+            }
+            
+            if(stage) addStageHandlers();        
+            else addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
+            
+            addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+            
+            track.addEventListener(MouseEvent.CLICK, trackClickHandler);
+            scroller.addEventListener(MouseEvent.MOUSE_DOWN, dragScroll);
+            
+            _initialized = true;    
+        }
+        
+        public function reset():void
+        {
+            scroller.y = 0;
+            ratio = (target.height - range) / range;
+            sPos = (scroller.y * ratio) - ctrl;
+            target.y = -sPos;
+            visible = true;
+        }
+        
+        //--------------------------------------------------------------------------
+        //
+        //  Eventhandling
+        //
+        //--------------------------------------------------------------------------
+        private function addedToStageHandler(e:Event):void
+        {
+            addStageHandlers();
+        }
+        
+        private function addStageHandlers():void
+        {
+            stage.addEventListener(MouseEvent.MOUSE_WHEEL, scrollWheelHandler);
+            stage.addEventListener(Event.ENTER_FRAME, contentSizeCheckHandler);
+        }
+        
+        private function removedFromStageHandler(e:Event):void
+        {
+            stage.removeEventListener(MouseEvent.MOUSE_WHEEL, scrollWheelHandler);
+            stage.removeEventListener(Event.ENTER_FRAME, contentSizeCheckHandler);
+        }
+        
+        private function contentSizeCheckHandler(e:Event):void 
+        {
+            if(target.height &lt; height) visible = false;
+        }
+        
+        // TODO: implement a mousewheel
+        private function scrollWheelHandler(e:MouseEvent):void
+        {
+            if(e.delta > 0) goUp();
+            else goDown();
+        }
+        
+        private function trackClickHandler(e:MouseEvent):void
+        {
+            if(mouseY > scroller.y) goDown();
+            else goUp();
+        }
+        
+        private function upScroll(event:MouseEvent):void
+        {
+            isUp = true;
+            addEventListener(Event.ENTER_FRAME, upArrowHandler);
+            stage.addEventListener(MouseEvent.MOUSE_UP, stopScroll);
+        }
+        
+        private function downScroll(event:MouseEvent):void
+        {
+            isDown = true;
+            addEventListener(Event.ENTER_FRAME, downArrowHandler);
+            stage.addEventListener(MouseEvent.MOUSE_UP, stopScroll);
+        }
+        
+        private function upArrowHandler(event:Event=null):void
+        {
+            if(isUp) goUp();
+        }
+        
+        private function goUp():void
+        {
+            if (scroller.y > top)
+            {
+                scroller.y -= arrowMove;
+                
+                if (scroller.y &lt; top)
+                {
+                    scroller.y = top;
+                }
+                
+                startScroll();
+            }
+        }
+        
+        private function downArrowHandler(event:Event=null):void
+        {
+            if(isDown) goDown();
+        }
+        
+        private function goDown():void
+        {
+            if (scroller.y &lt; dragBot)
+            {
+                scroller.y += arrowMove;
+                
+                if (scroller.y > dragBot)
+                {
+                    scroller.y = dragBot;
+                }
+                
+                startScroll();
+            }
+        }
+        
+        private function dragScroll(event:MouseEvent):void
+        {            
+            scroller.startDrag(false, sRect);
+            
+            stage.addEventListener(MouseEvent.MOUSE_MOVE, moveScroll);
+            stage.addEventListener(MouseEvent.MOUSE_UP, stopScroll);
+        }
+        
+        private function stopScroll(event:MouseEvent):void
+        {
+            isUp = false;
+            isDown = false;
+            scroller.stopDrag();
+
+            stage.removeEventListener(MouseEvent.MOUSE_MOVE, moveScroll);
+            stage.removeEventListener(MouseEvent.MOUSE_UP, stopScroll);
+            removeEventListener(Event.ENTER_FRAME, upArrowHandler);
+            removeEventListener(Event.ENTER_FRAME, downArrowHandler);
+            stage.removeEventListener(MouseEvent.MOUSE_UP, stopScroll);
+        }
+        
+        private function moveScroll(event:MouseEvent):void
+        {
+            startScroll();
+        }
+        
+        private function startScroll():void
+        {
+            ratio = (target.height - range) / range;
+            sPos = (scroller.y * ratio) - ctrl;
+            
+            Tweener.addTween(target, {y:-sPos, transition:trans, time:timing});
+        }
+        
+        private function setCorrectSize():void
+        {
+            var h:Number = height;
+            scaleY = 1;
+            
+            if(isArrow)
+            {
+                downArrow.y = h - (downArrow.height * 2);
+                track.height = downArrow.y;
+            }
+            else
+            {
+                track.height = h;
+            }
+        }
+    }
+}
+</textarea></div></div></div><div class="classDescription"><span class="descriptionSummary">Just a custom scroll bar.</span> Not relevant to the framework<br />therefore no comments.</div><div class="summary"><h2 id="Summary">Summary</h2><div class="docNav"><ul><li><div id="twistyTypeInfo_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Hide type info</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_on");</script><div id="twistyTypeInfo_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Show type info</a></div><span id="twistyTypeInfo_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleTypeInfo_off");</script></li><li><div id="twistySort_show" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">&times;</span>Sort by source order</a></div><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_on");</script><div id="twistySort_hide" class="twistyTrigger twikiUnvisited twikiMakeVisible twistyInited twistyRememberSetting"><a href="#"><span class="icon">+</span>Sort alphabetically</a></div><span id="twistySort_toggle" class="twistyContent"><!----></span><script type="text/javascript">twiki.JQueryTwistyPlugin.initId("toggleSort_off");</script></li></ul><br class="clear" /></div><div class="memberList"><div class="memberSummaryPart"><span class="title">Constructor</span><ul class="sortable" id="sortul1"><li class="sortli listnum1"><a href="#CustomScrollbar">CustomScrollbar</a></li></ul></div><div class="memberSummaryPart"><span class="title">Instance properties</span><ul class="sortable" id="sortul2"><li class="sortli listnum1"><a href="#scroller">scroller</a><span class="typeInfo">  : MovieClip</span></li><li class="sortli listnum2"><a href="#upArrow">upArrow</a><span class="typeInfo">  : MovieClip</span></li><li class="sortli listnum3"><a href="#downArrow">downArrow</a><span class="typeInfo">  : MovieClip</span></li><li class="sortli listnum4"><a href="#track">track</a><span class="typeInfo">  : MovieClip</span></li><li class="private sortli listnum6"><a href="#target">target</a><span class="typeInfo">  : DisplayObject</span></li><li class="private sortli listnum8"><a href="#top">top</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum10"><a href="#bottom">bottom</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum12"><a href="#dragBot">dragBot</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum14"><a href="#range">range</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum16"><a href="#ratio">ratio</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum18"><a href="#sPos">sPos</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum20"><a href="#sRect">sRect</a><span class="typeInfo">  : Rectangle</span></li><li class="private sortli listnum22"><a href="#ctrl">ctrl</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum24"><a href="#trans">trans</a><span class="typeInfo">  : Function</span></li><li class="private sortli listnum26"><a href="#timing">timing</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum28"><a href="#isUp">isUp</a><span class="typeInfo">  : Boolean</span></li><li class="private sortli listnum30"><a href="#isDown">isDown</a><span class="typeInfo">  : Boolean</span></li><li class="private sortli listnum32"><a href="#isArrow">isArrow</a><span class="typeInfo">  : Boolean</span></li><li class="private sortli listnum34"><a href="#arrowMove">arrowMove</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum36"><a href="#upArrowHt">upArrowHt</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum38"><a href="#downArrowHt">downArrowHt</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum40"><a href="#sBuffer">sBuffer</a><span class="typeInfo">  : Number</span></li><li class="private sortli listnum42"><a href="#_initialized">_initialized</a><span class="typeInfo">  : Boolean</span></li><li class="sortli listnum43"><a href="#initialized">initialized</a><span class="typeInfo">  : Boolean</span></li></ul></div><div class="memberSummaryPart"><span class="title">Instance methods</span><ul class="sortable" id="sortul3"><li class="sortli listnum1"><a href="#init">init</a><span class="typeInfo"> (targetClip:DisplayObject, transition:Function, time:Number, useArrows:Boolean, buffer:Number, autoHide:Boolean = true) : void</span></li><li class="sortli listnum2"><a href="#reset">reset</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum4"><a href="#addedToStageHandler">addedToStageHandler</a><span class="typeInfo"> (e:Event) : void</span></li><li class="private sortli listnum6"><a href="#addStageHandlers">addStageHandlers</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum8"><a href="#removedFromStageHandler">removedFromStageHandler</a><span class="typeInfo"> (e:Event) : void</span></li><li class="private sortli listnum10"><a href="#contentSizeCheckHandler">contentSizeCheckHandler</a><span class="typeInfo"> (e:Event) : void</span></li><li class="private sortli listnum12"><a href="#scrollWheelHandler">scrollWheelHandler</a><span class="typeInfo"> (e:MouseEvent) : void</span></li><li class="private sortli listnum14"><a href="#trackClickHandler">trackClickHandler</a><span class="typeInfo"> (e:MouseEvent) : void</span></li><li class="private sortli listnum16"><a href="#upScroll">upScroll</a><span class="typeInfo"> (event:MouseEvent) : void</span></li><li class="private sortli listnum18"><a href="#downScroll">downScroll</a><span class="typeInfo"> (event:MouseEvent) : void</span></li><li class="private sortli listnum20"><a href="#upArrowHandler">upArrowHandler</a><span class="typeInfo"> (event:Event = null) : void</span></li><li class="private sortli listnum22"><a href="#goUp">goUp</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum24"><a href="#downArrowHandler">downArrowHandler</a><span class="typeInfo"> (event:Event = null) : void</span></li><li class="private sortli listnum26"><a href="#goDown">goDown</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum28"><a href="#dragScroll">dragScroll</a><span class="typeInfo"> (event:MouseEvent) : void</span></li><li class="private sortli listnum30"><a href="#stopScroll">stopScroll</a><span class="typeInfo"> (event:MouseEvent) : void</span></li><li class="private sortli listnum32"><a href="#moveScroll">moveScroll</a><span class="typeInfo"> (event:MouseEvent) : void</span></li><li class="private sortli listnum34"><a href="#startScroll">startScroll</a><span class="typeInfo">  : void</span></li><li class="private sortli listnum36"><a href="#setCorrectSize">setCorrectSize</a><span class="typeInfo">  : void</span></li></ul></div></div></div><div class="memberSection"><h2 id="Constructor">Constructor</h2><div class="member" id="CustomScrollbar"><h3>CustomScrollbar</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>CustomScrollbar</b> (
+</div><div class="code">)</div><br class="clear" /></div></div></div></div><div class="memberSection"><h2 id="Instanceproperties">Instance properties</h2><div class="member private" id="_initialized"><h3>_initialized</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>_initialized</b>:Boolean = <span class="codeIdentifier">false</span>
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="arrowMove"><h3>arrowMove</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>arrowMove</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="bottom"><h3>bottom</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>bottom</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="ctrl"><h3>ctrl</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>ctrl</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="downArrow"><h3>downArrow</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>downArrow</b>:MovieClip
+</div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member private" id="downArrowHt"><h3>downArrowHt</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>downArrowHt</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="dragBot"><h3>dragBot</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>dragBot</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="initialized"><h3>initialized</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>initialized</b>:Boolean
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="isArrow"><h3>isArrow</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>isArrow</b>:Boolean
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="isDown"><h3>isDown</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>isDown</b>:Boolean
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="isUp"><h3>isUp</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>isUp</b>:Boolean
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="range"><h3>range</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>range</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="ratio"><h3>ratio</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>ratio</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="sBuffer"><h3>sBuffer</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>sBuffer</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="scroller"><h3>scroller</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>scroller</b>:MovieClip
+</div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member private" id="sPos"><h3>sPos</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>sPos</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="sRect"><h3>sRect</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>sRect</b>:Rectangle
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="target"><h3>target</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>target</b>:DisplayObject
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="timing"><h3>timing</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>timing</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member private" id="top"><h3>top</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>top</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="track"><h3>track</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>track</b>:MovieClip
+</div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member private" id="trans"><h3>trans</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>trans</b>:Function
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div><div class="member" id="upArrow"><h3>upArrow</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> <b>upArrow</b>:MovieClip
+</div><div class="floatbox"><span class="access">(read,write)</span></div><br class="clear" /></div></div></div><div class="member private" id="upArrowHt"><h3>upArrowHt</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> <b>upArrowHt</b>:Number
+</div><div class="floatbox"><span class="access">(read)</span></div><br class="clear" /></div></div></div></div><div class="memberSection"><h2 id="Instancemethods">Instance methods</h2><div class="member private" id="addedToStageHandler"><h3>addedToStageHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>addedToStageHandler</b> (
+</div><div class="code">e:Event) : void</div><br class="clear" /></div></div></div><div class="member private" id="addStageHandlers"><h3>addStageHandlers</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>addStageHandlers</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div></div><div class="member private" id="contentSizeCheckHandler"><h3>contentSizeCheckHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>contentSizeCheckHandler</b> (
+</div><div class="code">e:Event) : void</div><br class="clear" /></div></div></div><div class="member private" id="downArrowHandler"><h3>downArrowHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>downArrowHandler</b> (
+</div><div class="code">event:Event = null) : void</div><br class="clear" /></div></div></div><div class="member private" id="downScroll"><h3>downScroll</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>downScroll</b> (
+</div><div class="code">event:MouseEvent) : void</div><br class="clear" /></div></div></div><div class="member private" id="dragScroll"><h3>dragScroll</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>dragScroll</b> (
+</div><div class="code">event:MouseEvent) : void</div><br class="clear" /></div></div></div><div class="member private" id="goDown"><h3>goDown</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>goDown</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div></div><div class="member private" id="goUp"><h3>goUp</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>goUp</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div></div><div class="member" id="init"><h3>init</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>init</b> (
+
+
+
+
+
+</div><div class="code">targetClip:DisplayObject,
+transition:Function,
+time:Number,
+useArrows:Boolean,
+buffer:Number,
+autoHide:Boolean = true) : void</div><br class="clear" /></div></div></div><div class="member private" id="moveScroll"><h3>moveScroll</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>moveScroll</b> (
+</div><div class="code">event:MouseEvent) : void</div><br class="clear" /></div></div></div><div class="member private" id="removedFromStageHandler"><h3>removedFromStageHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>removedFromStageHandler</b> (
+</div><div class="code">e:Event) : void</div><br class="clear" /></div></div></div><div class="member" id="reset"><h3>reset</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">public</span> function <b>reset</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div></div><div class="member private" id="scrollWheelHandler"><h3>scrollWheelHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>scrollWheelHandler</b> (
+</div><div class="code">e:MouseEvent) : void</div><br class="clear" /></div></div></div><div class="member private" id="setCorrectSize"><h3>setCorrectSize</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>setCorrectSize</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div></div><div class="member private" id="startScroll"><h3>startScroll</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>startScroll</b> (
+</div><div class="code">) : void</div><br class="clear" /></div></div></div><div class="member private" id="stopScroll"><h3>stopScroll</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>stopScroll</b> (
+</div><div class="code">event:MouseEvent) : void</div><br class="clear" /></div></div></div><div class="member private" id="trackClickHandler"><h3>trackClickHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>trackClickHandler</b> (
+</div><div class="code">e:MouseEvent) : void</div><br class="clear" /></div></div></div><div class="member private" id="upArrowHandler"><h3>upArrowHandler</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>upArrowHandler</b> (
+</div><div class="code">event:Event = null) : void</div><br class="clear" /></div></div></div><div class="member private" id="upScroll"><h3>upScroll</h3><div class="fullMemberString"><div class="floatholder"><div class="floatbox code"><span class="memberAccess">private</span> function <b>upScroll</b> (
+</div><div class="code">event:MouseEvent) : void</div><br class="clear" /></div></div></div></div><div class="footer"><ul class="docFooter"><li class="copyright">&copy; Peter Lorent</li><li class="createdWith">Created with <a href="http://visiblearea.com/visdoc/">VisDoc</a></li></ul></div></div></div></body></html>

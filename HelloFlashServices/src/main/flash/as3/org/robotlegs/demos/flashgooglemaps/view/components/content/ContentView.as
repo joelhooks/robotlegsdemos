@@ -142,7 +142,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.content
     	//--------------------------------------------------------------------------
     	private function handleEvent(event:*):void
     	{
-	    	if(event.target == link_github) openExternalURL("http://github.com/darscan");
+	    	if(event.target == link_github) openExternalURL("http://wiki.github.com/darscan/robotlegs");
     	}
     	
     	//--------------------------------------------------------------------------

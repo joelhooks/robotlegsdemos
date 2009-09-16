@@ -20,33 +20,19 @@
  * THE SOFTWARE.
  */
 
-package org.robotlegs.demos.appmediation
+package
 {
-	import flash.display.DisplayObjectContainer;
+	import flash.display.Sprite;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.adapters.SwiftSuspendersInjector;
 	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
-	public class DemoContext extends Context
+	public class RobotLegsSizeTest extends Sprite
 	{
-		public function DemoContext(contextView:DisplayObjectContainer)
+		public function RobotLegsSizeTest()
 		{
-			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
-		}
-		
-		override public function startup():void
-		{
-			commandFactory.mapCommand(ContextEvent.STARTUP, DemoStartupCommand, true);
-			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
-		}
-		
-		override protected function createLogger():ILogger
-		{
-			return new DefaultLogger('DemoContext');
+			new Context(this, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
 		}
 	}
 }

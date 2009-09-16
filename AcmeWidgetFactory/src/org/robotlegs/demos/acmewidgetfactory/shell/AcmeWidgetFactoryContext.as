@@ -4,8 +4,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SpringInjector;
-	import org.robotlegs.adapters.SpringReflector;
+	import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.commands.ShellStartupCommand;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
@@ -14,7 +14,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	{
 		public function AcmeWidgetFactoryContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SpringInjector(), new SpringReflector());
+			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
 		}
 		
 		override public function startup():void
@@ -27,8 +27,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 		
 		override protected function createLogger():ILogger
 		{
-			// Let's create a logger for this context
-			// return new NullLogger();
+			// Let's create a logger for this context so we can see what the framework is doing
 			return new DefaultLogger('AcmeWidgetFactoryContext');
 		}
 	}

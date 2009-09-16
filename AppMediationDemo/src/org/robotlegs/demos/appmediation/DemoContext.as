@@ -24,22 +24,18 @@ package org.robotlegs.demos.appmediation
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
-	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SmartyPantsInjector;
-	import org.robotlegs.adapters.SmartyPantsReflector;
+	import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class DemoContext extends Context
 	{
-		private static var loggerSet:* = NoSmartyPantsLogging.init(null);
-		
 		public function DemoContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SmartyPantsInjector(), new SmartyPantsReflector());
+			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
 		}
 		
 		override public function startup():void

@@ -26,8 +26,8 @@ package org.robotlegs.demos.helloflash
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SpringInjector;
-	import org.robotlegs.adapters.SpringReflector;
+	import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.demos.helloflash.controller.PrepControllerCommand;
 	import org.robotlegs.demos.helloflash.controller.PrepModelCommand;
 	import org.robotlegs.demos.helloflash.controller.PrepViewCommand;
@@ -40,7 +40,7 @@ package org.robotlegs.demos.helloflash
 		public function HelloFlashContext(contextView:DisplayObjectContainer)
 		{
 			// We must provide RobotLegs with some tools, and a DisplayObjectContainer to watch
-			super(contextView, new SpringInjector(), new SpringReflector());
+			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
 		}
 		
 		override public function startup():void

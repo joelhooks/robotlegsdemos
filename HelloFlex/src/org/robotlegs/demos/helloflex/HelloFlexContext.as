@@ -2,10 +2,8 @@ package org.robotlegs.demos.helloflex
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
-	
-	import org.robotlegs.adapters.SmartyPantsInjector;
-	import org.robotlegs.adapters.SmartyPantsReflector;
+	import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.demos.helloflex.controller.commands.*;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
@@ -15,9 +13,7 @@ package org.robotlegs.demos.helloflex
 		
 		public function HelloFlexContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SmartyPantsInjector(), new SmartyPantsReflector());
-			// Keep SmartyPants quiet
-			NoSmartyPantsLogging;
+			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
 		}
 		
 		override public function startup():void

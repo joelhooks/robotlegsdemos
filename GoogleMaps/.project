@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>AcmeWidgetFactory</name>
-	<comment/>
+	<name>RobotlegsGoogleMaps</name>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -12,8 +12,6 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.adobe.flexbuilder.project.flexnature</nature>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
 </projectDescription>
-

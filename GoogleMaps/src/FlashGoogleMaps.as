@@ -23,12 +23,10 @@
 package 
 {
 	import flash.display.Sprite;
-	import flash.system.Security;
-	import flash.display.StageScaleMode;
 	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.system.Security;
 	
-	import org.robotlegs.adapters.SpringInjector;
-	import org.robotlegs.adapters.SpringReflector;
 	import org.robotlegs.demos.flashgooglemaps.FlashGoogleMapsContext;
 	
 	/**
@@ -75,7 +73,7 @@ package
 			Security.allowDomain("maps.googleapis.com");
 			
 			// initialize the framework
-			_context = new FlashGoogleMapsContext(this, new SpringInjector(), new SpringReflector());
+			_context = new FlashGoogleMapsContext(this);
 		}
 	}
 }

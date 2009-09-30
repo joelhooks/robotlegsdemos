@@ -9,12 +9,12 @@ package org.robotlegs.demos.helloflex.controller.commands
 		
 		override public function execute():void
 		{
-			mediatorFactory.mapMediator(HelloForm, HelloFormMediator);
-			mediatorFactory.mapMediator(MessageList, MessageListMediator);
-			mediatorFactory.mapMediator(ClearMessagesButton, ClearMessagesButtonMediator);
-			mediatorFactory.mapMediator(LoginPage, LoginPageMediator);
-			mediatorFactory.mapMediator(LogoutButton, LogoutButtonMediator);
-			mediatorFactory.mapMediator(SimpleLogBox, SimpleLogBoxMediator);
+			mediatorMap.map(HelloForm, HelloFormMediator);
+			mediatorMap.map(MessageList, MessageListMediator);
+			mediatorMap.map(ClearMessagesButton, ClearMessagesButtonMediator);
+			mediatorMap.map(LoginPage, LoginPageMediator);
+			mediatorMap.map(LogoutButton, LogoutButtonMediator);
+			mediatorMap.map(SimpleLogBox, SimpleLogBoxMediator);
 		}
 	
 	}

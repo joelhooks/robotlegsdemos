@@ -4,8 +4,6 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SwiftSuspendersInjector;
-	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.commands.ShellStartupCommand;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
@@ -14,13 +12,13 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	{
 		public function AcmeWidgetFactoryContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
+			super(contextView);
 		}
 		
 		override public function startup():void
 		{
 			// Map our Startup Command
-			commandFactory.mapCommand(ContextEvent.STARTUP, ShellStartupCommand, true);
+			commandMap.mapEvent(ContextEvent.STARTUP, ShellStartupCommand, true);
 			// And away we go!
 			super.startup();
 		}

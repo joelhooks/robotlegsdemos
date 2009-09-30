@@ -12,7 +12,8 @@
 				paddingRight="10"
 				paddingTop="10"
 				verticalGap="6"
-				preinitialize="onPreInitialize()">
+				preinitialize="onPreInitialize()"
+				viewSourceURL="srcview/index.html">
 
 	<mx:Script>
 		<![CDATA[

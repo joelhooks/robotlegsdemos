@@ -31,24 +31,24 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller.commands
 		override public function execute():void
 		{
 			// Controller
-			commandFactory.mapCommand(ShellWidgetEvent.CREATE_WIDGET, CreateWidgetCommand);
-			commandFactory.mapCommand(ShellWidgetEvent.POKE_WIDGET, PokeWidgetCommand);
-			commandFactory.mapCommand(ShellWidgetEvent.REMOVE_WIDGET, RemoveWidgetCommand);
-			commandFactory.mapCommand(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, UnregisterWidgetCommand);
-			commandFactory.mapCommand(ShellLoggerEvent.CREATE_LOGGER, CreateLoggerCommand);
+			commandMap.mapEvent(ShellWidgetEvent.CREATE_WIDGET, CreateWidgetCommand);
+			commandMap.mapEvent(ShellWidgetEvent.POKE_WIDGET, PokeWidgetCommand);
+			commandMap.mapEvent(ShellWidgetEvent.REMOVE_WIDGET, RemoveWidgetCommand);
+			commandMap.mapEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, UnregisterWidgetCommand);
+			commandMap.mapEvent(ShellLoggerEvent.CREATE_LOGGER, CreateLoggerCommand);
 			
 			// Model
 			injector.bindSingleton(ActiveWidgetProxy);
 			
 			// View
-			injector.bindValue( AcmeWidgetFactory, contextView );
-			mediatorFactory.mapMediator(ControlPanelView, ControlPanelMediator);
-			mediatorFactory.mapMediator(LoggerHolderView, LoggerHolderMediator);
-			mediatorFactory.mapMediator(WidgetHolderView, WidgetHolderMediator);
+			injector.bindValue(AcmeWidgetFactory, contextView);
+			mediatorMap.map(ControlPanelView, ControlPanelMediator);
+			mediatorMap.map(LoggerHolderView, LoggerHolderMediator);
+			mediatorMap.map(WidgetHolderView, WidgetHolderMediator);
 			
 			// Modules - notice FQCN::string style
-			mediatorFactory.mapModuleMediator('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
-			mediatorFactory.mapModuleMediator('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
+			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
+			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
 			
 			// Ready
 			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));

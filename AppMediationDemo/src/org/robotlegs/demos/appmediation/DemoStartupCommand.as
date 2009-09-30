@@ -28,8 +28,8 @@ package org.robotlegs.demos.appmediation
 	{
 		override public function execute():void
 		{
-			mediatorFactory.mapMediator(FlexAppMediationDemo, DemoAppMediator);
-			mediatorFactory.createMediator(contextView);
+			mediatorMap.map(FlexAppMediationDemo, DemoAppMediator);
+			mediatorMap.create(contextView);
 		}
 	}
 }

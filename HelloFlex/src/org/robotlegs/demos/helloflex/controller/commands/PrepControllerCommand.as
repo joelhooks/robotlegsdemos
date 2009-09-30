@@ -8,7 +8,7 @@ package org.robotlegs.demos.helloflex.controller.commands
 		
 		override public function execute():void
 		{
-			commandFactory.mapCommand(SystemEvent.CLEAR_MESSAGES_REQUESTED, TryClearMessages);
+			commandMap.mapEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED, TryClearMessages);
 		}
 	
 	}

@@ -35,8 +35,8 @@ package org.robotlegs.demos.helloflash.controller
 			// Here we bind Mediator Classes to View Classes:
 			// Mediators will be created automatically when
 			// view instances arrive on stage (anywhere inside the context view)
-			mediatorFactory.mapMediator(Ball, BallMediator);
-			mediatorFactory.mapMediator(Readout, ReadoutMediator);
+			mediatorMap.map(Ball, BallMediator);
+			mediatorMap.map(Readout, ReadoutMediator);
 		}
 	}
 }

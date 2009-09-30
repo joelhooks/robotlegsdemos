@@ -26,8 +26,6 @@ package org.robotlegs.demos.lazystack
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SwiftSuspendersInjector;
-	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.mvcs.Context;
 	
 	public class MainViewContext extends Context
@@ -36,19 +34,19 @@ package org.robotlegs.demos.lazystack
 		
 		public function MainViewContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
+			super(contextView);
 			uid++;
 		}
 		
 		override public function startup():void
 		{
-			mediatorFactory.mapMediator(ComponentA, ComponentAMediator);
-			mediatorFactory.mapMediator(ComponentB, ComponentBMediator);
+			mediatorMap.map(ComponentA, ComponentAMediator);
+			mediatorMap.map(ComponentB, ComponentBMediator);
 		}
 		
 		override protected function createLogger():ILogger
 		{
-			return new DefaultLogger('MainViewContext'+uid);
+			return new DefaultLogger('MainViewContext' + uid);
 		}
 	}
 }

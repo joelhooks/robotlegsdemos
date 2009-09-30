@@ -31,8 +31,8 @@ package org.robotlegs.demos.helloflash.controller
 		override public function execute():void
 		{
 			// Map some Commands to Events
-			commandFactory.mapCommand(ContextEvent.STARTUP_COMPLETE, CreateBallCommand, true);
-			commandFactory.mapCommand(HelloFlashEvent.BALL_CLICKED, CreateBallCommand);
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, CreateBallCommand, true);
+			commandMap.mapEvent(HelloFlashEvent.BALL_CLICKED, CreateBallCommand);
 		}
 	}
 }

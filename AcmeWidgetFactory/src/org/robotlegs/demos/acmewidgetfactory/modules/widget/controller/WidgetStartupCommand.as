@@ -10,10 +10,10 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.controller
 		override public function execute():void
 		{
 			// Controller
-			commandFactory.mapCommand(ContextEvent.SHUTDOWN, WidgetShutdownCommand, true);
+			commandMap.mapEvent(ContextEvent.SHUTDOWN, WidgetShutdownCommand, true);
 			
 			// View
-			mediatorFactory.mapMediator(WidgetCanvas, WidgetCanvasMediator);
+			mediatorMap.map(WidgetCanvas, WidgetCanvasMediator);
 			
 			// Ready
 			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));

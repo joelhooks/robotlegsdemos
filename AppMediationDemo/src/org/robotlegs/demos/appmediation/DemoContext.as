@@ -26,8 +26,6 @@ package org.robotlegs.demos.appmediation
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SwiftSuspendersInjector;
-	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 	
@@ -35,12 +33,12 @@ package org.robotlegs.demos.appmediation
 	{
 		public function DemoContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
+			super(contextView);
 		}
 		
 		override public function startup():void
 		{
-			commandFactory.mapCommand(ContextEvent.STARTUP, DemoStartupCommand, true);
+			commandMap.mapEvent(ContextEvent.STARTUP, DemoStartupCommand, true);
 			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}
 		

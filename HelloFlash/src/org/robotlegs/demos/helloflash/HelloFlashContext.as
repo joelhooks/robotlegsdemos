@@ -26,8 +26,6 @@ package org.robotlegs.demos.helloflash
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SwiftSuspendersInjector;
-	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.demos.helloflash.controller.PrepControllerCommand;
 	import org.robotlegs.demos.helloflash.controller.PrepModelCommand;
 	import org.robotlegs.demos.helloflash.controller.PrepViewCommand;
@@ -40,16 +38,16 @@ package org.robotlegs.demos.helloflash
 		public function HelloFlashContext(contextView:DisplayObjectContainer)
 		{
 			// We must provide RobotLegs with some tools, and a DisplayObjectContainer to watch
-			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
+			super(contextView);
 		}
 		
 		override public function startup():void
 		{
 			// Map some Commands to a Startup Event
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepControllerCommand);
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepModelCommand);
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepViewCommand);
-			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand);
+			commandMap.mapEvent(ContextEvent.STARTUP, PrepControllerCommand);
+			commandMap.mapEvent(ContextEvent.STARTUP, PrepModelCommand);
+			commandMap.mapEvent(ContextEvent.STARTUP, PrepViewCommand);
+			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand);
 			// And away we go!
 			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}

@@ -24,8 +24,6 @@ package org.robotlegs.demos.appmediation
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 	
@@ -41,10 +39,6 @@ package org.robotlegs.demos.appmediation
 			commandMap.mapEvent(ContextEvent.STARTUP, DemoStartupCommand, true);
 			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}
-		
-		override protected function createLogger():ILogger
-		{
-			return new DefaultLogger('DemoContext');
-		}
+	
 	}
 }

@@ -24,8 +24,6 @@ package org.robotlegs.demos.flashgooglemaps
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.core.IInjector;
 	import org.robotlegs.core.IReflector;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepControllerCommand;
@@ -89,21 +87,6 @@ package org.robotlegs.demos.flashgooglemaps
 			// fire!
 			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}
-		
-		//--------------------------------------------------------------------------
-		//
-		//  Overridden methods
-		//
-		//--------------------------------------------------------------------------
-		/**
-		 * Lets trace some stuff so we can keep an eye on what goes on.
-		 *
-		 * @return DefaultLogger
-		 *
-		 */
-		override protected function createLogger():ILogger
-		{
-			return new DefaultLogger('FlashGoogleMapsContext');
-		}
+	
 	}
 }

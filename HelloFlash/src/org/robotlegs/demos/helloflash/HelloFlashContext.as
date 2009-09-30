@@ -24,8 +24,6 @@ package org.robotlegs.demos.helloflash
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.demos.helloflash.controller.PrepControllerCommand;
 	import org.robotlegs.demos.helloflash.controller.PrepModelCommand;
 	import org.robotlegs.demos.helloflash.controller.PrepViewCommand;
@@ -51,11 +49,6 @@ package org.robotlegs.demos.helloflash
 			// And away we go!
 			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}
-		
-		override protected function createLogger():ILogger
-		{
-			// Create an optional logger
-			return new DefaultLogger('HelloFlashContext');
-		}
+	
 	}
 }

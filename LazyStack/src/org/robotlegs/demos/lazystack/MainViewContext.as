@@ -24,8 +24,6 @@ package org.robotlegs.demos.lazystack
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
 	import org.robotlegs.mvcs.Context;
 	
 	public class MainViewContext extends Context
@@ -43,10 +41,6 @@ package org.robotlegs.demos.lazystack
 			mediatorMap.map(ComponentA, ComponentAMediator);
 			mediatorMap.map(ComponentB, ComponentBMediator);
 		}
-		
-		override protected function createLogger():ILogger
-		{
-			return new DefaultLogger('MainViewContext' + uid);
-		}
+	
 	}
 }

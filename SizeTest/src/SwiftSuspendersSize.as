@@ -24,13 +24,17 @@ package
 {
 	import flash.display.Sprite;
 	
-	import org.robotlegs.mvcs.Context;
+	import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import org.robotlegs.adapters.SwiftSuspendersReflector;
+	import org.robotlegs.core.IInjector;
+	import org.robotlegs.core.IReflector;
 	
-	public class RobotLegsSizeTest extends Sprite
+	public class SwiftSuspendersSize extends Sprite
 	{
-		public function RobotLegsSizeTest()
+		public function SwiftSuspendersSize()
 		{
-			new Context(this);
+			var injector:IInjector = new SwiftSuspendersInjector();
+			var reflector:IReflector = new SwiftSuspendersReflector();
 		}
 	}
 }

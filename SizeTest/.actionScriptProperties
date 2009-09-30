@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<actionScriptProperties mainApplicationPath="RobotLegsSizeTest.as" projectUUID="d4bcbd60-db3f-4274-9388-823b4a90dcc7" version="6">
+<actionScriptProperties mainApplicationPath="RobotLegsFullSize.as" projectUUID="d4bcbd60-db3f-4274-9388-823b4a90dcc7" version="6">
   <compiler additionalCompilerArguments="-locale en_US" autoRSLOrdering="false" copyDependentFiles="true" flexSDK="Flex 3.4" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
     <compilerSourcePath/>
     <libraryPath defaultLinkType="0">
@@ -30,7 +30,9 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="RobotLegsSizeTest.as"/>
+    <application path="LoggingSize.as"/>
+    <application path="SwiftSuspendersSize.as"/>
+    <application path="RobotLegsFullSize.as"/>
   </applications>
   <modules/>
   <buildCSSFiles/>

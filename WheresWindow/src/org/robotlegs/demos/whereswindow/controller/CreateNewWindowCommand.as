@@ -4,7 +4,6 @@ package org.robotlegs.demos.whereswindow.controller
 	import org.robotlegs.demos.whereswindow.events.InfoWindowEvent;
 	import org.robotlegs.demos.whereswindow.model.OpenWindowsProxy;
 	import org.robotlegs.demos.whereswindow.view.components.InfoWindow;
-	import org.robotlegs.demos.whereswindow.view.mediators.InfoWindowMediator;
 	import org.robotlegs.mvcs.Command;
 
 	public class CreateNewWindowCommand extends Command implements ICommand
@@ -26,7 +25,7 @@ package org.robotlegs.demos.whereswindow.controller
 			else
 			{
 				window = openWindowProxy.createWindow( );
-				mediatorFactory.registerMediator( new InfoWindowMediator(), window );
+				mediatorFactory.createMediator( window );
 			}
 			
 			window.open();

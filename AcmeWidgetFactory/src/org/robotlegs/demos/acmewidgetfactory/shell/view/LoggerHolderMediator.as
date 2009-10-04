@@ -2,7 +2,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
 	import mx.core.UIComponent;
 	
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellLoggerEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellLoggerEvent;
 	import org.robotlegs.mvcs.Mediator;
 
 	public class LoggerHolderMediator extends Mediator

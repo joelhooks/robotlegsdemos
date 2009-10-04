@@ -2,9 +2,11 @@ package org.robotlegs.demos.helloflex
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.demos.helloflex.controller.commands.*;
+	import org.robotlegs.demos.helloflex.controller.*;
+	import org.robotlegs.demos.helloflex.model.*;
+	import org.robotlegs.demos.helloflex.services.*;
+	import org.robotlegs.demos.helloflex.view.*;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class HelloFlexContext extends Context
 	{
@@ -16,13 +18,21 @@ package org.robotlegs.demos.helloflex
 		
 		override public function startup():void
 		{
-			// Map our startup commands
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepModelCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepControllerCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepServicesCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepViewCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, true);
-			// And away we go!
+			// Controller
+			commandMap.mapEvent(TryClearMessages, SystemEvent.CLEAR_MESSAGES_REQUESTED, SystemEvent);
+			// Model
+			injector.mapSingleton(UserProxy);
+			injector.mapSingleton(MessageProxy);
+			// Services
+			injector.mapSingletonOf(IAuthService, DummyAuthService);
+			// View
+			mediatorMap.mapView(HelloForm, HelloFormMediator);
+			mediatorMap.mapView(MessageList, MessageListMediator);
+			mediatorMap.mapView(ClearMessagesButton, ClearMessagesButtonMediator);
+			mediatorMap.mapView(LoginPage, LoginPageMediator);
+			mediatorMap.mapView(LogoutButton, LogoutButtonMediator);
+			mediatorMap.mapView(SimpleLogBox, SimpleLogBoxMediator);
+			// Startup complete
 			super.startup();
 		}
 	

@@ -25,7 +25,6 @@ package org.robotlegs.demos.appmediation
 	import flash.display.DisplayObjectContainer;
 	
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class DemoContext extends Context
 	{
@@ -36,8 +35,8 @@ package org.robotlegs.demos.appmediation
 		
 		override public function startup():void
 		{
-			commandMap.mapEvent(ContextEvent.STARTUP, DemoStartupCommand, true);
-			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			mediatorMap.mapView(FlexAppMediationDemo, DemoAppMediator);
+			mediatorMap.createMediator(contextView);
 		}
 	
 	}

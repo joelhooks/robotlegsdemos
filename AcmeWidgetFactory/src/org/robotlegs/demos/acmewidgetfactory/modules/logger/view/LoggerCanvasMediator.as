@@ -1,6 +1,6 @@
 package org.robotlegs.demos.acmewidgetfactory.modules.logger.view
 {
-	import org.robotlegs.demos.acmewidgetfactory.modules.logger.events.LoggerEvent;
+	import org.robotlegs.demos.acmewidgetfactory.modules.logger.controller.LoggerEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class LoggerCanvasMediator extends Mediator

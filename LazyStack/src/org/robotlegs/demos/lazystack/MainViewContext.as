@@ -38,8 +38,8 @@ package org.robotlegs.demos.lazystack
 		
 		override public function startup():void
 		{
-			mediatorMap.map(ComponentA, ComponentAMediator);
-			mediatorMap.map(ComponentB, ComponentBMediator);
+			mediatorMap.mapView(ComponentA, ComponentAMediator);
+			mediatorMap.mapView(ComponentB, ComponentBMediator);
 		}
 	
 	}

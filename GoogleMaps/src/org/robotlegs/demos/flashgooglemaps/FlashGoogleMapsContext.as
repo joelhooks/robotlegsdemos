@@ -85,7 +85,7 @@ package org.robotlegs.demos.flashgooglemaps
 			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, true);
 			
 			// fire!
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			dispatch(new ContextEvent(ContextEvent.STARTUP));
 		}
 	
 	}

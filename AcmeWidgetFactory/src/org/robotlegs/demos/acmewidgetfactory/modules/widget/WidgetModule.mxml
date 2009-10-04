@@ -10,7 +10,7 @@
 	<mx:Script>
 		<![CDATA[
 			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
-			import org.robotlegs.demos.acmewidgetfactory.modules.widget.events.WidgetEvent;
+			import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetEvent;
 			import org.robotlegs.core.IContext;
 			import org.robotlegs.mvcs.ContextEvent;
 			

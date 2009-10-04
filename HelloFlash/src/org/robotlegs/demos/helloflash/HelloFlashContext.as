@@ -24,10 +24,13 @@ package org.robotlegs.demos.helloflash
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.demos.helloflash.controller.PrepControllerCommand;
-	import org.robotlegs.demos.helloflash.controller.PrepModelCommand;
-	import org.robotlegs.demos.helloflash.controller.PrepViewCommand;
-	import org.robotlegs.demos.helloflash.controller.StartupCommand;
+	import org.robotlegs.demos.helloflash.controller.CreateBallCommand;
+	import org.robotlegs.demos.helloflash.controller.HelloFlashEvent;
+	import org.robotlegs.demos.helloflash.model.StatsProxy;
+	import org.robotlegs.demos.helloflash.view.Ball;
+	import org.robotlegs.demos.helloflash.view.BallMediator;
+	import org.robotlegs.demos.helloflash.view.Readout;
+	import org.robotlegs.demos.helloflash.view.ReadoutMediator;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 	
@@ -35,19 +38,29 @@ package org.robotlegs.demos.helloflash
 	{
 		public function HelloFlashContext(contextView:DisplayObjectContainer)
 		{
-			// We must provide RobotLegs with some tools, and a DisplayObjectContainer to watch
 			super(contextView);
 		}
 		
 		override public function startup():void
 		{
-			// Map some Commands to a Startup Event
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepControllerCommand);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepModelCommand);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepViewCommand);
-			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand);
-			// And away we go!
-			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			// Map some Commands to Events
+			commandMap.mapEvent(CreateBallCommand, ContextEvent.STARTUP_COMPLETE, ContextEvent, true);
+			commandMap.mapEvent(CreateBallCommand, HelloFlashEvent.BALL_CLICKED, HelloFlashEvent );
+			
+			// Create a rule for Dependency Injection
+			injector.mapSingleton(StatsProxy);
+			
+			// Here we bind Mediator Classes to View Classes:
+			// Mediators will be created automatically when
+			// view instances arrive on stage (anywhere inside the context view)
+			mediatorMap.mapView(Ball, BallMediator);
+			mediatorMap.mapView(Readout, ReadoutMediator);
+			
+			// Manually add something to stage
+			contextView.addChild(new Readout());
+			
+			// And we're done
+			super.startup();
 		}
 	
 	}

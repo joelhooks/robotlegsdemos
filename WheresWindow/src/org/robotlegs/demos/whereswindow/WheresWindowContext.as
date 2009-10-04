@@ -3,9 +3,17 @@ package org.robotlegs.demos.whereswindow
 	import flash.display.DisplayObjectContainer;
 	
 	import org.robotlegs.core.IContext;
-	import org.robotlegs.demos.whereswindow.controller.StartupCommand;
+	import org.robotlegs.demos.whereswindow.controller.CreateNewWindowCommand;
+	import org.robotlegs.demos.whereswindow.controller.RemoveInfoWindowCommand;
+	import org.robotlegs.demos.whereswindow.events.InfoWindowEvent;
+	import org.robotlegs.demos.whereswindow.model.OpenWindowsProxy;
+	import org.robotlegs.demos.whereswindow.view.components.InfoWindow;
+	import org.robotlegs.demos.whereswindow.view.components.OpenWindowList;
+	import org.robotlegs.demos.whereswindow.view.components.WheresWindowView;
+	import org.robotlegs.demos.whereswindow.view.mediators.InfoWindowMediator;
+	import org.robotlegs.demos.whereswindow.view.mediators.OpenWindowsListMediator;
+	import org.robotlegs.demos.whereswindow.view.mediators.WheresWindowViewMediator;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class WheresWindowContext extends Context implements IContext
 	{
@@ -16,8 +24,17 @@ package org.robotlegs.demos.whereswindow
 		
 		override public function startup():void
 		{
-			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, true);
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			injector.mapSingleton(OpenWindowsProxy);
+			
+			mediatorMap.mapView(InfoWindow, InfoWindowMediator);
+			mediatorMap.mapView(OpenWindowList, OpenWindowsListMediator);
+			mediatorMap.mapView(WheresWindowView, WheresWindowViewMediator);
+			
+			// Test RL's Strong Command Class Mapping.. seems to be broken
+			commandMap.mapEvent(CreateNewWindowCommand, InfoWindowEvent.CREATE_INFO_WINDOW, InfoWindowEvent );
+			commandMap.mapEvent(RemoveInfoWindowCommand, InfoWindowEvent.INFO_WINDOW_CLOSED, InfoWindowEvent );
+			
+			super.startup();
 		}
 	}
 }

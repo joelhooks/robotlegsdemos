@@ -25,7 +25,7 @@ package org.robotlegs.demos.whereswindow.controller
 			else
 			{
 				window = openWindowProxy.createWindow();
-				mediatorMap.create(window);
+				mediatorMap.createMediator(window);
 			}
 			
 			window.open();

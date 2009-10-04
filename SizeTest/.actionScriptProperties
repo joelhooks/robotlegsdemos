@@ -30,7 +30,6 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="LoggingSize.as"/>
     <application path="SwiftSuspendersSize.as"/>
     <application path="RobotLegsFullSize.as"/>
   </applications>

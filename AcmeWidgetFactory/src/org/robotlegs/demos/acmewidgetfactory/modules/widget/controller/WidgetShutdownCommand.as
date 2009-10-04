@@ -7,6 +7,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.controller
 	{
 		override public function execute():void
 		{
+			// perhaps we want to do something before shutting down
 			dispatch(new ContextEvent(ContextEvent.SHUTDOWN_COMPLETE));
 		}
 	}

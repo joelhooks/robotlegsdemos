@@ -44,7 +44,7 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		protected function handleWindowClose(event:Event):void
 		{
 			dispatch(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_CLOSED, view.id));
-			mediatorMap.remove(this);
+			mediatorMap.removeMediator(this);
 		}
 	
 	}

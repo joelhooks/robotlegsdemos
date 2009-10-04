@@ -2,7 +2,9 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetStartupCommand;
+	import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetShutdownCommand;
+	import org.robotlegs.demos.acmewidgetfactory.modules.widget.view.WidgetCanvas;
+	import org.robotlegs.demos.acmewidgetfactory.modules.widget.view.WidgetCanvasMediator;
 	import org.robotlegs.mvcs.Context;
 	import org.robotlegs.mvcs.ContextEvent;
 	
@@ -15,10 +17,14 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 		
 		override public function startup():void
 		{
-			// Map Startup Commands
-			commandMap.mapEvent(ContextEvent.STARTUP, WidgetStartupCommand, true);
-			// And away we go!
-			super.startup();
+			// Controller
+			commandMap.mapEvent(WidgetShutdownCommand, ContextEvent.SHUTDOWN, ContextEvent, true);
+			
+			// View
+			mediatorMap.mapView(WidgetCanvas, WidgetCanvasMediator);
+			
+			// Ready
+			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
 		}
 	
 	}

@@ -28,8 +28,8 @@
 		]]>
 	</mx:Script>
 
-	<view:ControlPanelView/>
-	<view:WidgetHolderView/>
-	<view:LoggerHolderView/>
+	<view:ControlPanelView />
+	<view:WidgetHolderView />
+	<view:LoggerHolderView />
 
 </mx:Application>

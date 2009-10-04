@@ -2,8 +2,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
 	import flash.events.MouseEvent;
 	
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class ControlPanelMediator extends Mediator

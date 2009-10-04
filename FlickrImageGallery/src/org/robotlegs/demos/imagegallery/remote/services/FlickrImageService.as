@@ -17,8 +17,6 @@ package org.robotlegs.demos.imagegallery.remote.services
 	import com.adobe.webapis.flickr.methodgroups.Photos;
 	import com.adobe.webapis.flickr.methodgroups.helpers.PhotoSearchParams;
 	
-	import flash.events.EventDispatcher;
-	
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
@@ -35,6 +33,11 @@ package org.robotlegs.demos.imagegallery.remote.services
 		public function FlickrImageService()
 		{
 			this.service = new FlickrService(FLICKR_API_KEY);
+		}
+		
+		public function get searchAvailable():Boolean
+		{
+			return true;
 		}
 				
 		public function loadGallery():void

@@ -9,17 +9,23 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 */
-package org.robotlegs.demos.imagegallery.controllers.startup
+package org.robotlegs.demos.imagegallery.controllers
 {
+	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
+	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.mvcs.ContextEvent;
 
 	public class StartupCommand extends Command
 	{
+		[Inject]
+		public var galleryService:IGalleryImageService;
 
 		override public function execute():void
 		{
 			// Do some custom startup stuff here!
+
+			
 			dispatch( new ContextEvent( ContextEvent.STARTUP_COMPLETE ) );
 		}
 	}

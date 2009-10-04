@@ -59,8 +59,10 @@ package org.robotlegs.demos.imagegallery.test.cases
 			var galleryImage:GalleryImage = new GalleryImage()
 			galleryImage.URL = "http://www.example.com/nothing.jpg";
 			
-			mediator.eventDispatcher.addEventListener(GalleryImageEvent.SELECT_GALLERY_IMAGE, Async.asyncHandler(this, handleImageSelected, 2000, galleryImage));
-			view.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, galleryImage));
+			mediator.eventDispatcher.addEventListener(GalleryImageEvent.SELECT_GALLERY_IMAGE, 
+				Async.asyncHandler(this, handleImageSelected, 2000, galleryImage));
+			view.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, 
+				galleryImage));
 		}
 		
 		[Test(async)]
@@ -68,8 +70,10 @@ package org.robotlegs.demos.imagegallery.test.cases
 		{
 			var gallery:Gallery = testGallery;
 				
-			mediator.eventDispatcher.addEventListener(GalleryEvent.GALLERY_LOADED, Async.asyncHandler(this, handleGalleryLoaded, 2000, gallery));
-			mediator.eventDispatcher.dispatchEvent(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
+			mediator.eventDispatcher.addEventListener(GalleryEvent.GALLERY_LOADED, 
+				Async.asyncHandler(this, handleGalleryLoaded, 2000, gallery));
+			mediator.eventDispatcher.dispatchEvent(new GalleryEvent(
+				GalleryEvent.GALLERY_LOADED, gallery));
 		}
 		
 		[Test(async)]
@@ -80,8 +84,10 @@ package org.robotlegs.demos.imagegallery.test.cases
 
 			with ( sequence ) {
 
-				addStep( new SequenceEventDispatcher( mediator.eventDispatcher, new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery) ) );
-				addStep( new SequenceWaiter( mediator.eventDispatcher, GalleryImageEvent.SELECT_GALLERY_IMAGE, 500 ) );
+				addStep( new SequenceEventDispatcher( mediator.eventDispatcher, 
+					new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery) ) );
+				addStep( new SequenceWaiter( mediator.eventDispatcher, 
+					GalleryImageEvent.SELECT_GALLERY_IMAGE, 500 ) );
 				
 				addAssertHandler( handleImageSelectedAfterGalleryLoad, gallery );
 				
@@ -100,17 +106,18 @@ package org.robotlegs.demos.imagegallery.test.cases
 			return gallery;		
 		}
 		
-		protected function handleImageSelected(event:GalleryImageEvent, image:GalleryImage):void
+		protected function handleImageSelected( event:GalleryImageEvent,image:GalleryImage):void
 		{
 			Assert.assertEquals(event.image.URL, view.imageSource);
 		}
 		
-		protected function handleGalleryLoaded(event:GalleryEvent, passThrough:Gallery):void
+		protected function handleGalleryLoaded( event:GalleryEvent, 
+												passThrough:Gallery):void
 		{
 			Assert.assertEquals(event.gallery, passThrough);
 		}
 		
-		protected function handleImageSelectedAfterGalleryLoad(event:GalleryImageEvent, gallery:Gallery):void
+		protected function handleImageSelectedAfterGalleryLoad( event:GalleryImageEvent, gallery:Gallery):void
 		{
 			Assert.assertEquals(view.dataProvider, gallery.photos);
 			Assert.assertEquals(event.image, gallery.photos[0]);

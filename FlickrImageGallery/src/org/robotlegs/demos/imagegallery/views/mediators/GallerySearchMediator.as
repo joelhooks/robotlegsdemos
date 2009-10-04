@@ -12,6 +12,7 @@
 package org.robotlegs.demos.imagegallery.views.mediators
 {
 	import org.robotlegs.core.IMediator;
+	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.demos.imagegallery.views.components.GallerySearch;
 	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.mvcs.Mediator;
@@ -21,13 +22,18 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		[Inject]
 		public var gallerySearch:GallerySearch;
 
+		[Inject]
+		public var service:IGalleryImageService;
+		
 		public function GallerySearchMediator()
 		{
 		}
 		
 		override public function onRegister():void
 		{
-			this.gallerySearch.addEventListener( GallerySearchEvent.SEARCH, handleSearch);
+			addEventListenerTo( gallerySearch, GallerySearchEvent.SEARCH, handleSearch );
+			
+			gallerySearch.visible = gallerySearch.includeInLayout = service.searchAvailable;
 		}
 		
 		protected function handleSearch(event:GallerySearchEvent):void

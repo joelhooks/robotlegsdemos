@@ -16,10 +16,11 @@ package org.robotlegs.demos.imagegallery.views.events
 	public class GallerySearchEvent extends Event
 	{
 		public static const SEARCH:String = "search";
+		public static const SEARCH_NOT_AVAILABLE:String = "searchNotAvailable";
 		
 		public var searchTerm:String;
 		
-		public function GallerySearchEvent(type:String, searchTerm:String)
+		public function GallerySearchEvent(type:String, searchTerm:String=null)
 		{
 			this.searchTerm = searchTerm;
 			super(type, false, false);

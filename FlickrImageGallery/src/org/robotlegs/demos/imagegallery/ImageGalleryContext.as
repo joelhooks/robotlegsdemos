@@ -13,14 +13,16 @@ package org.robotlegs.demos.imagegallery
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepControllerCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepModelCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepServicesCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepViewCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.StartupCommand;
-	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
-	
+	import org.robotlegs.demos.imagegallery.controllers.StartupCommand;
+	import org.robotlegs.demos.imagegallery.controllers.gallery.*;
+	import org.robotlegs.demos.imagegallery.events.*;
+	import org.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
+	import org.robotlegs.demos.imagegallery.remote.services.*;
+	import org.robotlegs.demos.imagegallery.views.components.*;
+	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
+	import org.robotlegs.demos.imagegallery.views.mediators.*;
+	import org.robotlegs.mvcs.*;
+
 	public class ImageGalleryContext extends Context
 	{
 		public function ImageGalleryContext(contextView:DisplayObjectContainer)
@@ -30,14 +32,27 @@ package org.robotlegs.demos.imagegallery
 		
 		override public function startup():void
 		{
-			// Map our startup commands
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepModelCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepControllerCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepServicesCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepViewCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, true);
+			//map controller
+			commandMap.mapEvent(StartupCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(UpdateGalleryCommand, GalleryEvent.GALLERY_LOADED, GalleryEvent);
+			commandMap.mapEvent(SetSelectedImageCommand,GalleryImageEvent.SELECT_GALLERY_IMAGE, GalleryImageEvent);
+			commandMap.mapEvent(LoadGalleryCommand,GalleryEvent.LOAD_GALLERY, GalleryEvent);
+			commandMap.mapEvent(LoadSearchGalleryCommand,GallerySearchEvent.SEARCH, GallerySearchEvent);
+			
+			//map model
+			injector.mapSingleton( GalleryProxy );
+			
+			//map service
+			injector.mapSingletonOf( IGalleryImageService, FlickrImageService );
+			//injector.mapSingletonOf( IGalleryImageService, XMLImageService );
+			
+			//map view
+			mediatorMap.mapView(GalleryView, GalleryViewMediator);
+			mediatorMap.mapView(GallerySearch, GallerySearchMediator);
+			mediatorMap.mapView(GalleryLabel, GalleryLabelMediator);
+						
 			// And away we go!
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			dispatch(new ContextEvent(ContextEvent.STARTUP));
 		}
 	}
 }

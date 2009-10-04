@@ -54,9 +54,11 @@ package org.robotlegs.demos.imagegallery.test.cases
 			var passThrough:Object = {};
 			passThrough.searchTerm = "robotlegs";
 			
-			Async.handleEvent(this, this.galleryLabelMediator.eventDispatcher, GallerySearchEvent.SEARCH, handleSearchEvent, 500, passThrough, handleTimeout);
+			Async.handleEvent(this, this.galleryLabelMediator.eventDispatcher, 
+				GallerySearchEvent.SEARCH, handleSearchEvent, 500, passThrough, handleTimeout);
 			
-			this.galleryLabelMediator.eventDispatcher.dispatchEvent(new GallerySearchEvent(GallerySearchEvent.SEARCH, "robotlegs"));
+			this.galleryLabelMediator.eventDispatcher.dispatchEvent(
+				new GallerySearchEvent(GallerySearchEvent.SEARCH, "robotlegs"));
 		}
 		
 		[Test(async,ui)] 
@@ -65,8 +67,10 @@ package org.robotlegs.demos.imagegallery.test.cases
 			var passThrough:Object = {};
 			passThrough.searchTerm = "robotlegs";
 			
-			Async.handleEvent(this, this.galleryLabel, Event.CHANGE, handleGalleryLabelTextChange, 500, passThrough, handleTimeout);
-			this.galleryLabelMediator.eventDispatcher.dispatchEvent(new GallerySearchEvent(GallerySearchEvent.SEARCH, "robotlegs"));
+			Async.handleEvent(this, this.galleryLabel, Event.CHANGE, 
+				handleGalleryLabelTextChange, 500, passThrough, handleTimeout);
+			this.galleryLabelMediator.eventDispatcher.dispatchEvent(
+				new GallerySearchEvent(GallerySearchEvent.SEARCH, "robotlegs"));
 		}
 		
 		protected function handleTimeout( passThrough:Object ):void

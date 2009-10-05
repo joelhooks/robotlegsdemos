@@ -24,6 +24,7 @@ package org.robotlegs.demos.helloflash
 {
 	import flash.display.DisplayObjectContainer;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.helloflash.controller.CreateBallCommand;
 	import org.robotlegs.demos.helloflash.controller.HelloFlashEvent;
 	import org.robotlegs.demos.helloflash.model.StatsProxy;
@@ -32,7 +33,6 @@ package org.robotlegs.demos.helloflash
 	import org.robotlegs.demos.helloflash.view.Readout;
 	import org.robotlegs.demos.helloflash.view.ReadoutMediator;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class HelloFlashContext extends Context
 	{

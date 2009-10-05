@@ -23,15 +23,16 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 {
 	import flash.display.DisplayObjectContainer;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateLoggerCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateWidgetCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.PokeWidgetCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.RemoveWidgetCommand;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.UnregisterWidgetCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellLoggerEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.UnregisterWidgetCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.ControlPanelMediator;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.ControlPanelView;
@@ -42,7 +43,6 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetHolderView;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetModuleMediator;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class AcmeWidgetFactoryContext extends Context
 	{
@@ -69,7 +69,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapView(LoggerHolderView, LoggerHolderMediator);
 			mediatorMap.mapView(WidgetHolderView, WidgetHolderMediator);
 			
-			// Modules - notice FQCN::string style
+			// Modules - notice FQCN::string style mapping
 			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
 			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
 			

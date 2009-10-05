@@ -26,15 +26,13 @@ package
 	
 	import org.robotlegs.adapters.SwiftSuspendersInjector;
 	import org.robotlegs.adapters.SwiftSuspendersReflector;
-	import org.robotlegs.core.IInjector;
-	import org.robotlegs.core.IReflector;
 	
 	public class SwiftSuspendersSize extends Sprite
 	{
 		public function SwiftSuspendersSize()
 		{
-			var injector:IInjector = new SwiftSuspendersInjector();
-			var reflector:IReflector = new SwiftSuspendersReflector();
+			new SwiftSuspendersInjector();
+			new SwiftSuspendersReflector();
 		}
 	}
 }

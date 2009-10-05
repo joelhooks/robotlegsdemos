@@ -58,11 +58,11 @@ package org.robotlegs.demos.flashgooglemaps.control.commands
 		 */
 		override public function execute():void
 		{
-			mediatorMap.map(GoogleMapsView, GoogleMapsMediator);
-			mediatorMap.map(ContentView, ContentViewMediator);
-			mediatorMap.map(TabView, TabViewMediator);
-			mediatorMap.map(PlainTextView, PlainTextViewMediator);
-			mediatorMap.map(TipView, TipViewMediator);
+			mediatorMap.mapView(GoogleMapsView, GoogleMapsMediator);
+			mediatorMap.mapView(ContentView, ContentViewMediator);
+			mediatorMap.mapView(TabView, TabViewMediator);
+			mediatorMap.mapView(PlainTextView, PlainTextViewMediator);
+			mediatorMap.mapView(TipView, TipViewMediator);
 		}
 	}
 }

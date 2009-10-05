@@ -24,14 +24,12 @@ package org.robotlegs.demos.flashgooglemaps
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.core.IInjector;
-	import org.robotlegs.core.IReflector;
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepControllerCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepModelCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepViewCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.StartupCommand;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	/**
 	 *
@@ -53,14 +51,12 @@ package org.robotlegs.demos.flashgooglemaps
 		 * in the RobotLegs source.
 		 *
 		 * @param contextView DisplayObjectContainer
-		 * @param injector IInjector
-		 * @param reflector IReflector
 		 * @param autoStartup Boolean
 		 *
 		 */
-		public function FlashGoogleMapsContext(contextView:DisplayObjectContainer, injector:IInjector = null, reflector:IReflector = null, autoStartup:Boolean = true)
+		public function FlashGoogleMapsContext(contextView:DisplayObjectContainer, autoStartup:Boolean = true)
 		{
-			super(contextView, injector, reflector, autoStartup);
+			super(contextView, autoStartup);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -79,10 +75,10 @@ package org.robotlegs.demos.flashgooglemaps
 		 */
 		override public function startup():void
 		{
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepModelCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepViewCommand, true);
-			commandMap.mapEvent(ContextEvent.STARTUP, PrepControllerCommand);
-			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, true);
+			commandMap.mapEvent(PrepModelCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(PrepViewCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(PrepControllerCommand, ContextEvent.STARTUP, ContextEvent);
+			commandMap.mapEvent(StartupCommand, ContextEvent.STARTUP, ContextEvent, true);
 			
 			// fire!
 			dispatch(new ContextEvent(ContextEvent.STARTUP));

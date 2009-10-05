@@ -13,6 +13,7 @@ package org.robotlegs.demos.imagegallery
 {
 	import flash.display.DisplayObjectContainer;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.imagegallery.controllers.StartupCommand;
 	import org.robotlegs.demos.imagegallery.controllers.gallery.*;
 	import org.robotlegs.demos.imagegallery.events.*;
@@ -21,7 +22,7 @@ package org.robotlegs.demos.imagegallery
 	import org.robotlegs.demos.imagegallery.views.components.*;
 	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.demos.imagegallery.views.mediators.*;
-	import org.robotlegs.mvcs.*;
+	import org.robotlegs.mvcs.Context;
 
 	public class ImageGalleryContext extends Context
 	{

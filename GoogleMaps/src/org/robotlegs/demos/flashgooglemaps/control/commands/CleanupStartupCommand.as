@@ -40,7 +40,7 @@ package org.robotlegs.demos.flashgooglemaps.control.commands
 		//--------------------------------------------------------------------------
 		override public function execute():void
 		{
-			injector.unbind(AssetLoaderProxy);
+			injector.unmap(AssetLoaderProxy);
 		}
 	}
 }

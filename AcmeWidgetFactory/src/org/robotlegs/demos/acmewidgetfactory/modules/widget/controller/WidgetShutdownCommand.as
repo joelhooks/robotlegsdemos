@@ -1,7 +1,7 @@
 package org.robotlegs.demos.acmewidgetfactory.modules.widget.controller
 {
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.Command;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class WidgetShutdownCommand extends Command
 	{

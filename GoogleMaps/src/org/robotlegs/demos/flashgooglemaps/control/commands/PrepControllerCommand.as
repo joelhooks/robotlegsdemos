@@ -40,9 +40,9 @@ package org.robotlegs.demos.flashgooglemaps.control.commands
 		//--------------------------------------------------------------------------
 		override public function execute():void
 		{
-			commandMap.mapEvent(SystemEvent.LOAD_CONTENT, LoadXMLCommand, true);
-			commandMap.mapEvent(SystemEvent.REQUEST_GEOCODING, GeoCodingCommand);
-			commandMap.mapEvent(SystemEvent.CLEANUP_STARTUP, CleanupStartupCommand, true);
+			commandMap.mapEvent(LoadXMLCommand, SystemEvent.LOAD_CONTENT, SystemEvent, true);
+			commandMap.mapEvent(GeoCodingCommand, SystemEvent.REQUEST_GEOCODING, SystemEvent);
+			commandMap.mapEvent(CleanupStartupCommand, SystemEvent.CLEANUP_STARTUP, SystemEvent, true);
 		}
 	}
 }

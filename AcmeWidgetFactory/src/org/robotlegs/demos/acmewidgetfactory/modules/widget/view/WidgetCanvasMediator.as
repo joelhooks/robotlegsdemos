@@ -2,8 +2,8 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.view
 {
 	import flash.events.MouseEvent;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetEvent;
-	import org.robotlegs.mvcs.ContextEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class WidgetCanvasMediator extends Mediator

@@ -20,26 +20,14 @@
  * THE SOFTWARE.
  */
 
-package org.robotlegs.demos.appmediation
+package
 {
-	import flash.display.DisplayObjectContainer;
+	import flash.display.Sprite;
 	
-	import org.robotlegs.mvcs.Context;
-	
-	public class DemoContext extends Context
+	public class EmptySize extends Sprite
 	{
-		public function DemoContext(contextView:DisplayObjectContainer)
+		public function EmptySize()
 		{
-			super(contextView);
 		}
-		
-		override public function startup():void
-		{
-			mediatorMap.mapView(FlexAppMediationDemo, DemoAppMediator);
-			// Notice manual Mediator creation
-			// We do this because the view was already on Stage before it was mapped
-			mediatorMap.createMediator(contextView);
-		}
-	
 	}
 }

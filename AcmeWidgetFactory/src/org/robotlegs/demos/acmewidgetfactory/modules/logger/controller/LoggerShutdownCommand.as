@@ -1,7 +1,7 @@
 package org.robotlegs.demos.acmewidgetfactory.modules.logger.controller
 {
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.Command;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class LoggerShutdownCommand extends Command
 	{

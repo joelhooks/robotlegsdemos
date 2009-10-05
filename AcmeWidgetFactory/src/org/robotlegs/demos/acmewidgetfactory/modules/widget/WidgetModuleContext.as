@@ -2,11 +2,11 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 {
 	import flash.display.DisplayObjectContainer;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetShutdownCommand;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.view.WidgetCanvas;
 	import org.robotlegs.demos.acmewidgetfactory.modules.widget.view.WidgetCanvasMediator;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class WidgetModuleContext extends Context
 	{

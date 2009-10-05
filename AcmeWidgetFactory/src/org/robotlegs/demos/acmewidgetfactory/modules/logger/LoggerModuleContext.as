@@ -2,11 +2,11 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger
 {
 	import flash.display.DisplayObjectContainer;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.modules.logger.controller.LoggerShutdownCommand;
 	import org.robotlegs.demos.acmewidgetfactory.modules.logger.view.LoggerCanvas;
 	import org.robotlegs.demos.acmewidgetfactory.modules.logger.view.LoggerCanvasMediator;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class LoggerModuleContext extends Context
 	{

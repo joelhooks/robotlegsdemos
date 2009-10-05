@@ -24,14 +24,13 @@ package
 {
 	import flash.display.Sprite;
 	
-	import org.robotlegs.core.IContext;
 	import org.robotlegs.mvcs.Context;
 	
-	public class RobotLegsFullSize extends Sprite
+	public class RobotlegsMvcsContextSize extends Sprite
 	{
-		public function RobotLegsFullSize()
+		public function RobotlegsMvcsContextSize()
 		{
-			var context:IContext = new Context(this);
+			new Context(this);
 		}
 	}
 }

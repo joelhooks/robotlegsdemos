@@ -24,23 +24,18 @@ package org.robotlegs.demos.flashgooglemaps
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.core.IInjector;
-	import org.robotlegs.core.IReflector;
-	import org.robotlegs.mvcs.ContextEvent;
+	import org.robotlegs.base.ContextEvent;
+	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepControllerCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepModelCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepViewCommand;
-	import org.robotlegs.demos.flashgooglemaps.control.commands.PrepControllerCommand;
 	import org.robotlegs.demos.flashgooglemaps.control.commands.StartupCommand;
-
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
-
+	import org.robotlegs.mvcs.Context;
+	
 	/**
-	 * 
+	 *
 	 * @author Peter Lorent peter.lorent@gmail.com
-	 * 
-	 */	
+	 *
+	 */
 	public class FlashGoogleMapsContext extends Context
 	{
 		//--------------------------------------------------------------------------
@@ -54,16 +49,14 @@ package org.robotlegs.demos.flashgooglemaps
 		 * so you can freely change the IoC container and Reflection library you want
 		 * to use as long as the 'contract' is fullfilled. See the adapter package
 		 * in the RobotLegs source.
-		 *  
-		 * @param contextView DisplayObjectContainer 
-		 * @param injector IInjector
-		 * @param reflector IReflector
+		 *
+		 * @param contextView DisplayObjectContainer
 		 * @param autoStartup Boolean
-		 * 
-		 */		
-		public function FlashGoogleMapsContext(contextView:DisplayObjectContainer, injector:IInjector, reflector:IReflector, autoStartup:Boolean = true)
+		 *
+		 */
+		public function FlashGoogleMapsContext(contextView:DisplayObjectContainer, autoStartup:Boolean = true)
 		{
-			super(contextView, injector, reflector, autoStartup);
+			super(contextView, autoStartup);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -77,34 +70,19 @@ package org.robotlegs.demos.flashgooglemaps
 		 * the model, map some view components to Mediators and to get things started,
 		 * add some Sprites to the stage. Only after we drop a Sprite on the stage,
 		 * RobotLegs will create the Mediator. See StartupCommand.
-		 * Unmap the commands we won't be needing anymore after execution. 
-		 * 
-		 */		
+		 * Unmap the commands we won't be needing anymore after execution.
+		 *
+		 */
 		override public function startup():void
 		{
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepModelCommand, true);
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepViewCommand, true);
-			commandFactory.mapCommand(ContextEvent.STARTUP, PrepControllerCommand);
-			commandFactory.mapCommand(ContextEvent.STARTUP, StartupCommand, true);
+			commandMap.mapEvent(PrepModelCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(PrepViewCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(PrepControllerCommand, ContextEvent.STARTUP, ContextEvent);
+			commandMap.mapEvent(StartupCommand, ContextEvent.STARTUP, ContextEvent, true);
 			
 			// fire!
-			eventBroadcaster.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			dispatch(new ContextEvent(ContextEvent.STARTUP));
 		}
-		
-		//--------------------------------------------------------------------------
-		//
-		//  Overridden methods
-		//
-		//--------------------------------------------------------------------------
-		/**
-		 * Lets trace some stuff so we can keep an eye on what goes on.
-		 * 
-		 * @return DefaultLogger
-		 * 
-		 */		
-		override protected function createLogger():ILogger
-		{
-			return new DefaultLogger('FlashGoogleMapsContext');
-		}
+	
 	}
 }

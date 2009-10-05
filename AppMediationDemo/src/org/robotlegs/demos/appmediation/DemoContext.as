@@ -24,29 +24,22 @@ package org.robotlegs.demos.appmediation
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.impl.DefaultLogger;
-	import org.robotlegs.adapters.SwiftSuspendersInjector;
-	import org.robotlegs.adapters.SwiftSuspendersReflector;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 	
 	public class DemoContext extends Context
 	{
 		public function DemoContext(contextView:DisplayObjectContainer)
 		{
-			super(contextView, new SwiftSuspendersInjector(), new SwiftSuspendersReflector());
+			super(contextView);
 		}
 		
 		override public function startup():void
 		{
-			commandFactory.mapCommand(ContextEvent.STARTUP, DemoStartupCommand, true);
-			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
+			mediatorMap.mapView(FlexAppMediationDemo, DemoAppMediator);
+			// Notice manual Mediator creation
+			// We do this because the view was already on Stage before it was mapped
+			mediatorMap.createMediator(contextView);
 		}
-		
-		override protected function createLogger():ILogger
-		{
-			return new DefaultLogger('DemoContext');
-		}
+	
 	}
 }

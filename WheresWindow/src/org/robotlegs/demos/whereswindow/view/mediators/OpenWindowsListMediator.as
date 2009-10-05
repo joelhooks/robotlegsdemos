@@ -15,6 +15,9 @@ package org.robotlegs.demos.whereswindow.view.mediators
 	public class OpenWindowsListMediator extends Mediator implements IMediator
 	{
 		[Inject]
+		public var view:OpenWindowList;
+		
+		[Inject]
 		public var openWindowsProxy:OpenWindowsProxy;
 		
 		protected var currentSelection:InfoWindow;
@@ -26,8 +29,8 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_ADDED, handleWindowAdded );
 			addEventListenerTo( view, IndexChangedEvent.CHANGE, handleItemChanged );
+			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_ADDED, handleWindowAdded );
 			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_REMOVED, handleWindowClosed );
 		}
 		
@@ -57,9 +60,5 @@ package org.robotlegs.demos.whereswindow.view.mediators
 			}
 		}
 		
-		protected function get view():OpenWindowList
-		{
-			return viewComponent as OpenWindowList;
-		}
 	}
 }

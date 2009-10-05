@@ -2,13 +2,13 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
 	import flash.events.IEventDispatcher;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.core.IContext;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellLoggerEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.events.ActiveWidgetProxyEvent;
-	import org.robotlegs.mvcs.ContextEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellLoggerEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxyEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class LoggerModuleMediator extends Mediator
@@ -43,7 +43,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			addEventListenerTo(eventDispatcher, ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, onShellWidgetEvent);
 		}
 		
-		protected function onLoggerShutdownComplete(e:ContextEvent):void
+		protected function onLoggerShutdownComplete(e:org.robotlegs.base.ContextEvent):void
 		{
 			dispatch(new ShellLoggerEvent(ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, module));
 		}

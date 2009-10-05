@@ -12,6 +12,7 @@
 package org.robotlegs.demos.imagegallery.views.mediators
 {
 	import org.robotlegs.core.IMediator;
+	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryLabel;
 	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.mvcs.Mediator;
@@ -20,7 +21,10 @@ package org.robotlegs.demos.imagegallery.views.mediators
 	{
 		[Inject]
 		public var galleryLabel:GalleryLabel;
-		
+
+		[Inject]
+		public var service:IGalleryImageService;
+				
 		public function GalleryLabelMediator()
 		{
 			super();
@@ -30,6 +34,8 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		{
 			this.galleryLabel.text = "interestingness";
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
+			
+			galleryLabel.visible = galleryLabel.includeInLayout = service.searchAvailable;
 		}
 		
 		protected function setLabelText(value:String):void

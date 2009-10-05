@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Form xmlns:mx="http://www.adobe.com/2006/mxml"
+		 xmlns:view="org.robotlegs.demos.helloflex.view.*"
+		 defaultButton="{addMessageBtn}">
+
+	<mx:Script>
+		<![CDATA[
+			import org.robotlegs.demos.helloflex.view.HelloFormEvent;
+			
+			public function getMessage():String
+			{
+				return messageTxt.text;
+			}
+		]]>
+	</mx:Script>
+
+	<mx:FormHeading label="Hello World"/>
+
+	<mx:FormItem label="Your Message">
+		<mx:TextInput id="messageTxt"
+					  text="Hello World!"
+					  width="120"/>
+	</mx:FormItem>
+
+	<mx:FormItem>
+		<mx:Button id="addMessageBtn"
+				   label="Add Message"
+				   width="120"
+				   enabled="{messageTxt.text.length>0}"
+				   click="dispatchEvent(new HelloFormEvent(HelloFormEvent.FORM_SUBMITTED))"/>
+	</mx:FormItem>
+
+	<mx:FormItem>
+		<view:ClearMessagesButton width="120"/>
+	</mx:FormItem>
+
+</mx:Form>

@@ -26,7 +26,8 @@ package org.robotlegs.demos.imagegallery.test.cases
 		{
 			var gallery:Gallery = new Gallery();
 			this.galleryProxy.gallery = gallery;
-			Assert.assertEquals("GalleryProxy should have a gallery", this.galleryProxy.gallery != null, true );
+			Assert.assertEquals("GalleryProxy should have a gallery", 
+				this.galleryProxy.gallery != null, true );
 		}
 		
 		[Test]

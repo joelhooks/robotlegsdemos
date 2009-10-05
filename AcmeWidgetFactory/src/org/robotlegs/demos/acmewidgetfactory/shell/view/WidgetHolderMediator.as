@@ -2,9 +2,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
 	import flash.display.DisplayObject;
 	
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.events.ActiveWidgetProxyEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxyEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class WidgetHolderMediator extends Mediator

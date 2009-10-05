@@ -28,6 +28,8 @@ package org.robotlegs.demos.helloflash.view
 	{
 		public function Ball()
 		{
+			useHandCursor = true;
+			buttonMode = true;
 			draw(10);
 		}
 		

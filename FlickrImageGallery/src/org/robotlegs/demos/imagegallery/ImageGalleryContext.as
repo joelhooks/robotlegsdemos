@@ -1,49 +1,59 @@
 /*
-	Inversion of Control/Dependency Injection Using Robotlegs
-	Image Gallery
-	
-	Any portion of this demonstration may be reused for any purpose where not 
-	licensed by another party restricting such use. Please leave the credits intact.
-	
-	Joel Hooks
-	http://joelhooks.com
-	joelhooks@gmail.com 
-*/
+   Inversion of Control/Dependency Injection Using Robotlegs
+   Image Gallery
+
+   Any portion of this demonstration may be reused for any purpose where not
+   licensed by another party restricting such use. Please leave the credits intact.
+
+   Joel Hooks
+   http://joelhooks.com
+   joelhooks@gmail.com
+ */
 package org.robotlegs.demos.imagegallery
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import net.expantra.smartypants.extra.NoSmartyPantsLogging;
-	
-	import org.robotlegs.adapters.SmartyPantsInjector;
-	import org.robotlegs.adapters.SmartyPantsReflector;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepControllerCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepModelCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepServicesCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.PrepViewCommand;
-	import org.robotlegs.demos.imagegallery.controllers.startup.StartupCommand;
+	import org.robotlegs.base.ContextEvent;
+	import org.robotlegs.demos.imagegallery.controllers.StartupCommand;
+	import org.robotlegs.demos.imagegallery.controllers.gallery.*;
+	import org.robotlegs.demos.imagegallery.events.*;
+	import org.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
+	import org.robotlegs.demos.imagegallery.remote.services.*;
+	import org.robotlegs.demos.imagegallery.views.components.*;
+	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
+	import org.robotlegs.demos.imagegallery.views.mediators.*;
 	import org.robotlegs.mvcs.Context;
-	import org.robotlegs.mvcs.ContextEvent;
 
 	public class ImageGalleryContext extends Context
 	{
 		public function ImageGalleryContext(contextView:DisplayObjectContainer)
 		{
-			super( contextView, new SmartyPantsInjector(), new SmartyPantsReflector() );
-			// Keep SmartyPants quiet
-			NoSmartyPantsLogging;
+			super(contextView);
 		}
-	
+		
 		override public function startup():void
 		{
-			// Map our startup commands
-			commandFactory.mapCommand( ContextEvent.STARTUP, PrepModelCommand, true );
-			commandFactory.mapCommand( ContextEvent.STARTUP, PrepControllerCommand, true );
-			commandFactory.mapCommand( ContextEvent.STARTUP, PrepServicesCommand, true );
-			commandFactory.mapCommand( ContextEvent.STARTUP, PrepViewCommand, true );
-			commandFactory.mapCommand( ContextEvent.STARTUP, StartupCommand, true );
+			//map controller
+			commandMap.mapEvent(StartupCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(UpdateGalleryCommand, GalleryEvent.GALLERY_LOADED, GalleryEvent);
+			commandMap.mapEvent(SetSelectedImageCommand,GalleryImageEvent.SELECT_GALLERY_IMAGE, GalleryImageEvent);
+			commandMap.mapEvent(LoadGalleryCommand,GalleryEvent.LOAD_GALLERY, GalleryEvent);
+			commandMap.mapEvent(LoadSearchGalleryCommand,GallerySearchEvent.SEARCH, GallerySearchEvent);
+			
+			//map model
+			injector.mapSingleton( GalleryProxy );
+			
+			//map service
+			injector.mapSingletonOf( IGalleryImageService, FlickrImageService );
+			//injector.mapSingletonOf( IGalleryImageService, XMLImageService );
+			
+			//map view
+			mediatorMap.mapView(GalleryView, GalleryViewMediator);
+			mediatorMap.mapView(GallerySearch, GallerySearchMediator);
+			mediatorMap.mapView(GalleryLabel, GalleryLabelMediator);
+						
 			// And away we go!
-			eventBroadcaster.dispatchEvent( new ContextEvent( ContextEvent.STARTUP ) );
+			dispatch(new ContextEvent(ContextEvent.STARTUP));
 		}
 	}
 }

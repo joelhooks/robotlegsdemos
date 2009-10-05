@@ -10,6 +10,9 @@ package org.robotlegs.demos.whereswindow.view.mediators
 
 	public class WheresWindowViewMediator extends Mediator implements IMediator
 	{
+		[Inject]
+		public var view:WheresWindowView;
+		
 		public function WheresWindowViewMediator()
 		{
 			super();
@@ -31,9 +34,5 @@ package org.robotlegs.demos.whereswindow.view.mediators
 			dispatch( new InfoWindowEvent( InfoWindowEvent.CHANGE_BACKGROUND_COLOR ));
 		}
 		
-		public function get view():WheresWindowView
-		{
-			return this.viewComponent as WheresWindowView;
-		}
 	}
 }

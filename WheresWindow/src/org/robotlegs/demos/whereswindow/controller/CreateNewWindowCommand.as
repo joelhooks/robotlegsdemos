@@ -5,7 +5,7 @@ package org.robotlegs.demos.whereswindow.controller
 	import org.robotlegs.demos.whereswindow.model.OpenWindowsProxy;
 	import org.robotlegs.demos.whereswindow.view.components.InfoWindow;
 	import org.robotlegs.mvcs.Command;
-
+	
 	public class CreateNewWindowCommand extends Command implements ICommand
 	{
 		[Inject]
@@ -18,14 +18,14 @@ package org.robotlegs.demos.whereswindow.controller
 		{
 			var window:InfoWindow;
 			
-			if(event.uid && openWindowProxy.hasWindowUID( event.uid ) )
+			if (event.uid && openWindowProxy.hasWindowUID(event.uid))
 			{
-				window = openWindowProxy.getWindowFromUID( event.uid ) ;
+				window = openWindowProxy.getWindowFromUID(event.uid);
 			}
 			else
 			{
-				window = openWindowProxy.createWindow( );
-				mediatorFactory.createMediator( window );
+				window = openWindowProxy.createWindow();
+				mediatorMap.createMediator(window);
 			}
 			
 			window.open();

@@ -22,14 +22,14 @@
 
 package org.robotlegs.demos.flashgooglemaps.control.commands
 {
-	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.demos.flashgooglemaps.events.SystemEvent;
-
+	import org.robotlegs.mvcs.Command;
+	
 	/**
 	 * Map Commands.
-	 *  
+	 *
 	 * @author Peter Lorent peter.lorent@gmail.com
-	 * 
+	 *
 	 */
 	public class PrepControllerCommand extends Command
 	{
@@ -40,9 +40,9 @@ package org.robotlegs.demos.flashgooglemaps.control.commands
 		//--------------------------------------------------------------------------
 		override public function execute():void
 		{
-			commandFactory.mapCommand(SystemEvent.LOAD_CONTENT, LoadXMLCommand, true);
-			commandFactory.mapCommand(SystemEvent.REQUEST_GEOCODING, GeoCodingCommand);
-			commandFactory.mapCommand(SystemEvent.CLEANUP_STARTUP, CleanupStartupCommand, true);
+			commandMap.mapEvent(LoadXMLCommand, SystemEvent.LOAD_CONTENT, SystemEvent, true);
+			commandMap.mapEvent(GeoCodingCommand, SystemEvent.REQUEST_GEOCODING, SystemEvent);
+			commandMap.mapEvent(CleanupStartupCommand, SystemEvent.CLEANUP_STARTUP, SystemEvent, true);
 		}
 	}
 }

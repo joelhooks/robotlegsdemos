@@ -4,6 +4,15 @@
     <compilerSourcePath/>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
+        <modifiedEntries>
+          <libraryPathEntry index="1" kind="3" linkType="4" path="${PROJECT_FRAMEWORKS}/libs/framework.swc" useDefaultLinkType="true">
+            <crossDomainRsls>
+              <crossDomainRslEntry autoExtract="true" policyFileUrl="" rslUrl="framework_3.4.0.9271.swz"/>
+              <crossDomainRslEntry autoExtract="true" policyFileUrl="" rslUrl="framework_3.4.0.9271.swf"/>
+            </crossDomainRsls>
+          </libraryPathEntry>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/rpc.swc" useDefaultLinkType="false"/>
+        </modifiedEntries>
         <excludedEntries>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/flex.swc" useDefaultLinkType="false"/>
         </excludedEntries>

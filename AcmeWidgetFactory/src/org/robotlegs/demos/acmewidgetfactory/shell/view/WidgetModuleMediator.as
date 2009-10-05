@@ -2,13 +2,13 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
 	import flash.events.IEventDispatcher;
 	
+	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.core.IContext;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
-	import org.robotlegs.demos.acmewidgetfactory.modules.widget.events.WidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.controller.events.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.proxies.ActiveWidgetProxy;
-	import org.robotlegs.mvcs.ContextEvent;
+	import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class WidgetModuleMediator extends Mediator
@@ -44,7 +44,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			addEventListenerTo(eventDispatcher, ShellEvent.REMOVE_ALL_WIDGETS, onRemoveAllWidgets);
 		}
 		
-		protected function onWidgetShutdownComplete(e:ContextEvent):void
+		protected function onWidgetShutdownComplete(e:org.robotlegs.base.ContextEvent):void
 		{
 			dispatch(new ShellWidgetEvent(ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
 		}

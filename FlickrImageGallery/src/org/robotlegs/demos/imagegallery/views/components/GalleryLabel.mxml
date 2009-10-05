@@ -30,5 +30,5 @@
 			}
 		]]>
 	</fx:Script>
-	<s:SimpleText text="{this._text}" fontSize="10" fontWeight="bold" verticalAlign="middle" textAlign="right" width="100%" />
+	<s:Label text="{this._text}" fontSize="10" fontWeight="bold" verticalAlign="middle" textAlign="right" width="100%" />
 </s:Group>

@@ -9,10 +9,10 @@
 
 	<mx:Script>
 		<![CDATA[
-			import org.robotlegs.demos.acmewidgetfactory.modules.logger.events.LoggerEvent;
-			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 			import org.robotlegs.core.IContext;
-			import org.robotlegs.mvcs.ContextEvent;
+			import org.robotlegs.base.ContextEvent;
+			import org.robotlegs.demos.acmewidgetfactory.modules.logger.controller.LoggerEvent;
+			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 			
 			protected var context:LoggerModuleContext;
 			

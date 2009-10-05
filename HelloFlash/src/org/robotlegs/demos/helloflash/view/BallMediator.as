@@ -24,7 +24,7 @@ package org.robotlegs.demos.helloflash.view
 {
 	import flash.events.MouseEvent;
 	
-	import org.robotlegs.demos.helloflash.events.HelloFlashEvent;
+	import org.robotlegs.demos.helloflash.controller.HelloFlashEvent;
 	import org.robotlegs.demos.helloflash.model.StatsProxy;
 	import org.robotlegs.mvcs.Mediator;
 	

@@ -3,6 +3,8 @@ package org.robotlegs.demos.imagegallery.controllers.gallery
 	import org.robotlegs.core.ICommand;
 	import org.robotlegs.demos.imagegallery.events.GalleryImageEvent;
 	import org.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
+	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
+	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.mvcs.Command;
 
 	public class SetSelectedImageCommand extends Command implements ICommand

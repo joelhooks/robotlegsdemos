@@ -106,6 +106,6 @@
 		</s:DataGroup>
 		<s:HScrollBar id="thumbScrollBar" viewport="{this.dgThumbnails}" width="500" smoothScrolling="true"/>		
 	</s:Group>
-	<components:GalleryLabel id="galleryLabel" color="#FFFFFF" top="5" right="5" />
-	<s:SimpleText fontSize="9" text="all images © their owner" width="100%" textAlign="right" bottom="100" color="#FFFFFF" paddingRight="5"/>
+	<components:GalleryLabel id="galleryLabel" color="#FFFFFF" top="5" right="5" visible="false" includeInLayout="false" />
+	<s:Label fontSize="9" text="all images © their owner" width="100%" textAlign="right" bottom="100" color="#FFFFFF" paddingRight="5"/>
 </s:Group>

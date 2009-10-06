@@ -55,7 +55,7 @@ package org.robotlegs.demos.helloflash.view
 			// Manipulate the model
 			statsProxy.recordBallClick();
 			// Dispatch to context
-			dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CLICKED));
+			dispatchEvent(new HelloFlashEvent(HelloFlashEvent.BALL_CLICKED));
 		}
 		
 		protected function onSomeBallClicked(e:HelloFlashEvent):void

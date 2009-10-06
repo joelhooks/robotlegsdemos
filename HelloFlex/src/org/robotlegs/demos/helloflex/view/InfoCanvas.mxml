@@ -18,7 +18,7 @@
 		<mx:Canvas label="Introduction"
 				   width="100%"
 				   height="100%">
-			<mx:Text text="RobotLegs is an event driven AS3 Micro-Architecture.&#xd;&#xd;RobotLegs helps you design loosely-coupled components that are easy to test, helps you wire those components together, and provides a simple mechanism for communicating between them."
+			<mx:Text text="Robotlegs is a lightweight AS3 MVCS Micro-Architecture inspired by PureMVC.&#xd;&#xd;Robotlegs was created to provide a small, loosly coupled application framework that is easy to test. Where other frameworks are plagued with coupling and Singletons, Robotlegs has none. Bolier plate? Robotlegs avoids it. It is the framework you’ve been looking for."
 					 x="10"
 					 y="10"
 					 width="90%"

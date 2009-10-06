@@ -52,7 +52,7 @@ package org.robotlegs.demos.whereswindow.model
 			infoWindow = new InfoWindow();
 			infoWindow.id = uid;
 			this.windowMap.put(infoWindow.id, infoWindow);
-			dispatch(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_ADDED, uid));
+			dispatchEvent(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_ADDED, uid));
 			return infoWindow;
 		}
 		
@@ -78,7 +78,7 @@ package org.robotlegs.demos.whereswindow.model
 		public function removeWindowByUID(uid:String):void
 		{
 			this.windowMap.remove(uid);
-			dispatch(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_REMOVED, uid));
+			dispatchEvent(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_REMOVED, uid));
 		}
 		
 		/**

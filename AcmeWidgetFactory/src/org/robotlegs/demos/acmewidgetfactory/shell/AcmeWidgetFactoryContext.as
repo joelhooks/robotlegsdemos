@@ -74,7 +74,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
 			
 			// Ready
-			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
+			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
 		}
 	
 	}

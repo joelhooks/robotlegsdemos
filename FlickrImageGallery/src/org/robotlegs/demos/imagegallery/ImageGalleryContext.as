@@ -53,7 +53,7 @@ package org.robotlegs.demos.imagegallery
 			mediatorMap.mapView(GalleryLabel, GalleryLabelMediator);
 						
 			// And away we go!
-			dispatch(new ContextEvent(ContextEvent.STARTUP));
+			dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}
 	}
 }

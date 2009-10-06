@@ -17,7 +17,7 @@ package org.robotlegs.demos.helloflex.model
 		public function addMessage(message:String):void
 		{
 			messages.addItem((messages.length + 1) + ': ' + message);
-			dispatch(new MessageProxyEvent(MessageProxyEvent.MESSAGE_ADDED, message));
+			dispatchEvent(new MessageProxyEvent(MessageProxyEvent.MESSAGE_ADDED, message));
 		}
 		
 		public function get messageList():ArrayCollection
@@ -28,7 +28,7 @@ package org.robotlegs.demos.helloflex.model
 		public function clearMessages():void
 		{
 			messages.removeAll();
-			dispatch(new MessageProxyEvent(MessageProxyEvent.MESSAGES_CLEARED));
+			dispatchEvent(new MessageProxyEvent(MessageProxyEvent.MESSAGES_CLEARED));
 		}
 	
 	}

@@ -26,12 +26,12 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		
 		protected function handleCreateButton(event:Event):void
 		{
-			dispatch( new InfoWindowEvent( InfoWindowEvent.CREATE_INFO_WINDOW ) );
+			dispatchEvent( new InfoWindowEvent( InfoWindowEvent.CREATE_INFO_WINDOW ) );
 		}
 		
 		protected function handleChangeColors(event:Event):void
 		{
-			dispatch( new InfoWindowEvent( InfoWindowEvent.CHANGE_BACKGROUND_COLOR ));
+			dispatchEvent( new InfoWindowEvent( InfoWindowEvent.CHANGE_BACKGROUND_COLOR ));
 		}
 		
 	}

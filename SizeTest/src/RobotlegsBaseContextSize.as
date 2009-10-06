@@ -24,13 +24,13 @@ package
 {
 	import flash.display.Sprite;
 	
-	import org.robotlegs.base.Context;
+	import org.robotlegs.base.ContextBase;
 	
 	public class RobotlegsBaseContextSize extends Sprite
 	{
 		public function RobotlegsBaseContextSize()
 		{
-			new Context(this);
+			new ContextBase(this);
 		}
 	}
 }

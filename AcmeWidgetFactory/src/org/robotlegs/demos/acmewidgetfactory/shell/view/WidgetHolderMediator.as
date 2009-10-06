@@ -33,7 +33,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		protected function onShutdownWidgetComplete(e:ShellWidgetEvent):void
 		{
 			view.removeChild(activeWidgetProxy.getWidget(e.widgetId) as DisplayObject);
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, e.widgetId));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, e.widgetId));
 		}
 	}
 }

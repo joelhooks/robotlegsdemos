@@ -93,7 +93,7 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 		{
 			var data:XML = new XML(_urlLoader.data);
 			
-			dispatch(new AssetLoaderProxyEvent(AssetLoaderProxyEvent.XML_CONTENT_LOADED, data));
+			dispatchEvent(new AssetLoaderProxyEvent(AssetLoaderProxyEvent.XML_CONTENT_LOADED, data));
 			
 			_urlLoader.removeEventListener(Event.COMPLETE, onXMLContentLoaded);
 			_urlLoader = null;

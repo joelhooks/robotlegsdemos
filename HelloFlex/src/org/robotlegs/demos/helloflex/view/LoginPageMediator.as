@@ -37,7 +37,7 @@ package org.robotlegs.demos.helloflex.view
 		
 		private function whenUserLoggedIn(e:UserProxyEvent):void
 		{
-			dispatch(triggerEvent);
+			dispatchEvent(triggerEvent);
 			loginPage.closeAndRemove();
 		}
 	

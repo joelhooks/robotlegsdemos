@@ -38,7 +38,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		
 		protected function handleSearch(event:GallerySearchEvent):void
 		{
-			dispatch( event );
+			dispatchEvent( event );
 		}
 	}
 }

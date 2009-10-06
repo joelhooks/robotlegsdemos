@@ -83,7 +83,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		private function handleShowTips(event:Event):void
 		{
-			dispatch(new ContentChangeEvent(ContentChangeEvent.CONTENT_CHANGE, TabView.CONTENT_TIPS));
+			dispatchEvent(new ContentChangeEvent(ContentChangeEvent.CONTENT_CHANGE, TabView.CONTENT_TIPS));
 		}
 	}
 }

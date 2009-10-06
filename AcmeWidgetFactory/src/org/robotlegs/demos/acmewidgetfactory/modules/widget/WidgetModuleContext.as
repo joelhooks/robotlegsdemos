@@ -24,7 +24,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 			mediatorMap.mapView(WidgetCanvas, WidgetCanvasMediator);
 			
 			// Ready
-			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
+			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
 		}
 	
 	}

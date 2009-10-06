@@ -26,27 +26,27 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		protected function onCreateWidgetClick(e:MouseEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET, view.widgetId.text));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET, view.widgetId.text));
 		}
 		
 		protected function onPokeWidgetClick(e:MouseEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET, view.widgetId.text));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET, view.widgetId.text));
 		}
 		
 		protected function onDestroyWidgetClick(e:MouseEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, view.widgetId.text));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, view.widgetId.text));
 		}
 		
 		protected function onDestroyAllClick(e:MouseEvent):void
 		{
-			dispatch(new ShellEvent(ShellEvent.REMOVE_ALL_WIDGETS));
+			dispatchEvent(new ShellEvent(ShellEvent.REMOVE_ALL_WIDGETS));
 		}
 	
 		protected function onClearLoggerClick(e:MouseEvent):void
 		{
-			dispatch(new ShellEvent(ShellEvent.CLEAR_LOGGER));
+			dispatchEvent(new ShellEvent(ShellEvent.CLEAR_LOGGER));
 		}
 	
 	}

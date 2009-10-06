@@ -51,7 +51,7 @@ package org.robotlegs.demos.imagegallery.remote.services
 				gallery.photos.addItem( photo );
 			}
 			
-			dispatch(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
+			dispatchEvent(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
 		}
 		
 		protected function handleServiceFault(event:Object):void

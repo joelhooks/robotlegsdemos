@@ -1,7 +1,5 @@
 package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
-	import flash.events.IEventDispatcher;
-	
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.core.IContext;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
@@ -17,7 +15,6 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		public var module:ILoggerModule;
 		
 		private var subContext:IContext;
-		private var subContextDispatcher:IEventDispatcher;
 		
 		public function LoggerModuleMediator()
 		{
@@ -27,10 +24,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		{
 			// Retrieve access to this Module's Context (Sub Context) and EventDispatcher
 			subContext = module.getContext();
-			subContextDispatcher = subContext.getEventDispatcher();
 			
 			// Sub Context (child context) Listeners
-			addEventListenerTo(subContextDispatcher, ContextEvent.SHUTDOWN_COMPLETE, onLoggerShutdownComplete);
+			addEventListenerTo(subContext, ContextEvent.SHUTDOWN_COMPLETE, onLoggerShutdownComplete);
 			
 			// Shell Context Listeners
 			addEventListenerTo(eventDispatcher, ShellEvent.CLEAR_LOGGER, onClearLogger);
@@ -45,7 +41,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		protected function onLoggerShutdownComplete(e:org.robotlegs.base.ContextEvent):void
 		{
-			dispatch(new ShellLoggerEvent(ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, module));
+			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, module));
 		}
 		
 		protected function onClearLogger(e:ShellEvent):void

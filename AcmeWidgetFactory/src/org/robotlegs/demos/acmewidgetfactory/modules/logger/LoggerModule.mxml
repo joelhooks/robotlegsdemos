@@ -28,17 +28,17 @@
 			
 			public function logMessage(message:String):void
 			{
-				context.getEventDispatcher().dispatchEvent(new LoggerEvent(LoggerEvent.LOG_MESSAGE, message));
+				context.dispatchEvent(new LoggerEvent(LoggerEvent.LOG_MESSAGE, message));
 			}
 			
 			public function clearMessages():void
 			{
-				context.getEventDispatcher().dispatchEvent(new LoggerEvent(LoggerEvent.CLEAR_MESSAGES));
+				context.dispatchEvent(new LoggerEvent(LoggerEvent.CLEAR_MESSAGES));
 			}
 			
 			public function close():void
 			{
-				context.getEventDispatcher().dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
+				context.dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
 			}
 		]]>
 	</mx:Script>

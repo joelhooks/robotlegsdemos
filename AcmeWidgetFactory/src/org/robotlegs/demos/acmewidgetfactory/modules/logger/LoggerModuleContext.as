@@ -24,7 +24,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger
 			mediatorMap.mapView(LoggerCanvas, LoggerCanvasMediator);
 			
 			// Ready
-			dispatch(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
+			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
 		}
 	
 	}

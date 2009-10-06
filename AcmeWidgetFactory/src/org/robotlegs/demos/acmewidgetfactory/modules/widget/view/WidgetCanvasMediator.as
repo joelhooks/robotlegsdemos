@@ -29,7 +29,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.view
 		
 		protected function onKillClick(e:MouseEvent):void
 		{
-			dispatch(new ContextEvent(ContextEvent.SHUTDOWN));
+			dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
 		}
 		
 		protected function onSetWidgetTitle(e:WidgetEvent):void
@@ -40,7 +40,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget.view
 		protected function onPokeWidget(e:WidgetEvent):void
 		{
 			view.flipColor();
-			dispatch(new WidgetEvent(WidgetEvent.POKE_WIDGET_COMPLETE));
+			dispatchEvent(new WidgetEvent(WidgetEvent.POKE_WIDGET_COMPLETE));
 		}
 	}
 }

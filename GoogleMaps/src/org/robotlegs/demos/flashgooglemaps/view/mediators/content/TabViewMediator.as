@@ -85,7 +85,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		
 		private function handleContentChange(event:ContentChangeEvent):void
 		{
-			dispatch(event);
+			dispatchEvent(event);
 		}
 		
 		private function handleTextEventContentChange(event:ContentChangeEvent):void

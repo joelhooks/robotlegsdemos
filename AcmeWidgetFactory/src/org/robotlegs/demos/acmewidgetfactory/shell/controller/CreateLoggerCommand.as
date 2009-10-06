@@ -35,7 +35,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 			var logger:ILoggerModule;
 			// bad: mustn't ref directly
 			logger = new LoggerModule();
-			dispatch(new ShellLoggerEvent(ShellLoggerEvent.CREATE_LOGGER_COMPLETE, logger));
+			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.CREATE_LOGGER_COMPLETE, logger));
 		}
 	}
 }

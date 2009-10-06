@@ -28,17 +28,17 @@
 			
 			public function poke():void
 			{
-				context.getEventDispatcher().dispatchEvent(new WidgetEvent(WidgetEvent.POKE_WIDGET));
+				context.dispatchEvent(new WidgetEvent(WidgetEvent.POKE_WIDGET));
 			}
 			
 			public function setTitle(title:String):void
 			{
-				context.getEventDispatcher().dispatchEvent(new WidgetEvent(WidgetEvent.SET_WIDGET_TITLE, title));
+				context.dispatchEvent(new WidgetEvent(WidgetEvent.SET_WIDGET_TITLE, title));
 			}
 			
 			public function close():void
 			{
-				context.getEventDispatcher().dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
+				context.dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
 			}
 		]]>
 	</mx:Script>

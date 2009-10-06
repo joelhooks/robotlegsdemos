@@ -24,7 +24,7 @@ package org.robotlegs.demos.imagegallery.controllers
 		{
 			// Do some custom startup stuff here!
 			
-			dispatch( new ContextEvent( ContextEvent.STARTUP_COMPLETE ) );
+			dispatchEvent( new ContextEvent( ContextEvent.STARTUP_COMPLETE ) );
 		}
 	}
 }

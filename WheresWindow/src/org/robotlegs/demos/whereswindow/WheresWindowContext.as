@@ -30,7 +30,6 @@ package org.robotlegs.demos.whereswindow
 			mediatorMap.mapView(OpenWindowList, OpenWindowsListMediator);
 			mediatorMap.mapView(WheresWindowView, WheresWindowViewMediator);
 			
-			// Test RL's Strong Command Class Mapping.. seems to be broken
 			commandMap.mapEvent(CreateNewWindowCommand, InfoWindowEvent.CREATE_INFO_WINDOW, InfoWindowEvent );
 			commandMap.mapEvent(RemoveInfoWindowCommand, InfoWindowEvent.INFO_WINDOW_CLOSED, InfoWindowEvent );
 			

@@ -21,7 +21,7 @@ package org.robotlegs.demos.helloflex.view
 		
 		private function onClearMessagesClicked(e:MouseEvent):void
 		{
-			dispatch(new SystemEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED));
+			dispatchEvent(new SystemEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED));
 		}
 	
 	}

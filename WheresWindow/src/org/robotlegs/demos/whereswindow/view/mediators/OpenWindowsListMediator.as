@@ -55,7 +55,7 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		{
 			if(view.selectedItem != this.currentSelection && view.selectedItem is InfoWindow)
 			{
-				dispatch( new InfoWindowEvent( InfoWindowEvent.FLASH_INFO_WINDOW, view.selectedItem.id ) );
+				dispatchEvent( new InfoWindowEvent( InfoWindowEvent.FLASH_INFO_WINDOW, view.selectedItem.id ) );
 				this.currentSelection = InfoWindow(view.selectedItem);
 			}
 		}

@@ -93,7 +93,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		//--------------------------------------------------------------------------
 		private function handleGoogleMapReady(event:Event):void
 		{
-			dispatch(new SystemEvent(SystemEvent.LOAD_CONTENT));
+			dispatchEvent(new SystemEvent(SystemEvent.LOAD_CONTENT));
 		}
 		
 		private function handleXMLContentLoaded(event:AssetLoaderProxyEvent):void
@@ -105,12 +105,12 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 			removeEventListenerFrom(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
 			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 			
-			dispatch(new SystemEvent(SystemEvent.CLEANUP_STARTUP));
+			dispatchEvent(new SystemEvent(SystemEvent.CLEANUP_STARTUP));
 		}
 		
 		private function handleGeocodingRequest(event:GoogleMarkerEvent):void
 		{
-			dispatch(new SystemEvent(SystemEvent.REQUEST_GEOCODING, {city:event.city, address:event.address}));
+			dispatchEvent(new SystemEvent(SystemEvent.REQUEST_GEOCODING, {city:event.city, address:event.address}));
 		}
 		
 		private function handleGeocodingResult(event:GeoCodingServiceEvent):void
@@ -120,7 +120,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		
 		private function handleViewOnStage(event:Event):void
 		{
-			dispatch(new SystemEvent(SystemEvent.GOOGLE_MAP_ON_STAGE));
+			dispatchEvent(new SystemEvent(SystemEvent.GOOGLE_MAP_ON_STAGE));
 			
 			removeEventListenerFrom(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
 		}

@@ -1,7 +1,5 @@
 package org.robotlegs.demos.acmewidgetfactory.shell.view
 {
-	import flash.events.IEventDispatcher;
-	
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.core.IContext;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
@@ -20,7 +18,6 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		public var activeWidgetProxy:ActiveWidgetProxy;
 		
 		private var subContext:IContext;
-		private var subContextDispatcher:IEventDispatcher;
 		
 		public function WidgetModuleMediator()
 		{
@@ -33,12 +30,11 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			
 			// Retrieve access to this Widget's Context (Sub Context) and EventDispatcher
 			subContext = module.getContext();
-			subContextDispatcher = subContext.getEventDispatcher();
 			
 			// Sub Context (child context) Listeners
-			addEventListenerTo(subContextDispatcher, ContextEvent.SHUTDOWN_COMPLETE, onWidgetShutdownComplete);
+			addEventListenerTo(subContext, ContextEvent.SHUTDOWN_COMPLETE, onWidgetShutdownComplete);
 			// Be aware of directly compiling module Events into shell SWF
-			addEventListenerTo(subContextDispatcher, WidgetEvent.POKE_WIDGET_COMPLETE, onPokeWidgetComplete);
+			addEventListenerTo(subContext, WidgetEvent.POKE_WIDGET_COMPLETE, onPokeWidgetComplete);
 			
 			// Shell Context Listeners
 			addEventListenerTo(eventDispatcher, ShellEvent.REMOVE_ALL_WIDGETS, onRemoveAllWidgets);
@@ -46,17 +42,17 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		protected function onWidgetShutdownComplete(e:org.robotlegs.base.ContextEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
 		}
 		
 		protected function onPokeWidgetComplete(e:WidgetEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET_COMPLETE, activeWidgetProxy.getWidgetId(module)));
 		}
 		
 		protected function onRemoveAllWidgets(e:ShellEvent):void
 		{
-			dispatch(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, activeWidgetProxy.getWidgetId(module)));
+			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, activeWidgetProxy.getWidgetId(module)));
 		}
 	}
 }

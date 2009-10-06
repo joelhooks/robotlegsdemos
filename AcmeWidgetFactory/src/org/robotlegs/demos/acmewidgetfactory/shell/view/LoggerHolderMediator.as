@@ -21,7 +21,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			addEventListenerTo(eventDispatcher, ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, onShutdownLoggerComplete);
 			
 			// Create the first one
-			dispatch(new ShellLoggerEvent(ShellLoggerEvent.CREATE_LOGGER, null));
+			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.CREATE_LOGGER, null));
 		}
 		
 		protected function onCreateLoggerComplete(e:ShellLoggerEvent):void
@@ -32,7 +32,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		protected function onShutdownLoggerComplete(e:ShellLoggerEvent):void
 		{
 			view.removeChild(e.loggerModule as UIComponent);
-			dispatch(new ShellLoggerEvent(ShellLoggerEvent.REMOVE_LOGGER_COMPLETE, e.loggerModule));
+			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.REMOVE_LOGGER_COMPLETE, e.loggerModule));
 		}
 	
 	}

@@ -85,7 +85,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		private function handleShowTip(event:Event):void
 		{
-			dispatch(new TipViewEvent(TipViewEvent.SHOW_TIP, view.id));
+			dispatchEvent(new TipViewEvent(TipViewEvent.SHOW_TIP, view.id));
 		}
 		
 		private function handleShowTipReset(event:TipViewEvent):void

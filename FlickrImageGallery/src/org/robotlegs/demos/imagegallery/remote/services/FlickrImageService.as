@@ -78,7 +78,7 @@ package org.robotlegs.demos.imagegallery.remote.services
 				gallery.photos.addItem( photo );
 			}
 			
-			this.dispatch(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
+			this.dispatchEvent(new GalleryEvent(GalleryEvent.GALLERY_LOADED, gallery));
 		}
 		
 	}

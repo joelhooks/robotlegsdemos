@@ -57,7 +57,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		{
 			var widget:IWidgetModule = loadedModuleInfo.factory.create() as IWidgetModule;
 			widgetMap.registerObject(widget, id);
-			dispatch(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_CREATED, id));
+			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_CREATED, id));
 		}
 		
 		protected function loadModule(id:String):void
@@ -83,7 +83,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		{
 			var widgetId:String = infoMap.getKey(e.module);
 			loadedModuleInfo = e.module;
-			dispatch(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_READY, widgetId));
+			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_READY, widgetId));
 			infoMap.removeByObject(e.module);
 			createModule(widgetId);
 		}
@@ -91,13 +91,13 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		protected function onModuleError(e:ModuleEvent):void
 		{
 			var widgetId:String = infoMap.getKey(e.module);
-			dispatch(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_ERROR, widgetId, e));
+			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_ERROR, widgetId, e));
 		}
 		
 		protected function onModuleProgress(e:ModuleEvent):void
 		{
 			var widgetId:String = infoMap.getKey(e.module);
-			dispatch(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_PROGRESS, widgetId, e));
+			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_PROGRESS, widgetId, e));
 		}
 	
 	}

@@ -33,13 +33,13 @@ package org.robotlegs.demos.imagegallery.views.mediators
 			addEventListenerTo( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )
 			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, onSearch);
 			
-			dispatch( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
+			dispatchEvent( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
 		}
 		
 		protected function selectImage(image:GalleryImage):void
 		{
 			galleryView.imageSource = image.URL;
-			dispatch(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
+			dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
 		}
 		
 		protected function onGalleryLoaded(event:GalleryEvent):void

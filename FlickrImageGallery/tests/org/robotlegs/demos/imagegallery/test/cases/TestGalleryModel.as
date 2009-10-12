@@ -1,33 +1,33 @@
 package org.robotlegs.demos.imagegallery.test.cases
 {
 	import org.flexunit.Assert;
-	import org.robotlegs.demos.imagegallery.models.proxies.GalleryProxy;
+	import org.robotlegs.demos.imagegallery.models.proxies.GalleryModel;
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 
-	public class TestGalleryProxy
+	public class TestGalleryModel
 	{
-		private var galleryProxy:GalleryProxy;
+		private var galleryModel:GalleryModel;
 		
 		[Before]
 		public function setUp():void
 		{
-			this.galleryProxy = new GalleryProxy()
+			this.galleryModel = new GalleryModel()
 		}
 		
 		[After]
 		public function tearDown():void
 		{
-			this.galleryProxy = null;
+			this.galleryModel = null;
 		}
 		
 		[Test]
 		public function testSetGallery():void
 		{
 			var gallery:Gallery = new Gallery();
-			this.galleryProxy.gallery = gallery;
-			Assert.assertEquals("GalleryProxy should have a gallery", 
-				this.galleryProxy.gallery != null, true );
+			this.galleryModel.gallery = gallery;
+			Assert.assertEquals("galleryModel should have a gallery", 
+				this.galleryModel.gallery != null, true );
 		}
 		
 		[Test]
@@ -36,12 +36,12 @@ package org.robotlegs.demos.imagegallery.test.cases
 			var image1:GalleryImage = new GalleryImage()
 			var image2:GalleryImage = new GalleryImage()
 			var gallery:Gallery = new Gallery()
-			this.galleryProxy.gallery = gallery;
+			this.galleryModel.gallery = gallery;
 			gallery.photos.addItem(image1);
 			gallery.photos.addItem(image2);
 			image1.selected = false;
 			image2.selected = true;
-			this.galleryProxy.setSelectedImage(image1);
+			this.galleryModel.setSelectedImage(image1);
 			Assert.assertEquals("Image1 should be selected", image1.selected, true);
 			Assert.assertEquals("Image 2 should NOT be selected", image2.selected, false);
 		}

@@ -11,17 +11,15 @@
 */
 package org.robotlegs.demos.imagegallery.models.proxies
 {
-	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
-	
-	import org.robotlegs.mvcs.Proxy;
+	import org.robotlegs.mvcs.*;
 
-	public class GalleryProxy extends Proxy
+	public class GalleryModel extends Model
 	{
 		private var _gallery:Gallery;
 		
-		public function GalleryProxy()
+		public function GalleryModel()
 		{
 		}
 		

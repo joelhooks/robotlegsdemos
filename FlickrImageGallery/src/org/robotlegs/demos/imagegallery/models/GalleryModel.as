@@ -9,7 +9,7 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 */
-package org.robotlegs.demos.imagegallery.models.proxies
+package org.robotlegs.demos.imagegallery.models
 {
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;

@@ -1,7 +1,7 @@
 package org.robotlegs.demos.imagegallery.test.cases
 {
 	import org.flexunit.Assert;
-	import org.robotlegs.demos.imagegallery.models.proxies.GalleryModel;
+	import org.robotlegs.demos.imagegallery.models.GalleryModel;
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 

@@ -17,7 +17,7 @@ package org.robotlegs.demos.imagegallery
 	import org.robotlegs.demos.imagegallery.controllers.StartupCommand;
 	import org.robotlegs.demos.imagegallery.controllers.gallery.*;
 	import org.robotlegs.demos.imagegallery.events.*;
-	import org.robotlegs.demos.imagegallery.models.proxies.GalleryModel;
+	import org.robotlegs.demos.imagegallery.models.GalleryModel;
 	import org.robotlegs.demos.imagegallery.remote.services.*;
 	import org.robotlegs.demos.imagegallery.views.components.*;
 	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;

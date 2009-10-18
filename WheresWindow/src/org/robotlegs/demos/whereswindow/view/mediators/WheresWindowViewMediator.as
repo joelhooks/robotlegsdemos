@@ -20,18 +20,18 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo( view.createWndowButton, MouseEvent.CLICK, handleCreateButton )
-			addEventListenerTo( view.changeAllBackgroundsButton, MouseEvent.CLICK, handleChangeColors );
+			eventMap.mapListener( view.createWndowButton, MouseEvent.CLICK, handleCreateButton )
+			eventMap.mapListener( view.changeAllBackgroundsButton, MouseEvent.CLICK, handleChangeColors );
 		}
 		
 		protected function handleCreateButton(event:Event):void
 		{
-			dispatchEvent( new InfoWindowEvent( InfoWindowEvent.CREATE_INFO_WINDOW ) );
+			eventDispatcher.dispatchEvent( new InfoWindowEvent( InfoWindowEvent.CREATE_INFO_WINDOW ) );
 		}
 		
 		protected function handleChangeColors(event:Event):void
 		{
-			dispatchEvent( new InfoWindowEvent( InfoWindowEvent.CHANGE_BACKGROUND_COLOR ));
+			eventDispatcher.dispatchEvent( new InfoWindowEvent( InfoWindowEvent.CHANGE_BACKGROUND_COLOR ));
 		}
 		
 	}

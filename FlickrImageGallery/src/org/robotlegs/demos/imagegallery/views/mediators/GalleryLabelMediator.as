@@ -33,7 +33,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		override public function onRegister():void
 		{
 			this.galleryLabel.text = "interestingness";
-			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
+			eventMap.mapListener( eventDispatcher, GallerySearchEvent.SEARCH, handleSearch );
 			
 			galleryLabel.visible = galleryLabel.includeInLayout = service.searchAvailable;
 		}

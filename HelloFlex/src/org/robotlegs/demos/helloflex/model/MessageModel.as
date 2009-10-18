@@ -2,14 +2,13 @@ package org.robotlegs.demos.helloflex.model
 {
 	import mx.collections.ArrayCollection;
 	
-	import org.robotlegs.demos.helloflex.model.MessageProxyEvent;
-	import org.robotlegs.mvcs.Proxy;
+	import org.robotlegs.mvcs.Model;
 	
-	public class MessageProxy extends Proxy
+	public class MessageModel extends Model
 	{
 		private var messages:ArrayCollection;
 		
-		public function MessageProxy()
+		public function MessageModel()
 		{
 			messages = new ArrayCollection();
 		}
@@ -17,7 +16,7 @@ package org.robotlegs.demos.helloflex.model
 		public function addMessage(message:String):void
 		{
 			messages.addItem((messages.length + 1) + ': ' + message);
-			dispatchEvent(new MessageProxyEvent(MessageProxyEvent.MESSAGE_ADDED, message));
+			dispatchEvent(new MessageModelEvent(MessageModelEvent.MESSAGE_ADDED, message));
 		}
 		
 		public function get messageList():ArrayCollection
@@ -28,7 +27,7 @@ package org.robotlegs.demos.helloflex.model
 		public function clearMessages():void
 		{
 			messages.removeAll();
-			dispatchEvent(new MessageProxyEvent(MessageProxyEvent.MESSAGES_CLEARED));
+			dispatchEvent(new MessageModelEvent(MessageModelEvent.MESSAGES_CLEARED));
 		}
 	
 	}

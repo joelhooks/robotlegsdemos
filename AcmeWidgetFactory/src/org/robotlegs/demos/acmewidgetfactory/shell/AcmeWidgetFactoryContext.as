@@ -33,7 +33,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellLoggerEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.UnregisterWidgetCommand;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetModel;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.ControlPanelMediator;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.ControlPanelView;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.LoggerHolderMediator;
@@ -61,7 +61,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			commandMap.mapEvent(CreateLoggerCommand, ShellLoggerEvent.CREATE_LOGGER, ShellLoggerEvent);
 			
 			// Model
-			injector.mapSingleton(ActiveWidgetProxy);
+			injector.mapSingleton(ActiveWidgetModel);
 			
 			// View
 			injector.mapValue(AcmeWidgetFactory, contextView);

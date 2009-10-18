@@ -2,7 +2,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 {
 	import flash.events.Event;
 	
-	public class ActiveWidgetProxyEvent extends Event
+	public class ActiveWidgetModelEvent extends Event
 	{
 		public static const WIDGET_MODULE_ERROR:String = 'WIDGET_MODULE_ERROR';
 		public static const WIDGET_MODULE_PROGRESS:String = 'WIDGET_MODULE_PROGRESS';
@@ -13,7 +13,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		protected var _widgetId:String;
 		protected var _body:*;
 		
-		public function ActiveWidgetProxyEvent(type:String, widgetId:String, body:* = null)
+		public function ActiveWidgetModelEvent(type:String, widgetId:String, body:* = null)
 		{
 			super(type);
 			_widgetId = widgetId;
@@ -32,7 +32,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		
 		override public function clone():Event
 		{
-			return new ActiveWidgetProxyEvent(type, widgetId, body);
+			return new ActiveWidgetModelEvent(type, widgetId, body);
 		}
 	
 	}

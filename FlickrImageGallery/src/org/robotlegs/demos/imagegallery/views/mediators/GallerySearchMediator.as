@@ -31,14 +31,14 @@ package org.robotlegs.demos.imagegallery.views.mediators
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo( gallerySearch, GallerySearchEvent.SEARCH, handleSearch );
+			eventMap.mapListener( gallerySearch, GallerySearchEvent.SEARCH, handleSearch );
 			
 			gallerySearch.visible = gallerySearch.includeInLayout = service.searchAvailable;
 		}
 		
 		protected function handleSearch(event:GallerySearchEvent):void
 		{
-			dispatchEvent( event );
+			eventDispatcher.dispatchEvent( event );
 		}
 	}
 }

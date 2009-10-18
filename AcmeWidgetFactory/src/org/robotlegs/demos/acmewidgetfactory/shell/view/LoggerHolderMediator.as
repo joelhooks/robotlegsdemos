@@ -17,11 +17,11 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		override public function onRegister():void
 		{
 			// Context listeners
-			addEventListenerTo(eventDispatcher, ShellLoggerEvent.CREATE_LOGGER_COMPLETE, onCreateLoggerComplete);
-			addEventListenerTo(eventDispatcher, ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, onShutdownLoggerComplete);
+			eventMap.mapListener(eventDispatcher, ShellLoggerEvent.CREATE_LOGGER_COMPLETE, onCreateLoggerComplete);
+			eventMap.mapListener(eventDispatcher, ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, onShutdownLoggerComplete);
 			
 			// Create the first one
-			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.CREATE_LOGGER, null));
+			eventDispatcher.dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.CREATE_LOGGER, null));
 		}
 		
 		protected function onCreateLoggerComplete(e:ShellLoggerEvent):void
@@ -32,7 +32,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		protected function onShutdownLoggerComplete(e:ShellLoggerEvent):void
 		{
 			view.removeChild(e.loggerModule as UIComponent);
-			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.REMOVE_LOGGER_COMPLETE, e.loggerModule));
+			eventDispatcher.dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.REMOVE_LOGGER_COMPLETE, e.loggerModule));
 		}
 	
 	}

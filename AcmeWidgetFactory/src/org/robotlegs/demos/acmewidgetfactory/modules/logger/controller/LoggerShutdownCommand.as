@@ -8,7 +8,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger.controller
 		override public function execute():void
 		{
 			// perhaps we want to do something before shutting down
-			dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN_COMPLETE));
+			eventDispatcher.dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN_COMPLETE));
 		}
 	}
 }

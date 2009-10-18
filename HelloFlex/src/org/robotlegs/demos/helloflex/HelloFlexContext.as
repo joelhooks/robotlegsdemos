@@ -22,7 +22,7 @@ package org.robotlegs.demos.helloflex
 			commandMap.mapEvent(TryClearMessages, SystemEvent.CLEAR_MESSAGES_REQUESTED, SystemEvent);
 			// Model
 			injector.mapSingleton(UserProxy);
-			injector.mapSingleton(MessageProxy);
+			injector.mapSingleton(MessageModel);
 			// Services
 			injector.mapSingletonOf(IAuthService, DummyAuthService);
 			// View

@@ -2,14 +2,14 @@ package org.robotlegs.demos.helloflex.model
 {
 	import flash.events.Event;
 	
-	public class MessageProxyEvent extends Event
+	public class MessageModelEvent extends Event
 	{
 		public static const MESSAGE_ADDED:String = 'messageAdded';
 		public static const MESSAGES_CLEARED:String = 'messagesCleared';
 		
 		private var _message:String;
 		
-		public function MessageProxyEvent(type:String, message:String = null)
+		public function MessageModelEvent(type:String, message:String = null)
 		{
 			super(type);
 			_message = message;

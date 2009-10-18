@@ -23,7 +23,7 @@
 package org.robotlegs.demos.acmewidgetfactory.shell.controller
 {
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetModel;
 	import org.robotlegs.mvcs.Command;
 	
 	public class UnregisterWidgetCommand extends Command
@@ -32,13 +32,13 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 		public var event:ShellWidgetEvent;
 		
 		[Inject]
-		public var activeWidgetProxy:ActiveWidgetProxy;
+		public var activeWidgetModel:ActiveWidgetModel;
 		
 		override public function execute():void
 		{
-			if (activeWidgetProxy.hasWidgetId(event.widgetId))
+			if (activeWidgetModel.hasWidgetId(event.widgetId))
 			{
-				activeWidgetProxy.removeById(event.widgetId);
+				activeWidgetModel.removeById(event.widgetId);
 			}
 		}
 	}

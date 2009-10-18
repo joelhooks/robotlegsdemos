@@ -6,6 +6,6 @@ package org.robotlegs.demos.acmewidgetfactory.common.interfaces
 	{
 		function logMessage(message:String):void;
 		function clearMessages():void;
-		function close():void;;
+		function close():void;
 	}
 }

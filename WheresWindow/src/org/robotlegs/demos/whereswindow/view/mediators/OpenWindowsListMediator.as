@@ -29,9 +29,9 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo( view, IndexChangedEvent.CHANGE, handleItemChanged );
-			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_ADDED, handleWindowAdded );
-			addEventListenerTo( eventDispatcher, InfoWindowEvent.INFO_WINDOW_REMOVED, handleWindowClosed );
+			eventMap.mapListener( view, IndexChangedEvent.CHANGE, handleItemChanged );
+			eventMap.mapListener( eventDispatcher, InfoWindowEvent.INFO_WINDOW_ADDED, handleWindowAdded );
+			eventMap.mapListener( eventDispatcher, InfoWindowEvent.INFO_WINDOW_REMOVED, handleWindowClosed );
 		}
 		
 		protected function handleWindowClosed(event:InfoWindowEvent):void
@@ -55,7 +55,7 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		{
 			if(view.selectedItem != this.currentSelection && view.selectedItem is InfoWindow)
 			{
-				dispatchEvent( new InfoWindowEvent( InfoWindowEvent.FLASH_INFO_WINDOW, view.selectedItem.id ) );
+				eventDispatcher.dispatchEvent( new InfoWindowEvent( InfoWindowEvent.FLASH_INFO_WINDOW, view.selectedItem.id ) );
 				this.currentSelection = InfoWindow(view.selectedItem);
 			}
 		}

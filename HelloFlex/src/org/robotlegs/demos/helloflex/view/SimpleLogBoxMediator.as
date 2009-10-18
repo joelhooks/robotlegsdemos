@@ -1,6 +1,6 @@
 package org.robotlegs.demos.helloflex.view
 {
-	import org.robotlegs.demos.helloflex.model.MessageProxyEvent;
+	import org.robotlegs.demos.helloflex.model.MessageModelEvent;
 	import org.robotlegs.demos.helloflex.model.UserProxyEvent;
 	import org.robotlegs.demos.helloflex.view.SimpleLogBox;
 	import org.robotlegs.mvcs.Mediator;
@@ -16,18 +16,18 @@ package org.robotlegs.demos.helloflex.view
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo(eventDispatcher, MessageProxyEvent.MESSAGE_ADDED, whenMessageAdded);
-			addEventListenerTo(eventDispatcher, MessageProxyEvent.MESSAGES_CLEARED, whenMessagesCleared);
-			addEventListenerTo(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
-			addEventListenerTo(eventDispatcher, UserProxyEvent.USER_LOGGED_OUT, whenUserLoggedOut);
+			eventMap.mapListener(eventDispatcher, MessageModelEvent.MESSAGE_ADDED, whenMessageAdded);
+			eventMap.mapListener(eventDispatcher, MessageModelEvent.MESSAGES_CLEARED, whenMessagesCleared);
+			eventMap.mapListener(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
+			eventMap.mapListener(eventDispatcher, UserProxyEvent.USER_LOGGED_OUT, whenUserLoggedOut);
 		}
 		
-		private function whenMessageAdded(e:MessageProxyEvent):void
+		private function whenMessageAdded(e:MessageModelEvent):void
 		{
 			simpleLogBox.log('Message Added');
 		}
 		
-		private function whenMessagesCleared(e:MessageProxyEvent):void
+		private function whenMessagesCleared(e:MessageModelEvent):void
 		{
 			simpleLogBox.log('Messages Cleared');
 		}

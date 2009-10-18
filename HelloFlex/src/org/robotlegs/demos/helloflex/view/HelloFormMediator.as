@@ -1,7 +1,7 @@
 package org.robotlegs.demos.helloflex.view
 {
-	import org.robotlegs.demos.helloflex.model.MessageProxy;
-	import org.robotlegs.demos.helloflex.model.MessageProxyEvent;
+	import org.robotlegs.demos.helloflex.model.MessageModel;
+	import org.robotlegs.demos.helloflex.model.MessageModelEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class HelloFormMediator extends Mediator
@@ -10,7 +10,7 @@ package org.robotlegs.demos.helloflex.view
 		public var helloForm:HelloForm;
 		
 		[Inject]
-		public var messageProxy:MessageProxy;
+		public var messageModel:MessageModel;
 		
 		public function HelloFormMediator()
 		{
@@ -19,17 +19,17 @@ package org.robotlegs.demos.helloflex.view
 		override public function onRegister():void
 		{
 			// View Listeners
-			addEventListenerTo(helloForm, HelloFormEvent.FORM_SUBMITTED, onFormSubmitted);
+			eventMap.mapListener(helloForm, HelloFormEvent.FORM_SUBMITTED, onFormSubmitted);
 			// Context Listeners
-			addEventListenerTo(eventDispatcher, MessageProxyEvent.MESSAGE_ADDED, whenMessageAdded);
+			eventMap.mapListener(eventDispatcher, MessageModelEvent.MESSAGE_ADDED, whenMessageAdded);
 		}
 		
 		private function onFormSubmitted(e:HelloFormEvent):void
 		{
-			messageProxy.addMessage(helloForm.getMessage());
+			messageModel.addMessage(helloForm.getMessage());
 		}
 		
-		private function whenMessageAdded(e:MessageProxyEvent):void
+		private function whenMessageAdded(e:MessageModelEvent):void
 		{
 			helloForm.messageTxt.setFocus();
 		}

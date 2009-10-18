@@ -20,9 +20,9 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		override public function onRegister():void
 		{
 			trace("Window Mediator Registered", view.id);
-			addEventListenerTo(eventDispatcher, InfoWindowEvent.CHANGE_BACKGROUND_COLOR, handleChangeBackgroundColor);
-			addEventListenerTo(eventDispatcher, InfoWindowEvent.FLASH_INFO_WINDOW, handleFlashWindow);
-			addEventListenerTo(view, Event.CLOSE, handleWindowClose);
+			eventMap.mapListener(eventDispatcher, InfoWindowEvent.CHANGE_BACKGROUND_COLOR, handleChangeBackgroundColor);
+			eventMap.mapListener(eventDispatcher, InfoWindowEvent.FLASH_INFO_WINDOW, handleFlashWindow);
+			eventMap.mapListener(view, Event.CLOSE, handleWindowClose);
 		}
 		
 		protected function handleChangeBackgroundColor(event:InfoWindowEvent):void
@@ -43,7 +43,7 @@ package org.robotlegs.demos.whereswindow.view.mediators
 		
 		protected function handleWindowClose(event:Event):void
 		{
-			dispatchEvent(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_CLOSED, view.id));
+			eventDispatcher.dispatchEvent(new InfoWindowEvent(InfoWindowEvent.INFO_WINDOW_CLOSED, view.id));
 			mediatorMap.removeMediator(this);
 		}
 	

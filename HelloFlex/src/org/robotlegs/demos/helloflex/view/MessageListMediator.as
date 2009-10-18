@@ -1,7 +1,6 @@
 package org.robotlegs.demos.helloflex.view
 {
-	import org.robotlegs.demos.helloflex.model.MessageProxy;
-	import org.robotlegs.demos.helloflex.view.MessageList;
+	import org.robotlegs.demos.helloflex.model.MessageModel;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class MessageListMediator extends Mediator
@@ -10,7 +9,7 @@ package org.robotlegs.demos.helloflex.view
 		public var messageList:MessageList;
 		
 		[Inject]
-		public var messageProxy:MessageProxy;
+		public var messageModel:MessageModel;
 		
 		public function MessageListMediator()
 		{
@@ -18,7 +17,7 @@ package org.robotlegs.demos.helloflex.view
 		
 		override public function onRegister():void
 		{
-			messageList.dataProvider = messageProxy.messageList;
+			messageList.dataProvider = messageModel.messageList;
 		}
 	
 	}

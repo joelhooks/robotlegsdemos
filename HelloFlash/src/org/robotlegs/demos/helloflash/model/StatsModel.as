@@ -22,13 +22,13 @@
 
 package org.robotlegs.demos.helloflash.model
 {
-	import org.robotlegs.mvcs.Proxy;
+	import org.robotlegs.mvcs.Model;
 	
-	public class StatsProxy extends Proxy
+	public class StatsModel extends Model
 	{
 		protected var _ballClickCount:int;
 		
-		public function StatsProxy()
+		public function StatsModel()
 		{
 			_ballClickCount = 0;
 		}

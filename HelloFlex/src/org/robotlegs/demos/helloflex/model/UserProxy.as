@@ -1,9 +1,8 @@
 package org.robotlegs.demos.helloflex.model
 {
-	import org.robotlegs.demos.helloflex.model.UserProxyEvent;
-	import org.robotlegs.mvcs.Proxy;
+	import org.robotlegs.mvcs.Model;
 	
-	public class UserProxy extends Proxy
+	public class UserProxy extends Model
 	{
 		private var username:String;
 		private var loggedIn:Boolean;

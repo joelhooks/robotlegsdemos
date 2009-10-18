@@ -25,9 +25,9 @@ package org.robotlegs.demos.helloflex.view
 		override public function onRegister():void
 		{
 			// view listeners
-			addEventListenerTo(loginPage, LoginPageEvent.LOGIN_SUBMITTED, onLoginSubmitted);
+			eventMap.mapListener(loginPage, LoginPageEvent.LOGIN_SUBMITTED, onLoginSubmitted);
 			// context listeners
-			addEventListenerTo(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
+			eventMap.mapListener(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
 		}
 		
 		private function onLoginSubmitted(e:LoginPageEvent):void
@@ -37,7 +37,7 @@ package org.robotlegs.demos.helloflex.view
 		
 		private function whenUserLoggedIn(e:UserProxyEvent):void
 		{
-			dispatchEvent(triggerEvent);
+			eventDispatcher.dispatchEvent(triggerEvent);
 			loginPage.closeAndRemove();
 		}
 	

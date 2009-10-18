@@ -27,7 +27,7 @@ package org.robotlegs.demos.helloflash
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.helloflash.controller.CreateBallCommand;
 	import org.robotlegs.demos.helloflash.controller.HelloFlashEvent;
-	import org.robotlegs.demos.helloflash.model.StatsProxy;
+	import org.robotlegs.demos.helloflash.model.StatsModel;
 	import org.robotlegs.demos.helloflash.view.Ball;
 	import org.robotlegs.demos.helloflash.view.BallMediator;
 	import org.robotlegs.demos.helloflash.view.Readout;
@@ -48,7 +48,7 @@ package org.robotlegs.demos.helloflash
 			commandMap.mapEvent(CreateBallCommand, HelloFlashEvent.BALL_CLICKED, HelloFlashEvent );
 			
 			// Create a rule for Dependency Injection
-			injector.mapSingleton(StatsProxy);
+			injector.mapSingleton(StatsModel);
 			
 			// Here we bind Mediator Classes to View Classes:
 			// Mediators will be created automatically when

@@ -24,7 +24,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 {
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetModel;
 	import org.robotlegs.mvcs.Command;
 	
 	public class CreateWidgetCommand extends Command
@@ -33,18 +33,18 @@ package org.robotlegs.demos.acmewidgetfactory.shell.controller
 		public var event:ShellWidgetEvent;
 		
 		[Inject]
-		public var activeWidgetProxy:ActiveWidgetProxy;
+		public var activeWidgetModel:ActiveWidgetModel;
 		
 		override public function execute():void
 		{
-			var widget:IWidgetModule = activeWidgetProxy.getWidget(event.widgetId);
+			var widget:IWidgetModule = activeWidgetModel.getWidget(event.widgetId);
 			if (widget)
 			{
 				widget.poke();
 			}
 			else
 			{
-				activeWidgetProxy.createWidget(event.widgetId);
+				activeWidgetModel.createWidget(event.widgetId);
 			}
 		}
 	}

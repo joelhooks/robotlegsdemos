@@ -7,11 +7,10 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 	import mx.modules.ModuleManager;
 	
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxyEvent;
-	import org.robotlegs.mvcs.Proxy;
+	import org.robotlegs.mvcs.Model;
 	import org.robotlegs.utils.NamedObjectMap;
 	
-	public class ActiveWidgetProxy extends Proxy
+	public class ActiveWidgetModel extends Model
 	{
 		private static const MODULE_URL:String = 'org/robotlegs/demos/acmewidgetfactory/modules/widget/WidgetModule.swf';
 		
@@ -19,7 +18,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		protected var infoMap:NamedObjectMap;
 		protected var loadedModuleInfo:IModuleInfo;
 		
-		public function ActiveWidgetProxy()
+		public function ActiveWidgetModel()
 		{
 			widgetMap = new NamedObjectMap();
 			infoMap = new NamedObjectMap();
@@ -57,7 +56,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		{
 			var widget:IWidgetModule = loadedModuleInfo.factory.create() as IWidgetModule;
 			widgetMap.registerObject(widget, id);
-			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_CREATED, id));
+			eventDispatcher.dispatchEvent(new ActiveWidgetModelEvent(ActiveWidgetModelEvent.WIDGET_CREATED, id));
 		}
 		
 		protected function loadModule(id:String):void
@@ -83,7 +82,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		{
 			var widgetId:String = infoMap.getKey(e.module);
 			loadedModuleInfo = e.module;
-			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_READY, widgetId));
+			eventDispatcher.dispatchEvent(new ActiveWidgetModelEvent(ActiveWidgetModelEvent.WIDGET_MODULE_READY, widgetId));
 			infoMap.removeByObject(e.module);
 			createModule(widgetId);
 		}
@@ -91,13 +90,13 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 		protected function onModuleError(e:ModuleEvent):void
 		{
 			var widgetId:String = infoMap.getKey(e.module);
-			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_ERROR, widgetId, e));
+			eventDispatcher.dispatchEvent(new ActiveWidgetModelEvent(ActiveWidgetModelEvent.WIDGET_MODULE_ERROR, widgetId, e));
 		}
 		
 		protected function onModuleProgress(e:ModuleEvent):void
 		{
 			var widgetId:String = infoMap.getKey(e.module);
-			dispatchEvent(new ActiveWidgetProxyEvent(ActiveWidgetProxyEvent.WIDGET_MODULE_PROGRESS, widgetId, e));
+			eventDispatcher.dispatchEvent(new ActiveWidgetModelEvent(ActiveWidgetModelEvent.WIDGET_MODULE_PROGRESS, widgetId, e));
 		}
 	
 	}

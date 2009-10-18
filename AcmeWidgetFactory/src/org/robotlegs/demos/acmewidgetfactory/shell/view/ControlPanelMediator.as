@@ -17,36 +17,36 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo(view.createWidgetButton, MouseEvent.CLICK, onCreateWidgetClick);
-			addEventListenerTo(view.pokeWidgetButton, MouseEvent.CLICK, onPokeWidgetClick);
-			addEventListenerTo(view.destroyWidgetButton, MouseEvent.CLICK, onDestroyWidgetClick);
-			addEventListenerTo(view.destroyAllWidgetsButton, MouseEvent.CLICK, onDestroyAllClick);
-			addEventListenerTo(view.clearLoggerButton, MouseEvent.CLICK, onClearLoggerClick);
+			eventMap.mapListener(view.createWidgetButton, MouseEvent.CLICK, onCreateWidgetClick);
+			eventMap.mapListener(view.pokeWidgetButton, MouseEvent.CLICK, onPokeWidgetClick);
+			eventMap.mapListener(view.destroyWidgetButton, MouseEvent.CLICK, onDestroyWidgetClick);
+			eventMap.mapListener(view.destroyAllWidgetsButton, MouseEvent.CLICK, onDestroyAllClick);
+			eventMap.mapListener(view.clearLoggerButton, MouseEvent.CLICK, onClearLoggerClick);
 		}
 		
 		protected function onCreateWidgetClick(e:MouseEvent):void
 		{
-			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET, view.widgetId.text));
+			eventDispatcher.dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.CREATE_WIDGET, view.widgetId.text));
 		}
 		
 		protected function onPokeWidgetClick(e:MouseEvent):void
 		{
-			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET, view.widgetId.text));
+			eventDispatcher.dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.POKE_WIDGET, view.widgetId.text));
 		}
 		
 		protected function onDestroyWidgetClick(e:MouseEvent):void
 		{
-			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, view.widgetId.text));
+			eventDispatcher.dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET, view.widgetId.text));
 		}
 		
 		protected function onDestroyAllClick(e:MouseEvent):void
 		{
-			dispatchEvent(new ShellEvent(ShellEvent.REMOVE_ALL_WIDGETS));
+			eventDispatcher.dispatchEvent(new ShellEvent(ShellEvent.REMOVE_ALL_WIDGETS));
 		}
 	
 		protected function onClearLoggerClick(e:MouseEvent):void
 		{
-			dispatchEvent(new ShellEvent(ShellEvent.CLEAR_LOGGER));
+			eventDispatcher.dispatchEvent(new ShellEvent(ShellEvent.CLEAR_LOGGER));
 		}
 	
 	}

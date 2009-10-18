@@ -3,8 +3,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import flash.display.DisplayObject;
 	
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxyEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxy;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetModel;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetModelEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class WidgetHolderMediator extends Mediator
@@ -13,7 +13,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		public var view:WidgetHolderView;
 		
 		[Inject]
-		public var activeWidgetProxy:ActiveWidgetProxy;
+		public var activeWidgetModel:ActiveWidgetModel;
 		
 		public function WidgetHolderMediator()
 		{
@@ -21,19 +21,19 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo(eventDispatcher, ActiveWidgetProxyEvent.WIDGET_CREATED, onWidgetCreated);
-			addEventListenerTo(eventDispatcher, ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, onShutdownWidgetComplete);
+			eventMap.mapListener(eventDispatcher, ActiveWidgetModelEvent.WIDGET_CREATED, onWidgetCreated);
+			eventMap.mapListener(eventDispatcher, ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, onShutdownWidgetComplete);
 		}
 		
-		protected function onWidgetCreated(e:ActiveWidgetProxyEvent):void
+		protected function onWidgetCreated(e:ActiveWidgetModelEvent):void
 		{
-			view.addChild(activeWidgetProxy.getWidget(e.widgetId));
+			view.addChild(activeWidgetModel.getWidget(e.widgetId));
 		}
 		
 		protected function onShutdownWidgetComplete(e:ShellWidgetEvent):void
 		{
-			view.removeChild(activeWidgetProxy.getWidget(e.widgetId) as DisplayObject);
-			dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, e.widgetId));
+			view.removeChild(activeWidgetModel.getWidget(e.widgetId) as DisplayObject);
+			eventDispatcher.dispatchEvent(new ShellWidgetEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, e.widgetId));
 		}
 	}
 }

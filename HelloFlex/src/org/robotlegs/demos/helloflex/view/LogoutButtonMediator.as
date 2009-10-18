@@ -28,10 +28,10 @@ package org.robotlegs.demos.helloflex.view
 			// Yes, this could use binding instead
 			logoutButton.enabled = userProxy.userLoggedIn;
 			// view listeners
-			addEventListenerTo(logoutButton, MouseEvent.CLICK, onLogoutClick);
+			eventMap.mapListener(logoutButton, MouseEvent.CLICK, onLogoutClick);
 			// context listeners
-			addEventListenerTo(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
-			addEventListenerTo(eventDispatcher, UserProxyEvent.USER_LOGGED_OUT, whenUserLoggedOut);
+			eventMap.mapListener(eventDispatcher, UserProxyEvent.USER_LOGGED_IN, whenUserLoggedIn);
+			eventMap.mapListener(eventDispatcher, UserProxyEvent.USER_LOGGED_OUT, whenUserLoggedOut);
 		}
 		
 		private function onLogoutClick(e:MouseEvent):void

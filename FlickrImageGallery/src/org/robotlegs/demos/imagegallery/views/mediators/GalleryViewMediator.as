@@ -29,17 +29,17 @@ package org.robotlegs.demos.imagegallery.views.mediators
 
 		override public function onRegister():void
 		{
-			addEventListenerTo( galleryView, GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected )
-			addEventListenerTo( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )
-			addEventListenerTo( eventDispatcher, GallerySearchEvent.SEARCH, onSearch);
+			eventMap.mapListener( galleryView, GalleryImageEvent.SELECT_GALLERY_IMAGE, onImageSelected )
+			eventMap.mapListener( eventDispatcher, GalleryEvent.GALLERY_LOADED, onGalleryLoaded )
+			eventMap.mapListener( eventDispatcher, GallerySearchEvent.SEARCH, onSearch);
 			
-			dispatchEvent( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
+			eventDispatcher.dispatchEvent( new GalleryEvent( GalleryEvent.LOAD_GALLERY ) );
 		}
 		
 		protected function selectImage(image:GalleryImage):void
 		{
 			galleryView.imageSource = image.URL;
-			dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
+			eventDispatcher.dispatchEvent(new GalleryImageEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, image));
 		}
 		
 		protected function onGalleryLoaded(event:GalleryEvent):void

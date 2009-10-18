@@ -16,12 +16,12 @@ package org.robotlegs.demos.helloflex.view
 		
 		override public function onRegister():void
 		{
-			addEventListenerTo(clearMessagesButton, MouseEvent.CLICK, onClearMessagesClicked);
+			eventMap.mapListener(clearMessagesButton, MouseEvent.CLICK, onClearMessagesClicked);
 		}
 		
 		private function onClearMessagesClicked(e:MouseEvent):void
 		{
-			dispatchEvent(new SystemEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED));
+			eventDispatcher.dispatchEvent(new SystemEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED));
 		}
 	
 	}

@@ -6,7 +6,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellLoggerEvent;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.ShellWidgetEvent;
-	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetProxyEvent;
+	import org.robotlegs.demos.acmewidgetfactory.shell.model.ActiveWidgetModelEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class LoggerModuleMediator extends Mediator
@@ -26,22 +26,22 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			subContext = module.getContext();
 			
 			// Sub Context (child context) Listeners
-			addEventListenerTo(subContext, ContextEvent.SHUTDOWN_COMPLETE, onLoggerShutdownComplete);
+			eventMap.mapListener(subContext, ContextEvent.SHUTDOWN_COMPLETE, onLoggerShutdownComplete);
 			
 			// Shell Context Listeners
-			addEventListenerTo(eventDispatcher, ShellEvent.CLEAR_LOGGER, onClearLogger);
-			addEventListenerTo(eventDispatcher, ActiveWidgetProxyEvent.WIDGET_CREATED, onActiveWidgetProxyEvent);
-			addEventListenerTo(eventDispatcher, ActiveWidgetProxyEvent.WIDGET_MODULE_READY, onActiveWidgetProxyEvent);
-			addEventListenerTo(eventDispatcher, ActiveWidgetProxyEvent.WIDGET_MODULE_ERROR, onWidgetModuleError);
-			addEventListenerTo(eventDispatcher, ActiveWidgetProxyEvent.WIDGET_MODULE_PROGRESS, onWidgetModuleProgress);
-			addEventListenerTo(eventDispatcher, ShellWidgetEvent.POKE_WIDGET_COMPLETE, onShellWidgetEvent);
-			addEventListenerTo(eventDispatcher, ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, onShellWidgetEvent);
-			addEventListenerTo(eventDispatcher, ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, onShellWidgetEvent);
+			eventMap.mapListener(eventDispatcher, ShellEvent.CLEAR_LOGGER, onClearLogger);
+			eventMap.mapListener(eventDispatcher, ActiveWidgetModelEvent.WIDGET_CREATED, onActiveWidgetModelEvent);
+			eventMap.mapListener(eventDispatcher, ActiveWidgetModelEvent.WIDGET_MODULE_READY, onActiveWidgetModelEvent);
+			eventMap.mapListener(eventDispatcher, ActiveWidgetModelEvent.WIDGET_MODULE_ERROR, onWidgetModuleError);
+			eventMap.mapListener(eventDispatcher, ActiveWidgetModelEvent.WIDGET_MODULE_PROGRESS, onWidgetModuleProgress);
+			eventMap.mapListener(eventDispatcher, ShellWidgetEvent.POKE_WIDGET_COMPLETE, onShellWidgetEvent);
+			eventMap.mapListener(eventDispatcher, ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, onShellWidgetEvent);
+			eventMap.mapListener(eventDispatcher, ShellWidgetEvent.SHUTDOWN_WIDGET_COMPLETE, onShellWidgetEvent);
 		}
 		
 		protected function onLoggerShutdownComplete(e:org.robotlegs.base.ContextEvent):void
 		{
-			dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, module));
+			eventDispatcher.dispatchEvent(new ShellLoggerEvent(ShellLoggerEvent.SHUTDOWN_LOGGER_COMPLETE, module));
 		}
 		
 		protected function onClearLogger(e:ShellEvent):void
@@ -49,17 +49,17 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			module.clearMessages();
 		}
 		
-		protected function onActiveWidgetProxyEvent(e:ActiveWidgetProxyEvent):void
+		protected function onActiveWidgetModelEvent(e:ActiveWidgetModelEvent):void
 		{
 			module.logMessage(e.type + ' Widget Id: ' + e.widgetId);
 		}
 		
-		protected function onWidgetModuleError(e:ActiveWidgetProxyEvent):void
+		protected function onWidgetModuleError(e:ActiveWidgetModelEvent):void
 		{
 			module.logMessage(e.type + ' ' + e.body.errorText);
 		}
 		
-		protected function onWidgetModuleProgress(e:ActiveWidgetProxyEvent):void
+		protected function onWidgetModuleProgress(e:ActiveWidgetModelEvent):void
 		{
 			module.logMessage(e.type + ' ' + e.body.bytesLoaded + '/' + e.body.bytesTotal + ' bytes loaded');
 		}

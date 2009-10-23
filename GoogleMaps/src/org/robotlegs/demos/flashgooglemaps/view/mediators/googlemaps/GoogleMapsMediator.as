@@ -77,13 +77,13 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		{
 			view.main();
 			
-			addEventListenerTo(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
-			addEventListenerTo(view, GoogleMapsView.GET_GEOCODING_RESULT, handleGeocodingRequest);
-			addEventListenerTo(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
-			addEventListenerTo(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
-			addEventListenerTo(eventDispatcher, GeoCodingServiceEvent.GEOCODING_RESULT, handleGeocodingResult);
-			addEventListenerTo(eventDispatcher, TipViewEvent.SHOW_TIP, handleTipViewEvent);
-			addEventListenerTo(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
+			eventMap.mapListener(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
+			eventMap.mapListener(view, GoogleMapsView.GET_GEOCODING_RESULT, handleGeocodingRequest);
+			eventMap.mapListener(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
+			eventMap.mapListener(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
+			eventMap.mapListener(eventDispatcher, GeoCodingServiceEvent.GEOCODING_RESULT, handleGeocodingResult);
+			eventMap.mapListener(eventDispatcher, TipViewEvent.SHOW_TIP, handleTipViewEvent);
+			eventMap.mapListener(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		//--------------------------------------------------------------------------
 		private function handleGoogleMapReady(event:Event):void
 		{
-			dispatchEvent(new SystemEvent(SystemEvent.LOAD_CONTENT));
+			dispatch(new SystemEvent(SystemEvent.LOAD_CONTENT));
 		}
 		
 		private function handleXMLContentLoaded(event:AssetLoaderProxyEvent):void
@@ -102,15 +102,15 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 			
 			view.show();
 			
-			removeEventListenerFrom(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
-			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
+			eventMap.unmapListener(view, GoogleMapsView.GOOGLEMAP_READY, handleGoogleMapReady);
+			eventMap.unmapListener(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 			
-			dispatchEvent(new SystemEvent(SystemEvent.CLEANUP_STARTUP));
+			dispatch(new SystemEvent(SystemEvent.CLEANUP_STARTUP));
 		}
 		
 		private function handleGeocodingRequest(event:GoogleMarkerEvent):void
 		{
-			dispatchEvent(new SystemEvent(SystemEvent.REQUEST_GEOCODING, {city:event.city, address:event.address}));
+			dispatch(new SystemEvent(SystemEvent.REQUEST_GEOCODING, {city:event.city, address:event.address}));
 		}
 		
 		private function handleGeocodingResult(event:GeoCodingServiceEvent):void
@@ -120,9 +120,9 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.googlemaps
 		
 		private function handleViewOnStage(event:Event):void
 		{
-			dispatchEvent(new SystemEvent(SystemEvent.GOOGLE_MAP_ON_STAGE));
+			dispatch(new SystemEvent(SystemEvent.GOOGLE_MAP_ON_STAGE));
 			
-			removeEventListenerFrom(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
+			eventMap.unmapListener(view, GoogleMapsView.VIEW_ON_STAGE, handleViewOnStage);
 		}
 		
 		private function handleTipViewEvent(event:TipViewEvent):void

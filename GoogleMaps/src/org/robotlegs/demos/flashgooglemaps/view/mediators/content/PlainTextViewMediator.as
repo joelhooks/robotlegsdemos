@@ -68,7 +68,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		{
 			view.main();
 			
-			addEventListenerTo(view, PlainTextView.SHOW_TIPS, handleShowTips);
+			eventMap.mapListener(view, PlainTextView.SHOW_TIPS, handleShowTips);
 		}
 		
 		override public function onRemove():void
@@ -83,7 +83,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		private function handleShowTips(event:Event):void
 		{
-			dispatchEvent(new ContentChangeEvent(ContentChangeEvent.CONTENT_CHANGE, TabView.CONTENT_TIPS));
+			dispatch(new ContentChangeEvent(ContentChangeEvent.CONTENT_CHANGE, TabView.CONTENT_TIPS));
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
 				xmlns:view="org.robotlegs.demos.acmewidgetfactory.shell.view.*"
-				width="450"
+				width="490"
 				height="500"
 				layout="vertical"
 				backgroundGradientAlphas="[1.0, 1.0]"

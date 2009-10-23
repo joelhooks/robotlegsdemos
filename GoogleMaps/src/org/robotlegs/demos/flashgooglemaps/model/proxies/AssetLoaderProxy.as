@@ -22,12 +22,12 @@
 
 package org.robotlegs.demos.flashgooglemaps.model.proxies
 {
-	import org.robotlegs.mvcs.Proxy;
-	import org.robotlegs.demos.flashgooglemaps.model.events.AssetLoaderProxyEvent;
-	
 	import flash.events.Event;
-	import flash.net.URLRequest;
 	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	
+	import org.robotlegs.demos.flashgooglemaps.model.events.AssetLoaderProxyEvent;
+	import org.robotlegs.mvcs.Model;
 	
 	/**
 	 * Proxy to load the xml content.
@@ -35,7 +35,7 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 	 * @author Peter Lorent peter.lorent@gmail.com
 	 * 
 	 */	
-	public class AssetLoaderProxy extends Proxy
+	public class AssetLoaderProxy extends Model
 	{
 		//--------------------------------------------------------------------------
 		//
@@ -93,7 +93,7 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 		{
 			var data:XML = new XML(_urlLoader.data);
 			
-			dispatchEvent(new AssetLoaderProxyEvent(AssetLoaderProxyEvent.XML_CONTENT_LOADED, data));
+			dispatch(new AssetLoaderProxyEvent(AssetLoaderProxyEvent.XML_CONTENT_LOADED, data));
 			
 			_urlLoader.removeEventListener(Event.COMPLETE, onXMLContentLoaded);
 			_urlLoader = null;

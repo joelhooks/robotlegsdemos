@@ -68,9 +68,9 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 			view.main();
 			
 			// you could also use:
-			// addEventListenerTo(view, MouseEvent.MOUSE_DOWN, handleShowTip);
-			addEventListenerTo(view, TipView.SHOW_TIP, handleShowTip);
-			addEventListenerTo(eventDispatcher, TipViewEvent.SHOW_TIP, handleShowTipReset);
+			// eventMap.mapListener(view, MouseEvent.MOUSE_DOWN, handleShowTip);
+			eventMap.mapListener(view, TipView.SHOW_TIP, handleShowTip);
+			eventMap.mapListener(eventDispatcher, TipViewEvent.SHOW_TIP, handleShowTipReset);
 		}
 		
 		override public function onRemove():void
@@ -85,7 +85,7 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		//--------------------------------------------------------------------------
 		private function handleShowTip(event:Event):void
 		{
-			dispatchEvent(new TipViewEvent(TipViewEvent.SHOW_TIP, view.id));
+			dispatch(new TipViewEvent(TipViewEvent.SHOW_TIP, view.id));
 		}
 		
 		private function handleShowTipReset(event:TipViewEvent):void

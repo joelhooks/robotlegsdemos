@@ -26,7 +26,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			subContext = module.getContext();
 			
 			// Sub Context (child context) Listeners
-			eventMap.mapListener(subContext, ContextEvent.SHUTDOWN_COMPLETE, onLoggerShutdownComplete);
+			eventMap.mapListener(subContext.eventDispatcher, ContextEvent.SHUTDOWN_COMPLETE, onLoggerShutdownComplete);
 			
 			// Shell Context Listeners
 			eventMap.mapListener(eventDispatcher, ShellEvent.CLEAR_LOGGER, onClearLogger);

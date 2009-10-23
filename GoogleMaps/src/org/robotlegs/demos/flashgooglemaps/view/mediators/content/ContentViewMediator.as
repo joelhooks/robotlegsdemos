@@ -73,9 +73,9 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 		{
 			view.main();
 			
-			addEventListenerTo(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
-			addEventListenerTo(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
-			addEventListenerTo(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
+			eventMap.mapListener(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
+			eventMap.mapListener(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
+			eventMap.mapListener(eventDispatcher, ContentChangeEvent.CONTENT_CHANGE, handleContentChange);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -89,14 +89,14 @@ package org.robotlegs.demos.flashgooglemaps.view.mediators.content
 			
 			view.showPlainTextView(_xml..content[0]);
 			
-			removeEventListenerFrom(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
+			eventMap.unmapListener(eventDispatcher, AssetLoaderProxyEvent.XML_CONTENT_LOADED, handleXMLContentLoaded);
 		}
 		
 		private function handleShow(event:SystemEvent):void
 		{
 			view.show();
 			
-			removeEventListenerFrom(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
+			eventMap.unmapListener(eventDispatcher, SystemEvent.GOOGLE_MAP_ON_STAGE, handleShow);
 		}
 		
 		private function handleContentChange(event:ContentChangeEvent):void

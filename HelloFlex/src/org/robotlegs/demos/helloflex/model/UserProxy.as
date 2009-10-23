@@ -14,7 +14,7 @@ package org.robotlegs.demos.helloflex.model
 		public function setUsername(username:String):void
 		{
 			this.username = username;
-			dispatchEvent(new UserProxyEvent(UserProxyEvent.USERNAME_CHANGED));
+			dispatch(new UserProxyEvent(UserProxyEvent.USERNAME_CHANGED));
 		}
 		
 		public function set userLoggedIn(value:Boolean):void
@@ -22,11 +22,11 @@ package org.robotlegs.demos.helloflex.model
 			loggedIn = value;
 			if (loggedIn)
 			{
-				dispatchEvent(new UserProxyEvent(UserProxyEvent.USER_LOGGED_IN));
+				dispatch(new UserProxyEvent(UserProxyEvent.USER_LOGGED_IN));
 			}
 			else
 			{
-				dispatchEvent(new UserProxyEvent(UserProxyEvent.USER_LOGGED_OUT));
+				dispatch(new UserProxyEvent(UserProxyEvent.USER_LOGGED_OUT));
 			}
 		}
 		

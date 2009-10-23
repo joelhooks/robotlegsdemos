@@ -29,11 +29,11 @@
 	POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" 
+<mx:Panel xmlns:fx="http://ns.adobe.com/mxml/2009"  			   xmlns:s="library://ns.adobe.com/flex/spark"  			   xmlns:mx="library://ns.adobe.com/flex/halo"  
 	layout="absolute" width="400" height="228" 
 	title="Flickr Application Authorization">
 
-	<mx:Script source="AuthorizationViewClass.as" />
+	<fx:Script source="AuthorizationViewClass.as" />
 
 	<mx:states>
 		<mx:State name="settingsErrorState">

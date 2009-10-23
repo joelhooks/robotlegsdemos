@@ -32,9 +32,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell.view
 			subContext = module.getContext();
 			
 			// Sub Context (child context) Listeners
-			eventMap.mapListener(subContext, ContextEvent.SHUTDOWN_COMPLETE, onWidgetShutdownComplete);
+			eventMap.mapListener(subContext.eventDispatcher, ContextEvent.SHUTDOWN_COMPLETE, onWidgetShutdownComplete);
 			// Be aware of directly compiling module Events into shell SWF
-			eventMap.mapListener(subContext, WidgetEvent.POKE_WIDGET_COMPLETE, onPokeWidgetComplete);
+			eventMap.mapListener(subContext.eventDispatcher, WidgetEvent.POKE_WIDGET_COMPLETE, onPokeWidgetComplete);
 			
 			// Shell Context Listeners
 			eventMap.mapListener(eventDispatcher, ShellEvent.REMOVE_ALL_WIDGETS, onRemoveAllWidgets);

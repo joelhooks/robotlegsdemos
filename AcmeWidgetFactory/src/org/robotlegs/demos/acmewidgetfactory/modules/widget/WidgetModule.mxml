@@ -3,7 +3,7 @@
 		   xmlns:view="org.robotlegs.demos.acmewidgetfactory.modules.widget.view.*"
 		   implements="org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule"
 		   layout="vertical"
-		   width="125"
+		   width="124"
 		   height="84"
 		   preinitialize="onPreInitialize()">
 

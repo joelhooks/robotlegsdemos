@@ -2,7 +2,7 @@
 <mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
 		 horizontalScrollPolicy="off"
 		 verticalScrollPolicy="off"
-		 width="125"
+		 width="124"
 		 height="84"
 		 horizontalAlign="center"
 		 verticalGap="6"

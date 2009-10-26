@@ -11,9 +11,9 @@ package org.robotlegs.demos.helloflex
 	public class HelloFlexContext extends Context
 	{
 		
-		public function HelloFlexContext(contextView:DisplayObjectContainer)
+		public function HelloFlexContext()
 		{
-			super(contextView);
+			super();
 		}
 		
 		override public function startup():void

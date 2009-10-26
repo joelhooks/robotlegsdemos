@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
 				xmlns:view="org.robotlegs.demos.acmewidgetfactory.shell.view.*"
+				xmlns:shell="org.robotlegs.demos.acmewidgetfactory.shell.*"
 				width="490"
 				height="500"
 				layout="vertical"
@@ -12,21 +13,9 @@
 				paddingRight="10"
 				paddingTop="10"
 				verticalGap="6"
-				preinitialize="onPreInitialize()"
 				viewSourceURL="srcview/index.html">
-
-	<mx:Script>
-		<![CDATA[
-			import org.robotlegs.demos.acmewidgetfactory.shell.AcmeWidgetFactoryContext;
-			
-			private var context:AcmeWidgetFactoryContext;
-			
-			private function onPreInitialize():void
-			{
-				context = new AcmeWidgetFactoryContext(this);
-			}
-		]]>
-	</mx:Script>
+	
+	<shell:AcmeWidgetFactoryContext contextView="{this}" />
 
 	<view:ControlPanelView />
 	<view:WidgetHolderView />

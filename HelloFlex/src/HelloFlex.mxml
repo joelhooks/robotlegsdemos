@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
 				xmlns:view="org.robotlegs.demos.helloflex.view.*"
+				xmlns:helloflex="org.robotlegs.demos.helloflex.*"
 				layout="absolute"
 				paddingBottom="0"
 				paddingLeft="0"
 				paddingRight="0"
 				paddingTop="0"
-				viewSourceURL="srcview/index.html"
-				preinitialize="onPreInitialize()">
+				viewSourceURL="srcview/index.html">
 
-	<mx:Script>
-		<![CDATA[
-			import org.robotlegs.demos.helloflex.HelloFlexContext;
-			
-			private var context:HelloFlexContext;
-			
-			private function onPreInitialize():void
-			{
-				context = new HelloFlexContext(this);
-			}
-		]]>
-	</mx:Script>
+	<helloflex:HelloFlexContext contextView="{this}" />
 
 	<mx:HDividedBox width="450"
 					height="450"

@@ -26,19 +26,24 @@ package org.robotlegs.demos.helloflash.view
 	
 	public class Ball extends Sprite
 	{
+		protected var color:uint;
+		protected var radius:Number = 10;
+		
 		public function Ball()
 		{
 			useHandCursor = true;
 			buttonMode = true;
-			draw(10);
+			draw();
 		}
 		
-		public function randomize():void
+		public function poke():void
 		{
-			draw(Math.random() * 90 + 10, Math.random() * uint.MAX_VALUE);
+			radius++;
+			color = Math.random() * uint.MAX_VALUE;
+			draw();
 		}
 		
-		public function draw(radius:Number, color:uint = 0):void
+		public function draw():void
 		{
 			graphics.clear();
 			graphics.beginFill(color);

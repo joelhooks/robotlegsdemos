@@ -61,7 +61,7 @@ package org.robotlegs.demos.helloflash.view
 		protected function onSomeBallClicked(e:HelloFlashEvent):void
 		{
 			// Manipulate the view
-			view.randomize();
+			view.poke();
 		}
 	}
 }

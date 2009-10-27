@@ -20,9 +20,9 @@ package org.robotlegs.demos.imagegallery.remote.services
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.models.vo.Gallery;
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
-	import org.robotlegs.mvcs.Service;
+	import org.robotlegs.mvcs.Actor;
 
-	public class FlickrImageService extends Service implements IGalleryImageService
+	public class FlickrImageService extends Actor implements IGalleryImageService
 	{
 		private var service:FlickrService;
 		private var photos:Photos;

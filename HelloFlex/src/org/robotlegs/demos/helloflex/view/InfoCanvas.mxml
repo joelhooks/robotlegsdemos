@@ -12,7 +12,7 @@
 			<mx:Image id="logo"
 					  verticalCenter="0"
 					  horizontalCenter="0"
-					  source="../assets/RobotLegsLogoSmallWeb.png"/>
+					  source="assets/RobotLegsLogoSmallWeb.png"/>
 		</mx:Canvas>
 
 		<mx:Canvas label="Introduction"

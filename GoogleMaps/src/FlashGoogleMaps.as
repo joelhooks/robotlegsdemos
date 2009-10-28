@@ -62,7 +62,8 @@ package
 		// hold on to this
 		private var _context:FlashGoogleMapsContext;
 		
-		public static const GOOGLE_MAPS_API_KEY:String = "YOUR_API_KEY";
+		public static const GOOGLE_MAPS_API_KEY:String = "ABQIAAAAO-cCleAenkHS3l5YIe2rfxSt3J1WxB__3gt1bNGcz4st1p409RRCt9eMECH2W2XImEESSkQKpJMumg";
+		public static const GOOGLE_MAPS_URL:String = "http://robotlegs.org";
 		
 		public function FlashGoogleMaps()
 		{

@@ -22,28 +22,27 @@
 
 package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 {
-	import flash.display.Sprite;
-	import flash.geom.Point;
-	import flash.events.Event;
-	import flash.display.MovieClip;
-	
-	import com.google.maps.MapAction;
-	import com.google.maps.MapOptions;
-	import com.google.maps.MapMouseEvent;
-	import com.google.maps.overlays.MarkerOptions;
-	import com.google.maps.MapType;
-	import com.google.maps.LatLng;
-	import com.google.maps.services.GeocodingEvent;
-	import com.google.maps.MapEvent;
-	import com.google.maps.overlays.Marker;
-	import com.google.maps.services.ClientGeocoder;
-	import com.google.maps.Map;
-	
-	import caurina.transitions.Tweener;
 	import caurina.transitions.Equations;
-
-	import org.robotlegs.demos.flashgooglemaps.model.vo.googlemaps.MapMarkers;
+	import caurina.transitions.Tweener;
+	
+	import com.google.maps.LatLng;
+	import com.google.maps.Map;
+	import com.google.maps.MapAction;
+	import com.google.maps.MapEvent;
+	import com.google.maps.MapMouseEvent;
+	import com.google.maps.MapOptions;
+	import com.google.maps.MapType;
+	import com.google.maps.overlays.Marker;
+	import com.google.maps.overlays.MarkerOptions;
+	import com.google.maps.services.GeocodingEvent;
+	
+	import flash.display.MovieClip;
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.geom.Point;
+	
 	import org.robotlegs.demos.flashgooglemaps.model.vo.googlemaps.MapMarker;
+	import org.robotlegs.demos.flashgooglemaps.model.vo.googlemaps.MapMarkers;
 	import org.robotlegs.demos.flashgooglemaps.view.events.GoogleMarkerEvent;
 	
 	/**
@@ -222,6 +221,7 @@ package org.robotlegs.demos.flashgooglemaps.view.components.googlemaps
 			
 			_map = new Map();
 			_map.key = FlashGoogleMaps.GOOGLE_MAPS_API_KEY;
+			_map.url = FlashGoogleMaps.GOOGLE_MAPS_URL;
 			_map.setSize(new Point(363, 392));
 			_map.addEventListener(MapEvent.MAP_PREINITIALIZE, handleMapPreinitialize);
 			_map.addEventListener(MapEvent.MAP_READY, handleEvent);

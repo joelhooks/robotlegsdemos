@@ -1,1 +1,2 @@
 *.swc -crlf -diff
+*.swf -crlf -diff

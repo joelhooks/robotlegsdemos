@@ -22,9 +22,9 @@
 
 package org.robotlegs.demos.helloflash.model
 {
-	import org.robotlegs.mvcs.Model;
+	import org.robotlegs.mvcs.Actor;
 	
-	public class StatsModel extends Model
+	public class StatsModel extends Actor
 	{
 		protected var _ballClickCount:int;
 		

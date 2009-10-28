@@ -8,14 +8,14 @@ package org.robotlegs.demos.whereswindow.model
 	
 	import org.robotlegs.demos.whereswindow.events.InfoWindowEvent;
 	import org.robotlegs.demos.whereswindow.view.components.InfoWindow;
-	import org.robotlegs.mvcs.Model;
+	import org.robotlegs.mvcs.Actor;
 	
 	/**
 	 * Proxy to keep track of current open <code>InfoWindow</code> objects
 	 * @author joel
 	 *
 	 */
-	public class OpenWindowsProxy extends Model
+	public class OpenWindowsProxy extends Actor
 	{
 		/**
 		 * Hash of currently open windows

@@ -21,8 +21,6 @@
  */
 package org.robotlegs.demos.acmewidgetfactory.shell
 {
-	import flash.display.DisplayObjectContainer;
-	
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
@@ -46,11 +44,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	
 	public class AcmeWidgetFactoryContext extends Context
 	{
-		public function AcmeWidgetFactoryContext(contextView:DisplayObjectContainer)
-		{
-			super(contextView);
-		}
-		
+
 		override public function startup():void
 		{
 			// Controller

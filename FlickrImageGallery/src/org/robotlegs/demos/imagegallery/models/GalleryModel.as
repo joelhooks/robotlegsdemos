@@ -15,7 +15,7 @@ package org.robotlegs.demos.imagegallery.models
 	import org.robotlegs.demos.imagegallery.models.vo.GalleryImage;
 	import org.robotlegs.mvcs.*;
 
-	public class GalleryModel extends Model
+	public class GalleryModel extends Actor
 	{
 		private var _gallery:Gallery;
 		

@@ -19,7 +19,7 @@ package org.robotlegs.demos.helloflex
 		override public function startup():void
 		{
 			// Controller
-			commandMap.mapEvent(TryClearMessages, SystemEvent.CLEAR_MESSAGES_REQUESTED, SystemEvent);
+			commandMap.mapEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED, TryClearMessages);
 			// Model
 			injector.mapSingleton(UserProxy);
 			injector.mapSingleton(MessageModel);

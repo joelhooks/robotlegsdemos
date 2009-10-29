@@ -75,10 +75,10 @@ package org.robotlegs.demos.flashgooglemaps
 		 */
 		override public function startup():void
 		{
-			commandMap.mapEvent(PrepModelCommand, ContextEvent.STARTUP, ContextEvent, true);
-			commandMap.mapEvent(PrepViewCommand, ContextEvent.STARTUP, ContextEvent, true);
-			commandMap.mapEvent(PrepControllerCommand, ContextEvent.STARTUP, ContextEvent);
-			commandMap.mapEvent(StartupCommand, ContextEvent.STARTUP, ContextEvent, true);
+			commandMap.mapEvent(ContextEvent.STARTUP, PrepModelCommand, ContextEvent, true);
+			commandMap.mapEvent(ContextEvent.STARTUP, PrepViewCommand, ContextEvent, true);
+			commandMap.mapEvent(ContextEvent.STARTUP, PrepControllerCommand, ContextEvent);
+			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, ContextEvent, true);
 			
 			// fire!
 			dispatchEvent(new ContextEvent(ContextEvent.STARTUP));

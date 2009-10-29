@@ -48,11 +48,11 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 		override public function startup():void
 		{
 			// Controller
-			commandMap.mapEvent(CreateWidgetCommand, ShellWidgetEvent.CREATE_WIDGET, ShellWidgetEvent);
-			commandMap.mapEvent(PokeWidgetCommand, ShellWidgetEvent.POKE_WIDGET, ShellWidgetEvent);
-			commandMap.mapEvent(RemoveWidgetCommand, ShellWidgetEvent.REMOVE_WIDGET, ShellWidgetEvent);
-			commandMap.mapEvent(UnregisterWidgetCommand, ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, ShellWidgetEvent);
-			commandMap.mapEvent(CreateLoggerCommand, ShellLoggerEvent.CREATE_LOGGER, ShellLoggerEvent);
+			commandMap.mapEvent(ShellWidgetEvent.CREATE_WIDGET, CreateWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellWidgetEvent.POKE_WIDGET, PokeWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellWidgetEvent.REMOVE_WIDGET, RemoveWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, UnregisterWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellLoggerEvent.CREATE_LOGGER, CreateLoggerCommand, ShellLoggerEvent);
 			
 			// Model
 			injector.mapSingleton(ActiveWidgetModel);

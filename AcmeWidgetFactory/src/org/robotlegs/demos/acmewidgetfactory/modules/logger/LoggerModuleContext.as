@@ -18,7 +18,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.logger
 		override public function startup():void
 		{
 			// Controller
-			commandMap.mapEvent(LoggerShutdownCommand, ContextEvent.SHUTDOWN, ContextEvent, true);
+			commandMap.mapEvent(ContextEvent.SHUTDOWN, LoggerShutdownCommand, ContextEvent, true);
 			
 			// View
 			mediatorMap.mapView(LoggerCanvas, LoggerCanvasMediator);

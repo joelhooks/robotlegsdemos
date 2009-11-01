@@ -64,8 +64,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapView(WidgetHolderView, WidgetHolderMediator);
 			
 			// Modules - notice FQCN::string style mapping
-			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
-			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
+			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', LoggerModuleMediator, ILoggerModule);
+			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', WidgetModuleMediator, IWidgetModule);
 			
 			// Ready
 			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));

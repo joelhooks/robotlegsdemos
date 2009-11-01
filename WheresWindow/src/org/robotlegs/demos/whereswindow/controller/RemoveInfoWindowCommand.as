@@ -1,11 +1,10 @@
 package org.robotlegs.demos.whereswindow.controller
 {
-	import org.robotlegs.core.ICommand;
 	import org.robotlegs.demos.whereswindow.events.InfoWindowEvent;
 	import org.robotlegs.demos.whereswindow.model.OpenWindowsProxy;
 	import org.robotlegs.mvcs.Command;
 
-	public class RemoveInfoWindowCommand extends Command implements ICommand
+	public class RemoveInfoWindowCommand extends Command
 	{
 		[Inject]
 		public var event:InfoWindowEvent;

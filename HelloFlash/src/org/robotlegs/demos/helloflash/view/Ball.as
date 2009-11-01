@@ -31,6 +31,7 @@ package org.robotlegs.demos.helloflash.view
 		
 		public function Ball()
 		{
+			alpha = 0.75;
 			useHandCursor = true;
 			buttonMode = true;
 			draw();

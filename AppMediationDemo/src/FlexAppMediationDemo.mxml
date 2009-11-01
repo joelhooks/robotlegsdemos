@@ -3,7 +3,7 @@
 				xmlns:appmediation="org.robotlegs.demos.appmediation.*"
 				layout="absolute"
 				minWidth="320"
-				minHeight="200">
+				minHeight="200" viewSourceURL="srcview/index.html">
 	
 	<appmediation:DemoContext contextView="{this}" />
 

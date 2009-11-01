@@ -2,6 +2,7 @@
 */bin-debug/*
 */bin-release/*
 */html-template/*
+GoogleMaps/web/srcview
 Thumbs.db
 .DS_Store
 */.svn/*

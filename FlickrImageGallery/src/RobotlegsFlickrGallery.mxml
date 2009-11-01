@@ -15,7 +15,7 @@
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/halo" 
 	preinitialize="preInitHandler(event)" 
-	xmlns:components="org.robotlegs.demos.imagegallery.views.components.*" maxWidth="520">
+	xmlns:components="org.robotlegs.demos.imagegallery.views.components.*" maxWidth="520" viewSourceURL="srcview/index.html">
 	<s:layout>
 		<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
 	</s:layout>

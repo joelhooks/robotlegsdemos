@@ -30,8 +30,8 @@ package org.robotlegs.demos.whereswindow
 			mediatorMap.mapView(OpenWindowList, OpenWindowsListMediator);
 			mediatorMap.mapView(WheresWindowView, WheresWindowViewMediator);
 			
-			commandMap.mapEvent(CreateNewWindowCommand, InfoWindowEvent.CREATE_INFO_WINDOW, InfoWindowEvent );
-			commandMap.mapEvent(RemoveInfoWindowCommand, InfoWindowEvent.INFO_WINDOW_CLOSED, InfoWindowEvent );
+			commandMap.mapEvent(InfoWindowEvent.CREATE_INFO_WINDOW, CreateNewWindowCommand, InfoWindowEvent );
+			commandMap.mapEvent(InfoWindowEvent.INFO_WINDOW_CLOSED, RemoveInfoWindowCommand, InfoWindowEvent );
 			
 			super.startup();
 		}

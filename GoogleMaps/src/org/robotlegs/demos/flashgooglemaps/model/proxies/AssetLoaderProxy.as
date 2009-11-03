@@ -27,7 +27,7 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 	import flash.net.URLRequest;
 	
 	import org.robotlegs.demos.flashgooglemaps.model.events.AssetLoaderProxyEvent;
-	import org.robotlegs.mvcs.Model;
+	import org.robotlegs.mvcs.Actor;
 	
 	/**
 	 * Proxy to load the xml content.
@@ -35,7 +35,7 @@ package org.robotlegs.demos.flashgooglemaps.model.proxies
 	 * @author Peter Lorent peter.lorent@gmail.com
 	 * 
 	 */	
-	public class AssetLoaderProxy extends Model
+	public class AssetLoaderProxy extends Actor
 	{
 		//--------------------------------------------------------------------------
 		//

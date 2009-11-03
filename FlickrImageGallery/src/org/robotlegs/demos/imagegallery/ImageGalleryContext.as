@@ -34,11 +34,11 @@ package org.robotlegs.demos.imagegallery
 		override public function startup():void
 		{
 			//map controller
-			commandMap.mapEvent(StartupCommand, ContextEvent.STARTUP, ContextEvent, true);
-			commandMap.mapEvent(UpdateGalleryCommand, GalleryEvent.GALLERY_LOADED, GalleryEvent);
-			commandMap.mapEvent(SetSelectedImageCommand,GalleryImageEvent.SELECT_GALLERY_IMAGE, GalleryImageEvent);
-			commandMap.mapEvent(LoadGalleryCommand,GalleryEvent.LOAD_GALLERY, GalleryEvent);
-			commandMap.mapEvent(LoadSearchGalleryCommand,GallerySearchEvent.SEARCH, GallerySearchEvent);
+			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, ContextEvent, true);
+			commandMap.mapEvent(GalleryEvent.GALLERY_LOADED, UpdateGalleryCommand, GalleryEvent);
+			commandMap.mapEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, SetSelectedImageCommand, GalleryImageEvent);
+			commandMap.mapEvent(GalleryEvent.LOAD_GALLERY, LoadGalleryCommand, GalleryEvent);
+			commandMap.mapEvent(GallerySearchEvent.SEARCH, LoadSearchGalleryCommand, GallerySearchEvent);
 			
 			//map model
 			injector.mapSingleton( GalleryModel );

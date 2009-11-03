@@ -22,23 +22,18 @@
 
 package org.robotlegs.demos.appmediation
 {
-	import flash.display.DisplayObjectContainer;
-	
 	import org.robotlegs.mvcs.Context;
 	
 	public class DemoContext extends Context
 	{
-		public function DemoContext(contextView:DisplayObjectContainer)
+		public function DemoContext()
 		{
-			super(contextView);
+			super();
 		}
 		
 		override public function startup():void
 		{
 			mediatorMap.mapView(FlexAppMediationDemo, DemoAppMediator);
-			// Notice manual Mediator creation
-			// We do this because the view was already on Stage before it was mapped
-			mediatorMap.createMediator(contextView);
 		}
 	
 	}

@@ -7,10 +7,10 @@ package org.robotlegs.demos.acmewidgetfactory.shell.model
 	import mx.modules.ModuleManager;
 	
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
-	import org.robotlegs.mvcs.Model;
+	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utils.NamedObjectMap;
 	
-	public class ActiveWidgetModel extends Model
+	public class ActiveWidgetModel extends Actor
 	{
 		private static const MODULE_URL:String = 'org/robotlegs/demos/acmewidgetfactory/modules/widget/WidgetModule.swf';
 		

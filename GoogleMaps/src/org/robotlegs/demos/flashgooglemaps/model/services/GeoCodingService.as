@@ -22,12 +22,11 @@
 
 package org.robotlegs.demos.flashgooglemaps.model.services
 {
-	import org.robotlegs.mvcs.Service;
-	import org.robotlegs.demos.flashgooglemaps.model.events.GeoCodingServiceEvent;
-	
 	import com.google.maps.services.ClientGeocoder;
 	import com.google.maps.services.GeocodingEvent;
-	import com.google.maps.LatLng;
+	
+	import org.robotlegs.demos.flashgooglemaps.model.events.GeoCodingServiceEvent;
+	import org.robotlegs.mvcs.Actor;
 	
 	/**
 	 * A Service to get us some results from the Googlemaps API.
@@ -35,7 +34,7 @@ package org.robotlegs.demos.flashgooglemaps.model.services
 	 * @author Peter Lorent peter.lorent@gmail.com
 	 * 
 	 */	
-	public class GeoCodingService extends Service
+	public class GeoCodingService extends Actor
 	{
 		//--------------------------------------------------------------------------
 		//

@@ -44,8 +44,8 @@ package org.robotlegs.demos.helloflash
 		override public function startup():void
 		{
 			// Map some Commands to Events
-			commandMap.mapEvent(CreateBallCommand, ContextEvent.STARTUP_COMPLETE, ContextEvent, true);
-			commandMap.mapEvent(CreateBallCommand, HelloFlashEvent.BALL_CLICKED, HelloFlashEvent );
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, CreateBallCommand, ContextEvent, true);
+			commandMap.mapEvent(HelloFlashEvent.BALL_CLICKED, CreateBallCommand, HelloFlashEvent );
 			
 			// Create a rule for Dependency Injection
 			injector.mapSingleton(StatsModel);

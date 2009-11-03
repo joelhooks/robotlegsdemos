@@ -19,23 +19,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.robotlegs.demos.helloflex.controller
+
+package
 {
-	import flash.events.Event;
+	import flash.display.Sprite;
 	
-	public class SystemEvent extends Event
+	import org.robotlegs.nometa.Context;
+	
+	public class RobotlegsNometaContextSize extends Sprite
 	{
-		public static const CLEAR_MESSAGES_REQUESTED:String = 'clearMessagesRequested';
-		
-		public function SystemEvent(type:String)
+		public function RobotlegsNometaContextSize()
 		{
-			super(type);
+			new Context(this);
 		}
-		
-		override public function clone():Event
-		{
-			return new SystemEvent(type);
-		}
-	
 	}
 }

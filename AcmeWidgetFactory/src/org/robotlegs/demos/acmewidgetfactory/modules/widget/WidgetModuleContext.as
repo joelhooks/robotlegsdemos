@@ -18,7 +18,7 @@ package org.robotlegs.demos.acmewidgetfactory.modules.widget
 		override public function startup():void
 		{
 			// Controller
-			commandMap.mapEvent(WidgetShutdownCommand, ContextEvent.SHUTDOWN, ContextEvent, true);
+			commandMap.mapEvent(ContextEvent.SHUTDOWN, WidgetShutdownCommand, ContextEvent, true);
 			
 			// View
 			mediatorMap.mapView(WidgetCanvas, WidgetCanvasMediator);

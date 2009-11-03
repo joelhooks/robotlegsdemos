@@ -11,15 +11,15 @@ package org.robotlegs.demos.helloflex
 	public class HelloFlexContext extends Context
 	{
 		
-		public function HelloFlexContext(contextView:DisplayObjectContainer)
+		public function HelloFlexContext()
 		{
-			super(contextView);
+			super();
 		}
 		
 		override public function startup():void
 		{
 			// Controller
-			commandMap.mapEvent(TryClearMessages, SystemEvent.CLEAR_MESSAGES_REQUESTED, SystemEvent);
+			commandMap.mapEvent(SystemEvent.CLEAR_MESSAGES_REQUESTED, TryClearMessages);
 			// Model
 			injector.mapSingleton(UserProxy);
 			injector.mapSingleton(MessageModel);

@@ -1,11 +1,10 @@
 package org.robotlegs.demos.imagegallery.controllers.gallery
 {
-	import org.robotlegs.core.ICommand;
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.models.GalleryModel;
 	import org.robotlegs.mvcs.Command;
 
-	public class UpdateGalleryCommand extends Command implements ICommand
+	public class UpdateGalleryCommand extends Command
 	{
 		[Inject]
 		public var event:GalleryEvent;

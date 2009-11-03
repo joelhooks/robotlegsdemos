@@ -21,8 +21,6 @@
  */
 package org.robotlegs.demos.acmewidgetfactory.shell
 {
-	import flash.display.DisplayObjectContainer;
-	
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
@@ -46,19 +44,15 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	
 	public class AcmeWidgetFactoryContext extends Context
 	{
-		public function AcmeWidgetFactoryContext(contextView:DisplayObjectContainer)
-		{
-			super(contextView);
-		}
-		
+
 		override public function startup():void
 		{
 			// Controller
-			commandMap.mapEvent(CreateWidgetCommand, ShellWidgetEvent.CREATE_WIDGET, ShellWidgetEvent);
-			commandMap.mapEvent(PokeWidgetCommand, ShellWidgetEvent.POKE_WIDGET, ShellWidgetEvent);
-			commandMap.mapEvent(RemoveWidgetCommand, ShellWidgetEvent.REMOVE_WIDGET, ShellWidgetEvent);
-			commandMap.mapEvent(UnregisterWidgetCommand, ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, ShellWidgetEvent);
-			commandMap.mapEvent(CreateLoggerCommand, ShellLoggerEvent.CREATE_LOGGER, ShellLoggerEvent);
+			commandMap.mapEvent(ShellWidgetEvent.CREATE_WIDGET, CreateWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellWidgetEvent.POKE_WIDGET, PokeWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellWidgetEvent.REMOVE_WIDGET, RemoveWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellWidgetEvent.REMOVE_WIDGET_COMPLETE, UnregisterWidgetCommand, ShellWidgetEvent);
+			commandMap.mapEvent(ShellLoggerEvent.CREATE_LOGGER, CreateLoggerCommand, ShellLoggerEvent);
 			
 			// Model
 			injector.mapSingleton(ActiveWidgetModel);
@@ -70,8 +64,8 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapView(WidgetHolderView, WidgetHolderMediator);
 			
 			// Modules - notice FQCN::string style mapping
-			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', ILoggerModule, LoggerModuleMediator);
-			mediatorMap.mapModule('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', IWidgetModule, WidgetModuleMediator);
+			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', LoggerModuleMediator, ILoggerModule);
+			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', WidgetModuleMediator, IWidgetModule);
 			
 			// Ready
 			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));

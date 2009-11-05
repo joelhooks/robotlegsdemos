@@ -30,11 +30,10 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="RobotlegsBaseContextSize.as"/>
-    <application path="RobotlegsMvcsContextSize.as"/>
-    <application path="RobotlegsNometaContextSize.as"/>
     <application path="SwiftSuspendersSize.as"/>
+    <application path="RobotlegsBaseContextSize.as"/>
     <application path="EmptySize.as"/>
+    <application path="RobotlegsMvcsContextSize.as"/>
   </applications>
   <modules/>
   <buildCSSFiles/>

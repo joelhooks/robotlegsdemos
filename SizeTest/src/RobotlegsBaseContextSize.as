@@ -30,7 +30,7 @@ package
 	{
 		public function RobotlegsBaseContextSize()
 		{
-			new ContextBase(this);
+			new ContextBase();
 		}
 	}
 }

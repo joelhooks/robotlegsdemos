@@ -30,4 +30,11 @@
     <module application="src/AcmeWidgetFactory.mxml" destPath="org/robotlegs/demos/acmewidgetfactory/modules/logger/LoggerModule.swf" optimize="true" sourcePath="src/org/robotlegs/demos/acmewidgetfactory/modules/logger/LoggerModule.mxml"/>
   </modules>
   <buildCSSFiles/>
+  <publishSource>
+    <sourcePathIncludes/>
+    <sourceExcludes>
+      <exclude path="assets"/>
+      <exclude path="html-template"/>
+    </sourceExcludes>
+  </publishSource>
 </actionScriptProperties>

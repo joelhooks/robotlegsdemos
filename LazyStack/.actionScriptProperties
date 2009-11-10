@@ -17,4 +17,10 @@
   </applications>
   <modules/>
   <buildCSSFiles/>
+  <publishSource>
+    <sourcePathIncludes/>
+    <sourceExcludes>
+      <exclude path="html-template"/>
+    </sourceExcludes>
+  </publishSource>
 </actionScriptProperties>

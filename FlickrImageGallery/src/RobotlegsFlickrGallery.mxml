@@ -15,7 +15,9 @@
 			   xmlns:mx="library://ns.adobe.com/flex/halo"
 			   xmlns:imagegallery="org.robotlegs.demos.imagegallery.*"
 			   xmlns:components="org.robotlegs.demos.imagegallery.views.components.*"
-			   maxWidth="520">
+			   maxWidth="520"
+			   viewSourceURL="srcview/index.html">
+
 	<s:layout>
 		<s:VerticalLayout paddingBottom="10"
 						  paddingLeft="10"

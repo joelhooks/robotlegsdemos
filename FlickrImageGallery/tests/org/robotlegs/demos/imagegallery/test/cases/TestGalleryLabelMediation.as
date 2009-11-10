@@ -8,7 +8,7 @@ package org.robotlegs.demos.imagegallery.test.cases
 	import org.flexunit.Assert;
 	import org.flexunit.async.Async;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryLabel;
-	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
+	import org.robotlegs.demos.imagegallery.events.GallerySearchEvent;
 	import org.robotlegs.demos.imagegallery.views.mediators.GalleryLabelMediator;
 
 	public class TestGalleryLabelMediation

@@ -14,7 +14,7 @@ package org.robotlegs.demos.imagegallery.views.mediators
 	import org.robotlegs.core.IMediator;
 	import org.robotlegs.demos.imagegallery.remote.services.IGalleryImageService;
 	import org.robotlegs.demos.imagegallery.views.components.GalleryLabel;
-	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
+	import org.robotlegs.demos.imagegallery.events.GallerySearchEvent;
 	import org.robotlegs.mvcs.Mediator;
 
 	public class GalleryLabelMediator extends Mediator implements IMediator

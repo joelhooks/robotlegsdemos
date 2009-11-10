@@ -13,28 +13,24 @@ package org.robotlegs.demos.imagegallery
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.robotlegs.base.ContextEvent;
-	import org.robotlegs.demos.imagegallery.controllers.StartupCommand;
-	import org.robotlegs.demos.imagegallery.controllers.gallery.*;
+	import org.robotlegs.demos.imagegallery.controller.*;
 	import org.robotlegs.demos.imagegallery.events.*;
 	import org.robotlegs.demos.imagegallery.models.GalleryModel;
 	import org.robotlegs.demos.imagegallery.remote.services.*;
 	import org.robotlegs.demos.imagegallery.views.components.*;
-	import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
 	import org.robotlegs.demos.imagegallery.views.mediators.*;
 	import org.robotlegs.mvcs.Context;
 
 	public class ImageGalleryContext extends Context
 	{
-		public function ImageGalleryContext(contextView:DisplayObjectContainer)
+		public function ImageGalleryContext(contextView:DisplayObjectContainer=null, autoStartup:Boolean=true)
 		{
-			super(contextView);
+			super(contextView, autoStartup);
 		}
 		
 		override public function startup():void
 		{
 			//map controller
-			commandMap.mapEvent(ContextEvent.STARTUP, StartupCommand, ContextEvent, true);
 			commandMap.mapEvent(GalleryEvent.GALLERY_LOADED, UpdateGalleryCommand, GalleryEvent);
 			commandMap.mapEvent(GalleryImageEvent.SELECT_GALLERY_IMAGE, SetSelectedImageCommand, GalleryImageEvent);
 			commandMap.mapEvent(GalleryEvent.LOAD_GALLERY, LoadGalleryCommand, GalleryEvent);
@@ -51,9 +47,6 @@ package org.robotlegs.demos.imagegallery
 			mediatorMap.mapView(GalleryView, GalleryViewMediator);
 			mediatorMap.mapView(GallerySearch, GallerySearchMediator);
 			mediatorMap.mapView(GalleryLabel, GalleryLabelMediator);
-						
-			// And away we go!
-			dispatchEvent(new ContextEvent(ContextEvent.STARTUP));
 		}
 	}
 }

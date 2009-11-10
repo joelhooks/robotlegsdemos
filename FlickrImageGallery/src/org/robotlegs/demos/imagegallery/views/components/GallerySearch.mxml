@@ -16,7 +16,7 @@
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
-			import org.robotlegs.demos.imagegallery.views.events.GallerySearchEvent;
+			import org.robotlegs.demos.imagegallery.events.GallerySearchEvent;
 
 			protected function handleSearch():void
 			{

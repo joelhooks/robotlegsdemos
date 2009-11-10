@@ -9,7 +9,7 @@
 	http://joelhooks.com
 	joelhooks@gmail.com 
 */
-package org.robotlegs.demos.imagegallery.views.events
+package org.robotlegs.demos.imagegallery.events
 {
 	import flash.events.Event;
 	

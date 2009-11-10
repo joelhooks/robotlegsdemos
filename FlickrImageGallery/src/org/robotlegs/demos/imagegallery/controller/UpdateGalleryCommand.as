@@ -1,4 +1,4 @@
-package org.robotlegs.demos.imagegallery.controllers.gallery
+package org.robotlegs.demos.imagegallery.controller
 {
 	import org.robotlegs.demos.imagegallery.events.GalleryEvent;
 	import org.robotlegs.demos.imagegallery.models.GalleryModel;

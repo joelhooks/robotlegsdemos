@@ -28,7 +28,6 @@ package org.robotlegs.demos.imagegallery.remote.services
 		private var photos:Photos;
 		
 		protected static const FLICKR_API_KEY:String = "516ab798392cb79523691e6dd79005c2";
-		protected static const FLICKR_SECRET:String = "8f7e19a3ae7a25c9";
 		
 		public function FlickrImageService()
 		{

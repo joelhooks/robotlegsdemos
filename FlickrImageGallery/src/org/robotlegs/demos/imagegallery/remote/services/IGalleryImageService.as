@@ -11,8 +11,6 @@
 */
 package org.robotlegs.demos.imagegallery.remote.services
 {
-	
-
 	public interface IGalleryImageService
 	{
 		function loadGallery():void;

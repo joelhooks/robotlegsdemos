@@ -7,7 +7,7 @@ Thumbs.db
 .DS_Store
 */.svn/*
 .metadata/*
-
+*/web/*
 .actionScriptProperties
 .flexProperties
 .flexLibProperties

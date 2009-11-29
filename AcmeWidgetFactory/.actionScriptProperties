@@ -28,6 +28,7 @@
   <modules>
     <module application="src/AcmeWidgetFactory.mxml" destPath="org/robotlegs/demos/acmewidgetfactory/modules/widget/WidgetModule.swf" optimize="true" sourcePath="src/org/robotlegs/demos/acmewidgetfactory/modules/widget/WidgetModule.mxml"/>
     <module application="src/AcmeWidgetFactory.mxml" destPath="org/robotlegs/demos/acmewidgetfactory/modules/logger/LoggerModule.swf" optimize="true" sourcePath="src/org/robotlegs/demos/acmewidgetfactory/modules/logger/LoggerModule.mxml"/>
+    <module application="src/AcmeWidgetFactory.mxml" destPath="org/robotlegs/demos/acmewidgetfactory/modules/generic/GenericModule.swf" optimize="true" sourcePath="src/org/robotlegs/demos/acmewidgetfactory/modules/generic/GenericModule.mxml"/>
   </modules>
   <buildCSSFiles/>
   <publishSource>

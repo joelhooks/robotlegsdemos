@@ -23,7 +23,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 {
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
+	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IModuleContextView;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
+	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ModuleEventDispatcher;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateLoggerCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateWidgetCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.PokeWidgetCommand;
@@ -44,7 +46,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	
 	public class AcmeWidgetFactoryContext extends Context
 	{
-
+		
 		override public function startup():void
 		{
 			// Controller
@@ -62,6 +64,10 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapView(ControlPanelView, ControlPanelMediator);
 			mediatorMap.mapView(LoggerHolderView, LoggerHolderMediator);
 			mediatorMap.mapView(WidgetHolderView, WidgetHolderMediator);
+			
+			// Alternative approach for modules
+			injector.mapValue(ModuleEventDispatcher, new ModuleEventDispatcher());
+			viewMap.mapType(IModuleContextView);
 			
 			// Modules - notice FQCN::string style mapping
 			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', LoggerModuleMediator, ILoggerModule);

@@ -7,22 +7,14 @@
 
 package org.robotlegs.demos.acmewidgetfactory.modules.generic
 {
-	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ModuleCommandMap;
-	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ModuleEventDispatcher;
-	import org.robotlegs.mvcs.Context;
+	import org.robotlegs.utilities.modular.mvcs.ModuleContext;
 	
-	public class GenericModuleContext extends Context
+	public class GenericModuleContext extends ModuleContext
 	{
 		
 		override public function startup():void
 		{
 			mediatorMap.mapView(GenericModule, GenericModuleMediator);
-		}
-		
-		public function setModuleDispatcher(dispatcher:ModuleEventDispatcher):void
-		{
-			injector.mapValue(ModuleEventDispatcher, dispatcher);
-			injector.mapValue(ModuleCommandMap, new ModuleCommandMap(dispatcher, injector, reflector));
 		}
 	
 	}

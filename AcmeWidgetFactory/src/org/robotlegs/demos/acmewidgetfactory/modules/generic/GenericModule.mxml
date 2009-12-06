@@ -3,7 +3,7 @@
 		   xmlns:s="library://ns.adobe.com/flex/spark"
 		   xmlns:mx="library://ns.adobe.com/flex/halo"
 		   xmlns:generic="org.robotlegs.demos.acmewidgetfactory.modules.generic.*"
-		   implements="org.robotlegs.demos.acmewidgetfactory.common.interfaces.IModuleContextView"
+		   implements="org.robotlegs.utilities.modular.core.IModuleContextView"
 		   backgroundColor="#009933"
 		   useHandCursor="true"
 		   buttonMode="true"
@@ -15,11 +15,11 @@
 
 	<fx:Script>
 		<![CDATA[
-			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ModuleEventDispatcher;
-			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IModuleContextView;
+			import org.robotlegs.utilities.modular.core.IModuleContextView;
+			import org.robotlegs.utilities.modular.core.IModuleEventDispatcher;
 			
 			[Inject]
-			public function setModuleDispatcher(dispatcher:ModuleEventDispatcher):void
+			public function setModuleDispatcher(dispatcher:IModuleEventDispatcher):void
 			{
 				context.setModuleDispatcher(dispatcher);
 			}

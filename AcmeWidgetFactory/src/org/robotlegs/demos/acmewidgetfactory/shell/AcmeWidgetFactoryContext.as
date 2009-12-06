@@ -21,11 +21,8 @@
  */
 package org.robotlegs.demos.acmewidgetfactory.shell
 {
-	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
-	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IModuleContextView;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
-	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ModuleEventDispatcher;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateLoggerCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateWidgetCommand;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.PokeWidgetCommand;
@@ -42,9 +39,9 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetHolderMediator;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetHolderView;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetModuleMediator;
-	import org.robotlegs.mvcs.Context;
+	import org.robotlegs.utilities.modular.mvcs.ModuleShellContext;
 	
-	public class AcmeWidgetFactoryContext extends Context
+	public class AcmeWidgetFactoryContext extends ModuleShellContext
 	{
 		
 		override public function startup():void
@@ -65,16 +62,12 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapView(LoggerHolderView, LoggerHolderMediator);
 			mediatorMap.mapView(WidgetHolderView, WidgetHolderMediator);
 			
-			// Alternative approach for modules
-			injector.mapValue(ModuleEventDispatcher, new ModuleEventDispatcher());
-			viewMap.mapType(IModuleContextView);
-			
 			// Modules - notice FQCN::string style mapping
 			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.logger::LoggerModule', LoggerModuleMediator, ILoggerModule);
 			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', WidgetModuleMediator, IWidgetModule);
 			
 			// Ready
-			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
+			super.startup();
 		}
 	
 	}

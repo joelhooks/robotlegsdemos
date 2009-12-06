@@ -10,16 +10,12 @@ package org.robotlegs.demos.acmewidgetfactory.modules.generic
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
-	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ModuleEventDispatcher;
-	import org.robotlegs.mvcs.Mediator;
+	import org.robotlegs.utilities.modular.mvcs.ModuleMediator;
 	
-	public class GenericModuleMediator extends Mediator
+	public class GenericModuleMediator extends ModuleMediator
 	{
 		[Inject]
 		public var view:GenericModule;
-		
-		[Inject]
-		public var moduleDispatcher:ModuleEventDispatcher;
 		
 		override public function onRegister():void
 		{

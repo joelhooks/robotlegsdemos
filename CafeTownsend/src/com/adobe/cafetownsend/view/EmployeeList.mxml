@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" width="100%" horizontalAlign="center">
+
+	<mx:Script> 
+		<![CDATA[
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.adobe.cafetownsend.control.AddNewEmployeeEvent;
+			import com.adobe.cafetownsend.control.UpdateEmployeeEvent;
+			import com.adobe.cafetownsend.control.LogoutEvent;			
+			import com.adobe.cafetownsend.model.AppModelLocator;
+	
+			[Bindable]
+			private var model : AppModelLocator = AppModelLocator.getInstance();
+
+			// mutate the add new employee button's click event
+			public function addNewEmployee() : void {
+				// broadcast a cairngorm event
+				var cgEvent : AddNewEmployeeEvent = new AddNewEmployeeEvent();
+				CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );				
+				// de-select the list item (it may not exist next time we're on this view)
+				clearSelectedEmployee();
+				}
+
+			// mutate the List's change event
+			public function updateEmployee() : void {
+				// boardcast a cairngorm event that contains the selectedItem from the List
+				var cgEvent : UpdateEmployeeEvent = new UpdateEmployeeEvent( employees_li.selectedItem );
+				CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );
+				// de-select the list item (it may not exist next time we're on this view)
+				clearSelectedEmployee();
+				}
+
+			// mutate the logout button's click event
+			private function logout() : void {
+				// broadcast a cairngorm event
+				var cgEvent : LogoutEvent = new LogoutEvent();
+				CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );
+				}
+
+			// format the names that are displayed in the List
+			public function properName( dpItem : Object ) : String {
+				return dpItem.lastname + ", " + dpItem.firstname;
+				}
+			
+			// de-select any selected List items
+			private function clearSelectedEmployee() : void {
+				employees_li.selectedIndex = -1;
+				}
+		]]>
+	</mx:Script>
+
+	<mx:Panel title="Employee List" horizontalCenter="0">
+		<mx:HBox paddingTop="25">
+			<mx:Button label="Add New Employee" click="addNewEmployee()" />
+			<mx:Spacer width="100%" />
+			<mx:Button label="Logout" click="logout()" />
+			<mx:Spacer width="100%" height="20" />	
+		</mx:HBox>
+		<!-- data provider for the list is an ArrayCollection stored in the centralized model locator -->
+		<mx:List id="employees_li" dataProvider="{ model.employeeListDP }" labelFunction="properName"
+			change="updateEmployee()" width="100%" verticalScrollPolicy="auto"/>
+	</mx:Panel>
+
+</mx:VBox>

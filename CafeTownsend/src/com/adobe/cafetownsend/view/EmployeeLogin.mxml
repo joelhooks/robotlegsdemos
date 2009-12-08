@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" width="100%" height="100%">
+
+	<mx:Script>
+	    <![CDATA[
+	    	import mx.events.ValidationResultEvent;
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import com.adobe.cafetownsend.control.LoginEmployeeEvent;
+			import com.adobe.cafetownsend.model.AppModelLocator;
+	
+			[Bindable]
+			private var model : AppModelLocator = AppModelLocator.getInstance();
+
+			// mutate the loginBtn's click event into a cairngorm event			
+			private function loginEmployee() : void {
+				// validate the fields
+				var noUsername : Boolean = vUsername.validate().type == ValidationResultEvent.INVALID;
+				var noPassword : Boolean = vPassword.validate().type == ValidationResultEvent.INVALID;
+				if (noUsername || noPassword) {
+					return;
+					}
+				else {
+					// if everything validates, broadcast an event containing the username & password
+					var cgEvent : LoginEmployeeEvent = new LoginEmployeeEvent( username.text, password.text );
+					CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );
+
+					// now that the fields are sent in the event, blank out the login form fields
+					// otherwise they'll still be populated whenever the user returns here
+					// (if the user does not get the uid/passwd correct or when the user logs out)
+					vUsername.enabled = false;
+					username.text = "";
+					vUsername.enabled = true;
+					vPassword.enabled = false;
+					password.text = "";
+					vPassword.enabled = true;
+					}
+				}
+	    ]]>
+	</mx:Script>
+
+    <mx:StringValidator id="vUsername" source="{ username }" property="text" required="true"/>
+    <mx:StringValidator id="vPassword" source="{ password }" property="text" required="true"/>
+
+	<mx:Panel title="Employee Login" horizontalCenter="0">
+	    <mx:Form id="loginForm" defaultButton="{ loginBtn }">
+	    	<mx:FormItem label="Username:" required="true">
+	    		<mx:TextInput id="username" />
+	    	</mx:FormItem>
+	    	<mx:FormItem label="Password:" required="true">
+	    		<mx:TextInput id="password" displayAsPassword="true" />
+	    	</mx:FormItem>
+	    	<mx:FormItem direction="horizontal" verticalGap="15" paddingTop="20">
+	    		<mx:Button id="loginBtn" label="Login" click="loginEmployee()"/>
+	    	</mx:FormItem>
+	    </mx:Form>
+	    <mx:Label htmlText="Username: Flex   Password: Cairngorm" width="100%" horizontalCenter="0" />
+	</mx:Panel>
+
+</mx:Canvas>

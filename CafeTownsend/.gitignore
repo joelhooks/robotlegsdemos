@@ -1,0 +1,7 @@
+.svn/
+bin/
+bin-debug/
+html-template/
+libs/
+.DS_Store
+.settings

@@ -1,7 +1,15 @@
-package com.adobe.cafetownsend.control {
+package org.robotlegs.demos.cafetownsend {
 
 	import com.adobe.cairngorm.control.FrontController;
-	import com.adobe.cafetownsend.command.*;
+	
+	import org.robotlegs.demos.cafetownsend.detail.controller.CancelEmployeeEditsCommand;
+	import org.robotlegs.demos.cafetownsend.detail.controller.DeleteEmployeeCommand;
+	import org.robotlegs.demos.cafetownsend.detail.controller.SaveEmployeeEditsCommand;
+	import org.robotlegs.demos.cafetownsend.list.controller.AddNewEmployeeCommand;
+	import org.robotlegs.demos.cafetownsend.list.controller.UpdateEmployeeCommand;
+	import org.robotlegs.demos.cafetownsend.main.controller.LoadEmployeesCommand;
+	import org.robotlegs.demos.cafetownsend.user.controller.LoginEmployeeCommand;
+	import org.robotlegs.demos.cafetownsend.user.controller.LogoutCommand;
 
 	public class AppController extends FrontController {
 

@@ -4,13 +4,15 @@
 	<mx:Script>
 		<![CDATA[
 			import com.adobe.cairngorm.control.CairngormEventDispatcher;
-			import com.adobe.cafetownsend.model.AppModelLocator;
-			import com.adobe.cafetownsend.control.CancelEmployeeEditsEvent;
-			import com.adobe.cafetownsend.control.DeleteEmployeeEvent;
-			import com.adobe.cafetownsend.control.SaveEmployeeEditsEvent;
-	    	import mx.events.ValidationResultEvent;
+			
 			import mx.controls.Alert;
-            import mx.events.CloseEvent;
+			import mx.events.CloseEvent;
+			import mx.events.ValidationResultEvent;
+			
+			import org.robotlegs.demos.cafetownsend.detail.view.components.events.CancelEmployeeEditsEvent;
+			import org.robotlegs.demos.cafetownsend.detail.view.components.events.DeleteEmployeeEvent;
+			import org.robotlegs.demos.cafetownsend.detail.view.components.events.SaveEmployeeEditsEvent;
+			import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
 
 			[Bindable]
 			private var model : AppModelLocator = AppModelLocator.getInstance();

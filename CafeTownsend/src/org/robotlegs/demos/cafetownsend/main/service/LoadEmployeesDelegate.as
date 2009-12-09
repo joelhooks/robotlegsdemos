@@ -1,4 +1,4 @@
-package com.adobe.cafetownsend.business {
+package org.robotlegs.demos.cafetownsend.main.service {
 
 	import mx.rpc.AsyncToken;
 	import mx.rpc.IResponder;

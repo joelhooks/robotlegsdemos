@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--
-    Cafe Townsend MVC Tutorial (c) 2006 Adobe
-
-    Converted to Cairngorm 2 by Darren Houle
-	lokka_@hotmail.com
-	http://www.digimmersion.com
-    
-    This is released under a Creative Commons license.
-    http://creativecommons.org/licenses/by/2.5/
--->
-
 <mx:Application
 	xmlns:mx="http://www.adobe.com/2006/mxml"
-	xmlns:business="com.adobe.cafetownsend.business.*"
-	xmlns:control="com.adobe.cafetownsend.control.*"
-	xmlns:view="com.adobe.cafetownsend.view.*"
+	xmlns:cafetownsend="org.robotlegs.demos.cafetownsend.*"
+	xmlns:service="org.robotlegs.demos.cafetownsend.main.service.*"
+	xmlns:components="org.robotlegs.demos.cafetownsend.main.view.components.*"
 	layout="vertical"
 	backgroundColor="#000000"
 	creationComplete="loadEmployees();"
@@ -24,11 +12,8 @@
 	<mx:Script>
 		<![CDATA[
 		import com.adobe.cairngorm.control.CairngormEventDispatcher;
-		import com.adobe.cafetownsend.control.LoadEmployeesEvent;
-		import com.adobe.cafetownsend.model.AppModelLocator;
 
-		[Bindable]
-		private var model : AppModelLocator = AppModelLocator.getInstance();
+		import org.robotlegs.demos.cafetownsend.main.view.components.events.LoadEmployeesEvent;
 
 		private function loadEmployees() : void {
 			var cgEvent : LoadEmployeesEvent = new LoadEmployeesEvent();
@@ -37,20 +22,11 @@
 		]]>
 	</mx:Script>
 
-	<business:Services id="services" />
+	<service:Services id="services" />
 
-	<control:AppController id="appController" />
+	<cafetownsend:AppController id="appController" />
 
-	<mx:Style source="assets/main.css" />
-	<mx:Image source="assets/header.jpg" width="700" />
-	<mx:HBox paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10" backgroundColor="#ffffff" width="700">
-		<mx:VBox width="100%" verticalScrollPolicy="off" paddingRight="10">
-			<mx:ViewStack width="100%" paddingBottom="10" paddingTop="10" resizeToContent="true" selectedIndex="{model.viewing}">
-				<view:EmployeeLogin />
-				<view:EmployeeList />
-				<view:EmployeeDetail />
-			</mx:ViewStack>
-		</mx:VBox>
-	</mx:HBox>
+	<mx:Style source="org/robotlegs/demos/cafetownsend/main/view/components/assets/application.css" />
+	<components:Main width="700"/>
 
 </mx:Application>

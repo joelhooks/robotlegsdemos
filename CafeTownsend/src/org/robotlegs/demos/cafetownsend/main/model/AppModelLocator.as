@@ -1,9 +1,11 @@
-package com.adobe.cafetownsend.model {
+package org.robotlegs.demos.cafetownsend.main.model {
 
-	import mx.collections.ArrayCollection;
 	import com.adobe.cairngorm.model.ModelLocator;
-	import com.adobe.cafetownsend.vo.Employee;
-	import com.adobe.cafetownsend.vo.User;
+	
+	import mx.collections.ArrayCollection;
+	
+	import org.robotlegs.demos.cafetownsend.list.model.vo.Employee;
+	import org.robotlegs.demos.cafetownsend.user.model.vo.User;
 
  	[Bindable]
 	public class AppModelLocator implements ModelLocator {

@@ -1,7 +1,8 @@
-package com.adobe.cafetownsend.control {
+package org.robotlegs.demos.cafetownsend.detail.view.components.events {
 
 	import com.adobe.cairngorm.control.CairngormEvent;
-	import com.adobe.cafetownsend.control.AppController;
+	
+	import org.robotlegs.demos.cafetownsend.AppController;
 
 	public class DeleteEmployeeEvent extends CairngormEvent {
 

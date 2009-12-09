@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		xmlns:detail="org.robotlegs.demos.cafetownsend.detail.view.components.*"
+		xmlns:list="org.robotlegs.demos.cafetownsend.list.view.components.*"
+		xmlns:user="org.robotlegs.demos.cafetownsend.user.view.components.*"
+	>
+	<mx:Script>
+		<![CDATA[
+			import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
+			
+			[Bindable]
+			private var model : AppModelLocator = AppModelLocator.getInstance();
+		]]>
+	</mx:Script>
+	<mx:Image
+			width="100%"
+			source="assets/header.jpg"
+		/>
+	<mx:Box
+			width="100%"
+			backgroundColor="white"
+			paddingTop="20"
+			paddingBottom="20"
+			paddingLeft="10"
+			paddingRight="20"
+		>
+		<mx:ViewStack
+				width="100%"
+				selectedIndex="{model.viewing}"
+				resizeToContent="true"
+			>
+			<user:EmployeeLogin/>
+			<list:EmployeeList/>
+			<detail:EmployeeDetail/>
+		</mx:ViewStack>
+	</mx:Box>
+</mx:VBox>

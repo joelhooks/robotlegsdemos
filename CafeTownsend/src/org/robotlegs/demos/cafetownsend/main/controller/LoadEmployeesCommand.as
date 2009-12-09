@@ -1,10 +1,12 @@
-package com.adobe.cafetownsend.command {
+package org.robotlegs.demos.cafetownsend.main.controller {
 
-	import mx.rpc.IResponder;
 	import com.adobe.cairngorm.commands.Command;
 	import com.adobe.cairngorm.control.CairngormEvent;
-	import com.adobe.cafetownsend.business.LoadEmployeesDelegate;
-	import com.adobe.cafetownsend.model.AppModelLocator;
+	
+	import mx.rpc.IResponder;
+	
+	import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
+	import org.robotlegs.demos.cafetownsend.main.service.LoadEmployeesDelegate;
 
 	public class LoadEmployeesCommand implements Command, IResponder {
 

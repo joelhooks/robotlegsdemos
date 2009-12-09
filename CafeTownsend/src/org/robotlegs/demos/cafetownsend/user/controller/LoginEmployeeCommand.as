@@ -1,11 +1,13 @@
-package com.adobe.cafetownsend.command {
+package org.robotlegs.demos.cafetownsend.user.controller {
 
 	import com.adobe.cairngorm.commands.Command;
 	import com.adobe.cairngorm.control.CairngormEvent;
-	import com.adobe.cafetownsend.control.LoginEmployeeEvent;
-	import com.adobe.cafetownsend.model.AppModelLocator;
+	
 	import mx.controls.Alert;
-	import com.adobe.cafetownsend.vo.User;
+	
+	import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
+	import org.robotlegs.demos.cafetownsend.user.model.vo.User;
+	import org.robotlegs.demos.cafetownsend.user.view.components.events.LoginEmployeeEvent;
 
 	public class LoginEmployeeCommand implements Command {
 

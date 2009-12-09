@@ -1,4 +1,4 @@
-package  com.adobe.cafetownsend.vo {
+package  org.robotlegs.demos.cafetownsend.user.model.vo {
 	
 	[Bindable]
 	public class User {

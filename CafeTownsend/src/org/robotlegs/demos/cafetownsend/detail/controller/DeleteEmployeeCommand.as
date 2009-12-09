@@ -1,8 +1,9 @@
-package com.adobe.cafetownsend.command {
+package org.robotlegs.demos.cafetownsend.detail.controller {
 
 	import com.adobe.cairngorm.commands.Command;
 	import com.adobe.cairngorm.control.CairngormEvent;
-	import com.adobe.cafetownsend.model.AppModelLocator;
+	
+	import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
 
 	public class DeleteEmployeeCommand implements Command {
 

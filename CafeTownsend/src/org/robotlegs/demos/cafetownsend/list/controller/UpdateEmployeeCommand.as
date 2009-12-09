@@ -1,10 +1,11 @@
-package com.adobe.cafetownsend.command {
+package org.robotlegs.demos.cafetownsend.list.controller {
 
 	import com.adobe.cairngorm.commands.Command;
 	import com.adobe.cairngorm.control.CairngormEvent;
-	import com.adobe.cafetownsend.control.UpdateEmployeeEvent;
-	import com.adobe.cafetownsend.model.AppModelLocator;
-	import com.adobe.cafetownsend.vo.Employee;
+	
+	import org.robotlegs.demos.cafetownsend.list.model.vo.Employee;
+	import org.robotlegs.demos.cafetownsend.list.view.components.events.UpdateEmployeeEvent;
+	import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
 
 	public class UpdateEmployeeCommand implements Command {
 

@@ -12,10 +12,10 @@ public class Ball extends Sprite
     
     public function Ball()
     {
-        this.alpha = 0.75;
-        this.useHandCursor = true;
-        this.buttonMode = true;
-        this.draw();
+        alpha = 0.75;
+        useHandCursor = true;
+        buttonMode = true;
+        draw();
     }
 
     protected var color:uint;
@@ -23,16 +23,17 @@ public class Ball extends Sprite
     
     public function poke ():void
     {
-        this.radius++;
-        this.color = Math.random() * uint.MAX_VALUE;
-        this.draw();
+        radius++;
+        color = Math.random() * uint.MAX_VALUE;
+        draw();
     }
     
     protected function draw ():void
     {
-        this.graphics.clear();
-        this.graphics.beginFill(this.color);
-        this.graphics.drawCircle(0, 0, this.radius);
+        graphics.clear();
+        graphics.beginFill(color);
+        graphics.drawCircle(0, 0, radius);
     }
 }
 }
+

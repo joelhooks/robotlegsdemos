@@ -6,7 +6,7 @@ package org.robotlegs.demos.helloflashstrict.controller
 
 import flash.events.Event;
 
-import org.robotlegs.demos.helloflashstrict.model.IBallVO;
+import org.robotlegs.demos.helloflashstrict.model.ItemVO;
 
 
 public class HelloFlashEvent extends Event
@@ -15,23 +15,23 @@ public class HelloFlashEvent extends Event
     public static const BALL_CLICKED:String = "ball_clicked";
     public static const BALL_CREATED:String = "ball_created";
     
-    public function HelloFlashEvent(type:String, ball:IBallVO = null)
+    public function HelloFlashEvent(type:String, itemVO:ItemVO = null)
     {
         super(type);
         
-        this._ball = ball;
+        _itemVO = itemVO;
     }
     
-    private var _ball:IBallVO;
+    private var _itemVO:ItemVO;
     
-    public function get ball ():IBallVO
+    public function get itemVO ():ItemVO
     {
-        return this._ball;
+        return _itemVO;
     }
     
     override public function clone():Event
     {
-        return new HelloFlashEvent(this.type, this.ball);
+        return new HelloFlashEvent(type, itemVO);
     }
     
 }

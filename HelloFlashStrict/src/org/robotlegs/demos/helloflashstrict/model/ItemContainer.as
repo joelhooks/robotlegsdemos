@@ -8,31 +8,31 @@ import org.robotlegs.demos.helloflashstrict.controller.HelloFlashEvent;
 import org.robotlegs.mvcs.Actor;
 
 
-public class BallContainer extends Actor implements IBallContainer
+public class ItemContainer extends Actor implements IItemContainer
 {
     
-    public function BallContainer ()
+    public function ItemContainer ()
     {
-        this.init();
+        init();
     }
     
     private var array:Array;
     
-    public function add (ball:IBallVO):void
+    public function add (itemVO:ItemVO):void
     {
-        this.array.push(ball);
+        array.push(itemVO);
         
-        this.dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CREATED, ball));
+        dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CREATED, itemVO));
     }
     
     public function get length ():int
     {
-        return this.array.length;
+        return array.length;
     }
     
     private function init ():void
     {
-        this.array = [];
+        array = [];
     }
 
 }

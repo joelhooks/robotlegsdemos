@@ -3,6 +3,7 @@
  */
 package org.robotlegs.demos.helloflashstrict.controller
 {
+
 import org.robotlegs.demos.helloflashstrict.view.Readout;
 import org.robotlegs.mvcs.Command;
 
@@ -12,9 +13,9 @@ public class StartupCommand extends Command
 
     override public function execute ():void
     {
-        this.contextView.addChild(new Readout());
+        contextView.addChild(new Readout());
         
-        this.dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CLICKED));
+        dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CLICKED));
     }
 
 }

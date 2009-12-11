@@ -20,15 +20,16 @@ public class Readout extends Sprite
     
     public function setText (str:String):void
     {
-        this.textField.text = str;
+        textField.text = str;
     }
     
     protected function init ():void
     {
-        this.textField = new TextField();
+        textField = new TextField();
         
-        this.addChild(this.textField);
+        addChild(textField);
     }
     
 }
 }
+

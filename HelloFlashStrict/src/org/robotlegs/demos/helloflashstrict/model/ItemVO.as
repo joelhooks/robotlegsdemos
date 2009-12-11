@@ -7,20 +7,21 @@ package org.robotlegs.demos.helloflashstrict.model
 import flash.display.DisplayObject;
 
 
-public class BallVO implements IBallVO
+public class ItemVO
 {
 
-    public function BallVO (displayer:DisplayObject)
+    public function ItemVO (displayer:DisplayObject)
     {
-        this._displayer = displayer;
+        _displayer = displayer;
     }
 
     private var _displayer:DisplayObject;
     
     public function get displayer ():DisplayObject
     {
-        return this._displayer;
+        return _displayer;
     }
 
 }
 }
+

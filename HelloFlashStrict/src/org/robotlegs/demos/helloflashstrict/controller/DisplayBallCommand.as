@@ -15,7 +15,7 @@ public class DisplayBallCommand extends Command
     
     override public function execute ():void
     {
-        this.contextView.addChildAt(this.event.ball.displayer, 0);
+        contextView.addChildAt(event.itemVO.displayer, 0);
     }
 
 }

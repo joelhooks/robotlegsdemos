@@ -5,10 +5,10 @@ package org.robotlegs.demos.helloflashstrict.model
 {
 
     
-public interface IBallContainer
+public interface IItemContainer
 {
 
-    function add (ball:IBallVO):void;
+    function add (itemVO:ItemVO):void;
     
     function get length ():int;
 

@@ -4,9 +4,8 @@
 package org.robotlegs.demos.helloflashstrict.controller
 {
 
-import org.robotlegs.demos.helloflashstrict.model.BallVO;
-import org.robotlegs.demos.helloflashstrict.model.IBallContainer;
-import org.robotlegs.demos.helloflashstrict.model.IBallVO;
+import org.robotlegs.demos.helloflashstrict.model.IItemContainer;
+import org.robotlegs.demos.helloflashstrict.model.ItemVO;
 import org.robotlegs.demos.helloflashstrict.view.Ball;
 import org.robotlegs.mvcs.Command;
 
@@ -15,7 +14,7 @@ public class CreateBallCommand extends Command
 {
 
     [Inject]
-    public var container:IBallContainer;
+    public var container:IItemContainer;
     
     override public function execute ():void
     {
@@ -23,9 +22,9 @@ public class CreateBallCommand extends Command
             ball.x = Math.random() * 500;
             ball.y = Math.random() * 375;
             
-        var vo:IBallVO = new BallVO(ball);
+        var itemVO:ItemVO = new ItemVO(ball);
         
-        this.container.add(vo);
+        container.add(itemVO);
     }
 
 }

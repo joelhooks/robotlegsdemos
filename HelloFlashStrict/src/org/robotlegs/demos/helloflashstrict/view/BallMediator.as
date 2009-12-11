@@ -18,19 +18,20 @@ public class BallMediator extends Mediator
     
     override public function onRegister ():void
     {
-        this.eventMap.mapListener(this.view, MouseEvent.CLICK, this.onClick);
-        this.eventMap.mapListener(this.eventDispatcher, HelloFlashEvent.BALL_CREATED, this.onSomeBallClicked);
+        eventMap.mapListener(view, MouseEvent.CLICK, onClick);
+        eventMap.mapListener(eventDispatcher, HelloFlashEvent.BALL_CREATED, onSomeBallClicked);
     }
     
     protected function onClick (event:MouseEvent):void
     {
-        this.dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CLICKED));
+        dispatch(new HelloFlashEvent(HelloFlashEvent.BALL_CLICKED));
     }
     
     protected function onSomeBallClicked (event:HelloFlashEvent):void
     {
-        this.view.poke();
+        view.poke();
     }
 
 }
 }
+

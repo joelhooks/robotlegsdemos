@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--- @author Jonathan Toland -->
 <mx:Box implements="org.robotlegs.demos.cafetownsend.user.view.components.interfaces.IEmployeeLogin"
 		xmlns:mx="http://www.adobe.com/2006/mxml"
 		horizontalAlign="center"

@@ -4,6 +4,7 @@ import flash.events.Event;
 
 import org.robotlegs.demos.cafetownsend.user.model.vo.User;
 
+/** @author Jonathan Toland */
 public class EmployeeLoginEvent extends Event
 {
 	public static const LOGIN:String  = 'login';

@@ -16,6 +16,7 @@ import org.robotlegs.demos.cafetownsend.main.service.interfaces.IResourceManager
 import org.robotlegs.mvcs.Actor;
 
 [ResourceBundle("EmployeeListService")]
+/** @author Jonathan Toland */
 public class EmployeeListService extends Actor implements IEmployeeListService, IResponder
 {
 	[Inject]

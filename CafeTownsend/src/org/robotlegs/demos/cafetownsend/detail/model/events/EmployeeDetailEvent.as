@@ -4,6 +4,7 @@ import flash.events.Event;
 
 import org.robotlegs.demos.cafetownsend.detail.model.vo.Employee;
 
+/** @author Jonathan Toland */
 public class EmployeeDetailEvent extends Event
 {
 	public static const EDIT:String = 'edit';

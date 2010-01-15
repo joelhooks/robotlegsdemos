@@ -5,6 +5,7 @@ import flash.events.IEventDispatcher;
 import mx.validators.IValidatorListener;
 
 [Event(name="login", type="org.robotlegs.demos.cafetownsend.user.model.events.EmployeeLoginEvent")]
+/** @author Jonathan Toland */
 public interface IEmployeeLogin extends IEventDispatcher
 {
 	function get usernameValidatorSource():IValidatorListener;

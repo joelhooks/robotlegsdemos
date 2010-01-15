@@ -9,6 +9,7 @@ import org.robotlegs.demos.cafetownsend.user.service.interfaces.IEmployeeLoginSe
 import org.robotlegs.mvcs.Actor;
 
 [ResourceBundle("MockEmployeeLoginService")]
+/** @author Jonathan Toland */
 public class MockEmployeeLoginService extends Actor implements IEmployeeLoginService
 {
 	[Inject]

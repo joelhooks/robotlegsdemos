@@ -14,6 +14,7 @@ import org.robotlegs.demos.cafetownsend.user.service.interfaces.IEmployeeLoginSe
 import org.robotlegs.mvcs.Mediator;
 
 [ResourceBundle("EmployeeList")]
+/** @author Jonathan Toland */
 public class EmployeeListMediator extends Mediator
 {
 	[Inject]

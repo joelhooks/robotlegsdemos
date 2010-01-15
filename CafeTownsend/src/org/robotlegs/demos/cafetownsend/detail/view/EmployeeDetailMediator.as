@@ -15,6 +15,7 @@ import org.robotlegs.demos.cafetownsend.main.model.vo.SystemAlert;
 import org.robotlegs.demos.cafetownsend.main.service.interfaces.IResourceManagerService;
 import org.robotlegs.mvcs.Mediator;
 
+/** @author Jonathan Toland */
 public class EmployeeDetailMediator extends Mediator
 {
 	[Inject]

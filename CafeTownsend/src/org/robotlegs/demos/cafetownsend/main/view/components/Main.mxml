@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--- @author Jonathan Toland -->
 <mx:VBox implements="org.robotlegs.demos.cafetownsend.main.view.components.interfaces.IMain"
 		xmlns:mx="http://www.adobe.com/2006/mxml"
 		xmlns:detail="org.robotlegs.demos.cafetownsend.detail.view.components.*"

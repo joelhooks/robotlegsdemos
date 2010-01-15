@@ -4,6 +4,7 @@ import org.robotlegs.demos.cafetownsend.user.model.events.EmployeeLoginEvent;
 import org.robotlegs.demos.cafetownsend.user.model.vo.User;
 import org.robotlegs.mvcs.Actor;
 
+/** @author Jonathan Toland */
 public class EmployeeLoginModel extends Actor
 {
 	private var _user:User;

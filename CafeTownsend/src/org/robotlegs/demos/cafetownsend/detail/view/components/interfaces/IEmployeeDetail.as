@@ -9,6 +9,7 @@ import org.robotlegs.demos.cafetownsend.detail.model.vo.Employee;
 [Event(name="abort", type="org.robotlegs.demos.cafetownsend.detail.model.events.EmployeeDetailEvent")]
 [Event(name="commit", type="org.robotlegs.demos.cafetownsend.detail.model.events.EmployeeDetailEvent")]
 [Event(name="remove", type="org.robotlegs.demos.cafetownsend.list.model.events.EmployeeListEvent")]
+/** @author Jonathan Toland */
 public interface IEmployeeDetail extends IEventDispatcher
 {
 	function get firstNameValidatorSource():IValidatorListener;

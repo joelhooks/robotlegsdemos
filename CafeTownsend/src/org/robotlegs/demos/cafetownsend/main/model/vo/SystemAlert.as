@@ -1,5 +1,6 @@
 package org.robotlegs.demos.cafetownsend.main.model.vo
 {
+/** @author Jonathan Toland */
 public class SystemAlert
 {
 	

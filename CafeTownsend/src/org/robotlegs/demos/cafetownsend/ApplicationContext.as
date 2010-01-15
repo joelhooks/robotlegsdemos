@@ -32,6 +32,7 @@ import org.robotlegs.demos.cafetownsend.user.view.components.EmployeeLogin;
 import org.robotlegs.demos.cafetownsend.user.view.components.interfaces.IEmployeeLogin;
 import org.robotlegs.mvcs.Context;
 
+/** @author Jonathan Toland */
 public class ApplicationContext extends Context
 {
 	

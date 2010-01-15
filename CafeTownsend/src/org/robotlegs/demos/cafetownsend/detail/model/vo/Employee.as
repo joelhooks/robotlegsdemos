@@ -1,5 +1,6 @@
 package org.robotlegs.demos.cafetownsend.detail.model.vo
 {
+/** @author Jonathan Toland */
 public class Employee
 {
 	

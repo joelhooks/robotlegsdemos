@@ -6,6 +6,7 @@ import org.robotlegs.core.IReflector;
 import org.robotlegs.demos.cafetownsend.main.service.interfaces.IResourceManagerService;
 import org.robotlegs.mvcs.Actor;
 
+/** @author Jonathan Toland */
 public class ResourceManagerService extends Actor implements IResourceManagerService
 {
 	private const parametersPattern:RegExp = /\{(\w+)\}/g;

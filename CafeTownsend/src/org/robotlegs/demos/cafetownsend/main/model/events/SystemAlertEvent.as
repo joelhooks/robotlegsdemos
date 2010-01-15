@@ -4,6 +4,7 @@ import flash.events.Event;
 
 import org.robotlegs.demos.cafetownsend.main.model.vo.SystemAlert;
 
+/** @author Jonathan Toland */
 public class SystemAlertEvent extends Event
 {
 	public static const ALERT:String = 'alert';

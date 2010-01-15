@@ -6,6 +6,7 @@ import org.robotlegs.demos.cafetownsend.detail.model.vo.Employee;
 import org.robotlegs.demos.cafetownsend.list.model.events.EmployeeListEvent;
 import org.robotlegs.mvcs.Actor;
 
+/** @author Jonathan Toland */
 public class EmployeeListModel extends Actor
 {
 	private const employeeMap:Dictionary = new Dictionary(false);

@@ -1,14 +1,32 @@
-package  org.robotlegs.demos.cafetownsend.user.model.vo {
+package org.robotlegs.demos.cafetownsend.user.model.vo
+{
+public class User
+{
 	
-	[Bindable]
-	public class User {
-
-		public var username : String;
-		public var password : String;
-
-		public function User( username : String, password : String ) {
-			this.username = username;
-			this.password = password;
-			}
-		}
+	public function User(username:String, password:String)
+	{
+		_username = username;
+		_password = password;
 	}
+	
+	private var _username:String;
+	
+	public function get username():String
+	{
+		return _username;
+	}
+	
+	private var _password:String;
+	
+	public function get password():String
+	{
+		return _password;
+	}
+	
+	public function clone():User
+	{
+		return new User(_username, _password);
+	}
+	
+}
+}

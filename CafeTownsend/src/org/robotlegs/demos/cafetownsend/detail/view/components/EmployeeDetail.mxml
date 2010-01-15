@@ -1,95 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" width="100%" horizontalAlign="center">
-
+<mx:Box implements="org.robotlegs.demos.cafetownsend.detail.view.components.interfaces.IEmployeeDetail"
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		horizontalAlign="center"
+	>
 	<mx:Script>
 		<![CDATA[
-			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import mx.validators.IValidatorListener;
 			
-			import mx.controls.Alert;
-			import mx.events.CloseEvent;
-			import mx.events.ValidationResultEvent;
+			import org.robotlegs.demos.cafetownsend.detail.model.events.EmployeeDetailEvent;
+			import org.robotlegs.demos.cafetownsend.detail.model.vo.Employee;
+			import org.robotlegs.demos.cafetownsend.list.model.events.EmployeeListEvent;
 			
-			import org.robotlegs.demos.cafetownsend.detail.view.components.events.CancelEmployeeEditsEvent;
-			import org.robotlegs.demos.cafetownsend.detail.view.components.events.DeleteEmployeeEvent;
-			import org.robotlegs.demos.cafetownsend.detail.view.components.events.SaveEmployeeEditsEvent;
-			import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
-
+			private static const VALIDATOR_PROPERTY:String = 'text';
+			
+			public function get firstNameValidatorSource():IValidatorListener
+			{
+				return firstName;
+			}
+			
+			public function get lastNameValidatorSource():IValidatorListener
+			{
+				return lastName;
+			}
+			
+			public function get emailValidatorSource():IValidatorListener
+			{
+				return email;
+			}
+			
+			public function get firstNameValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			public function get lastNameValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			public function get emailValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
 			[Bindable]
-			private var model : AppModelLocator = AppModelLocator.getInstance();
-
-			// mutate the back button's click event
-			private function cancelEmployeeEdits() : void {
-				var cgEvent : CancelEmployeeEditsEvent = new CancelEmployeeEditsEvent();
-				CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );
-				}
-
-			// the delete button's click event is an Alert asking them to verify the delete
-			// the Alert's closeHandler is directed here to be mutated into a cairngorm event if the answer was OK
-			private function deleteEmployee( cEvent:CloseEvent ) : void {
-				// was the Alert event an OK
-                if ( cEvent.detail == Alert.OK ) {
-                	// broadcast the cairngorm event
-					var cgEvent : DeleteEmployeeEvent = new DeleteEmployeeEvent();
-					CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );
-					}
-				}
-
-			// mutate the submit button's click event
-			private function saveEmployeeEdits() : void {
-				// first, validate the fields
-				var noFirstName : Boolean = vFirstname.validate().type == ValidationResultEvent.INVALID;
-				var noLastName : Boolean = vLastName.validate().type == ValidationResultEvent.INVALID;
-				var noEmail : Boolean = vEmail.validate().type == ValidationResultEvent.INVALID;
-				// if any of the fields were not valid
-				if ( noFirstName || noLastName || noEmail ) {
-					// return focus to the firstname field and do nothing else
-					firstname.setFocus();
-					return;
-					}
-				// to make it here the fields must have been valid
-				// create and broadcast a new cairngorm event with a payload containing the edited fields
-				var cgEvent : SaveEmployeeEditsEvent = new SaveEmployeeEditsEvent(	model.employeeTemp.emp_id,
-																					firstname.text,
-																					lastname.text,
-																					startdate.selectedDate,
-																					email.text );
-				CairngormEventDispatcher.getInstance().dispatchEvent( cgEvent );
-				}
+			private var _employee:Employee;
+			
+			public function set employee(value:Employee):void
+			{
+				_employee = value;
+			}
+			
+			private function abortButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeDetailEvent(EmployeeDetailEvent.ABORT, null));
+			}
+			
+			private function commitButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeDetailEvent(EmployeeDetailEvent.COMMIT,
+					new Employee(firstName.text, lastName.text, email.text, startDate.selectedDate, _employee.id)));
+			}
+			
+			private function removeButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeListEvent(EmployeeListEvent.REMOVE, _employee));
+			}
+			
 		]]>
 	</mx:Script>
-
-    <mx:StringValidator id="vFirstname"  source="{firstname}" property="text" required="true" />
-    <mx:StringValidator id="vLastName"  source="{lastname}" property="text" required="true" />
-    <mx:StringValidator id="vEmail"  source="{email}" property="text" required="true" />
-
-	<mx:Panel title="Employee Details" horizontalCenter="0">
-	<mx:Spacer width="100%" height="10" />
-	<mx:Button label="&lt;&lt; Back" click="cancelEmployeeEdits()" />
-	<mx:Form defaultButton="{submit}" paddingTop="10">
-		<mx:FormItem label="First Name:"  required="true">
-			<mx:TextInput id="firstname" text="{model.employeeTemp.firstname}" />
-		</mx:FormItem>
-		<mx:FormItem label="Last Name:"  required="true">
-			<mx:TextInput id="lastname" text="{model.employeeTemp.lastname}" />
-		</mx:FormItem>
-		<mx:FormItem label="Start Date:">
-			<mx:DateField id="startdate" selectedDate="{model.employeeTemp.startdate}" />
-		</mx:FormItem>
-		<mx:FormItem label="Email:"  required="true">
-			<mx:TextInput id="email" text="{model.employeeTemp.email}" />
-		</mx:FormItem>
-		<mx:FormItem direction="horizontal">
-			<mx:Button label="Submit" click="saveEmployeeEdits()" id="submit" />
-			<mx:Spacer width="100%" />
-			<mx:Button id="delete_btn" label="Delete"
-				click="Alert.show(	'Are you sure you want to delete the following employee?',
-									null,
-									Alert.OK | Alert.CANCEL,
-									this,
-									deleteEmployee,
-									null,
-									Alert.OK );" />
-		</mx:FormItem>
-	</mx:Form>
-		</mx:Panel>
-</mx:VBox>
+	<mx:Panel title="@Resource(bundle='EmployeeDetail', key='title')">
+		<mx:Spacer height="10"/>
+		<mx:Button
+				label="@Resource(bundle='EmployeeDetail', key='abortButtonLabel')"
+				click="abortButton_clickHandler()"
+			/>
+		<mx:Form
+				defaultButton="{commitButton}"
+				paddingTop="10"
+			>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeDetail', key='firstNameLabel')"
+					required="true"
+				>
+				<mx:TextInput id="firstName"
+						text="{_employee.firstName}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeDetail', key='lastNameLabel')"
+					required="true"
+				>
+				<mx:TextInput id="lastName"
+						text="{_employee.lastName}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem label="@Resource(bundle='EmployeeDetail', key='startDateLabel')">
+				<mx:DateField id="startDate"
+						selectedDate="{_employee.startDate}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeDetail', key='emailLabel')"
+					required="true"
+				>
+				<mx:TextInput id="email"
+						text="{_employee.email}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem
+					width="100%"
+					direction="horizontal"
+				>
+				<mx:Button id="commitButton"
+						label="@Resource(bundle='EmployeeDetail', key='commitButtonLabel')"
+						click="commitButton_clickHandler()"
+					/>
+				<mx:Spacer width="100%" />
+				<mx:Button
+						label="@Resource(bundle='EmployeeDetail', key='removeButtonLabel')"
+						enabled="{Boolean(_employee.id)}"
+						click="removeButton_clickHandler()"
+					/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:Panel>
+</mx:Box>

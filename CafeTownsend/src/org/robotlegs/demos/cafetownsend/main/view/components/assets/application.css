@@ -1,43 +1,35 @@
-/* CSS file */
-.foodTitle { 
-	font-weight: bold; text-align: center 
+Panel
+{
+	border-alpha: 1.0;
+	border-style: solid;
+	corner-radius: 4;
+	font-weight: bold;
+	header-colors: black, #993333;
+	highlight-alphas: 0.67, 0;
+	rounded-bottom-corners: true;
+	text-align: center;
+	title-style-name: myPanelStyle;
 }
-
-Panel { 
-   cornerRadius: 4;
-
-   borderStyle: undefined;
-   highlightAlphas: 0.67, 0;
-   headerColors: #000000, #993333;
-   font-weight: bold;
-   borderAlpha: 1;
-   text-align: center;
-   titleStyleName: "myPanelStyle";
-    roundedBottomCorners: true;
+Alert
+{
+	background-color: white;
+	color: black;
 }
-
-Alert {
-	background-color: #FFFFFF;
-	color: #000000;
+Form,
+Label,
+TextInput
+{ 
+	color: black;
+	font-weight: normal;
 }
-
-Form, Label, TextInput { 
-	   color: #000000;
-	   font-weight: normal;
+FormItem,
+List
+{ 
+	font-weight: bold;
+	text-align: left;
 }
-
-FormItem, List { 
-	   font-weight: bold;
-	    text-align: left;
-}
-
-.myPanelStyle {
+.myPanelStyle
+{
 	font-size: 12;
-	color: #FFFFFF;
-}
-
-.panelText {
-	color: #000000;
-	 font-weight: none;
-	 text-align: left;
+	color: white;
 }

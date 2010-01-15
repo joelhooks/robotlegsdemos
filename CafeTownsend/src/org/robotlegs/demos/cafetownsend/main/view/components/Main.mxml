@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:VBox
+<mx:VBox implements="org.robotlegs.demos.cafetownsend.main.view.components.interfaces.IMain"
 		xmlns:mx="http://www.adobe.com/2006/mxml"
 		xmlns:detail="org.robotlegs.demos.cafetownsend.detail.view.components.*"
 		xmlns:list="org.robotlegs.demos.cafetownsend.list.view.components.*"
@@ -7,15 +7,36 @@
 	>
 	<mx:Script>
 		<![CDATA[
-			import org.robotlegs.demos.cafetownsend.main.model.AppModelLocator;
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
 			
-			[Bindable]
-			private var model : AppModelLocator = AppModelLocator.getInstance();
+			import org.robotlegs.demos.cafetownsend.detail.view.components.interfaces.IEmployeeDetail;
+			import org.robotlegs.demos.cafetownsend.list.view.components.interfaces.IEmployeeList;
+			import org.robotlegs.demos.cafetownsend.main.model.vo.SystemAlert;
+			import org.robotlegs.demos.cafetownsend.user.view.components.interfaces.IEmployeeLogin;
+			
+			private static const VIEW_STACK_TYPES:Array = [ IEmployeeLogin, IEmployeeList, IEmployeeDetail ];
+			
+			public function set activeViewComponentType(value:Class):void
+			{
+				viewStack.selectedIndex = VIEW_STACK_TYPES.indexOf(value);
+			}
+			
+			public function receiveSystemAlert(systemAlert:SystemAlert):void
+			{
+				const buttonFlags:uint = systemAlert.cancelable ? Alert.OK | Alert.CANCEL : Alert.OK;
+				const closeHandler:Function = Boolean(systemAlert.action) ? function(event:CloseEvent):void
+					{
+						systemAlert.action(event.detail === Alert.CANCEL);
+					} : null;
+				Alert.show(systemAlert.text, systemAlert.title, buttonFlags, null, closeHandler);
+			}
+			
 		]]>
 	</mx:Script>
 	<mx:Image
 			width="100%"
-			source="assets/header.jpg"
+			source="@Resource(bundle='CafeTownsend', key='mainImageURL')"
 		/>
 	<mx:Box
 			width="100%"
@@ -25,9 +46,8 @@
 			paddingLeft="10"
 			paddingRight="20"
 		>
-		<mx:ViewStack
+		<mx:ViewStack id="viewStack"
 				width="100%"
-				selectedIndex="{model.viewing}"
 				resizeToContent="true"
 			>
 			<user:EmployeeLogin/>

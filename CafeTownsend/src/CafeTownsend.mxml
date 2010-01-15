@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application
-	xmlns:mx="http://www.adobe.com/2006/mxml"
-	xmlns:cafetownsend="org.robotlegs.demos.cafetownsend.*"
-	xmlns:service="org.robotlegs.demos.cafetownsend.main.service.*"
-	xmlns:components="org.robotlegs.demos.cafetownsend.main.view.components.*"
-	layout="vertical"
-	backgroundColor="#000000"
-	creationComplete="loadEmployees();"
-	viewSourceURL="srcview/index.html">
-
-	<mx:Script>
-		<![CDATA[
-		import com.adobe.cairngorm.control.CairngormEventDispatcher;
-
-		import org.robotlegs.demos.cafetownsend.main.view.components.events.LoadEmployeesEvent;
-
-		private function loadEmployees() : void {
-			var cgEvent : LoadEmployeesEvent = new LoadEmployeesEvent();
-			CairngormEventDispatcher.getInstance().dispatchEvent(cgEvent);
-			}
-		]]>
-	</mx:Script>
-
-	<service:Services id="services" />
-
-	<cafetownsend:AppController id="appController" />
-
-	<mx:Style source="org/robotlegs/demos/cafetownsend/main/view/components/assets/application.css" />
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		xmlns:cafetownsend="org.robotlegs.demos.cafetownsend.*"
+		xmlns:components="org.robotlegs.demos.cafetownsend.main.view.components.*"
+		backgroundColor="black"
+		layout="vertical"
+		viewSourceURL="srcview/index.html"
+	>
+	<mx:Style source="org/robotlegs/demos/cafetownsend/main/view/components/assets/application.css"/>
+	<cafetownsend:ApplicationContext contextView="{this}"/>
 	<components:Main width="700"/>
-
 </mx:Application>

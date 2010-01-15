@@ -24,14 +24,20 @@ public class EmployeeLoginMediator extends Mediator
 	override public function onRegister():void
 	{
 		eventMap.mapListener(employeeLogin, EmployeeLoginEvent.LOGIN, onLogin, EmployeeLoginEvent);
+		eventMap.mapListener(eventDispatcher, EmployeeLoginEvent.USER, whenUser, EmployeeLoginEvent);
 		eventMap.mapListener(eventDispatcher, EmployeeLoginEvent.HINT, whenHint, EmployeeLoginEvent);
 		usernameValidator.source = employeeLogin.usernameValidatorSource;
 		usernameValidator.property = employeeLogin.usernameValidatorProperty;
-		usernameValidator.required = true;
 		passwordValidator.source = employeeLogin.passwordValidatorSource;
 		passwordValidator.property = employeeLogin.passwordValidatorProperty;
-		passwordValidator.required = true;
+		toggleValidation();
 		employeeLoginService.loadHint();
+	}
+	
+	private function toggleValidation():void
+	{
+		usernameValidator.required = !employeeLoginService.loggedIn;
+		passwordValidator.required = !employeeLoginService.loggedIn;
 	}
 	
 	private function onLogin(event:EmployeeLoginEvent):void
@@ -45,6 +51,11 @@ public class EmployeeLoginMediator extends Mediator
 			employeeLogin.passwordValidatorSource.errorString = '';
 			employeeLoginService.logIn(event.user);
 		}
+	}
+	
+	private function whenUser(event:EmployeeLoginEvent):void
+	{
+		toggleValidation();
 	}
 	
 	private function whenHint(event:EmployeeLoginEvent):void

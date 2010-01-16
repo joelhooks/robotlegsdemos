@@ -16,6 +16,7 @@
 			import org.robotlegs.demos.cafetownsend.main.model.vo.SystemAlert;
 			import org.robotlegs.demos.cafetownsend.user.view.components.interfaces.IEmployeeLogin;
 			
+			[ArrayElementType(elementType="Class")]
 			private static const VIEW_STACK_TYPES:Array = [ IEmployeeLogin, IEmployeeList, IEmployeeDetail ];
 			
 			public function set activeViewComponentType(value:Class):void
@@ -35,9 +36,10 @@
 			
 		]]>
 	</mx:Script>
+	<mx:Spacer id="cairngormServiceLocatorArtifact"/>
 	<mx:Image
 			width="100%"
-			source="@Resource(bundle='CafeTownsend', key='mainImageURL')"
+			source="@Resource(bundle='Main', key='headerImageURL')"
 		/>
 	<mx:Box
 			width="100%"

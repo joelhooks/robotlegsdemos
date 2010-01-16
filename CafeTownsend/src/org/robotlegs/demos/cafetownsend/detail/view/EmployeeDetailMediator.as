@@ -46,19 +46,25 @@ public class EmployeeDetailMediator extends Mediator
 		eventMap.mapListener(eventDispatcher, EmployeeDetailEvent.EDIT, whenEdit, EmployeeDetailEvent);
 		firstNameValidator.source = employeeDetail.firstNameValidatorSource;
 		firstNameValidator.property = employeeDetail.firstNameValidatorProperty;
-		firstNameValidator.required = true;
 		lastNameValidator.source = employeeDetail.lastNameValidatorSource;
 		lastNameValidator.property = employeeDetail.lastNameValidatorProperty;
-		lastNameValidator.required = true;
 		emailValidator.source = employeeDetail.emailValidatorSource;
 		emailValidator.property = employeeDetail.emailValidatorProperty;
-		emailValidator.required = true;
+		toggleValidation(true);
 		employee = employeeDetailModel.employee;
+	}
+	
+	private function toggleValidation(enabled:Boolean):void
+	{
+		firstNameValidator.required = enabled;
+		lastNameValidator.required = enabled;
+		emailValidator.required = enabled;
 	}
 	
 	private function dispatchFocus():void
 	{
 		employeeDetailModel.employee = null;
+		toggleValidation(false);
 		employeeDetail.firstNameValidatorSource.errorString = '';
 		employeeDetail.lastNameValidatorSource.errorString = '';
 		employeeDetail.emailValidatorSource.errorString = '';
@@ -100,6 +106,7 @@ public class EmployeeDetailMediator extends Mediator
 	
 	private function whenEdit(event:EmployeeDetailEvent):void
 	{
+		toggleValidation(true);
 		employee = event.employee;
 	}
 	

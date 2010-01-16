@@ -42,7 +42,7 @@ public class EmployeeListService extends Actor implements IEmployeeListService, 
 	public function fault(info:Object):void
 	{
 		dispatch(new SystemAlertEvent(SystemAlertEvent.ALERT,
-			new SystemAlert(resourceManagerService.getString(this, 'loadFailureText'), FaultEvent(info).fault.faultString)));
+			new SystemAlert(FaultEvent(info).fault.faultString, resourceManagerService.getString(this, 'loadFailureTitle'))));
 	}
 	
 	[PostConstruct]
@@ -57,8 +57,8 @@ public class EmployeeListService extends Actor implements IEmployeeListService, 
 		const result:Array = [];
 		for each (var item:XML in XML(dataNode).employee)
 		{
-			var startDate:Date = new Date(Date.parse(item.startdate));
-			result.push(new Employee(item.firstname, item.lastname, item.email, startDate, item.emp_id));
+			result.push(new Employee(item.firstname, item.lastname, item.email,
+				new Date(Date.parse(item.startdate)), item.emp_id));
 		}
 		return result;
 	}

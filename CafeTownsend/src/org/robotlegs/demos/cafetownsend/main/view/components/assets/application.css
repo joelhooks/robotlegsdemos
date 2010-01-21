@@ -1,0 +1,35 @@
+Panel
+{
+	border-alpha: 1.0;
+	border-style: solid;
+	corner-radius: 4;
+	font-weight: bold;
+	header-colors: black, #993333;
+	highlight-alphas: 0.67, 0;
+	rounded-bottom-corners: true;
+	text-align: center;
+	title-style-name: myPanelStyle;
+}
+Alert
+{
+	background-color: white;
+	color: black;
+}
+Form,
+Label,
+TextInput
+{ 
+	color: black;
+	font-weight: normal;
+}
+FormItem,
+List
+{ 
+	font-weight: bold;
+	text-align: left;
+}
+.myPanelStyle
+{
+	font-size: 12;
+	color: white;
+}

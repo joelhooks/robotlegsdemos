@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- @author Jonathan Toland -->
+<mx:Box implements="org.robotlegs.demos.cafetownsend.detail.view.components.interfaces.IEmployeeDetail"
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		horizontalAlign="center"
+	>
+	<mx:Script>
+		<![CDATA[
+			import mx.validators.IValidatorListener;
+			
+			import org.robotlegs.demos.cafetownsend.detail.model.events.EmployeeDetailEvent;
+			import org.robotlegs.demos.cafetownsend.detail.model.vo.Employee;
+			import org.robotlegs.demos.cafetownsend.list.model.events.EmployeeListEvent;
+			
+			private static const VALIDATOR_PROPERTY:String = 'text';
+			
+			public function get firstNameValidatorSource():IValidatorListener
+			{
+				return firstName;
+			}
+			
+			public function get lastNameValidatorSource():IValidatorListener
+			{
+				return lastName;
+			}
+			
+			public function get emailValidatorSource():IValidatorListener
+			{
+				return email;
+			}
+			
+			public function get firstNameValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			public function get lastNameValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			public function get emailValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			[Bindable]
+			private var _employee:Employee;
+			
+			public function set employee(value:Employee):void
+			{
+				_employee = value;
+			}
+			
+			private function abortButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeDetailEvent(EmployeeDetailEvent.ABORT, null));
+			}
+			
+			private function commitButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeDetailEvent(EmployeeDetailEvent.COMMIT,
+					new Employee(firstName.text, lastName.text, email.text, startDate.selectedDate, _employee.id)));
+			}
+			
+			private function removeButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeListEvent(EmployeeListEvent.REMOVE, _employee));
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Panel title="@Resource(bundle='EmployeeDetail', key='title')">
+		<mx:Spacer height="10"/>
+		<mx:Button
+				label="@Resource(bundle='EmployeeDetail', key='abortButtonLabel')"
+				click="abortButton_clickHandler()"
+			/>
+		<mx:Form
+				defaultButton="{commitButton}"
+				paddingTop="10"
+			>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeDetail', key='firstNameLabel')"
+					required="true"
+				>
+				<mx:TextInput id="firstName"
+						text="{_employee.firstName}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeDetail', key='lastNameLabel')"
+					required="true"
+				>
+				<mx:TextInput id="lastName"
+						text="{_employee.lastName}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem label="@Resource(bundle='EmployeeDetail', key='startDateLabel')">
+				<mx:DateField id="startDate"
+						selectedDate="{_employee.startDate}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeDetail', key='emailLabel')"
+					required="true"
+				>
+				<mx:TextInput id="email"
+						text="{_employee.email}"
+					/>
+			</mx:FormItem>
+			<mx:FormItem
+					width="100%"
+					direction="horizontal"
+				>
+				<mx:Button id="commitButton"
+						label="@Resource(bundle='EmployeeDetail', key='commitButtonLabel')"
+						click="commitButton_clickHandler()"
+					/>
+				<mx:Spacer width="100%" />
+				<mx:Button
+						label="@Resource(bundle='EmployeeDetail', key='removeButtonLabel')"
+						enabled="{Boolean(_employee.id)}"
+						click="removeButton_clickHandler()"
+					/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:Panel>
+</mx:Box>

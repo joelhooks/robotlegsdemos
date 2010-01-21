@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- @author Jonathan Toland -->
+<mx:Box implements="org.robotlegs.demos.cafetownsend.list.view.components.interfaces.IEmployeeList"
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		horizontalAlign="center"
+	>
+	<mx:Script> 
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.collections.IList;
+			
+			import org.robotlegs.demos.cafetownsend.detail.model.events.EmployeeDetailEvent;
+			import org.robotlegs.demos.cafetownsend.detail.model.vo.Employee;
+			import org.robotlegs.demos.cafetownsend.user.model.events.EmployeeLoginEvent;
+			
+			private const _collection:ArrayCollection = new ArrayCollection();
+			
+			public function get collection():IList
+			{
+				return _collection;
+			}
+			
+			[Bindable]
+			private var _itemLabelFunction:Function;
+			
+			public function set itemLabelFunction(value:Function):void
+			{
+				_itemLabelFunction = value;
+			}
+			
+			public function clearSelectedEmployee():void
+			{
+				list.selectedIndex = -1;
+			}
+			
+			private function logoutButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeLoginEvent(EmployeeLoginEvent.LOGOUT, null));
+			}
+			
+			private function addButton_clickHandler():void
+			{
+				dispatchEvent(new EmployeeDetailEvent(EmployeeDetailEvent.EDIT, null));
+			}
+			
+			private function list_changeHandler():void
+			{
+				dispatchEvent(new EmployeeDetailEvent(EmployeeDetailEvent.EDIT, Employee(list.selectedItem)));
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Panel title="@Resource(bundle='EmployeeList', key='title')">
+		<mx:HBox paddingTop="25">
+			<mx:Button
+					label="@Resource(bundle='EmployeeList', key='addButtonLabel')"
+					click="addButton_clickHandler()"
+				/>
+			<mx:Spacer width="100%"/>
+			<mx:Button
+					label="@Resource(bundle='EmployeeList', key='logoutButtonLabel')"
+					click="logoutButton_clickHandler()"
+				/>
+		</mx:HBox>
+		<mx:List id="list"
+				width="100%"
+				dataProvider="{_collection}"
+				labelFunction="{_itemLabelFunction}"
+				change="list_changeHandler()"
+			/>
+	</mx:Panel>
+</mx:Box>

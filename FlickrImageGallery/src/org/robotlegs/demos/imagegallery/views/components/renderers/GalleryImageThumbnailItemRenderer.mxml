@@ -13,7 +13,7 @@
 <s:ItemRenderer 
 	xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
-	xmlns:mx="library://ns.adobe.com/flex/halo" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
 	width="85" 
 	height="85" 
 	selected="{this.image.selected}">

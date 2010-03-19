@@ -27,9 +27,7 @@
 			 backgroundAlpha="1.0"
 			 backgroundColor="#FFFFFF"
 			 cornerRadius="16"
-			 borderStyle="solid"
-			 defaultButton="{loginBtn}"
-			 borderThickness="0">
+			 defaultButton="{loginBtn}">
 
 		<mx:FormHeading label="Login To Proceed"/>
 

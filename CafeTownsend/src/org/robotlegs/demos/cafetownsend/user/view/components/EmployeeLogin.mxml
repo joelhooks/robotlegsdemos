@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- @author Jonathan Toland -->
+<mx:Box implements="org.robotlegs.demos.cafetownsend.user.view.components.interfaces.IEmployeeLogin"
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		horizontalAlign="center"
+	>
+	<mx:Script>
+		<![CDATA[
+			import mx.validators.IValidatorListener;
+			
+			import org.robotlegs.demos.cafetownsend.user.model.events.EmployeeLoginEvent;
+			import org.robotlegs.demos.cafetownsend.user.model.vo.User;
+			
+			private static const VALIDATOR_PROPERTY:String = 'text';
+			
+			public function get usernameValidatorSource():IValidatorListener
+			{
+				return username;
+			}
+			
+			public function get passwordValidatorSource():IValidatorListener
+			{
+				return password;
+			}
+			
+			public function get usernameValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			public function get passwordValidatorProperty():String
+			{
+				return VALIDATOR_PROPERTY;
+			}
+			
+			public function resetFocus():void
+			{
+				username.setFocus();
+			}
+			
+			[Bindable]
+			private var _hint:String;
+			
+			public function set hint(value:String):void
+			{
+				_hint = value;
+			}
+			
+			private function button_clickHandler():void
+			{
+				dispatchEvent(new EmployeeLoginEvent(EmployeeLoginEvent.LOGIN, new User(username.text, password.text)));
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Panel title="@Resource(bundle='EmployeeLogin', key='title')">
+		<mx:Form defaultButton="{button}">
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeLogin', key='usernameLabel')"
+					required="true"
+			>
+				<mx:TextInput id="username"/>
+			</mx:FormItem>
+			<mx:FormItem
+					label="@Resource(bundle='EmployeeLogin', key='passwordLabel')"
+					required="true"
+				>
+				<mx:TextInput id="password"
+						displayAsPassword="true"
+					/>
+			</mx:FormItem>
+			<mx:FormItem paddingTop="20">
+				<mx:Button id="button"
+						label="@Resource(bundle='EmployeeLogin', key='buttonLabel')"
+						click="button_clickHandler()"
+					/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:Label
+				width="100%"
+				text="{_hint}"
+			/>
+	</mx:Panel>
+</mx:Box>

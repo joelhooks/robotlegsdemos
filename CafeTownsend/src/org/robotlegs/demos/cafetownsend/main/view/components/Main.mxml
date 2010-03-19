@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- @author Jonathan Toland -->
+<mx:VBox implements="org.robotlegs.demos.cafetownsend.main.view.components.interfaces.IMain"
+		xmlns:mx="http://www.adobe.com/2006/mxml"
+		xmlns:detail="org.robotlegs.demos.cafetownsend.detail.view.components.*"
+		xmlns:list="org.robotlegs.demos.cafetownsend.list.view.components.*"
+		xmlns:user="org.robotlegs.demos.cafetownsend.user.view.components.*"
+	>
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			
+			import org.robotlegs.demos.cafetownsend.detail.view.components.interfaces.IEmployeeDetail;
+			import org.robotlegs.demos.cafetownsend.list.view.components.interfaces.IEmployeeList;
+			import org.robotlegs.demos.cafetownsend.main.model.vo.SystemAlert;
+			import org.robotlegs.demos.cafetownsend.user.view.components.interfaces.IEmployeeLogin;
+			
+			[ArrayElementType(elementType="Class")]
+			private static const VIEW_STACK_TYPES:Array = [ IEmployeeLogin, IEmployeeList, IEmployeeDetail ];
+			
+			public function set activeViewComponentType(value:Class):void
+			{
+				viewStack.selectedIndex = VIEW_STACK_TYPES.indexOf(value);
+			}
+			
+			public function receiveSystemAlert(systemAlert:SystemAlert):void
+			{
+				const buttonFlags:uint = systemAlert.cancelable ? Alert.OK | Alert.CANCEL : Alert.OK;
+				const closeHandler:Function = Boolean(systemAlert.action) ? function(event:CloseEvent):void
+					{
+						systemAlert.action(event.detail === Alert.CANCEL);
+					} : null;
+				Alert.show(systemAlert.text, systemAlert.title, buttonFlags, null, closeHandler);
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Spacer id="cairngormServiceLocatorArtifact"/>
+	<mx:Image
+			width="100%"
+			source="@Resource(bundle='Main', key='headerImageURL')"
+		/>
+	<mx:Box
+			width="100%"
+			backgroundColor="white"
+		>
+		<mx:ViewStack id="viewStack"
+				width="100%"
+				resizeToContent="true"
+				paddingTop="20"
+				paddingBottom="20"
+				paddingLeft="10"
+				paddingRight="20"
+			>
+			<user:EmployeeLogin/>
+			<list:EmployeeList/>
+			<detail:EmployeeDetail/>
+		</mx:ViewStack>
+	</mx:Box>
+</mx:VBox>

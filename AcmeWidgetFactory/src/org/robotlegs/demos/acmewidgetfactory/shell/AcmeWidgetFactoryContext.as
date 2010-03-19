@@ -21,7 +21,6 @@
  */
 package org.robotlegs.demos.acmewidgetfactory.shell
 {
-	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.ILoggerModule;
 	import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
 	import org.robotlegs.demos.acmewidgetfactory.shell.controller.CreateLoggerCommand;
@@ -40,11 +39,11 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetHolderMediator;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetHolderView;
 	import org.robotlegs.demos.acmewidgetfactory.shell.view.WidgetModuleMediator;
-	import org.robotlegs.mvcs.Context;
+	import org.robotlegs.utilities.modular.mvcs.ModuleShellContext;
 	
-	public class AcmeWidgetFactoryContext extends Context
+	public class AcmeWidgetFactoryContext extends ModuleShellContext
 	{
-
+		
 		override public function startup():void
 		{
 			// Controller
@@ -68,7 +67,7 @@ package org.robotlegs.demos.acmewidgetfactory.shell
 			mediatorMap.mapView('org.robotlegs.demos.acmewidgetfactory.modules.widget::WidgetModule', WidgetModuleMediator, IWidgetModule);
 			
 			// Ready
-			dispatchEvent(new ContextEvent(ContextEvent.STARTUP_COMPLETE));
+			super.startup();
 		}
 	
 	}

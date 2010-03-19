@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<employees>
+	<employee>
+		<emp_id>1</emp_id>
+		<firstname>Shaun</firstname>
+		<lastname>Smith</lastname>
+		<email>darscan@cafetownsend.com</email>
+		<startdate>04/17/2009</startdate>
+	</employee>
+	<employee>
+		<emp_id>2</emp_id>
+		<firstname>Joel</firstname>
+		<lastname>Hooks</lastname>
+		<email>jhooks@cafetownsend.com</email>
+		<startdate>07/15/2009</startdate>
+	</employee>
+	<employee>
+		<emp_id>3</emp_id>
+		<firstname>Robert</firstname>
+		<lastname>Penner</lastname>
+		<email>robpenner@cafetownsend.com</email>
+		<startdate>09/24/2009</startdate>
+	</employee>
+	<employee>
+		<emp_id>4</emp_id>
+		<firstname>Till</firstname>
+		<lastname>Schneidereit</lastname>
+		<email>tschneidereit@cafetownsend.com</email>
+		<startdate>10/01/2009</startdate>
+	</employee>
+	<employee>
+		<emp_id>5</emp_id>
+		<firstname>Stray</firstname>
+		<lastname>x</lastname>
+		<email>stray_and_ruby@cafetownsend.com</email>
+		<startdate>10/20/2009</startdate>
+	</employee>
+</employees>
